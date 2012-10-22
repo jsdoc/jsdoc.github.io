@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="JSDoc3 Plugin Reference."><title>Use JSDoc: JSDoc3 Plugin Reference</title>
+	
+	<link rel="stylesheet" href="lib/prettify.css" />
+	<script src="lib/prettify.js"></script>
+	
+	<script type="text/javascript">
+	    /* Make HTML 5 elements stylable in IE */
+        document.createElement('header');
+        document.createElement('nav');
+        document.createElement('article');
+        document.createElement('footer');
+        document.createElement('hgroup');
+	</script>
+	
+	<style>
+		body 
+		{
+			font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			padding: 0;
+			margin: 0;
+		}
+		
+		a, a:visited, a:active 
+		{
+			color: #605C89;
+		}
+		
+		/* Make HTML 5 elements display block-level for consistent styling */
+		header, nav, article, footer, address 
+		{
+			display: block;
+		}
+		
+		header
+		{
+			background-color: #EBEBEB;
+			color: #006FBB;
+			margin: 0;
+			margin-bottom: 32px;
+			padding: 18px;
+			font-size: 2.4em;
+			font-weight: bold;
+			border-bottom: 1px #C6C6C6 solid;
+		}
+		
+		header a, header a:visited 
+		{
+		    color: #006FBB;
+			text-decoration: none;
+		}
+		
+		article 
+		{
+			margin: 18px;
+		}
+		
+		footer
+		{
+			margin: 16px;
+			margin-top: 32px;
+			font-style: italic;
+			font-size: 0.8em;
+		}
+		
+		h1, h2, h3, h4, h5, h6
+		{
+			color: #B93A38;
+		}
+		
+		h1
+		{
+			font-size: 1.428em;
+			text-indent: 0;
+		}
+
+		h2
+		{
+			font-size: 1.285em;
+			text-indent: 1%;
+		}
+
+		h3
+		{
+			font-size: 1.142em;
+			text-indent: 2%;
+		}
+
+		h4
+		{
+			font-size: 1em;
+			text-indent: 3%;
+		}
+
+		h5
+		{
+			font-size: 0.857em;
+			text-indent: 4%;
+		}
+
+		h6
+		{
+			font-size: 0.714em;
+			text-indent: 5%;
+		}
+		
+		p
+		{
+			text-indent: 2%;
+		}
+		
+		dl
+		{
+			margin-left: 2%;
+			padding-left: 0;
+		}
+		
+		dt
+		{
+			margin-left: 16px;
+			padding-left: 4px;
+			margin-top: 8px;
+		}
+		
+		dt a, dt a:visited 
+		{
+			color: #3E00B6;
+		}
+		
+		dd
+		{
+			margin-left: 16px;
+			padding-left: 4px;
+		}
+		
+		ol, ul
+		{
+			margin-left: 2%;
+		}
+		
+		code 
+		{
+			font: 1em Consolas, "Lucida Console", Monaco, monospace;
+			background-color: #DEDEDE;
+		}
+		
+		pre
+		{
+			display: block;
+			border: 1px solid #999;
+			margin: 12px;
+			padding: 8px;
+			white-space: pre-wrap;
+			background-color: #DEDEDE;
+		}
+		
+		.example dt 
+		{
+			font-weight: bold;
+		}
+
+	</style>
+</head>
+
+<body>
+	<header>
+	    <a href="./index.html">@use JSDoc</a>
+	</header>
+	
+	<nav>
+	</nav>
+	
+	<article>
+	<h1>JSDoc3 Plugin Reference</h1>
+
+
+<p>
+    <b>Table of Contents</b>
+</p>
+<ol id="Toc">
+    <li>
+		<a href="#adding-a-plugin">Adding a Plugin
+		</a>
+    <ol>
+      <li><a href="#authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins
+        </a>
+        <ol>
+          <li><a href="#event-handlers">Event Handlers
+            </a>
+            <ol>
+              <li><a href="#event-fileBegin">Event: fileBegin
+                </a></li>
+              <li><a href="#event-beforeParse">Event: beforeParse
+                </a></li>
+              <li><a href="#event-jsdocCommentFound">Event: jsdocCommentFound
+                </a></li>
+              <li><a href="#event-symbolFound">Event: symbolFound
+                </a></li>
+              <li><a href="#event-newDoclet">Event: newDoclet
+                </a></li>
+              <li><a href="#event-fileComplete">Event: fileComplete
+                </a></li>
+            </ol>
+          </li>
+          <li><a href="#tag-definitions">Tag Definitions
+            </a>
+            <ol>
+              <li><a href="#the-dictionary">The Dictionary
+                </a></li>
+            </ol>
+          </li>
+          <li><a href="#node-visitors">Node Visitors
+            </a>
+            <ol>
+              <li><a href="#making-things-happen">Making things happen
+                </a></li>
+              <li><a href="#example">Example
+                </a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li><a href="#packaging-jsdoc-3-plugins">Packaging JSDoc 3 Plugins
+        </a></li>
+      <li><a href="#hegemonics-plugin-walkthrough">Hegemonics Plugin Walkthrough
+        </a>
+        <ol>
+          <li><a href="#example-modifying-the-partial-plugin">Example: modifying the partial plugin
+            </a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<h2 name="adding-a-plugin" id="adding-a-plugin">
+    Adding a Plugin
+</h2>
+
+<p>
+    There are two steps required to install a new plugin:
+</p>
+
+<ol>
+    <li>Create a JavaScript module to contain your plugin code.
+    </li>
+
+    <li>Include the name of that module in the "plugins" array of <code>conf.json</code>.
+    </li>
+</ol>
+
+<p>
+    For example, if your plugin source code was saved in the "plugins/shout.js" file, you would include it by adding a reference to it in conf.json like so:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+...
+"plugins": [
+    "plugins/shout"
+]
+...
+
+</pre>
+</dd>
+</dl><h2 name="authoring-jsdoc-3-plugins" id="authoring-jsdoc-3-plugins">
+    Authoring JSDoc 3 Plugins
+</h2>
+
+<p>
+    The plugin system for JSDoc 3 is pretty powerful and provides plugin authors multiple methods, from high-level to low-level, of affecting document generation:
+</p>
+
+<ul>
+    <li>Defining event handlers
+    </li>
+
+    <li>Defining tags
+    </li>
+
+    <li>Defining a parse tree node processor
+    </li>
+</ul>
+
+<h3 name="event-handlers" id="event-handlers">
+    Event Handlers
+</h3>
+
+<p>
+    At the highest level, a plugin may register handlers for specific named-events that occur in the documentation generation process. JSDoc will pass the handler an event object containing pertinent information. Your plugin module should export a <em>handlers</em> object that contains your handler, like so:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+exports.handlers = {
+    newDoclet: function(e) {
+        //Do something when we see a new doclet
+    }
+}
+
+</pre>
+</dd>
+</dl><h4 name="event-fileBegin" id="event-fileBegin">
+    Event: fileBegin
+</h4>
+
+<p>
+    This is triggered when the parser has started on a new file. You might use this to do any per-file initialization your plugin needs to do.
+</p>
+
+<p>
+    The event object will contain the following properties:
+</p>
+
+<ul>
+    <li>filename: the name of the file
+    </li>
+</ul>
+
+<h4 name="event-beforeParse" id="event-beforeParse">
+    Event: beforeParse
+</h4>
+
+<p>
+    This is triggered before parsing has begun. You can use this method to modify the source code that will be parsed. For instance, you might add some virtual doclets so they get added to the documentation.
+</p>
+
+<p>
+    The event object will contain the following properties:
+</p>
+
+<ul>
+    <li>filename: the name of the file
+    </li>
+
+    <li>source: the contents of the file
+    </li>
+</ul>
+
+<p>
+    Below is an example that adds a virtual doclet for a function to the source so that it will get parsed and added to the documentation. This might be done to document methods that will be present for end-user use, but might not be in the source code being documented, like methods provided by a third-party superclass:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+exports.handlers = {
+    beforeParse: function(e) {
+        var extraDoc = ["",
+            "/**",
+            "Here's a description of this function",
+            "@name superFunc",
+            "@memberof ui.mywidget",
+            "@function",
+            "*/", ""];
+        e.source += extraDoc.join("\n");
+    }
+}
+
+</pre>
+</dd>
+</dl><h4 name="event-jsdocCommentFound" id="event-jsdocCommentFound">
+    Event: jsdocCommentFound
+</h4>
+
+<p>
+    This is fired whenever a jsdoc comment is found. It may or may not be associated with any code. You might use this to modify the contents of a comment before it is processed.
+</p>
+
+<p>
+    The event object will contain the following properties:
+</p>
+
+<ul>
+    <li>filename: the name of the file
+    </li>
+
+    <li>comment: the text of the comment
+    </li>
+
+    <li>lineno: the line number the comment was found on
+    </li>
+</ul>
+
+<h4 name="event-symbolFound" id="event-symbolFound">
+    Event: symbolFound
+</h4>
+
+<p>
+    This is fired when the parser comes across a symbol in the code it thinks is important. This usually means things that one might want to document -- variables, functions, object literals, object property definitions, assignments, etc., but the symbols the parser finds can be modified by a plugin (see "Node Visitors" below).
+</p>
+
+<p>
+    The event object will contain the following properties:
+</p>
+
+<ul>
+    <li>filename: the name of the file
+    </li>
+
+    <li>comment: the comment associated with the symbol, if any
+    </li>
+
+    <li>id: the unique id of the symbol
+    </li>
+
+    <li>lineno: the line number the symbols was found on
+    </li>
+
+    <li>astnode: the node of the parse tree
+    </li>
+
+    <li>code: information about the code. This usually contains "name", "type", and "node" properties and might also have "value", "paramnames", or "funcscope" properties depending on the symbol.
+    </li>
+</ul>
+
+<h4 name="event-newDoclet" id="event-newDoclet">
+    Event: newDoclet
+</h4>
+
+<p>
+    This is the highest level event and is fired when a new doclet has been created. This means that a jsdoc or a symbol has been processed and the actual doclet that will be passed to the template has been created.
+</p>
+
+<p>
+    The event object will contain the following properties:
+</p>
+
+<ul>
+    <li>doclet: the new doclet that was created
+    </li>
+</ul>
+
+<p>
+    The properties of the doclet can vary depending on the comment or symbol used to create it. Additionally, tag definitions (See "Tag Definitions" below) can modify the doclet. Some common properties you're likely to see include:
+</p>
+
+<ul>
+    <li>comment: the text of the comment (may be empty if symbol is undocumented)
+    </li>
+
+    <li>meta: some information about the doclet, like filename, line number, etc.
+    </li>
+
+    <li>description
+    </li>
+
+    <li>kind
+    </li>
+
+    <li>name
+    </li>
+
+    <li>longname: the fully qualified name, including memberof info
+    </li>
+
+    <li>memberof: the function/class/namespace that this is a member of
+    </li>
+
+    <li>scope: (global|static|instance|inner)
+    </li>
+
+    <li>undocumented: true if the symbol didn't have a jsdoc comment
+    </li>
+
+    <li>defaultvalue: the specified default value for a property/variable
+    </li>
+
+    <li>type: the specified type of parameter/property/function return (e.g. Boolean)
+    </li>
+
+    <li>params: an object containing the list of parameters to a function
+    </li>
+
+    <li>tags: an object containing the set of tags not handled by the parser (note: this is only available if <code>allowUnknownTags</code> is set to true in the conf.json file for JSDoc3)
+    </li>
+</ul>
+
+<p>
+    Below is an example of a newDoclet handler that shouts the descriptions:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+exports.handlers = {
+    newDoclet: function(e) {
+        // e.doclet will refer to the newly created doclet
+        // you can read and modify properties of that doclet if you wish
+        if (typeof e.doclet.description === 'string') {
+            e.doclet.description = e.doclet.description.toUpperCase();
+        }
+    }
+};
+
+</pre>
+</dd>
+</dl><h4 name="event-fileComplete" id="event-fileComplete">
+    Event: fileComplete
+</h4>
+
+<p>
+    This is fired when the parser is done with a file. You might use this to perform some cleanup for your plugin.
+</p>
+
+<p>
+    The event object will contain the following properties:
+</p>
+
+<ul>
+    <li>filename: the name of the file
+    </li>
+
+    <li>source: the contents of the file
+    </li>
+</ul>
+
+<h3 name="tag-definitions" id="tag-definitions">
+    Tag Definitions
+</h3>
+
+<p>
+    Adding tags to the tag dictionary is a mid-level way to affect documentation generation. Before a newDoclet event is triggered, jsdoc comment blocks are parsed to determine the description and any jsdoc tags that may be present. When a tag is found, if it has been defined in the tag dictionary, it is given a chance to modify the doclet.
+</p>
+
+<p>
+    Plugins can define tags by exporting a <em>defineTags</em> function. That function will be passed a dictionary that can be used to define tags, like so:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+exports.defineTags = function(dictionary) {
+    //define tags here
+}
+
+</pre>
+</dd>
+</dl><h4 name="the-dictionary" id="the-dictionary">
+    The Dictionary
+</h4>
+
+<p>
+    The dictionary provides the following methods:
+</p>
+
+<ol>
+    <li>
+        <p>
+            defineTag(title, opts) Used to define tags. The first parameter is the name of the tag (e.g. "param" or "overview"). the second is an object containing options for the tag. The options can be the following:
+        </p>
+
+        <ul>
+            <li>mustHaveValue (Boolean): whether or not the tag must have a value (e.g "@name TheName")
+            </li>
+
+            <li>mustNotHaveValue (Boolean): whether or not the tag must not have a value
+            </li>
+
+            <li>canHaveType (Boolean): Whether or not the tag can have a type (e.g. "@param <strong>{String}</strong> name the description of name")
+            </li>
+
+            <li>canHaveName (Boolean): Whether or not the tag can have a name (e.g. "@param {String} <strong>name</strong> the description of name")
+            </li>
+
+            <li>isNamespace (Boolean): Whether or not the tag marks a doclet as representing a namespace. The "@module" tag, for instance, sets this to true.
+            </li>
+
+            <li>onTagged (Function): A callback function executed when the tag is found. The function is passed two parameters: the doclet and the tag. Here's an example:
+                <dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+dictionary.defineTag('instance', { 
+    onTagged: function(doclet, tag) {
+        doclet.scope = "instance";
+    }
+}); 
+                
+</pre>
+</dd>
+</dl></li>
+        </ul>
+		
+		<p>
+		The defineTag method returns a Tag. The Tag object has a method "synonym" that can be used to declare synonyms to the tag. For example:
+		</p>
+
+		<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
+.synonym('throws');
+        
+</pre>
+</dd>
+</dl></li>
+	
+	<li>lookUp(title) Used to lookup a tag. Returns either the tag or false if it's not defined
+	</li>
+
+	<li>isNamespace(kind) Used to determine if a particular doclet type represents a namespace
+	</li>
+
+	<li>normalise(title) Used to find the canonical name of a tag. The name passed in might be that name or a synonym
+	</li>
+</ol>
+
+<h3 name="node-visitors" id="node-visitors">
+    Node Visitors
+</h3>
+
+<p>
+    At the lowest level, plugin authors can process each node in the parse tree by defining a node visitor that will visit each node, creating an opportunity to do things like modify comments and trigger parser events for any arbitrary piece of code.
+</p>
+
+<p>
+    Plugins can define a node visitor by exporting a <code>nodeVisitor</code> object that contains a <code>visitNode</code> function, like so:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+exports.nodeVisitor = {
+    visitNode: function(node, e, parser, currentSourceName) {
+        //do all sorts of crazy things here
+    }
+}
+
+</pre>
+</dd>
+</dl><p>
+    The function is called on each node with the following parameters:
+</p>
+
+<ul>
+    <li>node: the node of the parse tree
+    </li>
+
+    <li>e: the event. If the node is one that the parser handles, this will already be populated with the same things described in the <em>symbolFound</em> event above. Otherwise, it will be an empty object on which to set various properties.
+    </li>
+
+    <li>parser: the parser
+    </li>
+
+    <li>currentSourceName: the name of the file being parsed
+    </li>
+</ul>
+
+<h4 name="making-things-happen" id="making-things-happen">
+    Making things happen
+</h4>
+
+<p>
+    The primary reasons to implement a node visitor are to be able to document things that aren't normally documented (like function calls that create classes) or to auto generate documentation for code that isn't documented. For instance, a plugin might look for calls to a "_trigger" method since it knows that means an event is fired and then generate documentation for the event.
+</p>
+
+<p>
+    To make things happen, the <code>visitNode</code> function should modify properties of the event parameter. In general the goal is to construct a comment and then get an event to fire. After the parser lets all of the node visitors have a look at the node, it looks to see if the event object has a <code>comment</code> property and an <code>event</code> property. If it has both, the event named in the event property is fired. The event is usually "symbolFound" or "jsdocCommentFound", but theoretically, a plugin could define its own events and handle them.
+</p>
+
+<h4 name="example" id="example">
+    Example
+</h4>
+
+<p>
+    Below is an example of what a plugin for documenting jQuery UI widgets might do. jQuery UI uses a factory function call to create widget classes. The plugin looks for that function call and creates a symbol with documentation. It also looks for any "this._trigger" function calls and automatically creates documentation for the events that are triggered:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+exports.nodeVisitor = {
+    visitNode: function(node, e, parser, currentSourceName) {
+        if (node.type === Token.OBJECTLIT &amp;&amp; node.parent &amp;&amp; node.parent.type === Token.CALL &amp;&amp; isInWidgetFactory(node, 1)) {
+            var widgetName = node.parent.arguments.get(0).toSource();
+            e.id = 'astnode' + node.hashCode(); // the id of the object literal node
+            e.comment = String(node.parent.jsDoc||'');
+            e.lineno = node.parent.getLineno();
+            e.filename = currentSourceName;
+            e.astnode = node;
+            e.code = {
+                name: "" + widgetName.substring(1, widgetName.length() - 1),
+                type: "class",
+                node: node
+            };
+            e.event = "symbolFound";
+            e.finishers = [parser.addDocletRef];
+
+            addCommentTag(e, "param", "{Object=} options A set of configuration options");
+        } 
+        else if(isTriggerCall(node)) {
+            var nameNode = node.arguments.get(0);
+                eventName = String((nameNode.type == Token.STRING) ? nameNode.value : nameNode.toSource()),
+                func = {},
+                comment = "@event\n",
+                eventKey = "";
+
+            if (node.enclosingFunction) {
+                func.id = 'astnode'+node.enclosingFunction.hashCode();
+                func.doclet = parser.refs[func.id];
+            }
+            if(func.doclet) {
+                func.doclet.addTag("fires", eventName);
+                if (func.doclet.memberof) {
+                    eventKey = func.doclet.memberof + "#event:" + eventName;
+                    comment += "@name " + func.doclet.memberof + "#" + eventName;
+                }
+            }
+            e.comment = comment;
+            e.lineno = node.getLineno();
+            e.filename = currentSourceName;
+            e.event = "jsdocCommentFound";                
+        }
+    }
+};
+function isTriggerCall(node) {
+    if(node.type != Token.CALL) { return false; }
+    var target = node.getTarget(),
+        left = target &amp;&amp; target.left &amp;&amp; String(target.left.toSource()),
+        right = target &amp;&amp; target.right &amp;&amp; String(target.right.toSource());
+    return (left === "this" &amp;&amp; right === "_trigger");
+}
+
+function isInWidgetFactory(node, depth) {
+    var parent = node.parent,
+        d = 0;
+    while(parent &amp;&amp; (!depth || d &lt; depth)) {
+        if (parent.type === Token.CALL) {
+            var target = parent.getTarget(),
+                left = target &amp;&amp; target.left &amp;&amp; String(target.left.toSource()),
+                right = target &amp;&amp; target.right &amp;&amp; String(target.right.toSource());
+            return ((left === "$" || left === "jQuery") &amp;&amp; right === "widget");
+        } else {
+            parent = parent.parent;
+            d++;
+        }
+    }
+    return false;
+}
+
+</pre>
+</dd>
+</dl><p>
+    You'll notice a "finishers" property set. The finishers property should contain an array of functions to be called after the event is fired and all the handlers have processed it. The parser provides an <code>addDocletRef</code> function that adds the doclet to the map (keyed off of the id property) of doclets it knows about.
+</p>
+
+<p>
+    Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting a <code>stopPropagation</code> property on the event object (e.stopPropagation = true). A plugin can stop the event from firing setting a <code>preventDefault</code> property.
+</p>
+
+<h2 name="packaging-jsdoc-3-plugins" id="packaging-jsdoc-3-plugins">
+    Packaging JSDoc 3 Plugins
+</h2>
+
+<p>
+    The JSDoc 3 Jakefile has an <code>install</code> task that can be used to install a plugin into the jsdoc 3 installation. So running the following will install the plugin:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+$&gt;jake install[path/to/YourPluginFolder]
+
+</pre>
+</dd>
+</dl><p>
+    <em>note: on some systems (like MacOS X), you may need to quote the target name and parameters</em>:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+$&gt;jake 'install[path/to/YourPluginFolder]'
+
+</pre>
+</dd>
+</dl><p>
+    The task is passed a directory that should look something like the following:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+YourPluginFolder
+ |- plugins
+ |   |- YourPlugin.js
+ |   \- test
+ |       |- fixtures
+ |       |   \- YourFixtures.js
+ |       \- specs
+ |           \- YourTests.js
+ \- templates
+     \- YourTemplate
+         \- publish.js
+
+</pre>
+</dd>
+</dl><p>
+    Basically everything is copied over into the jsdoc installation directory, the directory should contain anything you want to put there.
+</p>
+
+<h2 name="hegemonics-plugin-walkthrough" id="hegemonics-plugin-walkthrough">
+    Hegemonic's Plugin Walkthrough
+</h2>
+
+<p>
+    Let's see if I can walk you through this.
+</p>
+
+<p>
+    There are three things a plugin can do:
+</p>
+
+<ol>
+    <li>Add event handlers to JSDoc's parser.
+    </li>
+
+    <li>Define new JSDoc tags.
+    </li>
+
+    <li>Process each node in the parse tree.
+    </li>
+</ol>
+
+<h3 name="example-modifying-the-partial-plugin" id="example-modifying-the-partial-plugin">
+    Example: modifying the <code>partial</code> plugin
+</h3>
+
+<p>
+    You might assume that the <code>partial</code> plugin is defining a new <code>@partial</code> tag. In fact, it adds an event handler to the parser, so let's focus on how that works.
+</p>
+
+<p>
+    When the parser finds a new file, it fires a <code>fileBegin</code> event. Then it fires a <code>beforeParse</code> event; let's call the event <code>e</code>. The event gives you access to the file's name (<code>e.filename</code>) and contents (<code>e.source</code>).
+</p>
+
+<p>
+    The <code>partial</code> plugin adds a handler for <code>beforeParse</code> events. When an event fires, the plugin searches the file's contents for the text <code>@partial</code>, followed by a space and a double-quoted value (for example, <code>@partial "foo.jsdoc"</code>). If the plugin finds that text, the plugin removes the text and replaces it with the contents of <code>foo.jsdoc</code>, which can contain anything at all--Markdown text, JSDoc tags, whatever.
+</p>
+
+<p>
+    Could this plugin have been implemented by defining a new JSDoc <code>@partial</code> tag? I think the answer is no. When you define a new tag, you can specify a callback that runs when the tag is found. But by the time the callback runs, I think the doclet has already been parsed. That means it's too late to insert a bunch of arbitrary JSDoc tags into the doclet source.
+</p>
+
+<p>
+    But I think it'd be better if the plugin hooked into <code>jsdocCommentFound</code> events rather than <code>beforeParse</code> events, because really, you only care about <code>@partial</code> tags in doclets. Right now I'm pretty sure the following JS source would cause the plugin to attempt to load a nonexistent file called <code>hooray</code>, after which everything would blow up:
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+function hooray() {
+    console.log('I love to say @partial "hooray"!');
+}
+
+</pre>
+</dd>
+</dl><p>
+    Back to your original request. You wanted a plugin that adds arbitrary content to a doclet. The <code>@partial</code> plugin already does that. If you'd rather use <code>@resource</code> tags, just change <code>@partial</code> to <code>@resource</code> in the plugin. And if, say, you wanted to wrap the content in a <code>&lt;pre&gt;</code> tag, you could change line 27 of the plugin from <code>return partialData;</code> to <code>return '&lt;pre&gt;' + partialData + '&lt;/pre&gt;';</code>.
+</p>
+
+<p>
+    Hope that helps!
+</p>
+
+    </article>
+    
+    <footer>
+        Copyright &#169; 2011 Michael Mathews &lt;micmath@gmail.com><br>
+        This site is <a href="https://github.com/micmath/micmath.github.com">open source</a> and licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+	</footer>
+
+	<script>prettyPrint()</script>
+</body>
+</html>

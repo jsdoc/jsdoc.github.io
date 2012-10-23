@@ -1,7 +1,7 @@
 <!--{
     "title":       "Readme",
     "out":         "about-jsdoc3.html",
-    "description": "Usage instructions and basic info about JSDoc3"
+    "description": "Usage instructions and basic info about JSDoc 3"
 }-->
 
 <h1>
@@ -88,7 +88,7 @@ jsdoc.js -T
 </p>
 
 <p>
-    The version of rhino distributed with JSDoc3 can be found here: https://github.com/jannon/rhino
+    The version of rhino distributed with JSDoc 3 can be found here: https://github.com/jannon/rhino
 </p>
 
 <h2>
@@ -136,7 +136,7 @@ your/script.js
     <br>
     JSDoc User's Group: <a href="http://groups.google.com/group/jsdoc-users">http://groups.google.com/group/jsdoc-users</a>
     <br>
-    JSDoc3 Ant Task <a href="https://github.com/jannon/jsdoc3-ant-task">https://github.com/jannon/jsdoc3-ant-task</a>
+    JSDoc 3 Ant Task <a href="https://github.com/jannon/jsdoc3-ant-task">https://github.com/jannon/jsdoc3-ant-task</a>
     <br>
     Project Announcemnts: <a href="http://twitter.com/jsdoc3">http://twitter.com/jsdoc3</a>
 </p>

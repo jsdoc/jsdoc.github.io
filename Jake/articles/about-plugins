@@ -1,5 +1,5 @@
 <!--{
-    "title":       "JSDoc3 Plugin Reference",
+    "title":       "JSDoc 3 Plugin Reference",
     "out":         "about-plugins.html",
     "description": "Installing plugins and writing your own."
 }-->
@@ -292,7 +292,7 @@ exports.handlers = {
     <li>params: an object containing the list of parameters to a function
     </li>
 
-    <li>tags: an object containing the set of tags not handled by the parser (note: this is only available if <code>allowUnknownTags</code> is set to true in the conf.json file for JSDoc3)
+    <li>tags: an object containing the set of tags not handled by the parser (note: this is only available if <code>allowUnknownTags</code> is set to true in the conf.json file for JSDoc 3)
     </li>
 </ul>
 

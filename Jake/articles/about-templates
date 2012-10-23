@@ -1,7 +1,7 @@
 <!--{
-    "title":       "JSDoc3 Template Reference",
+    "title":       "JSDoc 3 Template Reference",
     "out":         "about-templates.html",
-    "description": "How to create customized templates for JSDoc3."
+    "description": "How to create customized templates for JSDoc 3."
 }-->
 
 <ol>
@@ -217,7 +217,7 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 </h3>
 
 <p>
-    This next example shows how to load template files. This will make it easier for you to transform the data into something presentable, without making a huge mess trying to write out a template in escaped JavaScript strings. This example requires several files in order to function. The most important of which are <code>publish.js</code> and <code>layout.tmpl</code>. With just these two files you'll be able to generate pages containing data from JSDoc3. With just a little css and maybe some JavaScript, your documentation can come alive. The full example can be downloaded <a href="downloads/simpleTemplate.zip">here</a>.
+    This next example shows how to load template files. This will make it easier for you to transform the data into something presentable, without making a huge mess trying to write out a template in escaped JavaScript strings. This example requires several files in order to function. The most important of which are <code>publish.js</code> and <code>layout.tmpl</code>. With just these two files you'll be able to generate pages containing data from JSDoc 3. With just a little css and maybe some JavaScript, your documentation can come alive. The full example can be downloaded <a href="downloads/simpleTemplate.zip">here</a>.
 </p>
 
 {{#example}}simpleTemplate Directory Tree
@@ -344,5 +344,5 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 </h2>
 
 <p>
-    Hopefully after reading everything above you'll be able to start using the <code>data</code> provided by JSDoc3. Now that you've got some sense of how to read and write with templates, take a look at the default template and see how it builds up a coherent set of documents from the <code>data</code>.
+    Hopefully after reading everything above you'll be able to start using the <code>data</code> provided by JSDoc 3. Now that you've got some sense of how to read and write with templates, take a look at the default template and see how it builds up a coherent set of documents from the <code>data</code>.
 </p>

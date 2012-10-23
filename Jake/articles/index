@@ -1,11 +1,11 @@
 <!--{
-    title: 'JSDoc3 Documentation',
+    title: 'JSDoc 3 Documentation',
     out: 'index.html',
-	description: 'Official documentation for JSDoc3. The best documentation tool for JavaScript, ever.'
+	description: 'Official documentation for JSDoc 3. The best documentation tool for JavaScript, ever.'
 }-->
 
 <p>
-    Download a copy of JSDoc3 from the <a href="https://github.com/jsdoc3/jsdoc">official Git Hub repository</a>.
+    Download a copy of JSDoc 3 from the <a href="https://github.com/jsdoc3/jsdoc">official Git Hub repository</a>.
 </p>
 
 <h2>
@@ -30,7 +30,7 @@
 	</li>
 
 	<li>
-		<a href="#JSDoc3_Tag_Dictionary">JSDoc3 Tag Dictionary</a>
+		<a href="#JSDoc3_Tag_Dictionary">JSDoc 3 Tag Dictionary</a>
 	</li>
 </ol>
 
@@ -64,12 +64,12 @@
  {{contributeEntry}}
 {{/contributeEntry}}
     <dt><a href="https://github.com/jsdoc3/jsdoc">JSDoc 3 at github</a></dt>
-		<dd>Contribute to the JSDoc3 project.</dd>
+		<dd>Contribute to the JSDoc 3 project.</dd>
 	<dt><a href="https://github.com/micmath/micmath.github.com">JSDoc 3 Documentation</a></dt>
-		<dd>contribute to the JSDoc3 Documentation project.</dd>
+		<dd>contribute to the JSDoc 3 Documentation project.</dd>
 </dl>
 
-<h2 name="JSDoc3_Tag_Dictionary" id="JSDoc3_Tag_Dictionary">JSDoc3 Tag Dictionary</h2>
+<h2 name="JSDoc3_Tag_Dictionary" id="JSDoc3_Tag_Dictionary">JSDoc 3 Tag Dictionary</h2>
 <dl>
 {{#tagRefEntry}}
  {{tagRefEntry}}

@@ -1,7 +1,7 @@
 <!--{
     "title":       "@global",
     "out":         "tags-global.html",
-    "description": ">Document a global object."
+    "description": "Document a global object."
 }-->
 <h3>Overview</h3>
 

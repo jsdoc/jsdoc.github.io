@@ -9,8 +9,8 @@
 </p>
 <ol id="Toc">
     <li>
-		<a href="#adding-a-plugin">Adding a Plugin
-		</a>
+        <a href="#adding-a-plugin">Adding a Plugin
+        </a>
     <ol>
       <li><a href="#authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins
         </a>
@@ -381,32 +381,32 @@ exports.defineTags = function(dictionary) {
             <li>onTagged (Function): A callback function executed when the tag is found. The function is passed two parameters: the doclet and the tag. Here's an example:
                 {{#example}}Example
                     dictionary.defineTag('instance', { 
-						onTagged: function(doclet, tag) {
-							doclet.scope = "instance";
-						}
-					}); 
-				{{/example}}
+                        onTagged: function(doclet, tag) {
+                            doclet.scope = "instance";
+                        }
+                    }); 
+                {{/example}}
             </li>
         </ul>
-		
-		<p>
-		The defineTag method returns a Tag. The Tag object has a method "synonym" that can be used to declare synonyms to the tag. For example:
-		</p>
+        
+        <p>
+        The defineTag method returns a Tag. The Tag object has a method "synonym" that can be used to declare synonyms to the tag. For example:
+        </p>
 
-		{{#example}}Example
-			dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
-			.synonym('throws');
-		{{/example}}
+        {{#example}}Example
+            dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
+            .synonym('throws');
+        {{/example}}
     </li>
-	
-	<li>lookUp(title) Used to lookup a tag. Returns either the tag or false if it's not defined
-	</li>
+    
+    <li>lookUp(title) Used to lookup a tag. Returns either the tag or false if it's not defined
+    </li>
 
-	<li>isNamespace(kind) Used to determine if a particular doclet type represents a namespace
-	</li>
+    <li>isNamespace(kind) Used to determine if a particular doclet type represents a namespace
+    </li>
 
-	<li>normalise(title) Used to find the canonical name of a tag. The name passed in might be that name or a synonym
-	</li>
+    <li>normalise(title) Used to find the canonical name of a tag. The name passed in might be that name or a synonym
+    </li>
 </ol>
 
 <h3 name="node-visitors" id="node-visitors">

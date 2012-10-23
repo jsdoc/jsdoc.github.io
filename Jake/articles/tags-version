@@ -22,7 +22,7 @@ will be used to denote the version of the item.
  * @tutorial method1
  */
 method1 = function (a,b) {
-	return b / a;
+    return b / a;
 }
 {{/example}}
 
@@ -30,7 +30,7 @@ method1 = function (a,b) {
 
 <ul>
     <li><a href="tags-author.html">@author</a></li>
-	<li><a href="tags-tutorial.html">@tutorial</a></li>
+    <li><a href="tags-tutorial.html">@tutorial</a></li>
 </ul>
 
 <h5>Contributers to these docs</h5>

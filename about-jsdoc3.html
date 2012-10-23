@@ -1,181 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="Usage instructions and basic info about JSDoc 3"><title>Use JSDoc: Readme</title>
-	
-	<link rel="stylesheet" href="lib/prettify.css" />
-	<script src="lib/prettify.js"></script>
-	
-	<script type="text/javascript">
-	    /* Make HTML 5 elements stylable in IE */
+    <meta charset="utf-8">
+    <meta name="description" content="Usage instructions and basic info about JSDoc 3"><title>Use JSDoc: Readme</title>
+    
+    <link rel="stylesheet" href="lib/prettify.css" />
+    <script src="lib/prettify.js"></script>
+    
+    <script type="text/javascript">
+        /* Make HTML 5 elements stylable in IE */
         document.createElement('header');
         document.createElement('nav');
         document.createElement('article');
         document.createElement('footer');
         document.createElement('hgroup');
-	</script>
-	
-	<style>
-		body 
-		{
-			font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			padding: 0;
-			margin: 0;
-		}
-		
-		a, a:visited, a:active 
-		{
-			color: #605C89;
-		}
-		
-		/* Make HTML 5 elements display block-level for consistent styling */
-		header, nav, article, footer, address 
-		{
-			display: block;
-		}
-		
-		header
-		{
-			background-color: #EBEBEB;
-			color: #006FBB;
-			margin: 0;
-			margin-bottom: 32px;
-			padding: 18px;
-			font-size: 2.4em;
-			font-weight: bold;
-			border-bottom: 1px #C6C6C6 solid;
-		}
-		
-		header a, header a:visited 
-		{
-		    color: #006FBB;
-			text-decoration: none;
-		}
-		
-		article 
-		{
-			margin: 18px;
-		}
-		
-		footer
-		{
-			margin: 16px;
-			margin-top: 32px;
-			font-style: italic;
-			font-size: 0.8em;
-		}
-		
-		h1, h2, h3, h4, h5, h6
-		{
-			color: #B93A38;
-		}
-		
-		h1
-		{
-			font-size: 1.428em;
-			text-indent: 0;
-		}
+    </script>
+    
+    <style>
+        body 
+        {
+            font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        
+        a, a:visited, a:active 
+        {
+            color: #605C89;
+        }
+        
+        /* Make HTML 5 elements display block-level for consistent styling */
+        header, nav, article, footer, address 
+        {
+            display: block;
+        }
+        
+        header
+        {
+            background-color: #EBEBEB;
+            color: #006FBB;
+            margin: 0;
+            margin-bottom: 32px;
+            padding: 18px;
+            font-size: 2.4em;
+            font-weight: bold;
+            border-bottom: 1px #C6C6C6 solid;
+        }
+        
+        header a, header a:visited 
+        {
+            color: #006FBB;
+            text-decoration: none;
+        }
+        
+        article 
+        {
+            margin: 18px;
+        }
+        
+        footer
+        {
+            margin: 16px;
+            margin-top: 32px;
+            font-style: italic;
+            font-size: 0.8em;
+        }
+        
+        h1, h2, h3, h4, h5, h6
+        {
+            color: #B93A38;
+        }
+        
+        h1
+        {
+            font-size: 1.428em;
+            text-indent: 0;
+        }
 
-		h2
-		{
-			font-size: 1.285em;
-			text-indent: 1%;
-		}
+        h2
+        {
+            font-size: 1.285em;
+            text-indent: 1%;
+        }
 
-		h3
-		{
-			font-size: 1.142em;
-			text-indent: 2%;
-		}
+        h3
+        {
+            font-size: 1.142em;
+            text-indent: 2%;
+        }
 
-		h4
-		{
-			font-size: 1em;
-			text-indent: 3%;
-		}
+        h4
+        {
+            font-size: 1em;
+            text-indent: 3%;
+        }
 
-		h5
-		{
-			font-size: 0.857em;
-			text-indent: 4%;
-		}
+        h5
+        {
+            font-size: 0.857em;
+            text-indent: 4%;
+        }
 
-		h6
-		{
-			font-size: 0.714em;
-			text-indent: 5%;
-		}
-		
-		p
-		{
-			text-indent: 2%;
-		}
-		
-		dl
-		{
-			margin-left: 2%;
-			padding-left: 0;
-		}
-		
-		dt
-		{
-			margin-left: 16px;
-			padding-left: 4px;
-			margin-top: 8px;
-		}
-		
-		dt a, dt a:visited 
-		{
-			color: #3E00B6;
-		}
-		
-		dd
-		{
-			margin-left: 16px;
-			padding-left: 4px;
-		}
-		
-		ol, ul
-		{
-			margin-left: 2%;
-		}
-		
-		code 
-		{
-			font: 1em Consolas, "Lucida Console", Monaco, monospace;
-			background-color: #DEDEDE;
-		}
-		
-		pre
-		{
-			display: block;
-			border: 1px solid #999;
-			margin: 12px;
-			padding: 8px;
-			white-space: pre-wrap;
-			background-color: #DEDEDE;
-		}
-		
-		.example dt 
-		{
-			font-weight: bold;
-		}
+        h6
+        {
+            font-size: 0.714em;
+            text-indent: 5%;
+        }
+        
+        p
+        {
+            text-indent: 2%;
+        }
+        
+        dl
+        {
+            margin-left: 2%;
+            padding-left: 0;
+        }
+        
+        dt
+        {
+            margin-left: 16px;
+            padding-left: 4px;
+            margin-top: 8px;
+        }
+        
+        dt a, dt a:visited 
+        {
+            color: #3E00B6;
+        }
+        
+        dd
+        {
+            margin-left: 16px;
+            padding-left: 4px;
+        }
+        
+        ol, ul
+        {
+            margin-left: 2%;
+        }
+        
+        code 
+        {
+            font: 1em Consolas, "Lucida Console", Monaco, monospace;
+            background-color: #DEDEDE;
+        }
+        
+        pre
+        {
+            display: block;
+            border: 1px solid #999;
+            margin: 12px;
+            padding: 8px;
+            white-space: pre-wrap;
+            background-color: #DEDEDE;
+        }
+        
+        .example dt 
+        {
+            font-weight: bold;
+        }
 
-	</style>
+    </style>
 </head>
 
 <body>
-	<header>
-	    <a href="./index.html">@use JSDoc</a><br>
+    <header>
+        <a href="./index.html">@use JSDoc</a><br>
         <span style="font-size: 0.5em; margin-left: 6%;"><a href="http://usejsdoc.org/index.html">The best documentation tool for JavaScript, ever.&trade;</a></span>
-	</header>
-	
-	<nav>
-	</nav>
-	
-	<article>
-	<h1>Readme</h1>
+    </header>
+    
+    <nav>
+    </nav>
+    
+    <article>
+    <h1>Readme</h1>
 
 
 <h1>
@@ -361,8 +361,8 @@ your/script.js
         <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /><br>
         Copyright &#169; 2012 The <a href="http://usejsdoc.org/contribute-contributors.html">contributors</a> to the JSDoc 3 user guides project<br>
         This site is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
-	</footer>
+    </footer>
 
-	<script>prettyPrint()</script>
+    <script>prettyPrint()</script>
 </body>
 </html>

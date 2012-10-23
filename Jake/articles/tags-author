@@ -21,7 +21,7 @@ will be used to describe the author in the default template.
  * @version 20121008
  */
 function wobble() {
-	return 'flam';
+    return 'flam';
 }
 {{/example}}
 
@@ -29,7 +29,7 @@ function wobble() {
 
 <ul>
     <li><a href="tags-version.html">@version</a></li>
-	<li><a href="tags-file.html">@file</a></li>
+    <li><a href="tags-file.html">@file</a></li>
 </ul>
 
 <h5>Contributers to these docs</h5>

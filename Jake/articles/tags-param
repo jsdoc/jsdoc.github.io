@@ -1,7 +1,7 @@
 <!--{
     "title":       "@param",
     "out":         "tags-param.html",
-    "description": ">Document the parameter to a function."
+    "description": "Document the parameter to a function."
 }-->
 
 <h3>Synonyms</h3>

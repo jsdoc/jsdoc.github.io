@@ -1,6 +1,6 @@
 <!--{
     title: 'Project Roadmap',
-    out: 'about-project-roadmap.html',
+    out: 'contribute-project-roadmap.html',
     description: 'A high-level overview of the plans for future work on the JSDoc 3 application.'
 }-->
 <h3>Project Roadmap</h3>

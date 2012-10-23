@@ -1,7 +1,7 @@
 <!--{
     "title":       "How To Use the Markdown Plugin",
     "out":         "plugins-markdown.html",
-    "description": "Markdown plugin usage instructions"
+    "description": "The markdown plugin allows markdown in doc comments and comes in two flavors."
 }-->
 
 <h1>How to use the Markdown plugin</h1>

@@ -1,7 +1,7 @@
 <!--{
     title:       'Including a Readme File With JSDoc 3',
     out:         'about-including-readme.html',
-    description: 'A guide to including a readme file in your documentation with JSDoc 3.'
+    description: 'Using Readme files to add content to the default index.html.'
 }-->
 <h3>Including a Readme File in Your Documentation With JSDoc 3</h3>
 

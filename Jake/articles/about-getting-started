@@ -1,8 +1,9 @@
 <!--{
     title:       'Getting Started with JSDoc 3',
     out:         'about-getting-started.html',
-    description: 'A quick-start guide to getting up and running with JSDoc 3.'
+    description: 'A quick-start guide to automatically generating JavaScript documentation with JSDoc 3.'
 }-->
+
 <h3>Getting Started</h3>
 
 <p>

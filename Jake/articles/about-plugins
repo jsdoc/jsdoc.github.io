@@ -1,7 +1,7 @@
 <!--{
     "title":       "JSDoc3 Plugin Reference",
     "out":         "about-plugins.html",
-    "description": "JSDoc3 Plugin Reference."
+    "description": "Installing plugins and writing your own."
 }-->
 
 <p>

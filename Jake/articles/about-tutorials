@@ -1,7 +1,7 @@
 <!--{
     title:       'Tutorials mechanism',
     out:         'about-tutorials.html',
-    description: 'Additional longtext tutorials for your code.'
+    description: 'Allows you to include not only short code-related technical API documentation, but also longer, full-page tutorials.'
 }-->
 
 <h3>

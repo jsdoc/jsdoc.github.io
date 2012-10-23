@@ -13,7 +13,7 @@ task('default', [], function (params) {
         foot : fs.readFileSync('Jake/templates/foot.mustache', 'utf8'),
         article : fs.readFileSync('Jake/templates/article.mustache', 'utf8'),
         example : fs.readFileSync('Jake/templates/example.mustache', 'utf8'),
-        tagRefEntry : fs.readFileSync('Jake/templates/tagRefEntry.mustache', 'utf8')
+        linkList : fs.readFileSync('Jake/templates/linkList.mustache', 'utf8')
     };
     
     var outdir = './',
@@ -62,7 +62,27 @@ task('default', [], function (params) {
                 },
                 tagRefEntry : function () {
                     return function () {
-                        return generateTagsReference();
+                        return generateLinksList('tags-');
+                    };
+                },
+                gettingStartedEntry : function () {
+                    return function () {
+                        return generateLinksList('about-');
+                    };
+                },
+                pluginsEntry : function () {
+                    return function () {
+                        return generateLinksList('plugins-');
+                    };
+                },
+                howToEntry : function () {
+                    return function () {
+                        return generateLinksList('howto-');
+                    };
+                },
+                contributeEntry : function () {
+                    return function () {
+                        return generateLinksList('contribute-');
                     };
                 }
             }, {
@@ -76,28 +96,31 @@ task('default', [], function (params) {
     });
     
     /**
-     * Autogenerates the tag dictionary from jake articles. 
-     * The articles whose filename begins with 'tags-' 
-     * will be included in the tag dictionary. The metadata 
-     * will be used from each file. The title is mapped to be 
-     * the displayed text of the link, the out (filename) is 
-     * mapped to the href of the link, and the description 
-     * is mapped to the description shown below the link. 
+     * Autogenerates a list of links from jake articles.
+     * @param {String} fileNamePrefix article files beginning
+     *  with this string will be linked to in this list. The
+     *  metadata will be used from each file. The title is
+     *  mapped to be the displayed text of the link, the out
+     *  (filename) is mapped to the href of the link, and the
+     *  description is mapped to the description shown below
+     *  the link.
+     * @returns Returns an html list of links formatted as
+     *  dictionary terms and definitions.
      */
-    function generateTagsReference() {
+    function generateLinksList(fileNamePrefix) {
         var out = '';
         articles.forEach(function (article) {
-            if (article.out.indexOf('tags-') !== 0) {
+            if (article.out.indexOf(fileNamePrefix) !== 0) {
                 return '';
             }
-            var p = article.out;
-            var tr = article.title;
-            var td = article.description;
+            var location = article.out;
+            var text = article.title;
+            var description = article.description;
             out += Mustache.to_html(
-                templates.tagRefEntry, {
-                href : p,
-                tagRef : tr,
-                tagDesc : td
+                templates.linkList, {
+                linkLocation : location,
+                linkText : text,
+                linkDescription : description
             });
         });
         return out;

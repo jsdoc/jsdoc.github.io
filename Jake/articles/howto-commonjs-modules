@@ -1,5 +1,5 @@
 <!--{
-    title:       'Document CommonJS Modules',
+    title:       'How To Document CommonJS Modules',
     out:         'howto-commonjs-modules.html',
     description: 'Documenting code that conforms to the CommonJS server-side modules standard.'
 }-->

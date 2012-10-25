@@ -1,0 +1,18 @@
+<h2>returns</h2>
+<p><br>
+<b>title</b> : returns<br>
+<b>mustHaveValue</b> : true<br>
+<b>canHaveType</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.returns) {
+        doclet.returns = [];
+    }
+    doclet.returns.push(tag.value);
+}
+</pre><p>
+<br>
+<b>synonyms</b> : return<br>
+</p><br>

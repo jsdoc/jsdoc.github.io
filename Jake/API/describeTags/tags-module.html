@@ -1,0 +1,22 @@
+<h2>module</h2>
+<p><br>
+<b>title</b> : module<br>
+<b>canHaveType</b> : true<br>
+<b>isNamespace</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    setDocletKindToTitle(doclet, tag);
+    setDocletNameToValue(doclet, tag);
+    if (!doclet.name) {
+        setDocletNameToFilename(doclet, tag);
+    }
+    if (tag.value && tag.value.type) {
+        doclet.type = tag.value.type;
+    }
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

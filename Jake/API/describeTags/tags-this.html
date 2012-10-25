@@ -1,0 +1,17 @@
+<h2>this</h2>
+<p><br>
+<b>title</b> : this<br>
+<b>mustHaveValue</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.see) {
+        doclet.see = [];
+    }
+    doclet["this"] = firstWordOf(tag.value);
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

@@ -3,7 +3,8 @@
 desc('Building the site.');
 task('default', [], function (params) {
     var fs = require('fs'),
-    sys = require('sys');
+    sys = require('sys'),
+    path = require('path');
     
     // import the Mustache template tool
     eval(fs.readFileSync('Jake/lib/mustache.js', 'utf8'));
@@ -84,6 +85,11 @@ task('default', [], function (params) {
                     return function () {
                         return generateLinksList('contribute-');
                     };
+                },
+                include : function () {
+                    return function (text) {
+                        return fs.readFileSync(text.trim());
+                    }
                 }
             }, {
                 head : templates.head,

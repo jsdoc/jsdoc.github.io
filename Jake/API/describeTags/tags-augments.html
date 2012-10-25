@@ -1,0 +1,23 @@
+<h2>augments</h2>
+<p><br>
+<b>title</b> : augments<br>
+<b>mustHaveValue</b> : true<br>
+<b>onTagText</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (text) {
+    var type = require("jsdoc/tag/type"), tagType = type.getTagInfo(text, false, true);
+    return tagType.type || text;
+}
+</pre><p>
+<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    doclet.augment(firstWordOf(tag.value));
+}
+</pre><p>
+<br>
+<b>synonyms</b> : extends<br>
+</p><br>

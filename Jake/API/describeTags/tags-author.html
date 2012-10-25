@@ -1,0 +1,17 @@
+<h2>author</h2>
+<p><br>
+<b>title</b> : author<br>
+<b>mustHaveValue</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.author) {
+        doclet.author = [];
+    }
+    doclet.author.push(tag.value);
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

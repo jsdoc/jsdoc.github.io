@@ -1,0 +1,23 @@
+<h2>typedef</h2>
+<p><br>
+<b>title</b> : typedef<br>
+<b>canHaveType</b> : true<br>
+<b>canHaveName</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    setDocletKindToTitle(doclet, tag);
+    if (tag.value) {
+        if (tag.value.name) {
+            doclet.addTag("name", tag.value.name);
+        }
+        if (tag.value.type) {
+            doclet.type = tag.value.type;
+        }
+    }
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

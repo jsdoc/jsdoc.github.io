@@ -1,0 +1,18 @@
+<h2>param</h2>
+<p><br>
+<b>title</b> : param<br>
+<b>canHaveType</b> : true<br>
+<b>canHaveName</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.params) {
+        doclet.params = [];
+    }
+    doclet.params.push(tag.value || {});
+}
+</pre><p>
+<br>
+<b>synonyms</b> : argument,arg<br>
+</p><br>

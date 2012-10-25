@@ -1,0 +1,21 @@
+<h2>memberof</h2>
+<p><br>
+<b>title</b> : memberof<br>
+<b>mustHaveValue</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (tag.originalTitle === "memberof!") {
+        doclet.forceMemberof = true;
+        if (tag.value === "<global>") {
+            doclet.addTag("global");
+            delete doclet.memberof;
+        }
+    }
+    setDocletMemberof(doclet, tag);
+}
+</pre><p>
+<br>
+<b>synonyms</b> : memberof!<br>
+</p><br>

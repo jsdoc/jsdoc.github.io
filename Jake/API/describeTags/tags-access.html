@@ -1,0 +1,18 @@
+<h2>access</h2>
+<p><br>
+<b>title</b> : access<br>
+<b>mustHaveValue</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (/^(private|protected)$/i.test(tag.value)) {
+        doclet.access = tag.value.toLowerCase();
+    } else {
+        delete doclet.access;
+    }
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

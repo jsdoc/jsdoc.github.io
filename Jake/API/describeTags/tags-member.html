@@ -1,0 +1,18 @@
+<h2>member</h2>
+<p><br>
+<b>title</b> : member<br>
+<b>canHaveType</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    setDocletKindToTitle(doclet, tag);
+    setDocletNameToValue(doclet, tag);
+    if (tag.value && tag.value.type) {
+        doclet.type = tag.value.type;
+    }
+}
+</pre><p>
+<br>
+<b>synonyms</b> : var<br>
+</p><br>

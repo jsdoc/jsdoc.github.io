@@ -1,0 +1,18 @@
+<h2>fires</h2>
+<p><br>
+<b>title</b> : fires<br>
+<b>mustHaveValue</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.fires) {
+        doclet.fires = [];
+    }
+    applyNamespace("event", tag);
+    doclet.fires.push(tag.value);
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

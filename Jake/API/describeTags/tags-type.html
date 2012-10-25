@@ -1,0 +1,31 @@
+<h2>type</h2>
+<p><br>
+<b>title</b> : type<br>
+<b>mustHaveValue</b> : true<br>
+<b>canHaveType</b> : true<br>
+<b>onTagText</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (text) {
+    if (!/^\{.+\}$/.test(text)) {
+        text = "{ " + text + " }";
+    }
+    return text;
+}
+</pre><p>
+<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (tag.value && tag.value.type) {
+        doclet.type = tag.value.type;
+        if (doclet.kind === "function") {
+            doclet.addTag("returns", tag.text);
+        }
+    }
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

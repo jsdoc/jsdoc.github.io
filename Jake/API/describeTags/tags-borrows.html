@@ -1,0 +1,15 @@
+<h2>borrows</h2>
+<p><br>
+<b>title</b> : borrows<br>
+<b>mustHaveValue</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    var borrows = parseBorrows(doclet, tag);
+    doclet.borrow(borrows.target, borrows.source);
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

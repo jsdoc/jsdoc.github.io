@@ -1,0 +1,21 @@
+<h2>exception</h2>
+<p><br>
+<b>title</b> : exception<br>
+<b>mustHaveValue</b> : true<br>
+<b>canHaveType</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.exceptions) {
+        doclet.exceptions = [];
+    }
+    doclet.exceptions.push(tag.value);
+    if (tag.value && tag.value.type) {
+        doclet.type = tag.value.type;
+    }
+}
+</pre><p>
+<br>
+<b>synonyms</b> : throws<br>
+</p><br>

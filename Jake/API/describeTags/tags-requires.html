@@ -1,0 +1,21 @@
+<h2>requires</h2>
+<p><br>
+<b>title</b> : requires<br>
+<b>mustHaveValue</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    var modName = firstWordOf(tag.value);
+    if (modName.indexOf("module:") !== 0) {
+        modName = "module:" + modName;
+    }
+    if (!doclet.requires) {
+        doclet.requires = [];
+    }
+    doclet.requires.push(modName);
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

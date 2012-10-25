@@ -1,0 +1,21 @@
+<h2>class</h2>
+<p><br>
+<b>title</b> : class<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    doclet.addTag("kind", "class");
+    if (tag.originalTitle === "class") {
+        var looksLikeDesc = (tag.value || "").match(/\S+\s+\S+/);
+        if (looksLikeDesc || /@construct(s|or)\b/i.test(doclet.comment)) {
+            doclet.classdesc = tag.value;
+            return;
+        }
+    }
+    setDocletNameToValue(doclet, tag);
+}
+</pre><p>
+<br>
+<b>synonyms</b> : constructor<br>
+</p><br>

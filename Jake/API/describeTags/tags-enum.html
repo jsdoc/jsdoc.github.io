@@ -1,0 +1,18 @@
+<h2>enum</h2>
+<p><br>
+<b>title</b> : enum<br>
+<b>canHaveType</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    doclet.kind = "member";
+    doclet.isEnum = true;
+    if (tag.value && tag.value.type) {
+        doclet.type = tag.value.type;
+    }
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

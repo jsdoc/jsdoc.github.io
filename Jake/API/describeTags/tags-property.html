@@ -1,0 +1,19 @@
+<h2>property</h2>
+<p><br>
+<b>title</b> : property<br>
+<b>mustHaveValue</b> : true<br>
+<b>canHaveType</b> : true<br>
+<b>canHaveName</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.properties) {
+        doclet.properties = [];
+    }
+    doclet.properties.push(tag.value);
+}
+</pre><p>
+<br>
+<b>synonyms</b> : prop<br>
+</p><br>

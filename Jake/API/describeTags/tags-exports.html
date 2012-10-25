@@ -1,0 +1,16 @@
+<h2>exports</h2>
+<p><br>
+<b>title</b> : exports<br>
+<b>mustHaveValue</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    var modName = firstWordOf(tag.value);
+    doclet.addTag("alias", modName);
+    doclet.addTag("kind", "module");
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

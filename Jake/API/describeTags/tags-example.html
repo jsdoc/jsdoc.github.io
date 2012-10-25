@@ -1,0 +1,18 @@
+<h2>example</h2>
+<p><br>
+<b>title</b> : example<br>
+<b>keepsWhitespace</b> : true<br>
+<b>mustHaveValue</b> : true<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.examples) {
+        doclet.examples = [];
+    }
+    doclet.examples.push(tag.value);
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

@@ -1,0 +1,20 @@
+<h2>constructs</h2>
+<p><br>
+<b>title</b> : constructs<br>
+<b>onTagged</b> : <br>
+</p>
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    var ownerClassName;
+    if (!tag.value) {
+        ownerClassName = "{@thisClass}";
+    } else {
+        ownerClassName = firstWordOf(tag.value);
+    }
+    doclet.addTag("alias", ownerClassName);
+    doclet.addTag("kind", "class");
+}
+</pre><p>
+<br>
+<b>synonyms</b> : <br>
+</p><br>

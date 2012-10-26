@@ -1,10 +1,20 @@
-<h2>param</h2>
-<p><br>
-<b>title</b> : param<br>
-<b>canHaveType</b> : true<br>
-<b>canHaveName</b> : true<br>
-<b>onTagged</b> : <br>
-</p>
+<div class="tags-definition" id="param-definition">
+<h3 class="tags-name">param</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="param-title-name"><b>title</b></td> <td class="tags-property-value" id="param-title-value">param</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="param-canHaveType-name"><b>canHaveType</b></td> <td class="tags-property-value" id="param-canHaveType-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="param-canHaveName-name"><b>canHaveName</b></td> <td class="tags-property-value" id="param-canHaveName-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="param-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="param-onTagged-value">
+
 <pre class="prettyprint lang-js">
 function (doclet, tag) {
     if (!doclet.params) {
@@ -12,7 +22,11 @@ function (doclet, tag) {
     }
     doclet.params.push(tag.value || {});
 }
-</pre><p>
-<br>
-<b>synonyms</b> : argument,arg<br>
-</p><br>
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="param-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="param-synonyms-value">argument,arg</td>
+</tr>
+</tbody></table></div>

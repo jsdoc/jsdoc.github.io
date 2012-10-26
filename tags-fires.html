@@ -177,6 +177,41 @@
     <article>
     <h1>@fires</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="fires-definition">
+<h3 class="tags-name">fires</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="fires-title-name"><b>title</b></td> <td class="tags-property-value" id="fires-title-value">fires</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="fires-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="fires-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="fires-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="fires-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.fires) {
+        doclet.fires = [];
+    }
+    applyNamespace("event", tag);
+    doclet.fires.push(tag.value);
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="fires-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="fires-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="fires-overview">
+
 <h3>Syntax</h3>
 
 <code>@fires &lt;className>#[event:]&lt;eventName></code>
@@ -209,7 +244,8 @@ Milkshake.prototype.drink = function() {
 
 <ul>
     <li><a href="tags-event.html">@event</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

@@ -177,6 +177,43 @@
     <article>
     <h1>@returns</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="returns-definition">
+<h3 class="tags-name">returns</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="returns-title-name"><b>title</b></td> <td class="tags-property-value" id="returns-title-value">returns</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="returns-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="returns-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="returns-canHaveType-name"><b>canHaveType</b></td> <td class="tags-property-value" id="returns-canHaveType-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="returns-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="returns-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.returns) {
+        doclet.returns = [];
+    }
+    doclet.returns.push(tag.value);
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="returns-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="returns-synonyms-value">return</td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="returns-overview">
+
 <h3>Overview</h3>
 
 <p>
@@ -247,7 +284,8 @@ function sum(a, b, retArr) {
 
 <ul>
     <li><a href="https://github.com/customcommander">customcommander</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

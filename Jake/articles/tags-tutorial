@@ -1,24 +1,17 @@
 <!--{
-    "title":       "@tutorial",
-    "out":         "tags-tutorial.html",
-    "description": "Insert a link to an included tutorial file."
+    "title" :       "@tutorial",
+    "out" :         "tags-tutorial.html",
+    "description" : "Insert a link to an included tutorial file."
 }-->
-<h3>Overview</h3>
 
-<p>
-</p>
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-tutorial.html
+{{/include}}
 
-<h3>Examples</h3>
-
-<p>
-</p>
-
-{{#example}}Example goes here
-// todo
-{{/example}}
-
-<h3>See Also</h3>
-
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="tutorial-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-tutorial
+{{/include}}
+</div>

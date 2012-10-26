@@ -178,9 +178,50 @@
     <h1>@exception</h1>
 
 
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="exception-definition">
+<h3 class="tags-name">exception</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="exception-title-name"><b>title</b></td> <td class="tags-property-value" id="exception-title-value">exception</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="exception-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="exception-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="exception-canHaveType-name"><b>canHaveType</b></td> <td class="tags-property-value" id="exception-canHaveType-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="exception-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="exception-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.exceptions) {
+        doclet.exceptions = [];
+    }
+    doclet.exceptions.push(tag.value);
+    if (tag.value && tag.value.type) {
+        doclet.type = tag.value.type;
+    }
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="exception-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="exception-synonyms-value">throws</td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="exception-overview">
+
+
 <p>
     TODO: Finish documentation.
 </p>
+</div>
 
     </article>
     

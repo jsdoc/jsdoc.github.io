@@ -177,6 +177,41 @@
     <article>
     <h1>@member</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="member-definition">
+<h3 class="tags-name">member</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="member-title-name"><b>title</b></td> <td class="tags-property-value" id="member-title-value">member</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="member-canHaveType-name"><b>canHaveType</b></td> <td class="tags-property-value" id="member-canHaveType-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="member-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="member-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    setDocletKindToTitle(doclet, tag);
+    setDocletNameToValue(doclet, tag);
+    if (tag.value && tag.value.type) {
+        doclet.type = tag.value.type;
+    }
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="member-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="member-synonyms-value">var</td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="member-overview">
+
 <h3>Overview</h3>
 
 <p>
@@ -199,7 +234,8 @@
 
 <ul>
     <li><a href="#">...</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

@@ -1,9 +1,17 @@
 <!--{
-    "title": "@undocumented",
-    "out": "tags-undocumented.html",
-    "description": "[TODO] Document the undocumented tag"
+    "title" :       "@undocumented",
+    "out" :         "tags-undocumented.html",
+    "description" : "[TODO] Document the undocumented tag"
 }-->
 
-<p>
-    TODO: Finish documentation.
-</p>
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-undocumented.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="undocumented-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-undocumented
+{{/include}}
+</div>

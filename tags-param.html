@@ -178,6 +178,43 @@
     <h1>@param</h1>
 
 
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="param-definition">
+<h3 class="tags-name">param</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="param-title-name"><b>title</b></td> <td class="tags-property-value" id="param-title-value">param</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="param-canHaveType-name"><b>canHaveType</b></td> <td class="tags-property-value" id="param-canHaveType-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="param-canHaveName-name"><b>canHaveName</b></td> <td class="tags-property-value" id="param-canHaveName-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="param-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="param-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.params) {
+        doclet.params = [];
+    }
+    doclet.params.push(tag.value || {});
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="param-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="param-synonyms-value">argument,arg</td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="param-overview">
+
+
 <h3>Synonyms</h3>
 
 <ul>
@@ -323,6 +360,7 @@ function sum(num) {
 <ul>
     <li><a href="https://github.com/customcommander">customcommander</a></li>
 </ul>
+</div>
 
     </article>
     

@@ -1,10 +1,20 @@
-<h2>type</h2>
-<p><br>
-<b>title</b> : type<br>
-<b>mustHaveValue</b> : true<br>
-<b>canHaveType</b> : true<br>
-<b>onTagText</b> : <br>
-</p>
+<div class="tags-definition" id="type-definition">
+<h3 class="tags-name">type</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="type-title-name"><b>title</b></td> <td class="tags-property-value" id="type-title-value">type</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="type-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="type-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="type-canHaveType-name"><b>canHaveType</b></td> <td class="tags-property-value" id="type-canHaveType-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="type-onTagText-name"><b>onTagText</b></td> <td class="tags-property-value" id="type-onTagText-value">
+
 <pre class="prettyprint lang-js">
 function (text) {
     if (!/^\{.+\}$/.test(text)) {
@@ -12,10 +22,13 @@ function (text) {
     }
     return text;
 }
-</pre><p>
-<br>
-<b>onTagged</b> : <br>
-</p>
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="type-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="type-onTagged-value">
+
 <pre class="prettyprint lang-js">
 function (doclet, tag) {
     if (tag.value && tag.value.type) {
@@ -25,7 +38,11 @@ function (doclet, tag) {
         }
     }
 }
-</pre><p>
-<br>
-<b>synonyms</b> : <br>
-</p><br>
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="type-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="type-synonyms-value"></td>
+</tr>
+</tbody></table></div>

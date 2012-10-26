@@ -1,9 +1,17 @@
-<h2>tutorial</h2>
-<p><br>
-<b>title</b> : tutorial<br>
-<b>mustHaveValue</b> : true<br>
-<b>onTagged</b> : <br>
-</p>
+<div class="tags-definition" id="tutorial-definition">
+<h3 class="tags-name">tutorial</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="tutorial-title-name"><b>title</b></td> <td class="tags-property-value" id="tutorial-title-value">tutorial</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="tutorial-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="tutorial-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="tutorial-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="tutorial-onTagged-value">
+
 <pre class="prettyprint lang-js">
 function (doclet, tag) {
     if (!doclet.tutorials) {
@@ -11,7 +19,11 @@ function (doclet, tag) {
     }
     doclet.tutorials.push(tag.value);
 }
-</pre><p>
-<br>
-<b>synonyms</b> : <br>
-</p><br>
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="tutorial-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="tutorial-synonyms-value"></td>
+</tr>
+</tbody></table></div>

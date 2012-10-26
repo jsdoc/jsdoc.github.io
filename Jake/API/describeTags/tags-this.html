@@ -1,9 +1,17 @@
-<h2>this</h2>
-<p><br>
-<b>title</b> : this<br>
-<b>mustHaveValue</b> : true<br>
-<b>onTagged</b> : <br>
-</p>
+<div class="tags-definition" id="this-definition">
+<h3 class="tags-name">this</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="this-title-name"><b>title</b></td> <td class="tags-property-value" id="this-title-value">this</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="this-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="this-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="this-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="this-onTagged-value">
+
 <pre class="prettyprint lang-js">
 function (doclet, tag) {
     if (!doclet.see) {
@@ -11,7 +19,11 @@ function (doclet, tag) {
     }
     doclet["this"] = firstWordOf(tag.value);
 }
-</pre><p>
-<br>
-<b>synonyms</b> : <br>
-</p><br>
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="this-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="this-synonyms-value"></td>
+</tr>
+</tbody></table></div>

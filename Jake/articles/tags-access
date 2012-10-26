@@ -1,9 +1,17 @@
 <!--{
-    "title": "@access",
-    "out": "tags-access.html",
-    "description": "[TODO] Document the access tag"
+    "title" :       "@access",
+    "out" :         "tags-access.html",
+    "description" : "[TODO] Document the access tag"
 }-->
 
-<p>
-    TODO: Finish documentation.
-</p>
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-access.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="access-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-access
+{{/include}}
+</div>

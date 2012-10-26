@@ -177,6 +177,48 @@
     <article>
     <h1>@typedef</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="typedef-definition">
+<h3 class="tags-name">typedef</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="typedef-title-name"><b>title</b></td> <td class="tags-property-value" id="typedef-title-value">typedef</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="typedef-canHaveType-name"><b>canHaveType</b></td> <td class="tags-property-value" id="typedef-canHaveType-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="typedef-canHaveName-name"><b>canHaveName</b></td> <td class="tags-property-value" id="typedef-canHaveName-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="typedef-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="typedef-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    setDocletKindToTitle(doclet, tag);
+    if (tag.value) {
+        if (tag.value.name) {
+            doclet.addTag("name", tag.value.name);
+        }
+        if (tag.value.type) {
+            doclet.type = tag.value.type;
+        }
+    }
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="typedef-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="typedef-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="typedef-overview">
+
 <h3>Overview</h3>
 
 <p>
@@ -199,7 +241,8 @@
 
 <ul>
     <li><a href="#">...</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

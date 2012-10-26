@@ -1,24 +1,17 @@
 <!--{
-    "title":       "@memberof",
-    "out":         "tags-memberof.html",
-    "description": "[todo] This object is a member or another object."
+    "title" :       "@memberof",
+    "out" :         "tags-memberof.html",
+    "description" : "[todo] This object is a member or another object."
 }-->
-<h3>Overview</h3>
 
-<p>
-</p>
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-memberof.html
+{{/include}}
 
-<h3>Examples</h3>
-
-<p>
-</p>
-
-{{#example}}Example goes here
-// todo
-{{/example}}
-
-<h3>See Also</h3>
-
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="memberof-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-memberof
+{{/include}}
+</div>

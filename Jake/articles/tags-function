@@ -1,9 +1,17 @@
 <!--{
-    "title": "@function",
-    "out": "tags-function.html",
-    "description": "[TODO] Document the function tag"
+    "title" :       "@function",
+    "out" :         "tags-function.html",
+    "description" : "[TODO] Document the function tag"
 }-->
 
-<p>
-    TODO: Finish documentation.
-</p>
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-function.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="function-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-function
+{{/include}}
+</div>

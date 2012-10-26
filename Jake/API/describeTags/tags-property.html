@@ -1,11 +1,23 @@
-<h2>property</h2>
-<p><br>
-<b>title</b> : property<br>
-<b>mustHaveValue</b> : true<br>
-<b>canHaveType</b> : true<br>
-<b>canHaveName</b> : true<br>
-<b>onTagged</b> : <br>
-</p>
+<div class="tags-definition" id="property-definition">
+<h3 class="tags-name">property</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="property-title-name"><b>title</b></td> <td class="tags-property-value" id="property-title-value">property</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="property-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="property-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="property-canHaveType-name"><b>canHaveType</b></td> <td class="tags-property-value" id="property-canHaveType-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="property-canHaveName-name"><b>canHaveName</b></td> <td class="tags-property-value" id="property-canHaveName-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="property-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="property-onTagged-value">
+
 <pre class="prettyprint lang-js">
 function (doclet, tag) {
     if (!doclet.properties) {
@@ -13,7 +25,11 @@ function (doclet, tag) {
     }
     doclet.properties.push(tag.value);
 }
-</pre><p>
-<br>
-<b>synonyms</b> : prop<br>
-</p><br>
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="property-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="property-synonyms-value">prop</td>
+</tr>
+</tbody></table></div>

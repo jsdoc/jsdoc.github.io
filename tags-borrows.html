@@ -177,6 +177,38 @@
     <article>
     <h1>@borrows</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="borrows-definition">
+<h3 class="tags-name">borrows</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="borrows-title-name"><b>title</b></td> <td class="tags-property-value" id="borrows-title-value">borrows</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="borrows-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="borrows-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="borrows-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="borrows-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    var borrows = parseBorrows(doclet, tag);
+    doclet.borrow(borrows.target, borrows.source);
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="borrows-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="borrows-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="borrows-overview">
+
 <h3>Syntax</h3>
 
 <code>@borrows &lt;that namepath&gt; as &lt;this namepath&gt;</code>
@@ -218,7 +250,8 @@ function trstr(str) {
 
 </pre>
 </dd>
-</dl>
+</dl></div>
+
     </article>
     
     <footer>

@@ -1,23 +1,38 @@
-<h2>augments</h2>
-<p><br>
-<b>title</b> : augments<br>
-<b>mustHaveValue</b> : true<br>
-<b>onTagText</b> : <br>
-</p>
+<div class="tags-definition" id="augments-definition">
+<h3 class="tags-name">augments</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="augments-title-name"><b>title</b></td> <td class="tags-property-value" id="augments-title-value">augments</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="augments-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="augments-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="augments-onTagText-name"><b>onTagText</b></td> <td class="tags-property-value" id="augments-onTagText-value">
+
 <pre class="prettyprint lang-js">
 function (text) {
     var type = require("jsdoc/tag/type"), tagType = type.getTagInfo(text, false, true);
     return tagType.type || text;
 }
-</pre><p>
-<br>
-<b>onTagged</b> : <br>
-</p>
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="augments-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="augments-onTagged-value">
+
 <pre class="prettyprint lang-js">
 function (doclet, tag) {
     doclet.augment(firstWordOf(tag.value));
 }
-</pre><p>
-<br>
-<b>synonyms</b> : extends<br>
-</p><br>
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="augments-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="augments-synonyms-value">extends</td>
+</tr>
+</tbody></table></div>

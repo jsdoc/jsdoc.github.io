@@ -177,6 +177,34 @@
     <article>
     <h1>@deprecated</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="deprecated-definition">
+<h3 class="tags-name">deprecated</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="deprecated-title-name"><b>title</b></td> <td class="tags-property-value" id="deprecated-title-value">deprecated</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="deprecated-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="deprecated-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    doclet.deprecated = tag.value || true;
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="deprecated-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="deprecated-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="deprecated-overview">
+
 <h3>Syntax</h3>
 
 <code>@deprecated [&lt;some text>]</code>
@@ -205,7 +233,8 @@ function old() {
 
 </pre>
 </dd>
-</dl>
+</dl></div>
+
     </article>
     
     <footer>

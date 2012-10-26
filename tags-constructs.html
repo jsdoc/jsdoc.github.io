@@ -177,6 +177,41 @@
     <article>
     <h1>@constructs</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="constructs-definition">
+<h3 class="tags-name">constructs</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="constructs-title-name"><b>title</b></td> <td class="tags-property-value" id="constructs-title-value">constructs</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="constructs-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="constructs-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    var ownerClassName;
+    if (!tag.value) {
+        ownerClassName = "{@thisClass}";
+    } else {
+        ownerClassName = firstWordOf(tag.value);
+    }
+    doclet.addTag("alias", ownerClassName);
+    doclet.addTag("kind", "class");
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="constructs-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="constructs-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="constructs-overview">
+
 <h3>Overview</h3>
 
 <p>
@@ -232,7 +267,8 @@ makeClass('Menu',
 
 <ul>
     <li><a href="tag-lends.html">@lends</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

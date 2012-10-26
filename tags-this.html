@@ -177,6 +177,40 @@
     <article>
     <h1>@this</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="this-definition">
+<h3 class="tags-name">this</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="this-title-name"><b>title</b></td> <td class="tags-property-value" id="this-title-value">this</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="this-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="this-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="this-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="this-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.see) {
+        doclet.see = [];
+    }
+    doclet["this"] = firstWordOf(tag.value);
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="this-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="this-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="this-overview">
+
 <h3>Overview</h3>
 
 <p>
@@ -199,7 +233,8 @@
 
 <ul>
     <li><a href="#">...</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

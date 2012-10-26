@@ -1,9 +1,17 @@
 <!--{
-    "title": "@alias",
-    "out": "tags-alias.html",
-    "description": "[TODO] Document the alias tag"
+    "title" :       "@alias",
+    "out" :         "tags-alias.html",
+    "description" : "[TODO] Document the alias tag"
 }-->
 
-<p>
-    TODO: Finish documentation.
-</p>
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-alias.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="alias-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-alias
+{{/include}}
+</div>

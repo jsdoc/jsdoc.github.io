@@ -177,6 +177,41 @@
     <article>
     <h1>@namespace</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="namespace-definition">
+<h3 class="tags-name">namespace</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="namespace-title-name"><b>title</b></td> <td class="tags-property-value" id="namespace-title-value">namespace</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="namespace-canHaveType-name"><b>canHaveType</b></td> <td class="tags-property-value" id="namespace-canHaveType-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="namespace-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="namespace-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    setDocletKindToTitle(doclet, tag);
+    setDocletNameToValue(doclet, tag);
+    if (tag.value && tag.value.type) {
+        doclet.type = tag.value.type;
+    }
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="namespace-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="namespace-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="namespace-overview">
+
 <h3>Overview</h3>
 
 <p>
@@ -199,7 +234,8 @@
 
 <ul>
     <li><a href="#">...</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

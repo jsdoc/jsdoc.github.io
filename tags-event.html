@@ -177,6 +177,39 @@
     <article>
     <h1>@event</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="event-definition">
+<h3 class="tags-name">event</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="event-title-name"><b>title</b></td> <td class="tags-property-value" id="event-title-value">event</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="event-isNamespace-name"><b>isNamespace</b></td> <td class="tags-property-value" id="event-isNamespace-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="event-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="event-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    setDocletKindToTitle(doclet, tag);
+    setDocletNameToValue(doclet, tag);
+    applyNamespace(doclet, tag);
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="event-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="event-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="event-overview">
+
 <h3>Syntax</h3>
 
 <code>@event &lt;className>#[event:]&lt;eventName></code>
@@ -263,7 +296,8 @@ Hurl.prototype.snowball = function() {
 
 <ul>
     <li><a href="tags-fires.html">@fires</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

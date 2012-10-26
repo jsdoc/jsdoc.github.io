@@ -1,9 +1,17 @@
 <!--{
-    "title": "@exception",
-    "out": "tags-exception.html",
-    "description": "[TODO] Document the exception tag"
+    "title" :       "@exception",
+    "out" :         "tags-exception.html",
+    "description" : "[TODO] Document the exception tag"
 }-->
 
-<p>
-    TODO: Finish documentation.
-</p>
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-exception.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="exception-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-exception
+{{/include}}
+</div>

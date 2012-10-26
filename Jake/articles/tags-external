@@ -1,9 +1,17 @@
 <!--{
-    "title": "@external",
-    "out": "tags-external.html",
-    "description": "[TODO] Document the external tag"
+    "title" :       "@external",
+    "out" :         "tags-external.html",
+    "description" : "[TODO] Document the external tag"
 }-->
 
-<p>
-    TODO: Finish documentation.
-</p>
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-external.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="external-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-external
+{{/include}}
+</div>

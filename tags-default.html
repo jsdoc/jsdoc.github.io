@@ -177,6 +177,52 @@
     <article>
     <h1>@default</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="default-definition">
+<h3 class="tags-name">default</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="default-title-name"><b>title</b></td> <td class="tags-property-value" id="default-title-value">default</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="default-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="default-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (tag.value) {
+        doclet.defaultvalue = tag.value;
+    } else {
+        if (doclet.meta && doclet.meta.code && typeof doclet.meta.code.value !== "undefined") {
+            if (doclet.meta.code.type && /STRING|NUMBER|NAME|TRUE|FALSE/.test(doclet.meta.code.type)) {
+                doclet.defaultvalue = doclet.meta.code.value;
+                if (doclet.meta.code.type === "STRING") {
+                    doclet.defaultvalue = "\"" + doclet.defaultvalue.replace(/"/g, "\\\"") + "\"";
+                }
+                if (doclet.defaultvalue === "TRUE" || doclet.defaultvalue == "FALSE") {
+                    doclet.defaultvalue = doclet.defaultvalue.toLowerCase();
+                }
+            } else {
+                if (doclet.meta.code.type === "NULL") {
+                    doclet.defaultvalue = "null";
+                }
+            }
+        }
+    }
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="default-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="default-synonyms-value">defaultvalue</td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="default-overview">
+
 <h3>Syntax</h3>
 
 <code>@default [&lt;some value>]</code>
@@ -205,7 +251,8 @@ const RED = 0xff0000;
 
 </pre>
 </dd>
-</dl>
+</dl></div>
+
     </article>
     
     <footer>

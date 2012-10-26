@@ -177,6 +177,37 @@
     <article>
     <h1>@version</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="version-definition">
+<h3 class="tags-name">version</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="version-title-name"><b>title</b></td> <td class="tags-property-value" id="version-title-value">version</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="version-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="version-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="version-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="version-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    doclet.version = tag.value;
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="version-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="version-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="version-overview">
+
 <h3>Overview</h3>
 
 <p>Documents the version of an item. The text following the @version tag 
@@ -215,7 +246,8 @@ method1 = function (a,b) {
 
 <ul>
     <li><a href="https://github.com/matthewkastor">matthewkastor</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

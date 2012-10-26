@@ -177,6 +177,46 @@
     <article>
     <h1>@property</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="property-definition">
+<h3 class="tags-name">property</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="property-title-name"><b>title</b></td> <td class="tags-property-value" id="property-title-value">property</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="property-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="property-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="property-canHaveType-name"><b>canHaveType</b></td> <td class="tags-property-value" id="property-canHaveType-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="property-canHaveName-name"><b>canHaveName</b></td> <td class="tags-property-value" id="property-canHaveName-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="property-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="property-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.properties) {
+        doclet.properties = [];
+    }
+    doclet.properties.push(tag.value);
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="property-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="property-synonyms-value">prop</td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="property-overview">
+
 <h3>Overview</h3>
 
 <p>
@@ -226,7 +266,8 @@ var config = {
 <ul>
     <li>Contrast this tag with the <a href="tags-member.html">@member</a> tag.</li>
     <li><a href="tags-enum.html">@enum</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

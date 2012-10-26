@@ -178,9 +178,46 @@
     <h1>@class</h1>
 
 
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="class-definition">
+<h3 class="tags-name">class</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="class-title-name"><b>title</b></td> <td class="tags-property-value" id="class-title-value">class</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="class-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="class-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    doclet.addTag("kind", "class");
+    if (tag.originalTitle === "class") {
+        var looksLikeDesc = (tag.value || "").match(/\S+\s+\S+/);
+        if (looksLikeDesc || /@construct(s|or)\b/i.test(doclet.comment)) {
+            doclet.classdesc = tag.value;
+            return;
+        }
+    }
+    setDocletNameToValue(doclet, tag);
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="class-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="class-synonyms-value">constructor</td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="class-overview">
+
+
 <p>
     TODO: Finish documentation.
 </p>
+</div>
 
     </article>
     

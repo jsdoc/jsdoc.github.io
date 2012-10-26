@@ -177,6 +177,40 @@
     <article>
     <h1>@see</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="see-definition">
+<h3 class="tags-name">see</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="see-title-name"><b>title</b></td> <td class="tags-property-value" id="see-title-value">see</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="see-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="see-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="see-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="see-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    if (!doclet.see) {
+        doclet.see = [];
+    }
+    doclet.see.push(tag.value);
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="see-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="see-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="see-overview">
+
 <h3>Overview</h3>
 
 <p>
@@ -199,7 +233,8 @@
 
 <ul>
     <li><a href="#">...</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

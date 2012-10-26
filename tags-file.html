@@ -177,6 +177,37 @@
     <article>
     <h1>@file</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="file-definition">
+<h3 class="tags-name">file</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="file-title-name"><b>title</b></td> <td class="tags-property-value" id="file-title-value">file</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="file-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="file-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    setNameToFile(doclet, tag);
+    setDocletKindToTitle(doclet, tag);
+    setDocletDescriptionToValue(doclet, tag);
+    doclet.preserveName = true;
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="file-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="file-synonyms-value">fileoverview,overview</td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="file-overview">
+
 <h3>Overview</h3>
 
 <p>Gives a description of the file. Place the comment at the top of the file. 
@@ -212,7 +243,8 @@ in the default template.
 
 <ul>
     <li><a href="https://github.com/matthewkastor">matthewkastor</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

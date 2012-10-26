@@ -177,6 +177,39 @@
     <article>
     <h1>@exports</h1>
 
+
+<h2 name="definition" id="definition">Definition</h2>
+<div class="tags-definition" id="exports-definition">
+<h3 class="tags-name">exports</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="exports-title-name"><b>title</b></td> <td class="tags-property-value" id="exports-title-value">exports</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="exports-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="exports-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="exports-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="exports-onTagged-value">
+
+<pre class="prettyprint lang-js">
+function (doclet, tag) {
+    var modName = firstWordOf(tag.value);
+    doclet.addTag("alias", modName);
+    doclet.addTag("kind", "module");
+}
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="exports-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="exports-synonyms-value"></td>
+</tr>
+</tbody></table></div>
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="exports-overview">
+
 <h3>Overview</h3>
 
 <p>
@@ -286,7 +319,8 @@ define(function () {
 <ul>
     <li><a href="tags-module.html">@module</a></li>
     <li><a href="howto-commonjs-modules.html">Documenting JavaScript modules with JSDoc 3</a></li>
-</ul>
+</ul></div>
+
     </article>
     
     <footer>

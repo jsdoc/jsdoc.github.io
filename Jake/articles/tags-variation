@@ -1,9 +1,17 @@
 <!--{
-    "title": "@variation",
-    "out": "tags-variation.html",
-    "description": "[TODO] Document the variation tag"
+    "title" :       "@variation",
+    "out" :         "tags-variation.html",
+    "description" : "[TODO] Document the variation tag"
 }-->
 
-<p>
-    TODO: Finish documentation.
-</p>
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-variation.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="variation-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-variation
+{{/include}}
+</div>

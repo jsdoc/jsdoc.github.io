@@ -1,10 +1,20 @@
-<h2>example</h2>
-<p><br>
-<b>title</b> : example<br>
-<b>keepsWhitespace</b> : true<br>
-<b>mustHaveValue</b> : true<br>
-<b>onTagged</b> : <br>
-</p>
+<div class="tags-definition" id="example-definition">
+<h3 class="tags-name">example</h3>
+<table><thead>
+<tr><th>Property</th> <th>Value</th></tr>
+</thead><tbody>
+<tr>
+<td class="tags-property-name" id="example-title-name"><b>title</b></td> <td class="tags-property-value" id="example-title-value">example</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="example-keepsWhitespace-name"><b>keepsWhitespace</b></td> <td class="tags-property-value" id="example-keepsWhitespace-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="example-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="example-mustHaveValue-value">true</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="example-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="example-onTagged-value">
+
 <pre class="prettyprint lang-js">
 function (doclet, tag) {
     if (!doclet.examples) {
@@ -12,7 +22,11 @@ function (doclet, tag) {
     }
     doclet.examples.push(tag.value);
 }
-</pre><p>
-<br>
-<b>synonyms</b> : <br>
-</p><br>
+</pre>
+
+</td>
+</tr>
+<tr>
+<td class="tags-property-name" id="example-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="example-synonyms-value"></td>
+</tr>
+</tbody></table></div>

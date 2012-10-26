@@ -1,5 +1,5 @@
 set jsdocLoc=C:\Users\kastor\Documents\GitHub\jsdoc\
-set jsdocDocsLoc=C:\Users\kastor\Desktop\tagsDocs\
+set jsdocDocsLoc=C:\Users\kastor\Documents\GitHub\jsdoc3.github.com\
 
 set jsdoc=%jsdocLoc%jsdoc
 set describeTagsLoc=Jake\API\describeTags\

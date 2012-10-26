@@ -1,3 +1,6 @@
+/*jslint indent: 4, maxerr: 50, white: true, vars: true, node: true, sloppy: true, stupid: true, evil: true */
+/*global desc: true, task: true */
+
 // see: http://howtonode.org/intro-to-jake
 
 desc('separating extended article info from tags articles build files.');
@@ -5,10 +8,20 @@ task('default', [], function (params) {
     var fs = require('fs');
     var path = require('path');
     
-    var bodyOutDir = 'Jake/extended_docs/tags/',
-    articleOutDir = 'Jake/articles/',
-    srcdir = 'C:/Users/kastor/Documents/GitHub/jsdoc3.github.com/Jake/articles/',
-    articles = [];
+    var articlePrefix = 'plugins-',
+        apiFolder = 'plugins',
+        extended_docsFolder = 'plugins',
+        srcRoot = 'C:/Users/kastor/Documents/GitHub/jsdoc3.github.com/',
+        outRoot = 'C:/Users/kastor/Documents/GitHub/jsdoc3.github.com/';
+        
+    var apiDocs = 'jake/API/' + apiFolder + '/',
+        apiDocsDir = srcRoot + apiDocs,
+        bodyDocs = 'Jake/extended_docs/' + extended_docsFolder + '/',
+        articleDocs = 'Jake/articles/',
+        bodyOutDir = outRoot + bodyDocs,
+        articleOutDir = outRoot + articleDocs,
+        srcdir = srcRoot + articleDocs,
+        articles = [];
     
     fs.readdirSync(srcdir).forEach(function (file) {
         if (String(file)[0] === '.') {
@@ -30,22 +43,18 @@ task('default', [], function (params) {
     });
     
     articles.forEach(function(article) {
-        if (article.fileName.indexOf('tags-') === 0) {
-            var articleContent, tagname;
-            tagname = article.fileName.replace(/tags-/, '');
+        if (article.fileName.indexOf(articlePrefix) === 0) {
+            var articleContent, contentName, regx;
+            regx = new RegExp(articlePrefix);
+            contentName = article.fileName.replace(regx, '');
             articleContent  = '<!--{\n';
             articleContent += '    "title" :       "' + article.title + '",\n';
             articleContent += '    "out" :         "' + article.out + '",\n';
             articleContent += '    "description" : "' + article.description + '"\n';
             articleContent += '}-->\n\n';
-            articleContent += '<h2 name="definition" id="definition">Definition</h2>\n';
+            articleContent += '<div class="' + articlePrefix + 'overview" id="' + contentName + '-overview">\n';
             articleContent += '{{#include}}\n';
-            articleContent += '    jake/API/describeTags/' + article.out + '\n';
-            articleContent += '{{/include}}\n\n';
-            articleContent += '<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>\n';
-            articleContent += '<div class="tags-overview" id="' + tagname + '-overview">\n';
-            articleContent += '{{#include}}\n';
-            articleContent += '    jake/extended_docs/tags/' + article.fileName + '\n';
+            articleContent += '    ' + bodyDocs + article.fileName + '\n';
             articleContent += '{{/include}}\n';
             articleContent += '</div>\n';
             

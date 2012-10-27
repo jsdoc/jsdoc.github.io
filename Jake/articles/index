@@ -32,6 +32,7 @@
     <li>
         <a href="#JSDoc3_Tag_Dictionary">JSDoc 3 Tag Dictionary</a>
     </li>
+    
 </ol>
 
 <h2 name="Getting_Started" id="Getting_Started">Getting Started</h2>
@@ -40,6 +41,8 @@
 {{#gettingStartedEntry}}
  {{gettingStartedEntry}}
 {{/gettingStartedEntry}}
+    <dt><a href="/Jake/API/jsdoc/">API Docs</a></dt>
+        <dd>A look under the hood always helps.</dd>
 </dl>
 
 <h2 name="JSDoc_Examples" id="JSDoc_Examples">JSDoc Examples</h2>

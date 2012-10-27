@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+  <head>
+      <meta charset="utf-8">
+      <title>Source of : plugins.sourcetag.js</title>
+      <style type="text/css">
+          pre, code
+          {
+              white-space: pre-wrap;
+          }
+      </style>
+      <script src="scripts/prettify/prettify.js"> </script>
+      <!--[if lt IE 9]>
+          <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+      <link type="text/css" title="desert" rel="stylesheet" href="styles/desert.css">
+      <link type="text/css" title="sunburst" rel="alternate stylesheet" href="styles/sunburst.css">
+      <link type="text/css" title="prettify" rel="alternate stylesheet" href="styles/prettify.css">
+  </head>
+  <body>
+      <pre class="prettyprint lang-js linenums">
+/**
+    @module plugins/sourcetag
+    @author Michael Mathews &lt;micmath@gmail.com>
+ */
+
+exports.handlers = {
+    /**
+        Support @source tag. Expected value like:
+            { "filename": "myfile.js", "lineno": 123 }
+        Modifies the corresponding meta values on the given doclet.
+        @source { "filename": "sourcetag.js", "lineno": 13 }
+     */
+    newDoclet: function(e) {
+        var tags = e.doclet.tags,
+            tag,
+            value;
+
+        //console.log(e.doclet);
+        // any user-defined tags in this doclet?
+        if (typeof tags !== 'undefined') {
+            // only interested in the @source tags
+            tags = tags.filter(function($) {
+                return $.title === 'source';
+            });
+
+            if (tags.length) {
+                // take the first one
+                tag = tags[0];
+
+                try {
+                    value = JSON.parse(tag.value);
+                }
+                catch(e) {
+                    throw new Error('@source tag expects a valid JSON value, like { "filename": "myfile.js", "lineno": 123 }.');
+                }
+
+                e.doclet.meta = e.doclet.meta || {};
+                e.doclet.meta.filename = value.filename || '';
+                e.doclet.meta.lineno = value.lineno || '';
+            }
+        }
+    }
+};
+      </pre>
+      <script>prettyPrint();</script>
+  </body>
+</html>

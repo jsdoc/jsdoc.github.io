@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+  <head>
+      <meta charset="utf-8">
+      <title>Source of : rhino_modules.jsdoc.config.js</title>
+      <style type="text/css">
+          pre, code
+          {
+              white-space: pre-wrap;
+          }
+      </style>
+      <script src="scripts/prettify/prettify.js"> </script>
+      <!--[if lt IE 9]>
+          <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+      <link type="text/css" title="desert" rel="stylesheet" href="styles/desert.css">
+      <link type="text/css" title="sunburst" rel="alternate stylesheet" href="styles/sunburst.css">
+      <link type="text/css" title="prettify" rel="alternate stylesheet" href="styles/prettify.css">
+  </head>
+  <body>
+      <pre class="prettyprint lang-js linenums">
+/**
+    @overview
+    @author Michael Mathews &lt;micmath@gmail.com>
+	@license Apache License 2.0 - See file 'LICENSE.md' in this project.
+ */
+
+/**
+	@module jsdoc/config
+	@requires common/util
+ */
+
+// used to do recursive merge
+var util = require('common/util');
+
+// required config values, override these defaults in your config.json if necessary
+const defaults = {
+    "tags": {
+        "allowUnknownTags": true
+    },
+    "source": {
+        "includePattern": ".+\\.js(doc)?$",
+        "excludePattern": "(^|\\/)_"
+    },
+    "plugins": [],
+    "jsVersion": 180
+};
+
+/**
+    @class
+    @classdesc Represents a JSDoc application configuration.
+    @param {string} [json] - The contents of config.json.
+ */
+function Config(json) {
+    json = JSON.parse( (json || "{}") );
+    this._config = util.mergeRecurse(defaults, json);
+}
+
+module.exports = Config;
+
+/**
+    Get the merged configuration values.
+ */
+Config.prototype.get = function() {
+    return this._config;
+};
+
+      </pre>
+      <script>prettyPrint();</script>
+  </body>
+</html>

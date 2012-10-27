@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+  <head>
+      <meta charset="utf-8">
+      <title>Source of : plugins.JSDocSpy.views.js</title>
+      <style type="text/css">
+          pre, code
+          {
+              white-space: pre-wrap;
+          }
+      </style>
+      <script src="scripts/prettify/prettify.js"> </script>
+      <!--[if lt IE 9]>
+          <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+      <link type="text/css" title="desert" rel="stylesheet" href="styles/desert.css">
+      <link type="text/css" title="sunburst" rel="alternate stylesheet" href="styles/sunburst.css">
+      <link type="text/css" title="prettify" rel="alternate stylesheet" href="styles/prettify.css">
+  </head>
+  <body>
+      <pre class="prettyprint lang-js linenums">
+/*jslint  indent: 4, maxerr: 50, rhino: true, node: true, sloppy: true, white: true, stupid: true, plusplus: true */
+/*global exports: true, env: true, */
+/**
+ * @file views used in generating docs from JSDoc 3 internals
+ * @exports plugins/JSDocSpy/views
+ * @author &lt;a href="mailto:matthewkastor@gmail.com">Matthew Kastor&lt;/a>
+ */
+
+/** @function */
+function gfmMarkdownToHtml(text) {
+    var out, gfmParser;
+    // this wants the gfm markdown parser regardless of conf.json settings
+    gfmParser = require('jsdoc/util/markdown').getParser('gfm');
+    out = gfmParser(text);
+    return out;
+}
+
+/** @namespace */
+exports.views = {
+    /** @namespace */
+    tagDictionary : {},
+    /** @namespace */
+    gfmMarkdown : {}
+};
+
+/** @function */
+exports.views.gfmMarkdown.asHtml = function(text) {
+    var out;
+    out = gfmMarkdownToHtml(text);
+    return out;
+};
+
+/** @function */
+exports.views.tagDictionary.toConsole = function(obj) {
+    var out;
+    out = JSON.stringify(obj, null, '    ');
+    return out;
+};
+
+/** @function */
+exports.views.tagDictionary.toMarkdown = function(obj, generateFiles) {
+    var EOL, os, fs, path, tag, thisTag, prop, val, tmp, out;
+    os = require('os');
+    EOL = os.EOL;
+    if(generateFiles === true) {
+        fs = require('fs');
+        path = require('path');
+    }
+    out = [];
+    for(tag in obj) {
+        if(obj.hasOwnProperty(tag)) {
+            thisTag = '';
+            
+            if(obj.hasOwnProperty(tag)) {
+                thisTag += '## ' + tag + EOL;
+                
+                for(prop in obj[tag]) {
+                    if(obj[tag].hasOwnProperty(prop)) {
+                        thisTag += '*' + prop + '* : ';
+                        val = obj[tag][prop];
+                        tmp = val.toString().trim();
+                        tmp = tmp.replace(/\r\n|\n|\r/g, os.EOL);
+                        tmp = tmp.replace(/\t/g, '    ');
+                        switch(typeof(val)) {
+                            case 'function':
+                                val = EOL + '```javascript' + os.EOL + tmp + os.EOL + '```';
+                                break;
+                            
+                            case 'object':
+                                val = tmp;
+                                break;
+                            
+                            default:
+                                val = tmp;
+                                break;
+                        }
+                        thisTag += val + EOL;
+                    }
+                }
+                
+                thisTag += EOL;
+                if(generateFiles === true) {
+                    fs.mkPath(env.opts.destination);
+                    fs.writeFileSync(path.join(env.opts.destination, 'tags-' + tag + '.gfmMarkdown') , thisTag, 'utf8');
+                } else {
+                    out.push(thisTag.trim());
+                }
+            }
+        }
+    }
+    return out;
+};
+
+
+/** @function */
+exports.views.tagDictionary.toHtml = function(obj, generateFiles) {
+    var EOL, os, fs, path, tag, thisTag, prop, val, tmp, out;
+    os = require('os');
+    EOL = '&lt;br>' + os.EOL;
+    if(generateFiles === true) {
+        fs = require('fs');
+        path = require('path');
+    }
+    out = [];
+    for(tag in obj) {
+        if(obj.hasOwnProperty(tag)) {
+            thisTag  = '&lt;div class="tags-definition" id="' + tag + '-definition">' + os.EOL;
+            
+            if(obj.hasOwnProperty(tag)) {
+                thisTag += '&lt;h3 class="tags-name">' + tag + '&lt;/h3>' + os.EOL;
+                thisTag += '&lt;table>&lt;thead>' + os.EOL;
+                thisTag += '&lt;tr>&lt;th>Property&lt;/th> &lt;th>Value&lt;/th>&lt;/tr>' + os.EOL;
+                thisTag += '&lt;/thead>&lt;tbody>' + os.EOL;
+                for(prop in obj[tag]) {
+                    if(obj[tag].hasOwnProperty(prop)) {
+                        thisTag += '&lt;tr>' + os.EOL;
+                        thisTag += '&lt;td class="tags-property-name" id="' + tag + '-' + prop + '-name">&lt;b>' + prop + '&lt;/b>&lt;/td> ';
+                        val = obj[tag][prop];
+                        tmp = val.toString().trim();
+                        tmp = tmp.replace(/\r\n|\n|\r/g, os.EOL);
+                        tmp = tmp.replace(/\t/g, '    ');
+                        switch(typeof(val)) {
+                            case 'function':
+                                val = os.EOL + os.EOL + '&lt;pre class="prettyprint lang-js">';
+                                val += os.EOL + tmp + os.EOL + '&lt;/pre>' + os.EOL + os.EOL;
+                                break;
+                            
+                            case 'object':
+                                val = tmp;
+                                break;
+                            
+                            default:
+                                val = tmp;
+                                break;
+                        }
+                        thisTag += '&lt;td class="tags-property-value" id="' + tag + '-' + prop + '-value">' + val + '&lt;/td>' + os.EOL + '&lt;/tr>' + os.EOL;
+                    }
+                }
+                
+                thisTag += '&lt;/tbody>&lt;/table>&lt;/div>' + os.EOL;
+                if(generateFiles === true) {
+                    fs.mkPath(env.opts.destination);
+                    fs.writeFileSync(path.join(env.opts.destination, 'tags-' + tag + '.html') , thisTag, 'utf8');
+                } else {
+                    out.push(thisTag.trim());
+                }
+            }
+        }
+    }
+    return out;
+};
+
+      </pre>
+      <script>prettyPrint();</script>
+  </body>
+</html>

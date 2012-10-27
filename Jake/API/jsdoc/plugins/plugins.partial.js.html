@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+  <head>
+      <meta charset="utf-8">
+      <title>Source of : plugins.partial.js</title>
+      <style type="text/css">
+          pre, code
+          {
+              white-space: pre-wrap;
+          }
+      </style>
+      <script src="scripts/prettify/prettify.js"> </script>
+      <!--[if lt IE 9]>
+          <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+      <link type="text/css" title="desert" rel="stylesheet" href="styles/desert.css">
+      <link type="text/css" title="sunburst" rel="alternate stylesheet" href="styles/sunburst.css">
+      <link type="text/css" title="prettify" rel="alternate stylesheet" href="styles/prettify.css">
+  </head>
+  <body>
+      <pre class="prettyprint lang-js linenums">
+/**
+    @overview Adds support for reusable partial jsdoc files.
+    @module plugins/partial
+    @author Ludo Antonov &lt;ludo@hulu.com>
+ */
+
+var fs = require('fs');
+var path = require('path');
+
+exports.handlers = {
+    ///
+    /// Include a partial jsdoc
+    /// @param e
+    /// @param e.filename
+    /// @param e.source
+    ///
+    /// @example
+    ///     @partial "partial_doc.jsdoc"
+    ///
+    beforeParse: function(e) {
+        e.source = e.source.replace(/(@partial \".*\")+/g, function($) {
+            var pathArg = $.match(/\".*\"/)[0].replace(/"/g,'');
+            var fullPath =  path.join(e.filename , '..', pathArg);
+
+            var partialData = fs.readFileSync(fullPath);
+
+            return partialData;
+        });
+    }
+};
+
+      </pre>
+      <script>prettyPrint();</script>
+  </body>
+</html>

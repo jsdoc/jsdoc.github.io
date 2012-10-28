@@ -41,7 +41,7 @@
 {{#gettingStartedEntry}}
  {{gettingStartedEntry}}
 {{/gettingStartedEntry}}
-    <dt><a href="/Jake/API/jsdoc/">API Docs</a></dt>
+    <dt><a href="./Jake/API/jsdoc/index.html">API Docs</a></dt>
         <dd>A look under the hood always helps.</dd>
 </dl>
 

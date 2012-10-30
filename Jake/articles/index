@@ -1,7 +1,7 @@
 <!--{
-    title: 'JSDoc 3 Documentation',
-    out: 'index.html',
-    description: 'Official documentation for JSDoc 3. The best documentation tool for JavaScript, ever.'
+    "title": "JSDoc 3 Documentation",
+    "out": "index.html",
+    "description": "Official documentation for JSDoc 3. The best documentation tool for JavaScript, ever."
 }-->
 
 <p>
@@ -38,9 +38,9 @@
 <h2 name="Getting_Started" id="Getting_Started">Getting Started</h2>
 
 <dl>
-{{#gettingStartedEntry}}
- {{gettingStartedEntry}}
-{{/gettingStartedEntry}}
+{{#generateLinksList}}about-
+{{generateLinksList}}
+{{/generateLinksList}}
     <dt><a href="./Jake/API/jsdoc/index.html">API Docs</a></dt>
         <dd>A look under the hood always helps.</dd>
 </dl>
@@ -48,24 +48,24 @@
 <h2 name="JSDoc_Examples" id="JSDoc_Examples">JSDoc Examples</h2>
 
 <dl>
-{{#howToEntry}}
- {{howToEntry}}
-{{/howToEntry}}
+{{#generateLinksList}}howto-
+{{generateLinksList}}
+{{/generateLinksList}}
 </dl>
 
 <h2 name="Included_Plugins" id="Included_Plugins">Included Plugins</h2>
 
 <dl>
-{{#pluginsEntry}}
- {{pluginsEntry}}
-{{/pluginsEntry}}
+{{#generateLinksList}}plugins-
+{{generateLinksList}}
+{{/generateLinksList}}
 </dl>
 
 <h2 name="Contribute" id="Contribute">Contribute</h2>
 <dl>
-{{#contributeEntry}}
- {{contributeEntry}}
-{{/contributeEntry}}
+{{#generateLinksList}}contribute-
+{{generateLinksList}}
+{{/generateLinksList}}
     <dt><a href="https://github.com/jsdoc3/jsdoc">JSDoc 3 at github</a></dt>
         <dd>Contribute to the JSDoc 3 project.</dd>
     <dt><a href="https://github.com/jsdoc3/jsdoc3.github.com">JSDoc 3 Documentation</a></dt>
@@ -74,9 +74,9 @@
 
 <h2 name="JSDoc3_Tag_Dictionary" id="JSDoc3_Tag_Dictionary">JSDoc 3 Tag Dictionary</h2>
 <dl>
-{{#tagRefEntry}}
- {{tagRefEntry}}
-{{/tagRefEntry}}
+{{#generateLinksList}}tags-
+{{generateLinksList}}
+{{/generateLinksList}}
 </dl>
 
 <p>

@@ -1,0 +1,17 @@
+<!--{
+    "title" :       "@desc",
+    "out" :         "tags-desc.html",
+    "description" : "TODO: Document the desc tag."
+}-->
+
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-desc.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="desc-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-desc
+{{/include}}
+</div>

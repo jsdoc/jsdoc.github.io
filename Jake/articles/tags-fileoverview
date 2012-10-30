@@ -1,0 +1,17 @@
+<!--{
+    "title" :       "@fileoverview",
+    "out" :         "tags-fileoverview.html",
+    "description" : "TODO: Document the fileoverview tag."
+}-->
+
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-fileoverview.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="fileoverview-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-fileoverview
+{{/include}}
+</div>

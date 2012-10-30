@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Document the name of a JavaScript module."><title>Use JSDoc: @exports</title>
+    
+    <meta name="description" content="Document the name of a JavaScript module.">
+    
+    
+    <title>Use JSDoc: @exports</title>
     
     <link rel="stylesheet" href="lib/prettify.css" />
     <script src="lib/prettify.js"></script>
@@ -192,7 +196,7 @@
     
     <article>
     <h1>@exports</h1>
-
+    
 
 <h2 name="definition" id="definition">Definition</h2>
 <div class="tags-definition" id="exports-definition">
@@ -223,6 +227,7 @@ function (doclet, tag) {
 <td class="tags-property-name" id="exports-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="exports-synonyms-value"></td>
 </tr>
 </tbody></table></div>
+
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="exports-overview">
 
@@ -254,7 +259,8 @@ exports.sayHello = function() {
 
 </pre>
 </dd>
-</dl><dl class="example">
+</dl>
+<dl class="example">
 <dt>In AMD modules any namespace called &quot;exports&quot; is assumed by JSDoc 3 to be the exported object</dt>
 <dd>
 <pre class="prettyprint lang-js">
@@ -276,7 +282,8 @@ define(function () {
 
 </pre>
 </dd>
-</dl><dl class="example">
+</dl>
+<dl class="example">
 <dt>If your AMD module exports a constructor, you can still use the &quot;exports&quot; name to indicate what the module is</dt>
 <dd>
 <pre class="prettyprint lang-js">
@@ -304,7 +311,8 @@ define(function() {
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
 If you are exporting an object named anything other than "exports", use the <code>@exports</code> tag to indicate what is being exported.
 </p>
 
@@ -330,13 +338,13 @@ define(function () {
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl>
+<h3>See Also</h3>
 
 <ul>
     <li><a href="tags-module.html">@module</a></li>
     <li><a href="howto-commonjs-modules.html">Documenting JavaScript modules with JSDoc 3</a></li>
 </ul></div>
-
     </article>
     
     <footer>

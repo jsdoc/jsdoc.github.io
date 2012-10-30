@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="A guide to using namepaths with JSDoc 3."><title>Use JSDoc: Using namepaths with JSDoc 3</title>
+    
+    <meta name="description" content="A guide to using namepaths with JSDoc 3.">
+    
+    
+    <title>Use JSDoc: Using namepaths with JSDoc 3</title>
     
     <link rel="stylesheet" href="lib/prettify.css" />
     <script src="lib/prettify.js"></script>
@@ -192,7 +196,7 @@
     
     <article>
     <h1>Using namepaths with JSDoc 3</h1>
-
+    
 
 <div class="about-overview" id="namepaths-overview">
 
@@ -214,7 +218,8 @@ MyConstructor~innerMember // note that JSDoc 2 uses a dash
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
 The example below shows: an <em>instance</em> method named "say," an <em>inner</em> function also named "say," and a <em>static</em> method also named "say." These are three distinct methods that all exist independently of one another.
 </p>
 
@@ -243,7 +248,8 @@ Person.say(); // I'm static.
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
 You would use three different namepath syntaxes to refer to the three different methods:
 </p>
 
@@ -257,7 +263,8 @@ Person~say  // the inner method named "say."
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
 You might wonder why there is a syntax to refer to an inner method when that method isn't directly accessible from outside the function it is defined in. While that is true, and thus the "~" syntax is rarely used, it <em>is</em> possible to return a reference to an inner method from another method inside that container, so it is possible that some object elsewhere in your code might borrow an inner method.
 </p>
 
@@ -285,14 +292,14 @@ i.consider();
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
 In this case, to refer to the method named "consider," you would use the following namepath:
 <code>Person#Idea#consider</code></p>
 
 <p>
 This chaining can be used with any combination of the connecting symbols: <code># . ~</code></p>
 </div>
-
     </article>
     
     <footer>

@@ -1,0 +1,17 @@
+<!--{
+    "title" :       "@var",
+    "out" :         "tags-var.html",
+    "description" : "TODO: Document the var tag."
+}-->
+
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/tags-var.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="var-overview">
+{{#include}}
+    jake/extended_docs/tags/tags-var
+{{/include}}
+</div>

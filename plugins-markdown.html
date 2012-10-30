@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="The markdown plugin allows markdown in doc comments and comes in two flavors."><title>Use JSDoc: How To Use the Markdown Plugin</title>
+    
+    <meta name="description" content="The markdown plugin allows markdown in doc comments and comes in two flavors.">
+    
+    
+    <title>Use JSDoc: How To Use the Markdown Plugin</title>
     
     <link rel="stylesheet" href="lib/prettify.css" />
     <script src="lib/prettify.js"></script>
@@ -192,7 +196,7 @@
     
     <article>
     <h1>How To Use the Markdown Plugin</h1>
-
+    
 
 <div class="plugins-overview" id="markdown-overview">
 
@@ -211,7 +215,8 @@
 
 </pre>
 </dd>
-</dl><p>This will cause Markdown in <code>@description</code> tags (including implicit descriptions without tags), <code>@classdesc</code> tags, <code>@param</code> tags, <code>@property</code> tags, and <code>@returns</code> tags to be parsed.</p>
+</dl>
+<p>This will cause Markdown in <code>@description</code> tags (including implicit descriptions without tags), <code>@classdesc</code> tags, <code>@param</code> tags, <code>@property</code> tags, and <code>@returns</code> tags to be parsed.</p>
 
 <p>Also, be sure to use leading asterisks in your doc comments! If you omit the leading asterisks, JSDoc's code parser may remove other asterisks that are used for Markdown formatting.</p>
 
@@ -234,7 +239,8 @@
 
 </pre>
 </dd>
-</dl><h2>Choosing a parser</h2>
+</dl>
+<h2>Choosing a parser</h2>
 
 <p>The plugin currently supports two Markdown parsers.  You can select which parser to use by adding a <code>"parser"</code> property to your Markdown configuration:</p>
 
@@ -252,7 +258,8 @@
 
 </pre>
 </dd>
-</dl><h3>Dominic "evilstreak" Baggott's markdown-js</h3>
+</dl>
+<h3>Dominic "evilstreak" Baggott's markdown-js</h3>
 
 <p>The default parser is Dominic Baggott's excellent <a href="https://github.com/evilstreak/markdown-js">markdown-js</a>.  It can be explicitly selected by setting the <code>parser</code> to <code>evilstreak</code> and has one additional (and optional) configuration option, <code>dialect</code>, which can be used to select which of markdown-js' built-in dialects to use.  If omitted, markdown-js' default dialect will be used.</p>
 
@@ -271,7 +278,8 @@
 
 </pre>
 </dd>
-</dl><h3>GitHib Flavored Markdown</h3>
+</dl>
+<h3>GitHib Flavored Markdown</h3>
 
 <p>The alternative parser is the modified Showdown parser supplied by GitHub for their <a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a>.  GFM several enhancements to standard Markdown syntax (see its documentation) intended to be useful to developers.  It <em>also</em> has the ability to quickly link to GitHub repositories, files, and issues.  It can be selected by setting the <code>parser</code> to <code>gfm</code> and supports three additional (and optional) configuration options.</p>
 
@@ -294,7 +302,8 @@
 
 </pre>
 </dd>
-</dl><h3>Why two parsers?</h3>
+</dl>
+<h3>Why two parsers?</h3>
 
 <p>The "evilstreak" parser is flexible, extensible, currently-maintained, and was the only parser available in earlier versions of the Markdown plugin, but doesn't support the useful GFM extensions.  The "gfm" parser is based on the no-longer-maintained Showdown parser, but is the actual library used for GitHub's <a href="http://github.github.com/github-flavored-markdown/preview.html">client-side previews</a>.</p>
 
@@ -318,8 +327,8 @@
 
 </pre>
 </dd>
-</dl><p>* Because the Markdown plugin works with JSDoc's internal representation rather than with the source comments, the names you need to enter in the <code>tags</code> property aren't necessarily the same as the actual tag names.  For example, in the default set of tags, <code>@param</code> is stored under <code>params</code>.  If you are having trouble getting the Markdown plugin to work with your extra tags, either take a peek at the output of JSDoc's <code>--explain</code> command-line parameter (which displays the internal state which plugins work with) or ask the plugin author which "doclet properties" their plugin uses.  The Markdown plugin supports strings, arrays, and objects/subdoclets.</p></div>
-
+</dl>
+<p>* Because the Markdown plugin works with JSDoc's internal representation rather than with the source comments, the names you need to enter in the <code>tags</code> property aren't necessarily the same as the actual tag names.  For example, in the default set of tags, <code>@param</code> is stored under <code>params</code>.  If you are having trouble getting the Markdown plugin to work with your extra tags, either take a peek at the output of JSDoc's <code>--explain</code> command-line parameter (which displays the internal state which plugins work with) or ask the plugin author which "doclet properties" their plugin uses.  The Markdown plugin supports strings, arrays, and objects/subdoclets.</p></div>
     </article>
     
     <footer>

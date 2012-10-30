@@ -1,0 +1,18 @@
+{{=<% %>=}}
+<!--{
+    "title" :       "@<%tagBaseName%>",
+    "out" :         "<%tagName%>.html",
+    "description" : "TODO: Document the <%tagBaseName%> tag."
+}-->
+
+<h2 name="definition" id="definition">Definition</h2>
+{{#include}}
+    jake/API/describeTags/<%tagName%>.html
+{{/include}}
+
+<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
+<div class="tags-overview" id="<%tagBaseName%>-overview">
+{{#include}}
+    jake/extended_docs/tags/<%tagName%>
+{{/include}}
+</div>

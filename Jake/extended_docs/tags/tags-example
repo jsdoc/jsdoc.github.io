@@ -1,15 +1,20 @@
-
-<h3>Overview</h3>
-
-<p>Provide an example of how to use a documented item. The text that follows this tag may span multiple lines, it will be displayed as highlighted code. The leading stars in the comment do not have to be present for this to work.
-</p>
-
-<h3>Examples</h3>
+<h3>
+    Overview
+</h3>
 
 <p>
+    Provide an example of how to use a documented item. The text that follows this tag may span multiple lines, it will be displayed as highlighted code. The leading stars in the comment do not have to be present for this to work.
 </p>
 
-{{#example}}Documenting examples.
+<h3>
+    Examples
+</h3>
+
+<p>
+    <b>Documenting examples.</b>
+</p>
+
+{{#example}} code
 /**
  * Solves equations of the form a * x = b
  * @example
@@ -21,8 +26,11 @@ globalNS.method1 = function (a,b) {
     return b / a;
 };
 {{/example}}
+<p>
+    <b>Documenting examples (note no leading stars required)</b>
+</p>
 
-{{#example}}Documenting examples (note no leading stars required)
+{{#example}} code
 /**
  * Solves equations of the form a * x = b
  * @example
@@ -34,9 +42,12 @@ globalNS.method1 = function (a,b) {
     return b / a;
 };
 {{/example}}
-
-<h3>See Also</h3>
+<h3>
+    See Also
+</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li>
+        <a href="#">...</a>
+    </li>
 </ul>

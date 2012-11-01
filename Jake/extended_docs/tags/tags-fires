@@ -1,18 +1,28 @@
-
-<h3>Syntax</h3>
-
-<code>@fires &lt;className>#[event:]&lt;eventName></code>
-
-<h3>Overview</h3>
+<h3>
+    Syntax
+</h3>
 
 <p>
-    The @fires tag indicates that a method can fire a specified type of event when it is called. Use
-    the @event tag to document the event's content.
+    <code>@fires &lt;className&gt;#[event:]&lt;eventName&gt;</code>
 </p>
 
-<h3>Examples</h3>
+<h3>
+    Overview
+</h3>
 
-{{#example}}Method that fires a 'drain' event
+<p>
+    The @fires tag indicates that a method can fire a specified type of event when it is called. Use the @event tag to document the event's content.
+</p>
+
+<h3>
+    Examples
+</h3>
+
+<p>
+    <b>Method that fires a 'drain' event</b>
+</p>
+
+{{#example}} code
 /**
  * Drink the milkshake.
  *
@@ -22,9 +32,12 @@ Milkshake.prototype.drink = function() {
     // ...  
 };
 {{/example}}
-
-<h3>See Also</h3>
+<h3>
+    See Also
+</h3>
 
 <ul>
-    <li><a href="tags-event.html">@event</a></li>
+    <li>
+        <a href="tags-event.html">@event</a>
+    </li>
 </ul>

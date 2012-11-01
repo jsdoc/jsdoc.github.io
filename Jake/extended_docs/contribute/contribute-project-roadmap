@@ -1,15 +1,22 @@
-
-<h3>Project Roadmap</h3>
+<h3>
+    Project Roadmap
+</h3>
 
 <p>
-This is a high-level overview of the plans for future work on the JSDoc 3 application. To propose new goals or discuss existing goals please post to the <a href="http://groups.google.com/group/jsdoc">official JSDoc mailing list</a>.
+    This is a high-level overview of the plans for future work on the JSDoc 3 application. To propose new goals or discuss existing goals please post to the <a href="http://groups.google.com/group/jsdoc">official JSDoc mailing list</a>.
 </p>
 
-<h3>Version 3.0</h3>
+<h3>
+    Version 3.0
+</h3>
 
 <ol>
-    <li>&#10003; Support doclets associated with multiple <code>var</code> declarations, separated by commas.
-    {{#example}}Example
+    <li>✓ Support doclets associated with multiple <code>var</code> declarations, separated by commas.
+        <p>
+            <b>Example</b>
+        </p>
+
+        {{#example}} code
 
 /** for a */
 var a,
@@ -18,9 +25,13 @@ b;
 
 {{/example}}
     </li>
-    
-    <li>&#10003; Support multiple doclets associated with a single code symbol.
-    {{#example}}Example
+
+    <li>✓ Support multiple doclets associated with a single code symbol.
+        <p>
+            <b>Example</b>
+        </p>
+
+        {{#example}} code
 
 /**
  * Set the name.
@@ -40,9 +51,13 @@ this.name = function(newName){
 
 {{/example}}
     </li>
-    
-    <li>&#10003; Support documenting CommonJS modules with exported symbols.
-    {{#example}}Example
+
+    <li>✓ Support documenting CommonJS modules with exported symbols.
+        <p>
+            <b>Example</b>
+        </p>
+
+        {{#example}} code
 
 /**
  * @module foo/bar
@@ -59,9 +74,13 @@ exports.doit = function(){
 
     <li>Improve compatibility with <a href="http://code.google.com/closure/compiler/docs/js-for-compiler.html#tags">Google's Closure Compiler</a>.
     </li>
-    
-    <li>&#10003; Add @default tag. Support automatic @default for simple values types like strings, numbers, null, or named variables.
-    {{#example}}Example
+
+    <li>✓ Add @default tag. Support automatic @default for simple values types like strings, numbers, null, or named variables.
+        <p>
+            <b>Example</b>
+        </p>
+
+        {{#example}} code
 
 /**
  * Is documented as having a default value of 1.
@@ -72,8 +91,10 @@ var count = 1;
 
 {{/example}}
     </li>
-    
-    <li>&#10003; Simplify the commandline arguments as much as possible.</li>
-    
-    <li>&#10003; Replace the bespoke templating toolset with an open source third party tool.</li>
+
+    <li>✓ Simplify the commandline arguments as much as possible.
+    </li>
+
+    <li>✓ Replace the bespoke templating toolset with an open source third party tool.
+    </li>
 </ol>

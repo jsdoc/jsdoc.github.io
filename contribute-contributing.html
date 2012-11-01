@@ -199,8 +199,6 @@
     
 
 <div class="contribute-overview" id="contributing-overview">
-
-
 <h2>
     Pull Requests
 </h2>
@@ -214,17 +212,21 @@
         <p>
             <strong>Create a remote to track the base jsdoc3/jsdoc repository</strong> This is just a convenience to make it easier to update your <code>&lt;tracking branch&gt;</code> (more on that shortly). You would execute something like:
         </p>
-        
+
+        <p>
+            <b>Example</b>
+        </p>
+
         <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 git remote add base git://github.com/jsdoc3/jsdoc.git
 
+
 </pre>
 </dd>
-</dl>        
-        <p>
+</dl>        <p>
             Here 'base' is the name of the remote. Feel free to use whatever you want.
         </p>
     </li>
@@ -233,12 +235,17 @@ git remote add base git://github.com/jsdoc3/jsdoc.git
         <p>
             <strong>Set up a tracking branch for the base repository</strong> We're gonna call this your <code>&lt;tracking branch&gt;</code>. You will only ever update this branch by pulling from the 'base' remote. (as opposed to 'origin')
         </p>
-        
+
+        <p>
+            <b>Example</b>
+        </p>
+
         <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 git branch --track pullpost base/master git checkout pullpost
+
 
 </pre>
 </dd>
@@ -251,17 +258,21 @@ git branch --track pullpost base/master git checkout pullpost
         <p>
             <strong>Create your change branch</strong> Once you are in <code>&lt;tracking branch&gt;</code>, make sure it's up to date, then create a branch for your changes off of that one.
         </p>
-        
+
+        <p>
+            <b>Example</b>
+        </p>
+
         <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 git branch fix-for-issue-395 git checkout fix-for-issue-395
 
+
 </pre>
 </dd>
-</dl>        
-        <p>
+</dl>        <p>
             Here 'fix-for-issue-395' is the name of the branch. Feel free to use whatever you want. We'll call this the <code>&lt;change branch&gt;</code>. This is the branch that you will eventually issue your pull request from.
         </p>
 
@@ -297,7 +308,8 @@ git branch fix-for-issue-395 git checkout fix-for-issue-395
             If it's a feature, provide some context about the motivations behind the feature, why it's important/useful/cool/necessary and what it does/how it works. Don't worry about being too verbose. Folks will be much more amenable to reading through your code if they know what its supposed to be about.
         </p>
     </li>
-</ol></div>
+</ol>
+</div>
     </article>
     
     <footer>

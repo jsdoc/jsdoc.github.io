@@ -1,5 +1,6 @@
-
-<h3>Overview</h3>
+<h3>
+    Overview
+</h3>
 
 <p>
     The @property tag is a way to easily document a list of static properties of a class, namespace or other object.
@@ -13,13 +14,19 @@
     Note that property tags must be used in doc comments for the thing that they are properties of, a namespace or a class for example. This tag is intended for simple collections of static properties, it does not allow you to provide @examples or similar complex information for each property, just the type, name and description.
 </p>
 
-<h3>Examples</h3>
+<h3>
+    Examples
+</h3>
 
 <p>
     In this example we have a namespace named "config." We want all the information about the defaults property, including it's nested values to appear on the same page with the documentation for config.
 </p>
 
-{{#example}}A namespace with defaults and nested default properties
+<p>
+    <b>A namespace with defaults and nested default properties</b>
+</p>
+
+{{#example}} code
 /**
  * @namespace
  * @property {object}  defaults               - The default values for parties.
@@ -38,10 +45,15 @@ var config = {
     }
 };
 {{/example}}
-
-<h3>See Also</h3>
+<h3>
+    See Also
+</h3>
 
 <ul>
-    <li>Contrast this tag with the <a href="tags-member.html">@member</a> tag.</li>
-    <li><a href="tags-enum.html">@enum</a></li>
+    <li>Contrast this tag with the <a href="tags-member.html">@member</a> tag.
+    </li>
+
+    <li>
+        <a href="tags-enum.html">@enum</a>
+    </li>
 </ul>

@@ -199,31 +199,36 @@
     
 
 <div class="about-overview" id="templates-overview">
-
-
 <ol>
-    <li><a href="#The_basics">The basics</a>
+    <li>
+        <a href="#The_basics">The basics</a>
         <ol>
-            <li><a href="#Barebones_Example">Barebones Example</a>
+            <li>
+                <a href="#Barebones_Example">Barebones Example</a>
             </li>
         </ol>
     </li>
 
-    <li><a href="#Intermediate_Examples">Intermediate Examples</a>
+    <li>
+        <a href="#Intermediate_Examples">Intermediate Examples</a>
         <ol>
-            <li><a href="#Generating_HTML_Using_Template_Strings">Generating HTML Using Template Strings</a>
+            <li>
+                <a href="#Generating_HTML_Using_Template_Strings">Generating HTML Using Template Strings</a>
             </li>
 
-            <li><a href="#Generating_HTML_Using_Template_Files">Generating HTML Using Template Files</a>
+            <li>
+                <a href="#Generating_HTML_Using_Template_Files">Generating HTML Using Template Files</a>
             </li>
         </ol>
     </li>
 
-    <li><a href="#More_Info">More Info</a>
+    <li>
+        <a href="#More_Info">More Info</a>
     </li>
 </ol>
 
-<h2 name="The_basics" id="The_basics">
+<h2 name="The_basics"
+    id="The_basics">
     The basics
 </h2>
 
@@ -231,29 +236,36 @@
     To invoke JSDoc 3 with your own template, use the <code>-t</code> or <code>--template</code> command line option, giving it the path to your template folder.
 </p>
 
+<p>
+    <b>Usage</b>
+</p>
+
 <dl class="example">
-<dt>Usage</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 ./jsdoc mycode.js -t /path/to/mycooltemplate
 
 </pre>
 </dd>
-</dl>
-<p>
+</dl><p>
     If you've installed (copied) the template into the templates folder, then you can specify a short path like the following.
 </p>
 
+<p>
+    <b>Usage</b>
+</p>
+
 <dl class="example">
-<dt>Usage</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 ./jsdoc mycode.js --template templates/default
 
 </pre>
 </dd>
-</dl>
-<h3 name="Barebones_Example" id="Barebones_Example">
+</dl><h3 name="Barebones_Example"
+    id="Barebones_Example">
     Barebones Example
 </h3>
 
@@ -261,8 +273,12 @@
     To create or use your own template, create a folder, and give it the name of your template, for example "mycooltemplate". Within this folder create a file named "publish.js". That file must export a method named "publish".
 </p>
 
+<p>
+    <b>Barebones Example - console.log</b>
+</p>
+
 <dl class="example">
-<dt>Barebones Example - console.log</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
@@ -294,37 +310,45 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 
 </pre>
 </dd>
-</dl>
-<p>
+</dl><p>
     <b>Note that:</b>
 </p>
 
 <ul>
-    <li>Templating is handled by underscore by default. See: <a target="_blank" href="http://underscorejs.org/#template">http://underscorejs.org/#template</a>
+    <li>Templating is handled by underscore by default. See: <a target="_blank"
+            href="http://underscorejs.org/#template">http://underscorejs.org/#template</a>
     </li>
 
-    <li>The data passed to your publish function is a TaffyDB database. See: <a target="_blank" href="http://www.taffydb.com/workingwithdata">http://www.taffydb.com/workingwithdata</a>
+    <li>The data passed to your publish function is a TaffyDB database. See: <a target="_blank"
+            href="http://www.taffydb.com/workingwithdata">http://www.taffydb.com/workingwithdata</a>
     </li>
 
     <li>Helper functions for the included underscore template module are located at <code>jsdoc/rhino_modules/jsdoc/template.js</code> Using this will allow you to load templates from files.
     </li>
 
-    <li>Filesystem functions are available in <code>jsdoc/rhino_modules/fs.js</code> See: <a target="_blank" href="http://nodejs.org/api/fs.html">http://nodejs.org/api/fs.html</a>
+    <li>Filesystem functions are available in <code>jsdoc/rhino_modules/fs.js</code> See: <a target="_blank"
+            href="http://nodejs.org/api/fs.html">http://nodejs.org/api/fs.html</a>
     </li>
 
-    <li>Functions for dealing with paths are available in <code>jsdoc/rhino_modules/path.js</code> See: <a target="_blank" href="http://nodejs.org/api/path.html">http://nodejs.org/api/path.html</a>
+    <li>Functions for dealing with paths are available in <code>jsdoc/rhino_modules/path.js</code> See: <a target="_blank"
+            href="http://nodejs.org/api/path.html">http://nodejs.org/api/path.html</a>
     </li>
 
     <li>Helper functions are available at <code>jsdoc/rhino_modules/jsdoc/util/templateHelper.js</code> Using this, you will be able to sort and filter the data from JSDoc easily.
     </li>
 </ul>
 
-<h2 name="Intermediate_Examples" id="Intermediate_Examples">
+<h2 name="Intermediate_Examples"
+    id="Intermediate_Examples">
     Intermediate Examples
 </h2>
 
+<p>
+    <b>A More Complex Example - Writing Data to a File</b>
+</p>
+
 <dl class="example">
-<dt>A More Complex Example - Writing Data to a File</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
@@ -362,13 +386,17 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 
 </pre>
 </dd>
-</dl>
-<h3 name="Generating_HTML_Using_Template_Strings" id="Generating_HTML_Using_Template_Strings">
+</dl><h3 name="Generating_HTML_Using_Template_Strings"
+    id="Generating_HTML_Using_Template_Strings">
     Generating HTML Using Template Strings
 </h3>
 
+<p>
+    <b>An Even More Complex Example - Using Templates to Generate HTML</b>
+</p>
+
 <dl class="example">
-<dt>An Even More Complex Example - Using Templates to Generate HTML</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
@@ -399,51 +427,39 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
     var renderTemplate  = require('underscore').template;
     var templateSettings= {};
     
-    templateStr  = '&lt;!DOCTYPE html>\n';
-    templateStr += '&lt;html>\n';
-    templateStr += '&lt;head>\n&lt;title>OMFG!&lt;/title>\n&lt;/head>\n';
-    templateStr += '&lt;body>\n&lt;pre>&lt;?js= outputContent ?>&lt;/pre>\n&lt;/body>\n';
-    templateStr += '&lt;/html>\n';
-    
-    templateData.outputContent = helper.htmlsafe(outputContent);
-    
-    // override default settings, this is done in 
-    // jsdoc/rhino_modules/jsdoc/template as well. 
-    // It is used to define the template "tags". 
-    // Have a look at some of the default template 
-    // files to get an idea of what you can do.
-    templateSettings.evaluate   = /&lt;\?js([\s\S]+?)\?>/g;
-    templateSettings.interpolate= /&lt;\?js=([\s\S]+?)\?>/g;
-    templateSettings.escape     = /&lt;\?js~([\s\S]+?)\?>/g;
-    
-    outputContent = renderTemplate(templateStr, templateData, templateSettings);
-    
-    
-    // replacing all backslashes with forward slashes in the path 
-    // this avoids a few issues on Windows.
-    outputDir        = outputDir.replace(/\\/g, '/');
-    // removing any trailing slash
-    outputDir        = outputDir.replace(/\/+$/, '');
-    
-    outputFile       = outputDir + outputFile;
-    
-    fs.mkPath(outputDir);
-    fs.writeFileSync(outputFile, outputContent);
-};
+    templateStr  = '\n';
+    templateStr += '
 
 </pre>
 </dd>
-</dl>
-<h3 name="Generating_HTML_Using_Template_Files" id="Generating_HTML_Using_Template_Files">
-    Generating HTML Using Template Files
-</h3>
+</dl><html>
+    <body>
+        \n'; templateStr += '\n\n\n'; templateStr += '\n
 
-<p>
-    This next example shows how to load template files. This will make it easier for you to transform the data into something presentable, without making a huge mess trying to write out a template in escaped JavaScript strings. This example requires several files in order to function. The most important of which are <code>publish.js</code> and <code>layout.tmpl</code>. With just these two files you'll be able to generate pages containing data from JSDoc 3. With just a little css and maybe some JavaScript, your documentation can come alive. The full example can be downloaded <a href="downloads/simpleTemplate.zip">here</a>.
-</p>
+        <dl class="example">
+<dt>code</dt>
+<dd>
+<pre class="prettyprint lang-js">
+&lt;?js= outputContent ?>
 
-<dl class="example">
-<dt>simpleTemplate Directory Tree</dt>
+</pre>
+</dd>
+</dl>\n\n'; templateStr += '\n'; templateData.outputContent = helper.htmlsafe(outputContent); // override default settings, this is done in // jsdoc/rhino_modules/jsdoc/template as well. // It is used to define the template "tags". // Have a look at some of the default template // files to get an idea of what you can do. templateSettings.evaluate = /&lt;\?js([\s\S]+?)\?&gt;/g; templateSettings.interpolate= /&lt;\?js=([\s\S]+?)\?&gt;/g; templateSettings.escape = /&lt;\?js~([\s\S]+?)\?&gt;/g; outputContent = renderTemplate(templateStr, templateData, templateSettings); // replacing all backslashes with forward slashes in the path // this avoids a few issues on Windows. outputDir = outputDir.replace(/\\/g, '/'); // removing any trailing slash outputDir = outputDir.replace(/\/+$/, ''); outputFile = outputDir + outputFile; fs.mkPath(outputDir); fs.writeFileSync(outputFile, outputContent); };
+        <h3 name="Generating_HTML_Using_Template_Files"
+            id="Generating_HTML_Using_Template_Files">
+            Generating HTML Using Template Files
+        </h3>
+
+        <p>
+            This next example shows how to load template files. This will make it easier for you to transform the data into something presentable, without making a huge mess trying to write out a template in escaped JavaScript strings. This example requires several files in order to function. The most important of which are <code>publish.js</code> and <code>layout.tmpl</code>. With just these two files you'll be able to generate pages containing data from JSDoc 3. With just a little css and maybe some JavaScript, your documentation can come alive. The full example can be downloaded <a href="downloads/simpleTemplate.zip">here</a>.
+        </p>
+
+        <p>
+            <b>simpleTemplate Directory Tree</b>
+        </p>
+
+        <dl class="example">
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 \---templates
@@ -466,13 +482,16 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 
 </pre>
 </dd>
-</dl>
-<p>
-    <b>Note that if you want to run this example you'll need to create the directory structure shown above, or just download the example and play with it.</b> You can get away with not having any of the files besides <code>publish.js</code> and <code>layout.tmpl</code> but you'll need the folders.
-</p>
+</dl>        <p>
+            <b>Note that if you want to run this example you'll need to create the directory structure shown above, or just download the example and play with it.</b> You can get away with not having any of the files besides <code>publish.js</code> and <code>layout.tmpl</code> but you'll need the folders.
+        </p>
 
-<dl class="example">
-<dt>templates&#x2F;simpleTemplate&#x2F;publish.js</dt>
+        <p>
+            <b>templates/simpleTemplate/publish.js</b>
+        </p>
+
+        <dl class="example">
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
@@ -542,47 +561,66 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 
 </pre>
 </dd>
-</dl>
-<dl class="example">
-<dt>templates&#x2F;simpleTemplate&#x2F;tmpl&#x2F;layout.tmpl</dt>
+</dl>        <p>
+            <b>templates/simpleTemplate/tmpl/layout.tmpl</b>
+        </p>
+
+        <dl class="example">
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
-&lt;!DOCTYPE html>
-  &lt;head>
-      &lt;meta charset="utf-8">
-      &lt;title>&lt;?js= title ?>&lt;/title>
-      &lt;style type="text/css">
-          pre, code
-          {
-              white-space: pre-wrap;
-          }
-      &lt;/style>
-      &lt;script src="scripts/prettify/prettify.js"> &lt;/script>
-      &lt;!--[if lt IE 9]>
-          &lt;script src="//html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script>
+&lt;head>
+    &lt;meta charset="utf-8">
+    &lt;title>
+        &lt;?js= title ?>
+        &lt;/title>
+    &lt;style type="text/css">
+    pre, code
+    {
+      white-space: pre-wrap;
+    }
+    &lt;/style>
+    &lt;script src="scripts/prettify/prettify.js"
+          type="text/javascript">
+    &lt;/script>
+    &lt;!--[if lt IE 9]>
+  &lt;script src="//html5shiv.googlecode.com/svn/trunk/html5.js">&lt;/script>
       &lt;![endif]-->
-      &lt;link type="text/css" title="desert" rel="stylesheet" href="styles/desert.css">
-      &lt;link type="text/css" title="sunburst" rel="alternate stylesheet" href="styles/sunburst.css">
-      &lt;link type="text/css" title="prettify" rel="alternate stylesheet" href="styles/prettify.css">
-  &lt;/head>
-  &lt;body>
-      &lt;pre class="prettyprint lang-js linenums">
-&lt;?js= sourceCode ?>
-      &lt;/pre>
-      &lt;script>prettyPrint();&lt;/script>
-  &lt;/body>
-&lt;/html>
+    &lt;link type="text/css"
+          title="desert"
+          rel="stylesheet"
+          href="styles/desert.css">
+    &lt;link type="text/css"
+          title="sunburst"
+          rel="alternate stylesheet"
+          href="styles/sunburst.css">
+    &lt;link type="text/css"
+          title="prettify"
+          rel="alternate stylesheet"
+          href="styles/prettify.css">
+&lt;/head>
+&lt;body>
+    &lt;pre class="prettyprint lang-js linenums">
+        &lt;?js= sourceCode ?>
+    &lt;/pre>
+    &lt;script type="text/javascript">
+        prettyPrint();
+    &lt;/script>
 
 </pre>
 </dd>
-</dl>
-<h2 name="More_Info" id="More_Info">
-    More Info
-</h2>
+</dl>            <h2 name="More_Info"
+                id="More_Info">
+                More Info
+            </h2>
 
-<p>
-    Hopefully after reading everything above you'll be able to start using the <code>data</code> provided by JSDoc 3. Now that you've got some sense of how to read and write with templates, take a look at the default template and see how it builds up a coherent set of documents from the <code>data</code>.
-</p></div>
+            <p>
+                Hopefully after reading everything above you'll be able to start using the <code>data</code> provided by JSDoc 3. Now that you've got some sense of how to read and write with templates, take a look at the default template and see how it builds up a coherent set of documents from the <code>data</code>.
+            </p>
+        </body>
+    </body>
+</html>
+</div>
     </article>
     
     <footer>

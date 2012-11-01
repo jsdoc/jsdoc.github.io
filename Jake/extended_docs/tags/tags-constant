@@ -1,41 +1,61 @@
-
-<h3>Synonyms</h3>
+<h3>
+    Synonyms
+</h3>
 
 <ul>
-    <li>@const</li>
+    <li>@const
+    </li>
 </ul>
 
-<h3>Syntax</h3>
+<h3>
+    Syntax
+</h3>
 
-<code>@constant [&lt;type> &lt;name>]</code>
+<p>
+    <code>@constant [&lt;type&gt; &lt;name&gt;]</code>
+</p>
 
-<h3>Overview</h3>
+<h3>
+    Overview
+</h3>
 
 <p>
     The @constant tag is used to mark the documentation as belonging to a symbol that is a constant.
 </p>
 
-<h3>Examples</h3>
+<h3>
+    Examples
+</h3>
 
 <p>
     In this example we are documenting a string constant. Note that although the code is using the <code>const</code> keyword, this is not required by JSDoc. If your JavaScript host environment doesn't yet support constant declarations, the @const documentation can just as effectively be used on <code>var</code> declarations.
 </p>
 
-{{#example}}A string constant representing the color red
+<p>
+    <b>A string constant representing the color red</b>
+</p>
+
+{{#example}} code
 /** @constant
     @type {string}
     @default
 */
 const RED = 'FF0000';
 {{/example}}
-
 <p>
     Note that the example provides the type in a @type tag. This is optional. Also the optional @default tag is used here too, this will automatically add whatever the assigned value is (for example 'FF0000') to the documentation.
 </p>
 
-<h3>See Also</h3>
+<h3>
+    See Also
+</h3>
 
 <ul>
-    <li><a href="tags-default.html">@default</a></li>
-    <li><a href="tags-type.html">@type</a></li>
+    <li>
+        <a href="tags-default.html">@default</a>
+    </li>
+
+    <li>
+        <a href="tags-type.html">@type</a>
+    </li>
 </ul>

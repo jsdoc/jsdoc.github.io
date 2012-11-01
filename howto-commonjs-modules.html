@@ -199,21 +199,28 @@
     
 
 <div class="howto-overview" id="commonjs-modules-overview">
-
-<h3>Overview</h3>
+<h3>
+    Overview
+</h3>
 
 <p>
-JSDoc 3 has built-in support for JavaScript code that is written to conform to the <a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS Modules standard</a>. This allows you to easily document your own JavaScript modules and the members they export.
+    JSDoc 3 has built-in support for JavaScript code that is written to conform to the <a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS Modules standard</a>. This allows you to easily document your own JavaScript modules and the members they export.
 </p>
 
-<h3>Document a Simple CommonJS Module</h3>
+<h3>
+    Document a Simple CommonJS Module
+</h3>
 
 <p>
-Add a single <code>@module &lt;module identifier></code> tag at the top of the file that defines your module and any documented members of the <code>exports</code> object in that file will automatically be included in the documentation for that module.
+    Add a single <code>@module &lt;module identifier&gt;</code> tag at the top of the file that defines your module and any documented members of the <code>exports</code> object in that file will automatically be included in the documentation for that module.
+</p>
+
+<p>
+    <b>The putOn and unbutton methods are documented as members of the "my/shirt" module.</b>
 </p>
 
 <dl class="example">
-<dt>The putOn and unbutton methods are documented as members of the &quot;my&#x2F;shirt&quot; module.</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /** @module my/shirt */
@@ -228,15 +235,20 @@ exports.unbutton = function(someShirt) {
 
 </pre>
 </dd>
-</dl>
-<h3>Document Members Assigned to <code>module.exports</code></h3>
+</dl><h3>
+    Document Members Assigned to <code>module.exports</code>
+</h3>
 
 <p>
-Some implementations of the CommonJS Modules standard allow you to assign an object literal to the <code>module.exports</code> namespace directly. This pattern is automatically supported by JSDoc 3.
+    Some implementations of the CommonJS Modules standard allow you to assign an object literal to the <code>module.exports</code> namespace directly. This pattern is automatically supported by JSDoc 3.
+</p>
+
+<p>
+    <b>The blend and darken methods are documented as members of the "color/mixer" module.</b>
 </p>
 
 <dl class="example">
-<dt>The blend and darken methods are documented as members of the &quot;color&#x2F;mixer&quot; module.</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /** @module color/mixer */
@@ -251,15 +263,20 @@ exports.darken = function(color, shade) { }
 
 </pre>
 </dd>
-</dl>
-<h3>Document Members Exported on the Global <code>this</code></h3>
+</dl><h3>
+    Document Members Exported on the Global <code>this</code>
+</h3>
 
 <p>
-JSDoc 3 understands the NodeJS convention of exporting properties and functions when they are assigned to a global <code>this</code> variable, as shown below.
+    JSDoc 3 understands the NodeJS convention of exporting properties and functions when they are assigned to a global <code>this</code> variable, as shown below.
+</p>
+
+<p>
+    <b>The Book class is documented as a member of the "bookshelf" module.</b>
 </p>
 
 <dl class="example">
-<dt>The Book class is documented as a member of the &quot;bookshelf&quot; module.</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
@@ -276,13 +293,20 @@ this.Book = function(title) {
 
 </pre>
 </dd>
-</dl>
-<h3>Document a Function that returns a RequireJS Module</h3>
+</dl><h3>
+    Document a Function that returns a RequireJS Module
+</h3>
 
-<p>The RequireJS library provides a <code>define</code> method that allows you to write a function to return a module object. Use the <code>@exports</code> tag to document that all the members of an object literal should be documented as members of a module.</p>
+<p>
+    The RequireJS library provides a <code>define</code> method that allows you to write a function to return a module object. Use the <code>@exports</code> tag to document that all the members of an object literal should be documented as members of a module.
+</p>
+
+<p>
+    <b>The color property and the Turtleneck class are documented as members of the "my/shirt" module.</b>
+</p>
 
 <dl class="example">
-<dt>The color property and the Turtleneck class are documented as members of the &quot;my&#x2F;shirt&quot; module.</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 define('my/shirt', function () {
@@ -308,14 +332,20 @@ define('my/shirt', function () {
 
 </pre>
 </dd>
-</dl>
+</dl><h3>
+    Document a Module as a Constructor
+</h3>
 
-<h3>Document a Module as a Constructor</h3>
+<p>
+    The following examples illustrate patterns for documenting modules that are constructors.
+</p>
 
-<p>The following examples illustrate patterns for documenting modules that are constructors.</p>
+<p>
+    <b>Use the @alias tag simplify documenting a constructor-module in RequireJS.</b>
+</p>
 
 <dl class="example">
-<dt>Use the @alias tag simplify documenting a constructor-module in RequireJS.</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /** 
@@ -339,11 +369,16 @@ define('jacket', function () {
 
 </pre>
 </dd>
-</dl>
-<p>The same pattern can be documented in CommonJS environments.</p>
+</dl><p>
+    The same pattern can be documented in CommonJS environments.
+</p>
+
+<p>
+    <b>Use the @alias tag to document constructor-modules in CommonJS.</b>
+</p>
 
 <dl class="example">
-<dt>Use the @alias tag to document constructor-modules in CommonJS.</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /** 
@@ -366,13 +401,20 @@ module.exports = Jacket;
 
 </pre>
 </dd>
-</dl>
-<h3>Document Multiple RequireJS Modules Defined in a Single File</h3>
+</dl><h3>
+    Document Multiple RequireJS Modules Defined in a Single File
+</h3>
 
-<p>If you have multiple calls to <code>define</code> in a single file use the <code>@exports</code> tag to document each function that returns module code. Name the exported objects "exports" and JSDoc 3 will automatically document any of their members as members of their module.</p>
+<p>
+    If you have multiple calls to <code>define</code> in a single file use the <code>@exports</code> tag to document each function that returns module code. Name the exported objects "exports" and JSDoc 3 will automatically document any of their members as members of their module.
+</p>
+
+<p>
+    <b>The getStyleProperty and isInHead methods are documented as members of the "html/utils" module. The Tag class is documented as a member of the "tag" module.</b>
+</p>
 
 <dl class="example">
-<dt>The getStyleProperty and isInHead methods are documented as members of the &quot;html&#x2F;utils&quot; module. The Tag class is documented as a member of the &quot;tag&quot; module.</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 // one module
@@ -409,13 +451,20 @@ define('tag',
 
 </pre>
 </dd>
-</dl>
-<h3>See Also</h3>
+</dl><h3>
+    See Also
+</h3>
 
 <ul>
-    <li><a href="http://requirejs.org/docs/api.html#define">Defining RequireJS Modules</a></li>
-    <li><a href="http://nodejs.org/docs/v0.4.1/api/modules.html">NodeJS Modules Tutorial</a></li>
-</ul></div>
+    <li>
+        <a href="http://requirejs.org/docs/api.html#define">Defining RequireJS Modules</a>
+    </li>
+
+    <li>
+        <a href="http://nodejs.org/docs/v0.4.1/api/modules.html">NodeJS Modules Tutorial</a>
+    </li>
+</ul>
+</div>
     </article>
     
     <footer>

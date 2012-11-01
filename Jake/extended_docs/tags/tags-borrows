@@ -1,9 +1,14 @@
+<h3>
+    Syntax
+</h3>
 
-<h3>Syntax</h3>
+<p>
+    <code>@borrows &lt;that namepath&gt; as &lt;this namepath&gt;</code>
+</p>
 
-<code>@borrows &lt;that namepath&gt; as &lt;this namepath&gt;</code>
-
-<h3>Overview</h3>
+<h3>
+    Overview
+</h3>
 
 <p>
     The @borrows tag allows you to add documentation for another symbol to your documentation.
@@ -13,13 +18,19 @@
     This tag would be useful if you had more than one way to reference a function, but you didn't want to duplicate the same documentation in two places.
 </p>
 
-<h3>Examples</h3>
+<h3>
+    Examples
+</h3>
 
 <p>
     In this example there exists documentation for the "trstr" function, but "util.trim" is just a reference to that same function by a different name.
 </p>
 
-{{#example}}Duplicate the documentation for trstr as util.trim
+<p>
+    <b>Duplicate the documentation for trstr as util.trim</b>
+</p>
+
+{{#example}} code
 /**
     @namespace
     @borrows trstr as trim

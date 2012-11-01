@@ -1,25 +1,36 @@
-
-
-<h3>Synonyms</h3>
+<h3>
+    Synonyms
+</h3>
 
 <ul>
-    <li>@arg</li>
-    <li>@argument</li>
+    <li>@arg
+    </li>
+
+    <li>@argument
+    </li>
 </ul>
 
-<h3>Overview</h3>
+<h3>
+    Overview
+</h3>
 
 <p>
-The @param tag (or @arg or @argument) documents a parameter of a function.
+    The @param tag (or @arg or @argument) documents a parameter of a function.
 </p>
 
-<h3>Examples</h3>
+<h3>
+    Examples
+</h3>
 
 <p>
-The following examples show the basic usage of @param.
+    The following examples show the basic usage of @param.
 </p>
 
-{{#example}}Basic usage of @param
+<p>
+    <b>Basic usage of @param</b>
+</p>
+
+{{#example}} code
 /**
  * @param somebody
  */
@@ -27,8 +38,11 @@ function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
 {{/example}}
+<p>
+    <b>Using a type with @param</b>
+</p>
 
-{{#example}}Using a type with @param
+{{#example}} code
 /**
  * @param {String} somebody
  */
@@ -36,9 +50,11 @@ function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
 {{/example}}
+<p>
+    <b>Using type and description with @param</b>
+</p>
 
-
-{{#example}}Using type and description with @param
+{{#example}} code
 /**
  * @param {String} somebody Name
  */
@@ -46,12 +62,15 @@ function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
 {{/example}}
-
 <p>
-The following examples show how to indicate that a parameter can be optional and has a default value
+    The following examples show how to indicate that a parameter can be optional and has a default value
 </p>
 
-{{#example}}An optional parameter
+<p>
+    <b>An optional parameter</b>
+</p>
+
+{{#example}} code
 /**
  * @param {String} [somebody] Name
  */
@@ -62,8 +81,11 @@ function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
 {{/example}}
+<p>
+    <b>Optional parameter and default value</b>
+</p>
 
-{{#example}}Optional parameter and default value
+{{#example}} code
 /**
  * @param {String} [somebody=John Doe] Name
  */
@@ -74,12 +96,15 @@ function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
 {{/example}}
-
 <p>
-A parameter could also have several types instead of just one. It can also be used multiple times. The following examples reflect these situations.
+    A parameter could also have several types instead of just one. It can also be used multiple times. The following examples reflect these situations.
 </p>
 
-{{#example}}Multiple types
+<p>
+    <b>Multiple types</b>
+</p>
+
+{{#example}} code
 /**
  * @param {String|Array} [somebody=John Doe] Name or array of names
  */
@@ -92,8 +117,11 @@ function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
 {{/example}}
+<p>
+    <b>Variable parameter</b>
+</p>
 
-{{#example}}Variable parameter
+{{#example}} code
 /**
  * Returns the sum of all numbers passed to the function.
  * @param {...Number} num A positive or negative number
@@ -106,17 +134,22 @@ function sum(num) {
     return t;
 }
 {{/example}}
-
-
-
-<h3>See Also</h3>
+<h3>
+    See Also
+</h3>
 
 <ul>
-    <li><a href="tags-returns.html">@returns</a></li>
+    <li>
+        <a href="tags-returns.html">@returns</a>
+    </li>
 </ul>
 
-<h5>Contributers to these docs</h5>
+<h5>
+    Contributers to these docs
+</h5>
 
 <ul>
-    <li><a href="https://github.com/customcommander">customcommander</a></li>
+    <li>
+        <a href="https://github.com/customcommander">customcommander</a>
+    </li>
 </ul>

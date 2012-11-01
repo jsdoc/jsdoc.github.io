@@ -1,5 +1,3 @@
-
-
 <h1>
     JSDoc 3
 </h1>
@@ -24,28 +22,37 @@
     To test that jsdoc is working, change your working directory to the jsdoc folder and run the following command on Windows:
 </p>
 
-{{#example}}Example
+<p>
+    <b>Example</b>
+</p>
+
+{{#example}} code
 jsdoc -T
 {{/example}}
-
 <p>
     ... or on a Max OSX or *nix platform:
 </p>
 
-{{#example}}Example
+<p>
+    <b>Example</b>
+</p>
+
+{{#example}} code
 ./jsdoc -T
 {{/example}}
-
 <p>
     If you can't get the short-form commands to work, try invoking Java directly:
 </p>
 
-{{#example}}Example
+<p>
+    <b>Example</b>
+</p>
+
+{{#example}} code
 java -cp lib/js.jar org.mozilla.javascript.tools.shell.Main \
 -modules nodejs_modules -modules rhino_modules -modules . \
 jsdoc.js -T
 {{/example}}
-
 <h2>
     Usage
 </h2>
@@ -54,19 +61,24 @@ jsdoc.js -T
     This example assumes that your working directory is the jsdoc application base directory:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
 
-{{#example}}Example
+{{#example}} code
 ./jsdoc yourSourceCodeFile.js
 {{/example}}
-
 <p>
     For help regarding the supported commandline options use the --help option.
 </p>
 
-{{#example}}Example
+<p>
+    <b>Example</b>
+</p>
+
+{{#example}} code
 ./jsdoc --help
 {{/example}}
-
 <p>
     Generated documentation will appear in the folder specified by the --destination option, or in a folder named "out" by default.
 </p>
@@ -95,23 +107,28 @@ jsdoc.js -T
     Rhino is not always very friendly when it comes to reporting errors in JavaScript. Luckily it comes with a full-on debugger included that can be much more useful than a simple stack trace. To invoke JSDoc with the debugger try the following command:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
 
-{{#example}}Example
+{{#example}} code
 jsdoc --debug
 {{/example}}
-
 <p>
     or the long form version:
 </p>
 
-{{#example}}Example
+<p>
+    <b>Example</b>
+</p>
+
+{{#example}} code
 $ java -classpath lib/js.jar \
 org.mozilla.javascript.tools.debugger.Main -debug \
 -modules nodejs_modules -modules rhino_modules -modules . \
 jsdoc.js \
 your/script.js
 {{/example}}
-
 <p>
     Note: <code>--debug</code> must be the first argument to the short form command
 </p>

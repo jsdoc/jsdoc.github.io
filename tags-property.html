@@ -237,8 +237,9 @@ function (doclet, tag) {
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="property-overview">
-
-<h3>Overview</h3>
+<h3>
+    Overview
+</h3>
 
 <p>
     The @property tag is a way to easily document a list of static properties of a class, namespace or other object.
@@ -252,14 +253,20 @@ function (doclet, tag) {
     Note that property tags must be used in doc comments for the thing that they are properties of, a namespace or a class for example. This tag is intended for simple collections of static properties, it does not allow you to provide @examples or similar complex information for each property, just the type, name and description.
 </p>
 
-<h3>Examples</h3>
+<h3>
+    Examples
+</h3>
 
 <p>
     In this example we have a namespace named "config." We want all the information about the defaults property, including it's nested values to appear on the same page with the documentation for config.
 </p>
 
+<p>
+    <b>A namespace with defaults and nested default properties</b>
+</p>
+
 <dl class="example">
-<dt>A namespace with defaults and nested default properties</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
@@ -282,13 +289,19 @@ var config = {
 
 </pre>
 </dd>
-</dl>
-<h3>See Also</h3>
+</dl><h3>
+    See Also
+</h3>
 
 <ul>
-    <li>Contrast this tag with the <a href="tags-member.html">@member</a> tag.</li>
-    <li><a href="tags-enum.html">@enum</a></li>
-</ul></div>
+    <li>Contrast this tag with the <a href="tags-member.html">@member</a> tag.
+    </li>
+
+    <li>
+        <a href="tags-enum.html">@enum</a>
+    </li>
+</ul>
+</div>
     </article>
     
     <footer>

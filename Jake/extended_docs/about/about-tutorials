@@ -1,5 +1,3 @@
-
-
 <h3>
     Tutorials
 </h3>
@@ -54,26 +52,32 @@
     Doclets can have assigned tutorials (similar to <code>@link</code> and <code>@see</code> tags) through @tutorial tag:
 </p>
 
-{{#example}}Example of the @tutorial tag
+<p>
+    <b>Example of the @tutorial tag</b>
+</p>
+
+{{#example}} code
 /** * Description.
  *
  * @class
  * @tutorial test-tutorial
  */ 
 {{/example}}
-
 <p>
     @tutorial tag can also be handled in-line in descriptions:
 </p>
 
-{{#example}} Using the tutorial tag in a description
+<p>
+    <b>Using the tutorial tag in a description</b>
+</p>
+
+{{#example}} code
 /**
  * Description {@tutorial test-tutorial}.
  *
  * @class
  */
 {{/example}}
-
 <h3>
     Tutorial content
 </h3>
@@ -82,10 +86,13 @@
     Tutorial content is precessed with <code>resolveLinks()</code>, which means you can use both <code>{@link}</code> and <code>{@tutorial}</code> tags within tutorial text! They will be processed just like doclets descriptions.
 </p>
 
-{{#example}}Using the @tutorial tag in content
+<p>
+    <b>Using the @tutorial tag in content</b>
+</p>
+
+{{#example}} code
 &lt;p&gt;This is tutorial content. See {@link Class.create} for OOP info and {@tutorial class-create} tutorial.&lt;/p&gt;
 {{/example}}
-
 <h3>
     Backward compatibility
 </h3>

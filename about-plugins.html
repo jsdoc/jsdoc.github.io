@@ -199,68 +199,88 @@
     
 
 <div class="about-overview" id="plugins-overview">
-
-
 <p>
     <b>Table of Contents</b>
 </p>
+
 <ol id="Toc">
     <li>
-        <a href="#adding-a-plugin">Adding a Plugin
-        </a>
-    <ol>
-      <li><a href="#authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins
-        </a>
+        <a href="#adding-a-plugin">Adding a Plugin</a>
         <ol>
-          <li><a href="#event-handlers">Event Handlers
-            </a>
-            <ol>
-              <li><a href="#event-fileBegin">Event: fileBegin
-                </a></li>
-              <li><a href="#event-beforeParse">Event: beforeParse
-                </a></li>
-              <li><a href="#event-jsdocCommentFound">Event: jsdocCommentFound
-                </a></li>
-              <li><a href="#event-symbolFound">Event: symbolFound
-                </a></li>
-              <li><a href="#event-newDoclet">Event: newDoclet
-                </a></li>
-              <li><a href="#event-fileComplete">Event: fileComplete
-                </a></li>
-            </ol>
-          </li>
-          <li><a href="#tag-definitions">Tag Definitions
-            </a>
-            <ol>
-              <li><a href="#the-dictionary">The Dictionary
-                </a></li>
-            </ol>
-          </li>
-          <li><a href="#node-visitors">Node Visitors
-            </a>
-            <ol>
-              <li><a href="#making-things-happen">Making things happen
-                </a></li>
-              <li><a href="#example">Example
-                </a></li>
-            </ol>
-          </li>
+            <li>
+                <a href="#authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins</a>
+                <ol>
+                    <li>
+                        <a href="#event-handlers">Event Handlers</a>
+                        <ol>
+                            <li>
+                                <a href="#event-fileBegin">Event: fileBegin</a>
+                            </li>
+
+                            <li>
+                                <a href="#event-beforeParse">Event: beforeParse</a>
+                            </li>
+
+                            <li>
+                                <a href="#event-jsdocCommentFound">Event: jsdocCommentFound</a>
+                            </li>
+
+                            <li>
+                                <a href="#event-symbolFound">Event: symbolFound</a>
+                            </li>
+
+                            <li>
+                                <a href="#event-newDoclet">Event: newDoclet</a>
+                            </li>
+
+                            <li>
+                                <a href="#event-fileComplete">Event: fileComplete</a>
+                            </li>
+                        </ol>
+                    </li>
+
+                    <li>
+                        <a href="#tag-definitions">Tag Definitions</a>
+                        <ol>
+                            <li>
+                                <a href="#the-dictionary">The Dictionary</a>
+                            </li>
+                        </ol>
+                    </li>
+
+                    <li>
+                        <a href="#node-visitors">Node Visitors</a>
+                        <ol>
+                            <li>
+                                <a href="#making-things-happen">Making things happen</a>
+                            </li>
+
+                            <li>
+                                <a href="#example">Example</a>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+
+            <li>
+                <a href="#packaging-jsdoc-3-plugins">Packaging JSDoc 3 Plugins</a>
+            </li>
+
+            <li>
+                <a href="#hegemonics-plugin-walkthrough">Hegemonics Plugin Walkthrough</a>
+                <ol>
+                    <li>
+                        <a href="#example-modifying-the-partial-plugin">Example: modifying the partial plugin</a>
+                    </li>
+                </ol>
+            </li>
         </ol>
-      </li>
-      <li><a href="#packaging-jsdoc-3-plugins">Packaging JSDoc 3 Plugins
-        </a></li>
-      <li><a href="#hegemonics-plugin-walkthrough">Hegemonics Plugin Walkthrough
-        </a>
-        <ol>
-          <li><a href="#example-modifying-the-partial-plugin">Example: modifying the partial plugin
-            </a></li>
-        </ol>
-      </li>
-    </ol>
-  </li>
+    </li>
 </ol>
 
-<h2 name="adding-a-plugin" id="adding-a-plugin">
+<h2 name="adding-a-plugin"
+    id="adding-a-plugin">
     Adding a Plugin
 </h2>
 
@@ -280,8 +300,12 @@
     For example, if your plugin source code was saved in the "plugins/shout.js" file, you would include it by adding a reference to it in conf.json like so:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 ...
@@ -292,7 +316,8 @@
 
 </pre>
 </dd>
-</dl><h2 name="authoring-jsdoc-3-plugins" id="authoring-jsdoc-3-plugins">
+</dl><h2 name="authoring-jsdoc-3-plugins"
+    id="authoring-jsdoc-3-plugins">
     Authoring JSDoc 3 Plugins
 </h2>
 
@@ -311,7 +336,8 @@
     </li>
 </ul>
 
-<h3 name="event-handlers" id="event-handlers">
+<h3 name="event-handlers"
+    id="event-handlers">
     Event Handlers
 </h3>
 
@@ -319,8 +345,12 @@
     At the highest level, a plugin may register handlers for specific named-events that occur in the documentation generation process. JSDoc will pass the handler an event object containing pertinent information. Your plugin module should export a <em>handlers</em> object that contains your handler, like so:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 exports.handlers = {
@@ -331,7 +361,8 @@ exports.handlers = {
 
 </pre>
 </dd>
-</dl><h4 name="event-fileBegin" id="event-fileBegin">
+</dl><h4 name="event-fileBegin"
+    id="event-fileBegin">
     Event: fileBegin
 </h4>
 
@@ -348,7 +379,8 @@ exports.handlers = {
     </li>
 </ul>
 
-<h4 name="event-beforeParse" id="event-beforeParse">
+<h4 name="event-beforeParse"
+    id="event-beforeParse">
     Event: beforeParse
 </h4>
 
@@ -372,8 +404,12 @@ exports.handlers = {
     Below is an example that adds a virtual doclet for a function to the source so that it will get parsed and added to the documentation. This might be done to document methods that will be present for end-user use, but might not be in the source code being documented, like methods provided by a third-party superclass:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 exports.handlers = {
@@ -391,7 +427,8 @@ exports.handlers = {
 
 </pre>
 </dd>
-</dl><h4 name="event-jsdocCommentFound" id="event-jsdocCommentFound">
+</dl><h4 name="event-jsdocCommentFound"
+    id="event-jsdocCommentFound">
     Event: jsdocCommentFound
 </h4>
 
@@ -414,7 +451,8 @@ exports.handlers = {
     </li>
 </ul>
 
-<h4 name="event-symbolFound" id="event-symbolFound">
+<h4 name="event-symbolFound"
+    id="event-symbolFound">
     Event: symbolFound
 </h4>
 
@@ -446,7 +484,8 @@ exports.handlers = {
     </li>
 </ul>
 
-<h4 name="event-newDoclet" id="event-newDoclet">
+<h4 name="event-newDoclet"
+    id="event-newDoclet">
     Event: newDoclet
 </h4>
 
@@ -512,8 +551,12 @@ exports.handlers = {
     Below is an example of a newDoclet handler that shouts the descriptions:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 exports.handlers = {
@@ -528,7 +571,8 @@ exports.handlers = {
 
 </pre>
 </dd>
-</dl><h4 name="event-fileComplete" id="event-fileComplete">
+</dl><h4 name="event-fileComplete"
+    id="event-fileComplete">
     Event: fileComplete
 </h4>
 
@@ -548,7 +592,8 @@ exports.handlers = {
     </li>
 </ul>
 
-<h3 name="tag-definitions" id="tag-definitions">
+<h3 name="tag-definitions"
+    id="tag-definitions">
     Tag Definitions
 </h3>
 
@@ -560,8 +605,12 @@ exports.handlers = {
     Plugins can define tags by exporting a <em>defineTags</em> function. That function will be passed a dictionary that can be used to define tags, like so:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 exports.defineTags = function(dictionary) {
@@ -570,7 +619,8 @@ exports.defineTags = function(dictionary) {
 
 </pre>
 </dd>
-</dl><h4 name="the-dictionary" id="the-dictionary">
+</dl><h4 name="the-dictionary"
+    id="the-dictionary">
     The Dictionary
 </h4>
 
@@ -601,8 +651,12 @@ exports.defineTags = function(dictionary) {
             </li>
 
             <li>onTagged (Function): A callback function executed when the tag is found. The function is passed two parameters: the doclet and the tag. Here's an example:
+                <p>
+                    <b>Example</b>
+                </p>
+
                 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 dictionary.defineTag('instance', { 
@@ -610,27 +664,33 @@ dictionary.defineTag('instance', {
         doclet.scope = "instance";
     }
 }); 
+                
 
 </pre>
 </dd>
 </dl>            </li>
         </ul>
-        
+
         <p>
-        The defineTag method returns a Tag. The Tag object has a method "synonym" that can be used to declare synonyms to the tag. For example:
+            The defineTag method returns a Tag. The Tag object has a method "synonym" that can be used to declare synonyms to the tag. For example:
+        </p>
+
+        <p>
+            <b>Example</b>
         </p>
 
         <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
 .synonym('throws');
+        
 
 </pre>
 </dd>
 </dl>    </li>
-    
+
     <li>lookUp(title) Used to lookup a tag. Returns either the tag or false if it's not defined
     </li>
 
@@ -641,7 +701,8 @@ dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
     </li>
 </ol>
 
-<h3 name="node-visitors" id="node-visitors">
+<h3 name="node-visitors"
+    id="node-visitors">
     Node Visitors
 </h3>
 
@@ -653,8 +714,12 @@ dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
     Plugins can define a node visitor by exporting a <code>nodeVisitor</code> object that contains a <code>visitNode</code> function, like so:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 exports.nodeVisitor = {
@@ -683,7 +748,8 @@ exports.nodeVisitor = {
     </li>
 </ul>
 
-<h4 name="making-things-happen" id="making-things-happen">
+<h4 name="making-things-happen"
+    id="making-things-happen">
     Making things happen
 </h4>
 
@@ -695,7 +761,8 @@ exports.nodeVisitor = {
     To make things happen, the <code>visitNode</code> function should modify properties of the event parameter. In general the goal is to construct a comment and then get an event to fire. After the parser lets all of the node visitors have a look at the node, it looks to see if the event object has a <code>comment</code> property and an <code>event</code> property. If it has both, the event named in the event property is fired. The event is usually "symbolFound" or "jsdocCommentFound", but theoretically, a plugin could define its own events and handle them.
 </p>
 
-<h4 name="example" id="example">
+<h4 name="example"
+    id="example">
     Example
 </h4>
 
@@ -703,8 +770,12 @@ exports.nodeVisitor = {
     Below is an example of what a plugin for documenting jQuery UI widgets might do. jQuery UI uses a factory function call to create widget classes. The plugin looks for that function call and creates a symbol with documentation. It also looks for any "this._trigger" function calls and automatically creates documentation for the events that are triggered:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 exports.nodeVisitor = {
@@ -786,7 +857,8 @@ function isInWidgetFactory(node, depth) {
     Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting a <code>stopPropagation</code> property on the event object (e.stopPropagation = true). A plugin can stop the event from firing setting a <code>preventDefault</code> property.
 </p>
 
-<h2 name="packaging-jsdoc-3-plugins" id="packaging-jsdoc-3-plugins">
+<h2 name="packaging-jsdoc-3-plugins"
+    id="packaging-jsdoc-3-plugins">
     Packaging JSDoc 3 Plugins
 </h2>
 
@@ -794,8 +866,12 @@ function isInWidgetFactory(node, depth) {
     The JSDoc 3 Jakefile has an <code>install</code> task that can be used to install a plugin into the jsdoc 3 installation. So running the following will install the plugin:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 $&gt;jake install[path/to/YourPluginFolder]
@@ -806,8 +882,12 @@ $&gt;jake install[path/to/YourPluginFolder]
     <em>note: on some systems (like MacOS X), you may need to quote the target name and parameters</em>:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 $&gt;jake 'install[path/to/YourPluginFolder]'
@@ -818,8 +898,12 @@ $&gt;jake 'install[path/to/YourPluginFolder]'
     The task is passed a directory that should look something like the following:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 YourPluginFolder
@@ -840,7 +924,8 @@ YourPluginFolder
     Basically everything is copied over into the jsdoc installation directory, the directory should contain anything you want to put there.
 </p>
 
-<h2 name="hegemonics-plugin-walkthrough" id="hegemonics-plugin-walkthrough">
+<h2 name="hegemonics-plugin-walkthrough"
+    id="hegemonics-plugin-walkthrough">
     Hegemonic's Plugin Walkthrough
 </h2>
 
@@ -863,7 +948,8 @@ YourPluginFolder
     </li>
 </ol>
 
-<h3 name="example-modifying-the-partial-plugin" id="example-modifying-the-partial-plugin">
+<h3 name="example-modifying-the-partial-plugin"
+    id="example-modifying-the-partial-plugin">
     Example: modifying the <code>partial</code> plugin
 </h3>
 
@@ -887,8 +973,12 @@ YourPluginFolder
     But I think it'd be better if the plugin hooked into <code>jsdocCommentFound</code> events rather than <code>beforeParse</code> events, because really, you only care about <code>@partial</code> tags in doclets. Right now I'm pretty sure the following JS source would cause the plugin to attempt to load a nonexistent file called <code>hooray</code>, after which everything would blow up:
 </p>
 
+<p>
+    <b>Example</b>
+</p>
+
 <dl class="example">
-<dt>Example</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 function hooray() {

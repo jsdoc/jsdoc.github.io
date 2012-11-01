@@ -1,17 +1,24 @@
-
-<h3>Overview</h3>
-
-<p>
-Use the <code>@exports</code> tag when documenting JavaScript modules to indicate that an object is being exported.
-</p>
-
-<h3>Examples</h3>
+<h3>
+    Overview
+</h3>
 
 <p>
-In cases where you are using the special "exports" namespace, the <code>@exports</code> tag is never needed...
+    Use the <code>@exports</code> tag when documenting JavaScript modules to indicate that an object is being exported.
 </p>
 
-{{#example}}In CommonJS modules the exports namespace is understood by JSDoc 3
+<h3>
+    Examples
+</h3>
+
+<p>
+    In cases where you are using the special "exports" namespace, the <code>@exports</code> tag is never needed...
+</p>
+
+<p>
+    <b>In CommonJS modules the exports namespace is understood by JSDoc 3</b>
+</p>
+
+{{#example}} code
 /**
     A module that says hello!
     @module hello/world
@@ -22,8 +29,11 @@ exports.sayHello = function() {
     return 'Hello world';
 };
 {{/example}}
+<p>
+    <b>In AMD modules any namespace called "exports" is assumed by JSDoc 3 to be the exported object</b>
+</p>
 
-{{#example}}In AMD modules any namespace called "exports" is assumed by JSDoc 3 to be the exported object
+{{#example}} code
 define(function () {
 
     /**
@@ -40,8 +50,11 @@ define(function () {
     return exports;
 });
 {{/example}}
+<p>
+    <b>If your AMD module exports a constructor, you can still use the "exports" name to indicate what the module is</b>
+</p>
 
-{{#example}}If your AMD module exports a constructor, you can still use the "exports" name to indicate what the module is
+{{#example}} code
 define(function() {
      /**
         A module that creates greeters.
@@ -64,12 +77,15 @@ define(function() {
     return exports;
 });
 {{/example}}
-
 <p>
-If you are exporting an object named anything other than "exports", use the <code>@exports</code> tag to indicate what is being exported.
+    If you are exporting an object named anything other than "exports", use the <code>@exports</code> tag to indicate what is being exported.
 </p>
 
-{{#example}}The @exports tag is used to document that the "ns" namespace is being exported
+<p>
+    <b>The @exports tag is used to document that the "ns" namespace is being exported</b>
+</p>
+
+{{#example}} code
 define(function () {
 
     /**
@@ -86,10 +102,16 @@ define(function () {
     return ns;
 });
 {{/example}}
-
-<h3>See Also</h3>
+<h3>
+    See Also
+</h3>
 
 <ul>
-    <li><a href="tags-module.html">@module</a></li>
-    <li><a href="howto-commonjs-modules.html">Documenting JavaScript modules with JSDoc 3</a></li>
+    <li>
+        <a href="tags-module.html">@module</a>
+    </li>
+
+    <li>
+        <a href="howto-commonjs-modules.html">Documenting JavaScript modules with JSDoc 3</a>
+    </li>
 </ul>

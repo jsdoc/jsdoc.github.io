@@ -1,36 +1,45 @@
-
-
-<h3>Getting Started</h3>
-
-<p>
-JSDoc 3 is an API documentation generator for JavaScript, similar to JavaDoc or PHPDoc. You add documentation comments directly to your source code, right along side the code itself. The JSDoc Tool will scan your source code, and generate a complete HTML documentation website for you.
-</p>
-
-<h3>Adding Documentation Comments to Your Code</h3>
+<h3>
+    Getting Started
+</h3>
 
 <p>
-JSDoc's purpose is to document the API of your JavaScript application or library. It is assumed that you will want to document things like: namespaces, classes, methods, method parameters, etc.
+    JSDoc 3 is an API documentation generator for JavaScript, similar to JavaDoc or PHPDoc. You add documentation comments directly to your source code, right along side the code itself. The JSDoc Tool will scan your source code, and generate a complete HTML documentation website for you.
+</p>
+
+<h3>
+    Adding Documentation Comments to Your Code
+</h3>
+
+<p>
+    JSDoc's purpose is to document the API of your JavaScript application or library. It is assumed that you will want to document things like: namespaces, classes, methods, method parameters, etc.
 </p>
 
 <p>
-JSDoc comments should generally be placed immediately before the code being documented. It must start with a <code>/**</code> sequence in order to be recognized by the JSDoc parser. Comments beginning with <code>/*</code>, <code>/***</code>, or more than 3 stars will be ignored. This is a feature to allow you to suppress parsing of comment blocks.
+    JSDoc comments should generally be placed immediately before the code being documented. It must start with a <code>/**</code> sequence in order to be recognized by the JSDoc parser. Comments beginning with <code>/*</code>, <code>/***</code>, or more than 3 stars will be ignored. This is a feature to allow you to suppress parsing of comment blocks.
 </p>
 
-{{#example}}The simplest documentation is just a description.
+<p>
+    <b>The simplest documentation is just a description.</b>
+</p>
+
+{{#example}} code
 /** This is a description of the foo function. */
 function foo() {
 }
 {{/example}}
-
 <p>
-Adding a description is simple, just type the description you want in the documentaton comment.
+    Adding a description is simple, just type the description you want in the documentaton comment.
 </p>
 
 <p>
-Special "documentation tags" can be used to give more information. For example, if the function is a constructor, you can indicate this by adding a tag.
+    Special "documentation tags" can be used to give more information. For example, if the function is a constructor, you can indicate this by adding a tag.
 </p>
 
-{{#example}}Use a documentation tag to describe your code.
+<p>
+    <b>Use a documentation tag to describe your code.</b>
+</p>
+
+{{#example}} code
 /**
     Represents a book.
     @constructor
@@ -38,12 +47,15 @@ Special "documentation tags" can be used to give more information. For example, 
 function Book(title, author) {
 }
 {{/example}}
-
 <p>
-More tags can be used to add more information. See the Tag Dictionary for a complete list of tags that are recognized by JSDoc 3.
+    More tags can be used to add more information. See the Tag Dictionary for a complete list of tags that are recognized by JSDoc 3.
 </p>
 
-{{#example}}Adding more information with tags.
+<p>
+    <b>Adding more information with tags.</b>
+</p>
+
+{{#example}} code
 /**
     Represents a book.
     @constructor
@@ -53,21 +65,25 @@ More tags can be used to add more information. See the Tag Dictionary for a comp
 function Book(title, author) {
 }
 {{/example}}
-
-<h3>Generating A Website</h3>
+<h3>
+    Generating A Website
+</h3>
 
 <p>
-Once your code is commented, you can use the JSDoc 3 Tool to generate an HTML website from the source.
+    Once your code is commented, you can use the JSDoc 3 Tool to generate an HTML website from the source.
 </p>
 
 <p>
-By default, JSDoc will use the "default" template to turn the documentation data into HTML. You can edit this template to suit your own needs, or create an entirely new template if that is what you prefer.
+    By default, JSDoc will use the "default" template to turn the documentation data into HTML. You can edit this template to suit your own needs, or create an entirely new template if that is what you prefer.
 </p>
 
-{{#example}}Running the documentation generator on the command line.
+<p>
+    <b>Running the documentation generator on the command line.</b>
+</p>
+
+{{#example}} code
 ./jsdoc book.js
 {{/example}}
-
 <p>
-This command will create a folder named "out" in the current working directory. Within that you will find the generated HTML pages.
+    This command will create a folder named "out" in the current working directory. Within that you will find the generated HTML pages.
 </p>

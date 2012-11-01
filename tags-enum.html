@@ -232,12 +232,17 @@ function (doclet, tag) {
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="enum-overview">
+<h3>
+    Syntax
+</h3>
 
-<h3>Syntax</h3>
+<p>
+    <code>@enum [&lt;type&gt;]</code>
+</p>
 
-<code>@enum [&lt;type>]</code>
-
-<h3>Overview</h3>
+<h3>
+    Overview
+</h3>
 
 <p>
     The @enum tag documents a collection of static properties whose values are all of the same type.
@@ -247,14 +252,20 @@ function (doclet, tag) {
     An enum is similar a collection of properties, except that an enum is documented in its own doc comment, whereas properties are documented within the doc comment of their container. Often this tag is used with @readonly, as an enum typically represents a collection of constants.
 </p>
 
-<h3>Examples</h3>
+<h3>
+    Examples
+</h3>
 
 <p>
     This shows how to document an object that represents a value with three possible states. Note that the enum members can have optional descriptions added if you wish. Also you can override the type, as is shown with "MAYBE" -- by default enum members will be documented with the same type as the enum itself.
 </p>
 
+<p>
+    <b>A numeric enum, representing three states</b>
+</p>
+
 <dl class="example">
-<dt>A numeric enum, representing three states</dt>
+<dt>code</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
@@ -272,12 +283,16 @@ var triState = {
 
 </pre>
 </dd>
-</dl>
-<h3>See Also</h3>
+</dl><h3>
+    See Also
+</h3>
 
 <ul>
-    <li><a href="tags-property.html">@property</a></li>
-</ul></div>
+    <li>
+        <a href="tags-property.html">@property</a>
+    </li>
+</ul>
+</div>
     </article>
     
     <footer>

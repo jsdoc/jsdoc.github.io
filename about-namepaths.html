@@ -8,7 +8,7 @@
     
     <title>Use JSDoc: Using namepaths with JSDoc 3</title>
     
-    <link rel="stylesheet" href="lib/prettify.css" />
+    <link rel="stylesheet" href="lib/desert.css" />
     <script src="lib/prettify.js"></script>
     
     <script type="text/javascript">
@@ -158,7 +158,8 @@
             margin: 12px;
             padding: 8px;
             white-space: pre-wrap;
-            background-color: #DEDEDE;
+            background-color: #333333;
+            color: #03FF00;
         }
         
         .example dt 
@@ -214,7 +215,7 @@
 <dl class="example">
 <dt>Example : about-namepaths-0.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 myFunction
 MyConstructor
@@ -236,7 +237,7 @@ MyConstructor~innerMember // note that JSDoc 2 uses a dash
 <dl class="example">
 <dt>Example : about-namepaths-1.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 /** @constructor */
 Person = function() {
@@ -271,7 +272,7 @@ Person.say(); // I'm static.
 <dl class="example">
 <dt>Example : about-namepaths-2.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 Person#say  // the instance method named "say."
 Person.say  // the static method named "say."
@@ -295,7 +296,7 @@ Person~say  // the inner method named "say."
 <dl class="example">
 <dt>Example : about-namepaths-3.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 /** @constructor */
 Person = function() {

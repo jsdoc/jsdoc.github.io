@@ -1,0 +1,17 @@
+OPTIONS:
+	-t, --template <value>		The name of the template to use. Default: the "default" template
+	-c, --configure <value>		The path to the configuration file. Default: jsdoc env.dirname + /conf.json
+	-e, --encoding <value>		Assume this encoding when reading all source files. Default: utf-8
+	-T, --test		Run all tests and quit.
+	-d, --destination <value>		The path to the output folder. Use "console" to dump data to the console. Default: console
+	-p, --private		Display symbols marked with the @private tag. Default: false.
+	-r, --recurse		Recurse into subdirectories when scanning for source code files.
+	-l, --lenient		Continue to generate output if a doclet is incomplete or contains errors. Default: false.
+	-h, --help		Print this message and quit.
+	-X, --explain		Dump all found doclet internals to console and quit.
+	-q, --query <value>		Provide a querystring to define custom variable names/values to add to the options hash.
+	-u, --tutorials <value>		Directory in which JSDoc should search for tutorials.
+	--describeTags <value>		Describes the supported tags. Accepts markdown, markdownFiles, console, or raw as output format.
+	--verbose		Display verbose output for tests
+	--match <value>		Only run tests containing <value>
+	--nocolor		Do not use color in console output from tests

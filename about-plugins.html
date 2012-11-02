@@ -8,7 +8,7 @@
     
     <title>Use JSDoc: JSDoc 3 Plugin Reference</title>
     
-    <link rel="stylesheet" href="lib/prettify.css" />
+    <link rel="stylesheet" href="lib/desert.css" />
     <script src="lib/prettify.js"></script>
     
     <script type="text/javascript">
@@ -158,7 +158,8 @@
             margin: 12px;
             padding: 8px;
             white-space: pre-wrap;
-            background-color: #DEDEDE;
+            background-color: #333333;
+            color: #03FF00;
         }
         
         .example dt 
@@ -307,7 +308,7 @@
 <dl class="example">
 <dt>Example : about-plugins-0.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 ...
 "plugins": [
@@ -354,7 +355,7 @@
 <dl class="example">
 <dt>Example : about-plugins-1.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 exports.handlers = {
     newDoclet: function(e) {
@@ -415,7 +416,7 @@ exports.handlers = {
 <dl class="example">
 <dt>Example : about-plugins-2.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 exports.handlers = {
     beforeParse: function(e) {
@@ -564,7 +565,7 @@ exports.handlers = {
 <dl class="example">
 <dt>Example : about-plugins-3.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 exports.handlers = {
     newDoclet: function(e) {
@@ -620,7 +621,7 @@ exports.handlers = {
 <dl class="example">
 <dt>Example : about-plugins-4.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 exports.defineTags = function(dictionary) {
     //define tags here
@@ -668,7 +669,7 @@ exports.defineTags = function(dictionary) {
 <dl class="example">
 <dt>Example : about-plugins-5.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 dictionary.defineTag('instance', { 
     onTagged: function(doclet, tag) {
@@ -694,7 +695,7 @@ dictionary.defineTag('instance', {
 <dl class="example">
 <dt>Example : about-plugins-6.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
 .synonym('throws');
@@ -735,7 +736,7 @@ dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
 <dl class="example">
 <dt>Example : about-plugins-7.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 exports.nodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
@@ -793,7 +794,7 @@ exports.nodeVisitor = {
 <dl class="example">
 <dt>Example : about-plugins-8.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 exports.nodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
@@ -891,7 +892,7 @@ function isInWidgetFactory(node, depth) {
 <dl class="example">
 <dt>Example : about-plugins-9.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 $&gt;jake install[path/to/YourPluginFolder]
 
@@ -909,7 +910,7 @@ $&gt;jake install[path/to/YourPluginFolder]
 <dl class="example">
 <dt>Example : about-plugins-10.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 $&gt;jake 'install[path/to/YourPluginFolder]'
 
@@ -927,7 +928,7 @@ $&gt;jake 'install[path/to/YourPluginFolder]'
 <dl class="example">
 <dt>Example : about-plugins-11.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 YourPluginFolder
  |- plugins
@@ -1004,7 +1005,7 @@ YourPluginFolder
 <dl class="example">
 <dt>Example : about-plugins-12.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 function hooray() {
     console.log('I love to say @partial "hooray"!');

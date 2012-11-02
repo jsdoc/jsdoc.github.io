@@ -1,0 +1,11 @@
+<!--{
+    "title" :       "Commandline Options",
+    "out" :         "about-commandline-options.html",
+    "description" : "Commandline options for JSDoc 3"
+}-->
+
+<div class="about-overview" id="jsdoc3-overview">
+{{#includeExample}}
+    Jake/API/help/help
+{{/includeExample}}
+</div>

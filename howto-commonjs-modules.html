@@ -8,7 +8,7 @@
     
     <title>Use JSDoc: How To Document CommonJS Modules</title>
     
-    <link rel="stylesheet" href="lib/prettify.css" />
+    <link rel="stylesheet" href="lib/desert.css" />
     <script src="lib/prettify.js"></script>
     
     <script type="text/javascript">
@@ -158,7 +158,8 @@
             margin: 12px;
             padding: 8px;
             white-space: pre-wrap;
-            background-color: #DEDEDE;
+            background-color: #333333;
+            color: #03FF00;
         }
         
         .example dt 
@@ -222,7 +223,7 @@
 <dl class="example">
 <dt>Example : howto-commonjs-modules-0.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 /** @module my/shirt */
 
@@ -252,7 +253,7 @@ exports.unbutton = function(someShirt) {
 <dl class="example">
 <dt>Example : howto-commonjs-modules-1.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 /** @module color/mixer */
 
@@ -282,7 +283,7 @@ exports.darken = function(color, shade) { }
 <dl class="example">
 <dt>Example : howto-commonjs-modules-2.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 /**
  * @module bookshelf
@@ -314,7 +315,7 @@ this.Book = function(title) {
 <dl class="example">
 <dt>Example : howto-commonjs-modules-3.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 define('my/shirt', function () {
    /** 
@@ -355,7 +356,7 @@ define('my/shirt', function () {
 <dl class="example">
 <dt>Example : howto-commonjs-modules-4.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 /** 
     A module representing a jacket.
@@ -390,7 +391,7 @@ define('jacket', function () {
 <dl class="example">
 <dt>Example : howto-commonjs-modules-5.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 /** 
     A module representing a jacket.
@@ -428,7 +429,7 @@ module.exports = Jacket;
 <dl class="example">
 <dt>Example : howto-commonjs-modules-6.js</dt>
 <dd>
-<pre class="prettyprint lang-js">
+<pre class="prettyprint linenums">
 
 // one module
 define('html/utils',

@@ -30,20 +30,10 @@
     <b>A numeric enum, representing three states</b>
 </p>
 
-{{#example}} code
-/**
- * Enum for tri-state values.
- * @readonly
- * @enum {number}
- */
-var triState = {
-    /** The true value */
-    TRUE: 1,
-    FALSE: -1,
-    /** @type {boolean} */
-    MAYBE: true
-};
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-enum-0.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

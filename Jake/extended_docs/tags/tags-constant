@@ -35,13 +35,10 @@
     <b>A string constant representing the color red</b>
 </p>
 
-{{#example}} code
-/** @constant
-    @type {string}
-    @default
-*/
-const RED = 'FF0000';
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-constant-0.js
+{{/includeExample}}
+
 <p>
     Note that the example provides the type in a @type tag. This is optional. Also the optional @default tag is used here too, this will automatically add whatever the assigned value is (for example 'FF0000') to the documentation.
 </p>

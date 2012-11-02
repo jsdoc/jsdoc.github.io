@@ -103,13 +103,10 @@
     <b>Example</b>
 </p>
 
-{{#example}} code
-...
-"plugins": [
-    "plugins/shout"
-]
-...
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-0.js
+{{/includeExample}}
+
 <h2 name="authoring-jsdoc-3-plugins"
     id="authoring-jsdoc-3-plugins">
     Authoring JSDoc 3 Plugins
@@ -143,13 +140,10 @@
     <b>Example</b>
 </p>
 
-{{#example}} code
-exports.handlers = {
-    newDoclet: function(e) {
-        //Do something when we see a new doclet
-    }
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-1.js
+{{/includeExample}}
+
 <h4 name="event-fileBegin"
     id="event-fileBegin">
     Event: fileBegin
@@ -197,20 +191,10 @@ exports.handlers = {
     <b>Example</b>
 </p>
 
-{{#example}} code
-exports.handlers = {
-    beforeParse: function(e) {
-        var extraDoc = ["",
-            "/**",
-            "Here's a description of this function",
-            "@name superFunc",
-            "@memberof ui.mywidget",
-            "@function",
-            "*/", ""];
-        e.source += extraDoc.join("\n");
-    }
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-2.js
+{{/includeExample}}
+
 <h4 name="event-jsdocCommentFound"
     id="event-jsdocCommentFound">
     Event: jsdocCommentFound
@@ -339,17 +323,10 @@ exports.handlers = {
     <b>Example</b>
 </p>
 
-{{#example}} code
-exports.handlers = {
-    newDoclet: function(e) {
-        // e.doclet will refer to the newly created doclet
-        // you can read and modify properties of that doclet if you wish
-        if (typeof e.doclet.description === 'string') {
-            e.doclet.description = e.doclet.description.toUpperCase();
-        }
-    }
-};
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-3.js
+{{/includeExample}}
+
 <h4 name="event-fileComplete"
     id="event-fileComplete">
     Event: fileComplete
@@ -388,11 +365,10 @@ exports.handlers = {
     <b>Example</b>
 </p>
 
-{{#example}} code
-exports.defineTags = function(dictionary) {
-    //define tags here
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-4.js
+{{/includeExample}}
+
 <h4 name="the-dictionary"
     id="the-dictionary">
     The Dictionary
@@ -429,14 +405,10 @@ exports.defineTags = function(dictionary) {
                     <b>Example</b>
                 </p>
 
-                {{#example}} code
-                    dictionary.defineTag('instance', { 
-                        onTagged: function(doclet, tag) {
-                            doclet.scope = "instance";
-                        }
-                    }); 
-                
-{{/example}}
+                {{#includeExample}}
+    jake/extended_docs/examples/about-plugins-5.js
+{{/includeExample}}
+
             </li>
         </ul>
 
@@ -448,11 +420,10 @@ exports.defineTags = function(dictionary) {
             <b>Example</b>
         </p>
 
-        {{#example}} code
-            dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
-            .synonym('throws');
-        
-{{/example}}
+        {{#includeExample}}
+    jake/extended_docs/examples/about-plugins-6.js
+{{/includeExample}}
+
     </li>
 
     <li>lookUp(title) Used to lookup a tag. Returns either the tag or false if it's not defined
@@ -482,13 +453,10 @@ exports.defineTags = function(dictionary) {
     <b>Example</b>
 </p>
 
-{{#example}} code
-exports.nodeVisitor = {
-    visitNode: function(node, e, parser, currentSourceName) {
-        //do all sorts of crazy things here
-    }
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-7.js
+{{/includeExample}}
+
 <p>
     The function is called on each node with the following parameters:
 </p>
@@ -533,76 +501,10 @@ exports.nodeVisitor = {
     <b>Example</b>
 </p>
 
-{{#example}} code
-exports.nodeVisitor = {
-    visitNode: function(node, e, parser, currentSourceName) {
-        if (node.type === Token.OBJECTLIT &amp;&amp; node.parent &amp;&amp; node.parent.type === Token.CALL &amp;&amp; isInWidgetFactory(node, 1)) {
-            var widgetName = node.parent.arguments.get(0).toSource();
-            e.id = 'astnode' + node.hashCode(); // the id of the object literal node
-            e.comment = String(node.parent.jsDoc||'');
-            e.lineno = node.parent.getLineno();
-            e.filename = currentSourceName;
-            e.astnode = node;
-            e.code = {
-                name: "" + widgetName.substring(1, widgetName.length() - 1),
-                type: "class",
-                node: node
-            };
-            e.event = "symbolFound";
-            e.finishers = [parser.addDocletRef];
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-8.js
+{{/includeExample}}
 
-            addCommentTag(e, "param", "{Object=} options A set of configuration options");
-        } 
-        else if(isTriggerCall(node)) {
-            var nameNode = node.arguments.get(0);
-                eventName = String((nameNode.type == Token.STRING) ? nameNode.value : nameNode.toSource()),
-                func = {},
-                comment = "@event\n",
-                eventKey = "";
-
-            if (node.enclosingFunction) {
-                func.id = 'astnode'+node.enclosingFunction.hashCode();
-                func.doclet = parser.refs[func.id];
-            }
-            if(func.doclet) {
-                func.doclet.addTag("fires", eventName);
-                if (func.doclet.memberof) {
-                    eventKey = func.doclet.memberof + "#event:" + eventName;
-                    comment += "@name " + func.doclet.memberof + "#" + eventName;
-                }
-            }
-            e.comment = comment;
-            e.lineno = node.getLineno();
-            e.filename = currentSourceName;
-            e.event = "jsdocCommentFound";                
-        }
-    }
-};
-function isTriggerCall(node) {
-    if(node.type != Token.CALL) { return false; }
-    var target = node.getTarget(),
-        left = target &amp;&amp; target.left &amp;&amp; String(target.left.toSource()),
-        right = target &amp;&amp; target.right &amp;&amp; String(target.right.toSource());
-    return (left === "this" &amp;&amp; right === "_trigger");
-}
-
-function isInWidgetFactory(node, depth) {
-    var parent = node.parent,
-        d = 0;
-    while(parent &amp;&amp; (!depth || d &lt; depth)) {
-        if (parent.type === Token.CALL) {
-            var target = parent.getTarget(),
-                left = target &amp;&amp; target.left &amp;&amp; String(target.left.toSource()),
-                right = target &amp;&amp; target.right &amp;&amp; String(target.right.toSource());
-            return ((left === "$" || left === "jQuery") &amp;&amp; right === "widget");
-        } else {
-            parent = parent.parent;
-            d++;
-        }
-    }
-    return false;
-}
-{{/example}}
 <p>
     You'll notice a "finishers" property set. The finishers property should contain an array of functions to be called after the event is fired and all the handlers have processed it. The parser provides an <code>addDocletRef</code> function that adds the doclet to the map (keyed off of the id property) of doclets it knows about.
 </p>
@@ -624,9 +526,10 @@ function isInWidgetFactory(node, depth) {
     <b>Example</b>
 </p>
 
-{{#example}} code
-$&gt;jake install[path/to/YourPluginFolder]
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-9.js
+{{/includeExample}}
+
 <p>
     <em>note: on some systems (like MacOS X), you may need to quote the target name and parameters</em>:
 </p>
@@ -635,9 +538,10 @@ $&gt;jake install[path/to/YourPluginFolder]
     <b>Example</b>
 </p>
 
-{{#example}} code
-$&gt;jake 'install[path/to/YourPluginFolder]'
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-10.js
+{{/includeExample}}
+
 <p>
     The task is passed a directory that should look something like the following:
 </p>
@@ -646,19 +550,10 @@ $&gt;jake 'install[path/to/YourPluginFolder]'
     <b>Example</b>
 </p>
 
-{{#example}} code
-YourPluginFolder
- |- plugins
- |   |- YourPlugin.js
- |   \- test
- |       |- fixtures
- |       |   \- YourFixtures.js
- |       \- specs
- |           \- YourTests.js
- \- templates
-     \- YourTemplate
-         \- publish.js
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-11.js
+{{/includeExample}}
+
 <p>
     Basically everything is copied over into the jsdoc installation directory, the directory should contain anything you want to put there.
 </p>
@@ -716,11 +611,10 @@ YourPluginFolder
     <b>Example</b>
 </p>
 
-{{#example}} code
-function hooray() {
-    console.log('I love to say @partial "hooray"!');
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-plugins-12.js
+{{/includeExample}}
+
 <p>
     Back to your original request. You wanted a plugin that adds arbitrary content to a doclet. The <code>@partial</code> plugin already does that. If you'd rather use <code>@resource</code> tags, just change <code>@partial</code> to <code>@resource</code> in the plugin. And if, say, you wanted to wrap the content in a <code>&lt;pre&gt;</code> tag, you could change line 27 of the plugin from <code>return partialData;</code> to <code>return '&lt;pre&gt;' + partialData + '&lt;/pre&gt;';</code>.
 </p>

@@ -10,9 +10,10 @@
     <b>Including a readme file in your documentation</b>
 </p>
 
-{{#example}} code
-jsdoc C:\path\to\my\JS\project\sourceFiles C:\path\to\my\JS\project\README.md
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-including-readme-0.js
+{{/includeExample}}
+
 <p>
     If your file is successfully incorporated into the default template, it's content will be rendered in beautiful HTML just before the files list.
 </p>

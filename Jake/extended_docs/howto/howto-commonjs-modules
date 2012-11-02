@@ -18,17 +18,10 @@
     <b>The putOn and unbutton methods are documented as members of the "my/shirt" module.</b>
 </p>
 
-{{#example}} code
-/** @module my/shirt */
+{{#includeExample}}
+    jake/extended_docs/examples/howto-commonjs-modules-0.js
+{{/includeExample}}
 
-/** Try it on. */
-exports.putOn = function(someShirt) {
-}
-
-/** Make it easier to put on and remove. */
-exports.unbutton = function(someShirt) {
-}
-{{/example}}
 <h3>
     Document Members Assigned to <code>module.exports</code>
 </h3>
@@ -41,17 +34,10 @@ exports.unbutton = function(someShirt) {
     <b>The blend and darken methods are documented as members of the "color/mixer" module.</b>
 </p>
 
-{{#example}} code
-/** @module color/mixer */
+{{#includeExample}}
+    jake/extended_docs/examples/howto-commonjs-modules-1.js
+{{/includeExample}}
 
-module.exports = {
-    /** Blend two colors together. */
-    blend: function(color1, color2) { }
-}
-
-/** Darken a color by the given shade. */
-exports.darken = function(color, shade) { }
-{{/example}}
 <h3>
     Document Members Exported on the Global <code>this</code>
 </h3>
@@ -64,19 +50,10 @@ exports.darken = function(color, shade) { }
     <b>The Book class is documented as a member of the "bookshelf" module.</b>
 </p>
 
-{{#example}} code
-/**
- * @module bookshelf
- */
+{{#includeExample}}
+    jake/extended_docs/examples/howto-commonjs-modules-2.js
+{{/includeExample}}
 
-/**
- * @class
- */
-this.Book = function(title) {
-    /** The title of the book. */
-    this.title = title;
-}
-{{/example}}
 <h3>
     Document a Function that returns a RequireJS Module
 </h3>
@@ -89,28 +66,10 @@ this.Book = function(title) {
     <b>The color property and the Turtleneck class are documented as members of the "my/shirt" module.</b>
 </p>
 
-{{#example}} code
-define('my/shirt', function () {
-   /** 
-        A module representing a shirt.
-        @exports my/shirt
-        @version 1.0
-     */
-    var shirt = {
-    
-        /** A property of the module. */
-        color: "black",
-        
-        /** @constructor */
-        Turtleneck: function(size) {
-            /** A property of the class. */
-            this.size = size;
-        }
-    };
+{{#includeExample}}
+    jake/extended_docs/examples/howto-commonjs-modules-3.js
+{{/includeExample}}
 
-    return shirt;
-});
-{{/example}}
 <h3>
     Document a Module as a Constructor
 </h3>
@@ -123,26 +82,10 @@ define('my/shirt', function () {
     <b>Use the @alias tag simplify documenting a constructor-module in RequireJS.</b>
 </p>
 
-{{#example}} code
-/** 
-    A module representing a jacket.
-    @module jacket
- */
-define('jacket', function () {
-    /**
-        @constructor
-        @alias module:jacket
-     */
-    var exports = function() {
-    }
-    
-    /** Open and close your Jacket. */
-    exports.prototype.zip = function() {
-    }
-          
-    return exports;
-});
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/howto-commonjs-modules-4.js
+{{/includeExample}}
+
 <p>
     The same pattern can be documented in CommonJS environments.
 </p>
@@ -151,25 +94,10 @@ define('jacket', function () {
     <b>Use the @alias tag to document constructor-modules in CommonJS.</b>
 </p>
 
-{{#example}} code
-/** 
-    A module representing a jacket.
-    @module jacket
- */
+{{#includeExample}}
+    jake/extended_docs/examples/howto-commonjs-modules-5.js
+{{/includeExample}}
 
-/**
-    @constructor
-    @alias module:jacket
- */
-function Jacket() {
-}
-
-/** Open and close your Jacket. */
-Jacket.prototype.zip = function() {
-}
-      
-module.exports = Jacket;
-{{/example}}
 <h3>
     Document Multiple RequireJS Modules Defined in a Single File
 </h3>
@@ -182,39 +110,10 @@ module.exports = Jacket;
     <b>The getStyleProperty and isInHead methods are documented as members of the "html/utils" module. The Tag class is documented as a member of the "tag" module.</b>
 </p>
 
-{{#example}} code
-// one module
-define('html/utils',
-    /** 
-        Utility functions to ease working with DOM elements.
-        @exports html/utils
-     */
-    function() {
-        var exports = {
-            /** Get the value of a property on an element. */
-            getStyleProperty: function(element, propertyName) { }
-        };
-        
-        /** Determine if an element is in the document head. */
-        exports.isInHead = function(element) { }
-        
-        return exports;
-    }
-);
+{{#includeExample}}
+    jake/extended_docs/examples/howto-commonjs-modules-6.js
+{{/includeExample}}
 
-// another module
-define('tag',
-    /** @exports tag */
-    function() {
-        var exports = {
-            /** @class */
-            Tag: function(tagName) { }
-        };
-        
-        return exports;
-    }
-);
-{{/example}}
 <h3>
     See Also
 </h3>

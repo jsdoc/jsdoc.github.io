@@ -14,34 +14,18 @@
     <b>Documenting examples.</b>
 </p>
 
-{{#example}} code
-/**
- * Solves equations of the form a * x = b
- * @example
- * // returns 2
- * globalNS.method1(5,10);
- * @returns {Number} Returns the value of x for the equation.
- */
-globalNS.method1 = function (a,b) {
-    return b / a;
-};
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-example-0.js
+{{/includeExample}}
+
 <p>
     <b>Documenting examples (note no leading stars required)</b>
 </p>
 
-{{#example}} code
-/**
- * Solves equations of the form a * x = b
- * @example
-// returns 2
-globalNS.method1(5,10);
- * @returns {Number} Returns the value of x for the equation.
- */
-globalNS.method1 = function (a,b) {
-    return b / a;
-};
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-example-1.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

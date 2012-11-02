@@ -305,9 +305,10 @@
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-0.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 ...
 "plugins": [
     "plugins/shout"
@@ -316,7 +317,8 @@
 
 </pre>
 </dd>
-</dl><h2 name="authoring-jsdoc-3-plugins"
+</dl>
+<h2 name="authoring-jsdoc-3-plugins"
     id="authoring-jsdoc-3-plugins">
     Authoring JSDoc 3 Plugins
 </h2>
@@ -350,9 +352,10 @@
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-1.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 exports.handlers = {
     newDoclet: function(e) {
         //Do something when we see a new doclet
@@ -361,7 +364,8 @@ exports.handlers = {
 
 </pre>
 </dd>
-</dl><h4 name="event-fileBegin"
+</dl>
+<h4 name="event-fileBegin"
     id="event-fileBegin">
     Event: fileBegin
 </h4>
@@ -409,9 +413,10 @@ exports.handlers = {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-2.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 exports.handlers = {
     beforeParse: function(e) {
         var extraDoc = ["",
@@ -427,7 +432,8 @@ exports.handlers = {
 
 </pre>
 </dd>
-</dl><h4 name="event-jsdocCommentFound"
+</dl>
+<h4 name="event-jsdocCommentFound"
     id="event-jsdocCommentFound">
     Event: jsdocCommentFound
 </h4>
@@ -556,9 +562,10 @@ exports.handlers = {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-3.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 exports.handlers = {
     newDoclet: function(e) {
         // e.doclet will refer to the newly created doclet
@@ -571,7 +578,8 @@ exports.handlers = {
 
 </pre>
 </dd>
-</dl><h4 name="event-fileComplete"
+</dl>
+<h4 name="event-fileComplete"
     id="event-fileComplete">
     Event: fileComplete
 </h4>
@@ -610,16 +618,18 @@ exports.handlers = {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-4.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 exports.defineTags = function(dictionary) {
     //define tags here
 }
 
 </pre>
 </dd>
-</dl><h4 name="the-dictionary"
+</dl>
+<h4 name="the-dictionary"
     id="the-dictionary">
     The Dictionary
 </h4>
@@ -655,10 +665,11 @@ exports.defineTags = function(dictionary) {
                     <b>Example</b>
                 </p>
 
-                <dl class="example">
-<dt>code</dt>
+<dl class="example">
+<dt>Example : about-plugins-5.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 dictionary.defineTag('instance', { 
     onTagged: function(doclet, tag) {
         doclet.scope = "instance";
@@ -668,7 +679,8 @@ dictionary.defineTag('instance', {
 
 </pre>
 </dd>
-</dl>            </li>
+</dl>
+            </li>
         </ul>
 
         <p>
@@ -679,17 +691,19 @@ dictionary.defineTag('instance', {
             <b>Example</b>
         </p>
 
-        <dl class="example">
-<dt>code</dt>
+<dl class="example">
+<dt>Example : about-plugins-6.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
 .synonym('throws');
         
 
 </pre>
 </dd>
-</dl>    </li>
+</dl>
+    </li>
 
     <li>lookUp(title) Used to lookup a tag. Returns either the tag or false if it's not defined
     </li>
@@ -719,9 +733,10 @@ dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-7.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 exports.nodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
         //do all sorts of crazy things here
@@ -730,7 +745,8 @@ exports.nodeVisitor = {
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     The function is called on each node with the following parameters:
 </p>
 
@@ -775,9 +791,10 @@ exports.nodeVisitor = {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-8.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 exports.nodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
         if (node.type === Token.OBJECTLIT &amp;&amp; node.parent &amp;&amp; node.parent.type === Token.CALL &amp;&amp; isInWidgetFactory(node, 1)) {
@@ -849,7 +866,8 @@ function isInWidgetFactory(node, depth) {
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     You'll notice a "finishers" property set. The finishers property should contain an array of functions to be called after the event is fired and all the handlers have processed it. The parser provides an <code>addDocletRef</code> function that adds the doclet to the map (keyed off of the id property) of doclets it knows about.
 </p>
 
@@ -871,14 +889,16 @@ function isInWidgetFactory(node, depth) {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-9.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 $&gt;jake install[path/to/YourPluginFolder]
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     <em>note: on some systems (like MacOS X), you may need to quote the target name and parameters</em>:
 </p>
 
@@ -887,14 +907,16 @@ $&gt;jake install[path/to/YourPluginFolder]
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-10.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 $&gt;jake 'install[path/to/YourPluginFolder]'
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     The task is passed a directory that should look something like the following:
 </p>
 
@@ -903,9 +925,10 @@ $&gt;jake 'install[path/to/YourPluginFolder]'
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-11.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 YourPluginFolder
  |- plugins
  |   |- YourPlugin.js
@@ -920,7 +943,8 @@ YourPluginFolder
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     Basically everything is copied over into the jsdoc installation directory, the directory should contain anything you want to put there.
 </p>
 
@@ -978,16 +1002,18 @@ YourPluginFolder
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-plugins-12.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 function hooray() {
     console.log('I love to say @partial "hooray"!');
 }
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     Back to your original request. You wanted a plugin that adds arbitrary content to a doclet. The <code>@partial</code> plugin already does that. If you'd rather use <code>@resource</code> tags, just change <code>@partial</code> to <code>@resource</code> in the plugin. And if, say, you wanted to wrap the content in a <code>&lt;pre&gt;</code> tag, you could change line 27 of the plugin from <code>return partialData;</code> to <code>return '&lt;pre&gt;' + partialData + '&lt;/pre&gt;';</code>.
 </p>
 

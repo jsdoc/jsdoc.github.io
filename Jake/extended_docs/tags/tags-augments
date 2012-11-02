@@ -39,35 +39,10 @@
     <b>Documenting a class/subclass type of relationship.</b>
 </p>
 
-{{#example}} code
-/**
- * @constructor
- */
-function Animal() {
-    /** Is this animal alive? */
-    this.alive = true;
-}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-augments-0.js
+{{/includeExample}}
 
-/**
- * @constructor
- * @augments Animal
- */
-function Duck() {
-}
-Duck.prototype = new Animal();
-
-/** What do ducks say? */
-Duck.prototype.speak = function() {
-    if (this.alive) {
-        alert('Quack!');
-    }
-}
-
-var d = new Duck();
-d.speak(); // Quack!
-d.alive = false; // dead duck?
-d.speak;
-{{/example}}
 <p>
     A related pattern can be documented with the @mixin and @mixes tags. Or, if the augmented symbol is only reusing one or two members of another symbol, you may find the @borrows tag more convenient.
 </p>

@@ -10,9 +10,10 @@
     <b>Example goes here</b>
 </p>
 
-{{#example}} code
-// todo
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-requires-0.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

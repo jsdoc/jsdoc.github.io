@@ -14,9 +14,10 @@
     <b>Example</b>
 </p>
 
-{{#example}} code
-jsdoc -T
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-testing-jsdoc3-0.js
+{{/includeExample}}
+
 <p>
     ... or on a Max OSX or *nix platform:
 </p>
@@ -25,9 +26,10 @@ jsdoc -T
     <b>Example</b>
 </p>
 
-{{#example}} code
-./jsdoc -T
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-testing-jsdoc3-1.js
+{{/includeExample}}
+
 <p>
     If you can't get the short-form commands to work, try invoking Java directly:
 </p>
@@ -36,11 +38,10 @@ jsdoc -T
     <b>Example</b>
 </p>
 
-{{#example}} code
-java -cp lib/js.jar org.mozilla.javascript.tools.shell.Main -opt -1 \
--modules nodejs_modules -modules rhino_modules -modules . \
-jsdoc.js -T
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-testing-jsdoc3-2.js
+{{/includeExample}}
+
 <h2>
     Writing Tests
 </h2>

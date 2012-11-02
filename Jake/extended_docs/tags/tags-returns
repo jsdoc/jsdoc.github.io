@@ -14,51 +14,26 @@
     <b>Type of the return value</b>
 </p>
 
-{{#example}} code
-/**
- * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @returns {Number}
- */
-function sum(a, b) {
-    return a + b;
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-returns-0.js
+{{/includeExample}}
+
 <p>
     <b>Type and description of the return value</b>
 </p>
 
-{{#example}} code
-/**
- * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @returns {Number} Sum of a and b
- */
-function sum(a, b) {
-    return a + b;
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-returns-1.js
+{{/includeExample}}
+
 <p>
     <b>The return value can have different types</b>
 </p>
 
-{{#example}} code
-/**
- * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @param {Boolean} retArr If set to true, the function will return an array
- * @returns {Number|Array} Sum of a and b or an array that contains a, b and the sum of a and b.
- */
-function sum(a, b, retArr) {
-    if (retArr) {
-        return [a, b, a + b];
-    }
-    return a + b;
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-returns-2.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

@@ -24,12 +24,10 @@
     <b>Example goes here</b>
 </p>
 
-{{#example}} code
-/**
- * @overview This is my cool script.
- * @copyright Michael Mathews 2011
- */
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-copyright-0.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

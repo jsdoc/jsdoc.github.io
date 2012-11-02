@@ -22,16 +22,10 @@
     <b>Method that fires a 'drain' event</b>
 </p>
 
-{{#example}} code
-/**
- * Drink the milkshake.
- *
- * @fires Milkshake#drain
- */
-Milkshake.prototype.drink = function() {
-    // ...  
-};
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-fires-0.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

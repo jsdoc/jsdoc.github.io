@@ -18,11 +18,7 @@
     <b>Document an inner variable as a global</b>
 </p>
 
-{{#example}} code
-(function() {
-    /** @global */
-    var foo = 'hello foo';
+{{#includeExample}}
+    jake/extended_docs/examples/tags-global-0.js
+{{/includeExample}}
 
-    this.foo = foo;
-}).apply(window);
-{{/example}}

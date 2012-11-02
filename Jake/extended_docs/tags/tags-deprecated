@@ -26,10 +26,7 @@
     <b>Document that the old function has been deprecated since version 2.0</b>
 </p>
 
-{{#example}} code
-/**
- * @deprecated since version 2.0
- */
-function old() {  
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-deprecated-0.js
+{{/includeExample}}
+

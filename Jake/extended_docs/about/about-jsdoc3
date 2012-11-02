@@ -26,9 +26,10 @@
     <b>Example</b>
 </p>
 
-{{#example}} code
-jsdoc -T
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-jsdoc3-0.js
+{{/includeExample}}
+
 <p>
     ... or on a Max OSX or *nix platform:
 </p>
@@ -37,9 +38,10 @@ jsdoc -T
     <b>Example</b>
 </p>
 
-{{#example}} code
-./jsdoc -T
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-jsdoc3-1.js
+{{/includeExample}}
+
 <p>
     If you can't get the short-form commands to work, try invoking Java directly:
 </p>
@@ -48,11 +50,10 @@ jsdoc -T
     <b>Example</b>
 </p>
 
-{{#example}} code
-java -cp lib/js.jar org.mozilla.javascript.tools.shell.Main \
--modules nodejs_modules -modules rhino_modules -modules . \
-jsdoc.js -T
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-jsdoc3-2.js
+{{/includeExample}}
+
 <h2>
     Usage
 </h2>
@@ -65,9 +66,10 @@ jsdoc.js -T
     <b>Example</b>
 </p>
 
-{{#example}} code
-./jsdoc yourSourceCodeFile.js
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-jsdoc3-3.js
+{{/includeExample}}
+
 <p>
     For help regarding the supported commandline options use the --help option.
 </p>
@@ -76,9 +78,10 @@ jsdoc.js -T
     <b>Example</b>
 </p>
 
-{{#example}} code
-./jsdoc --help
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-jsdoc3-4.js
+{{/includeExample}}
+
 <p>
     Generated documentation will appear in the folder specified by the --destination option, or in a folder named "out" by default.
 </p>
@@ -111,9 +114,10 @@ jsdoc.js -T
     <b>Example</b>
 </p>
 
-{{#example}} code
-jsdoc --debug
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-jsdoc3-5.js
+{{/includeExample}}
+
 <p>
     or the long form version:
 </p>
@@ -122,13 +126,10 @@ jsdoc --debug
     <b>Example</b>
 </p>
 
-{{#example}} code
-$ java -classpath lib/js.jar \
-org.mozilla.javascript.tools.debugger.Main -debug \
--modules nodejs_modules -modules rhino_modules -modules . \
-jsdoc.js \
-your/script.js
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-jsdoc3-6.js
+{{/includeExample}}
+
 <p>
     Note: <code>--debug</code> must be the first argument to the short form command
 </p>

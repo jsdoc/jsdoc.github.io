@@ -14,17 +14,10 @@
     <b>Documenting an item's version.</b>
 </p>
 
-{{#example}} code
-/**
- * Solves equations of the form a * x = b
- * @author Some Author
- * @version 20121008
- * @tutorial method1
- */
-method1 = function (a,b) {
-    return b / a;
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-version-0.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

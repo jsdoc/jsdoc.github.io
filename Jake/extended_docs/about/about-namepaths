@@ -10,13 +10,10 @@
     <b>Basic Syntax Examples of Nameptahs in JSDoc 3</b>
 </p>
 
-{{#example}} code
-myFunction
-MyConstructor
-MyConstructor#instancMember
-MyConstructor.staticMember
-MyConstructor~innerMember // note that JSDoc 2 uses a dash
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-namepaths-0.js
+{{/includeExample}}
+
 <p>
     The example below shows: an <em>instance</em> method named "say," an <em>inner</em> function also named "say," and a <em>static</em> method also named "say." These are three distinct methods that all exist independently of one another.
 </p>
@@ -25,26 +22,10 @@ MyConstructor~innerMember // note that JSDoc 2 uses a dash
     <b>Use a documentation tag to describe your code.</b>
 </p>
 
-{{#example}} code
-/** @constructor */
-Person = function() {
-    this.say = function() {
-        return "I'm an instance.";
-    }
-    
-    function say() {
-        return "I'm inner.";
-    }
-}
-Person.say = function() {
-    return "I'm static.";
-}
+{{#includeExample}}
+    jake/extended_docs/examples/about-namepaths-1.js
+{{/includeExample}}
 
-var p = new Person();
-p.say();      // I'm an instance.
-Person.say(); // I'm static.
-// there is no way to directly access the inner function from here
-{{/example}}
 <p>
     You would use three different namepath syntaxes to refer to the three different methods:
 </p>
@@ -53,11 +34,10 @@ Person.say(); // I'm static.
     <b>Use a documentation tag to describe your code.</b>
 </p>
 
-{{#example}} code
-Person#say  // the instance method named "say."
-Person.say  // the static method named "say."
-Person~say  // the inner method named "say."
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-namepaths-2.js
+{{/includeExample}}
+
 <p>
     You might wonder why there is a syntax to refer to an inner method when that method isn't directly accessible from outside the function it is defined in. While that is true, and thus the "~" syntax is rarely used, it <em>is</em> possible to return a reference to an inner method from another method inside that container, so it is possible that some object elsewhere in your code might borrow an inner method.
 </p>
@@ -70,21 +50,10 @@ Person~say  // the inner method named "say."
     <b>Use a documentation tag to describe your code.</b>
 </p>
 
-{{#example}} code
-/** @constructor */
-Person = function() {
-    /** @constructor */
-    this.Idea = function() {
-        this.consider = function(){
-            return "hmmm";
-        }
-    }
-}
+{{#includeExample}}
+    jake/extended_docs/examples/about-namepaths-3.js
+{{/includeExample}}
 
-var p = new Person();
-var i = new p.Idea();
-i.consider();
-{{/example}}
 <p>
     In this case, to refer to the method named "consider," you would use the following namepath: <code>Person#Idea#consider</code>
 </p>

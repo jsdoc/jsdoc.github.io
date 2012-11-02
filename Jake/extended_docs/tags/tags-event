@@ -38,47 +38,18 @@
     <b>Documenting a function call as an event</b>
 </p>
 
-{{#example}} code
-/**
- * Throw a snowball.
- *
- * @fires Hurl#snowball
- */
-Hurl.prototype.snowball = function() {
-    /**
-     * Snowball event.
-     *
-     * @event Hurl#snowball
-     * @type {object}
-     * @property {boolean} isPacked - Indicates whether the snowball is tightly packed.
-     */
-    this.emit('snowball', {
-        isPacked: this._snowball.isPacked
-    });
-};
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-event-0.js
+{{/includeExample}}
+
 <p>
     <b>Using a named doclet to document an event</b>
 </p>
 
-{{#example}} code
-/**
- * Throw a snowball.
- *
- * @fires Hurl#snowball
- */
-Hurl.prototype.snowball = function() {
-    // ...
-};
+{{#includeExample}}
+    jake/extended_docs/examples/tags-event-1.js
+{{/includeExample}}
 
-/**
- * Snowball event.
- *
- * @event Hurl#snowball
- * @type {object}
- * @property {boolean} isPacked - Indicates whether the snowball is tightly packed.
- */
-{{/example}}
 <h3>
     See Also
 </h3>

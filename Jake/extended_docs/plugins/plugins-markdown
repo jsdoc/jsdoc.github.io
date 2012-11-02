@@ -10,11 +10,10 @@
     <b>Example</b>
 </p>
 
-{{#example}} code
-...
-"plugins": [ "plugins/markdown" ]
-...
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/plugins-markdown-0.js
+{{/includeExample}}
+
 <p>
     This will cause Markdown in <code>@description</code> tags (including implicit descriptions without tags), <code>@classdesc</code> tags, <code>@param</code> tags, <code>@property</code> tags, and <code>@returns</code> tags to be parsed.
 </p>
@@ -35,16 +34,10 @@
     <b>Example</b>
 </p>
 
-{{#example}} code
-...
-"plugins": [ "plugins/markdown" ],
+{{#includeExample}}
+    jake/extended_docs/examples/plugins-markdown-1.js
+{{/includeExample}}
 
-"markdown": {
-    "opt1": "value",
-    "opt2": [ "foo", "bar", "baz" ]
-}
-...
-{{/example}}
 <h2>
     Choosing a parser
 </h2>
@@ -57,15 +50,10 @@
     <b>Example</b>
 </p>
 
-{{#example}} code
-...
-"plugins": [ "plugins/markdown" ],
+{{#includeExample}}
+    jake/extended_docs/examples/plugins-markdown-2.js
+{{/includeExample}}
 
-"markdown": {
-    "parser": "gfm"
-}
-...
-{{/example}}
 <h3>
     Dominic "evilstreak" Baggott's markdown-js
 </h3>
@@ -78,16 +66,10 @@
     <b>Example</b>
 </p>
 
-{{#example}} code
-...
-"plugins": [ "plugins/markdown" ],
+{{#includeExample}}
+    jake/extended_docs/examples/plugins-markdown-3.js
+{{/includeExample}}
 
-"markdown": {
-    "parser": "evilstreak",
-    "dialect": "Maruku"
-}
-...
-{{/example}}
 <h3>
     GitHib Flavored Markdown
 </h3>
@@ -108,16 +90,10 @@
     <b>Example</b>
 </p>
 
-{{#example}} code
-...
-"plugins": [ "plugins/markdown" ],
+{{#includeExample}}
+    jake/extended_docs/examples/plugins-markdown-4.js
+{{/includeExample}}
 
-"markdown": {
-    "parser": "gfm",
-    "hardwrap": true
-}
-...
-{{/example}}
 <h3>
     Why two parsers?
 </h3>
@@ -142,15 +118,10 @@
     <b>Example</b>
 </p>
 
-{{#example}} code
-...
-"plugins": [ "plugins/markdown" ],
+{{#includeExample}}
+    jake/extended_docs/examples/plugins-markdown-5.js
+{{/includeExample}}
 
-"markdown": {
-    "tags": [ "foo", "bars", "bazzes" ]
-}
-...
-{{/example}}
 <p>
     * Because the Markdown plugin works with JSDoc's internal representation rather than with the source comments, the names you need to enter in the <code>tags</code> property aren't necessarily the same as the actual tag names. For example, in the default set of tags, <code>@param</code> is stored under <code>params</code>. If you are having trouble getting the Markdown plugin to work with your extra tags, either take a peek at the output of JSDoc's <code>--explain</code> command-line parameter (which displays the internal state which plugins work with) or ask the plugin author which "doclet properties" their plugin uses. The Markdown plugin supports strings, arrays, and objects/subdoclets.
 </p>

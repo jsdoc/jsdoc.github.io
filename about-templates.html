@@ -241,14 +241,16 @@
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-templates-0.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 ./jsdoc mycode.js -t /path/to/mycooltemplate
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     If you've installed (copied) the template into the templates folder, then you can specify a short path like the following.
 </p>
 
@@ -257,14 +259,16 @@
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-templates-1.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 ./jsdoc mycode.js --template templates/default
 
 </pre>
 </dd>
-</dl><h3 name="Barebones_Example"
+</dl>
+<h3 name="Barebones_Example"
     id="Barebones_Example">
     Barebones Example
 </h3>
@@ -278,9 +282,10 @@
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-templates-2.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /**
  * Turn the data about your docs into file output.
  * @param {TAFFY} data A TaffyDB collection representing
@@ -310,7 +315,8 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     <b>Note that:</b>
 </p>
 
@@ -348,9 +354,10 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-templates-3.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /**
  * Turn the data about your docs into file output.
  * @param {TAFFY} data A TaffyDB collection representing
@@ -386,7 +393,8 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 
 </pre>
 </dd>
-</dl><h3 name="Generating_HTML_Using_Template_Strings"
+</dl>
+<h3 name="Generating_HTML_Using_Template_Strings"
     id="Generating_HTML_Using_Template_Strings">
     Generating HTML Using Template Strings
 </h3>
@@ -396,9 +404,10 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-templates-4.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /**
  * Turn the data about your docs into file output.
  * @param {TAFFY} data A TaffyDB collection representing
@@ -432,19 +441,22 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 
 </pre>
 </dd>
-</dl><html>
+</dl>
+<html>
     <body>
         \n'; templateStr += '\n\n\n'; templateStr += '\n
 
-        <dl class="example">
-<dt>code</dt>
+<dl class="example">
+<dt>Example : about-templates-5.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 &lt;?js= outputContent ?>
 
 </pre>
 </dd>
-</dl>\n\n'; templateStr += '\n'; templateData.outputContent = helper.htmlsafe(outputContent); // override default settings, this is done in // jsdoc/rhino_modules/jsdoc/template as well. // It is used to define the template "tags". // Have a look at some of the default template // files to get an idea of what you can do. templateSettings.evaluate = /&lt;\?js([\s\S]+?)\?&gt;/g; templateSettings.interpolate= /&lt;\?js=([\s\S]+?)\?&gt;/g; templateSettings.escape = /&lt;\?js~([\s\S]+?)\?&gt;/g; outputContent = renderTemplate(templateStr, templateData, templateSettings); // replacing all backslashes with forward slashes in the path // this avoids a few issues on Windows. outputDir = outputDir.replace(/\\/g, '/'); // removing any trailing slash outputDir = outputDir.replace(/\/+$/, ''); outputFile = outputDir + outputFile; fs.mkPath(outputDir); fs.writeFileSync(outputFile, outputContent); };
+</dl>
+\n\n'; templateStr += '\n'; templateData.outputContent = helper.htmlsafe(outputContent); // override default settings, this is done in // jsdoc/rhino_modules/jsdoc/template as well. // It is used to define the template "tags". // Have a look at some of the default template // files to get an idea of what you can do. templateSettings.evaluate = /&lt;\?js([\s\S]+?)\?&gt;/g; templateSettings.interpolate= /&lt;\?js=([\s\S]+?)\?&gt;/g; templateSettings.escape = /&lt;\?js~([\s\S]+?)\?&gt;/g; outputContent = renderTemplate(templateStr, templateData, templateSettings); // replacing all backslashes with forward slashes in the path // this avoids a few issues on Windows. outputDir = outputDir.replace(/\\/g, '/'); // removing any trailing slash outputDir = outputDir.replace(/\/+$/, ''); outputFile = outputDir + outputFile; fs.mkPath(outputDir); fs.writeFileSync(outputFile, outputContent); };
         <h3 name="Generating_HTML_Using_Template_Files"
             id="Generating_HTML_Using_Template_Files">
             Generating HTML Using Template Files
@@ -458,10 +470,11 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
             <b>simpleTemplate Directory Tree</b>
         </p>
 
-        <dl class="example">
-<dt>code</dt>
+<dl class="example">
+<dt>Example : about-templates-6.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 \---templates
     \---simpleTemplate
         |   publish.js
@@ -482,7 +495,8 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 
 </pre>
 </dd>
-</dl>        <p>
+</dl>
+        <p>
             <b>Note that if you want to run this example you'll need to create the directory structure shown above, or just download the example and play with it.</b> You can get away with not having any of the files besides <code>publish.js</code> and <code>layout.tmpl</code> but you'll need the folders.
         </p>
 
@@ -490,10 +504,11 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
             <b>templates/simpleTemplate/publish.js</b>
         </p>
 
-        <dl class="example">
-<dt>code</dt>
+<dl class="example">
+<dt>Example : about-templates-7.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /**
  * @file A simple template to get an idea of where to start.
  * @author &lt;a href="mailto:matthewkastor@gmail.com">Matthew Kastor&lt;/a>
@@ -561,14 +576,16 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 
 </pre>
 </dd>
-</dl>        <p>
+</dl>
+        <p>
             <b>templates/simpleTemplate/tmpl/layout.tmpl</b>
         </p>
 
-        <dl class="example">
-<dt>code</dt>
+<dl class="example">
+<dt>Example : about-templates-8.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 &lt;head>
     &lt;meta charset="utf-8">
     &lt;title>
@@ -609,7 +626,8 @@ exports.publish = function(data, opts, tutorialResolverRoot) {
 
 </pre>
 </dd>
-</dl>            <h2 name="More_Info"
+</dl>
+            <h2 name="More_Info"
                 id="More_Info">
                 More Info
             </h2>

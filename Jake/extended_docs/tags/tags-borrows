@@ -30,19 +30,7 @@
     <b>Duplicate the documentation for trstr as util.trim</b>
 </p>
 
-{{#example}} code
-/**
-    @namespace
-    @borrows trstr as trim
-*/
-var util = {
-    trim: trstr
-};
+{{#includeExample}}
+    jake/extended_docs/examples/tags-borrows-0.js
+{{/includeExample}}
 
-/** 
-    Remove whitespace from around a string.
-    @param {string} str
- */
-function trstr(str) {
-}
-{{/example}}

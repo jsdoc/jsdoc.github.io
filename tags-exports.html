@@ -251,9 +251,10 @@ function (doclet, tag) {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : tags-exports-0.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /**
     A module that says hello!
     @module hello/world
@@ -266,14 +267,16 @@ exports.sayHello = function() {
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     <b>In AMD modules any namespace called "exports" is assumed by JSDoc 3 to be the exported object</b>
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : tags-exports-1.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 define(function () {
 
     /**
@@ -292,14 +295,16 @@ define(function () {
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     <b>If your AMD module exports a constructor, you can still use the "exports" name to indicate what the module is</b>
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : tags-exports-2.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 define(function() {
      /**
         A module that creates greeters.
@@ -324,7 +329,8 @@ define(function() {
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     If you are exporting an object named anything other than "exports", use the <code>@exports</code> tag to indicate what is being exported.
 </p>
 
@@ -333,9 +339,10 @@ define(function() {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : tags-exports-3.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 define(function () {
 
     /**
@@ -354,7 +361,8 @@ define(function () {
 
 </pre>
 </dd>
-</dl><h3>
+</dl>
+<h3>
     See Also
 </h3>
 

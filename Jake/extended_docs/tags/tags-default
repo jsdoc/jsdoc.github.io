@@ -26,10 +26,7 @@
     <b>Document the number value of a constant</b>
 </p>
 
-{{#example}} code
-/**
- *  @constant
- *  @default
- */
-const RED = 0xff0000;
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-default-0.js
+{{/includeExample}}
+

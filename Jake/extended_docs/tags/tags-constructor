@@ -31,16 +31,10 @@
     <b>A function that constructs Person instances.</b>
 </p>
 
-{{#example}} code
-/**
-    Creates a new Person.
-    @constructor 
-*/ 
-Person = function() {
-}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-constructor-0.js
+{{/includeExample}}
 
-var p = new Person();
-{{/example}}
 <h3>
     See Also
 </h3>

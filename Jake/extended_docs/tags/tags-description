@@ -26,17 +26,10 @@
     <b>A tagless description is allowed if no other tag is in effect</b>
 </p>
 
-{{#example}} code
-/**
-    Add two numbers.
-    @param {number} a
-    @param {number} b
-    @returns {number}
- */
-function add(a, b) {
-    return a+b;
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-description-0.js
+{{/includeExample}}
+
 <p>
     If any other tag has previously been used in a given doc comment, then you must use a @desc tag if you wish to provide a description.
 </p>
@@ -45,17 +38,10 @@ function add(a, b) {
     <b>A @desc tag is necessary if any other tag is in effect</b>
 </p>
 
-{{#example}} code
-/**
-    @param {number} a
-    @param {number} b
-    @returns {number}
-    @desc Add two numbers.
- */
-function add(a, b) {
-    return a+b;
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-description-1.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

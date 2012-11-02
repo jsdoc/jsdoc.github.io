@@ -22,11 +22,10 @@
     <b>The simplest documentation is just a description.</b>
 </p>
 
-{{#example}} code
-/** This is a description of the foo function. */
-function foo() {
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-getting-started-0.js
+{{/includeExample}}
+
 <p>
     Adding a description is simple, just type the description you want in the documentaton comment.
 </p>
@@ -39,14 +38,10 @@ function foo() {
     <b>Use a documentation tag to describe your code.</b>
 </p>
 
-{{#example}} code
-/**
-    Represents a book.
-    @constructor
- */
-function Book(title, author) {
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-getting-started-1.js
+{{/includeExample}}
+
 <p>
     More tags can be used to add more information. See the Tag Dictionary for a complete list of tags that are recognized by JSDoc 3.
 </p>
@@ -55,16 +50,10 @@ function Book(title, author) {
     <b>Adding more information with tags.</b>
 </p>
 
-{{#example}} code
-/**
-    Represents a book.
-    @constructor
-    @param {string} title - The title of the book.
-    @param {string} author - The author of the book.
- */
-function Book(title, author) {
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-getting-started-2.js
+{{/includeExample}}
+
 <h3>
     Generating A Website
 </h3>
@@ -81,9 +70,10 @@ function Book(title, author) {
     <b>Running the documentation generator on the command line.</b>
 </p>
 
-{{#example}} code
-./jsdoc book.js
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-getting-started-3.js
+{{/includeExample}}
+
 <p>
     This command will create a folder named "out" in the current working directory. Within that you will find the generated HTML pages.
 </p>

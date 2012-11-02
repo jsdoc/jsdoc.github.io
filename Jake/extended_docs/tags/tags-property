@@ -26,25 +26,10 @@
     <b>A namespace with defaults and nested default properties</b>
 </p>
 
-{{#example}} code
-/**
- * @namespace
- * @property {object}  defaults               - The default values for parties.
- * @property {number}  defaults.players       - The default number of players.
- * @property {string}  defaults.level         - The default level for the party.
- * @property {object}  defaults.treasure      - The default treasure.
- * @property {number}  defaults.treasure.gold - How much gold the party starts with.
- */
-var config = {
-    defaults: {
-        players: 1,
-        level:   'beginner',
-        treasure: {
-            gold: 0
-        }
-    }
-};
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-property-0.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

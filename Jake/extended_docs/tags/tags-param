@@ -30,38 +30,26 @@
     <b>Basic usage of @param</b>
 </p>
 
-{{#example}} code
-/**
- * @param somebody
- */
-function sayHello(somebody) {
-    alert('Hello ' + somebody);
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-param-0.js
+{{/includeExample}}
+
 <p>
     <b>Using a type with @param</b>
 </p>
 
-{{#example}} code
-/**
- * @param {String} somebody
- */
-function sayHello(somebody) {
-    alert('Hello ' + somebody);
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-param-1.js
+{{/includeExample}}
+
 <p>
     <b>Using type and description with @param</b>
 </p>
 
-{{#example}} code
-/**
- * @param {String} somebody Name
- */
-function sayHello(somebody) {
-    alert('Hello ' + somebody);
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-param-2.js
+{{/includeExample}}
+
 <p>
     The following examples show how to indicate that a parameter can be optional and has a default value
 </p>
@@ -70,32 +58,18 @@ function sayHello(somebody) {
     <b>An optional parameter</b>
 </p>
 
-{{#example}} code
-/**
- * @param {String} [somebody] Name
- */
-function sayHello(somebody) {
-    if (!somebody) {
-        somebody = 'John Doe';
-    }
-    alert('Hello ' + somebody);
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-param-3.js
+{{/includeExample}}
+
 <p>
     <b>Optional parameter and default value</b>
 </p>
 
-{{#example}} code
-/**
- * @param {String} [somebody=John Doe] Name
- */
-function sayHello(somebody) {
-    if (!somebody) {
-        somebody = 'John Doe';
-    }
-    alert('Hello ' + somebody);
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-param-4.js
+{{/includeExample}}
+
 <p>
     A parameter could also have several types instead of just one. It can also be used multiple times. The following examples reflect these situations.
 </p>
@@ -104,36 +78,18 @@ function sayHello(somebody) {
     <b>Multiple types</b>
 </p>
 
-{{#example}} code
-/**
- * @param {String|Array} [somebody=John Doe] Name or array of names
- */
-function sayHello(somebody) {
-    if (!somebody) {
-        somebody = 'John Doe';
-    } else if (Array.isArray(somebody)) {
-        somebody = somebody.join(', ');
-    }
-    alert('Hello ' + somebody);
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-param-5.js
+{{/includeExample}}
+
 <p>
     <b>Variable parameter</b>
 </p>
 
-{{#example}} code
-/**
- * Returns the sum of all numbers passed to the function.
- * @param {...Number} num A positive or negative number
- */
-function sum(num) {
-    var i=0, n=arguments.length, t=0;
-    for (; i&lt;n; i++) {
-        t += arguments[i];
-    }
-    return t;
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-param-6.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

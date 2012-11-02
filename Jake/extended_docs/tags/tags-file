@@ -14,13 +14,10 @@
     <b>Giving an overview of a file</b>
 </p>
 
-{{#example}} code
-/**
- * @file Describe the file
- * @author Some Author
- * @version 20121008
- */
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-file-0.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

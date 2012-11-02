@@ -228,14 +228,16 @@
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-jsdoc3-0.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 jsdoc -T
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     ... or on a Max OSX or *nix platform:
 </p>
 
@@ -244,14 +246,16 @@ jsdoc -T
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-jsdoc3-1.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 ./jsdoc -T
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     If you can't get the short-form commands to work, try invoking Java directly:
 </p>
 
@@ -260,16 +264,18 @@ jsdoc -T
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-jsdoc3-2.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 java -cp lib/js.jar org.mozilla.javascript.tools.shell.Main \
 -modules nodejs_modules -modules rhino_modules -modules . \
 jsdoc.js -T
 
 </pre>
 </dd>
-</dl><h2>
+</dl>
+<h2>
     Usage
 </h2>
 
@@ -282,14 +288,16 @@ jsdoc.js -T
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-jsdoc3-3.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 ./jsdoc yourSourceCodeFile.js
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     For help regarding the supported commandline options use the --help option.
 </p>
 
@@ -298,14 +306,16 @@ jsdoc.js -T
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-jsdoc3-4.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 ./jsdoc --help
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     Generated documentation will appear in the folder specified by the --destination option, or in a folder named "out" by default.
 </p>
 
@@ -338,14 +348,16 @@ jsdoc.js -T
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-jsdoc3-5.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 jsdoc --debug
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     or the long form version:
 </p>
 
@@ -354,9 +366,10 @@ jsdoc --debug
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-jsdoc3-6.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 $ java -classpath lib/js.jar \
 org.mozilla.javascript.tools.debugger.Main -debug \
 -modules nodejs_modules -modules rhino_modules -modules . \
@@ -365,7 +378,8 @@ your/script.js
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     Note: <code>--debug</code> must be the first argument to the short form command
 </p>
 

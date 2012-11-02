@@ -56,13 +56,10 @@
     <b>Example of the @tutorial tag</b>
 </p>
 
-{{#example}} code
-/** * Description.
- *
- * @class
- * @tutorial test-tutorial
- */ 
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-tutorials-0.js
+{{/includeExample}}
+
 <p>
     @tutorial tag can also be handled in-line in descriptions:
 </p>
@@ -71,13 +68,10 @@
     <b>Using the tutorial tag in a description</b>
 </p>
 
-{{#example}} code
-/**
- * Description {@tutorial test-tutorial}.
- *
- * @class
- */
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-tutorials-1.js
+{{/includeExample}}
+
 <h3>
     Tutorial content
 </h3>
@@ -90,9 +84,10 @@
     <b>Using the @tutorial tag in content</b>
 </p>
 
-{{#example}} code
-&lt;p&gt;This is tutorial content. See {@link Class.create} for OOP info and {@tutorial class-create} tutorial.&lt;/p&gt;
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/about-tutorials-2.js
+{{/includeExample}}
+
 <h3>
     Backward compatibility
 </h3>

@@ -22,39 +22,18 @@
     <b>Using the @constructs tag with @lends</b>
 </p>
 
-{{#example}} code
-var Person = makeClass(
-    /** @lends Person.prototype */
-    {
-        /** @constructs */
-        initialize: function(name) {
-            this.name = name;
-        },
-        /** Describe me. */
-        say: function(message) {
-            return this.name + " says: " + message;
-        }
-    }
-);
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-constructs-0.js
+{{/includeExample}}
+
 <p>
     <b>Whithout @lends you must provide the name of the class</b>
 </p>
 
-{{#example}} code
-makeClass('Menu', 
-    /**
-        @constructs Menu
-        @param items
-     */
-    function (items) { },
-    {
-        /** @memberof Menu# */
-        show: function(){
-        }
-    }
-);
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-constructs-1.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

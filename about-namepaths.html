@@ -212,9 +212,10 @@
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-namepaths-0.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 myFunction
 MyConstructor
 MyConstructor#instancMember
@@ -223,7 +224,8 @@ MyConstructor~innerMember // note that JSDoc 2 uses a dash
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     The example below shows: an <em>instance</em> method named "say," an <em>inner</em> function also named "say," and a <em>static</em> method also named "say." These are three distinct methods that all exist independently of one another.
 </p>
 
@@ -232,9 +234,10 @@ MyConstructor~innerMember // note that JSDoc 2 uses a dash
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-namepaths-1.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /** @constructor */
 Person = function() {
     this.say = function() {
@@ -256,7 +259,8 @@ Person.say(); // I'm static.
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     You would use three different namepath syntaxes to refer to the three different methods:
 </p>
 
@@ -265,16 +269,18 @@ Person.say(); // I'm static.
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-namepaths-2.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 Person#say  // the instance method named "say."
 Person.say  // the static method named "say."
 Person~say  // the inner method named "say."
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     You might wonder why there is a syntax to refer to an inner method when that method isn't directly accessible from outside the function it is defined in. While that is true, and thus the "~" syntax is rarely used, it <em>is</em> possible to return a reference to an inner method from another method inside that container, so it is possible that some object elsewhere in your code might borrow an inner method.
 </p>
 
@@ -287,9 +293,10 @@ Person~say  // the inner method named "say."
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : about-namepaths-3.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /** @constructor */
 Person = function() {
     /** @constructor */
@@ -306,7 +313,8 @@ i.consider();
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     In this case, to refer to the method named "consider," you would use the following namepath: <code>Person#Idea#consider</code>
 </p>
 

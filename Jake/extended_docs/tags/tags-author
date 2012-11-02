@@ -14,15 +14,10 @@
     <b>Documenting the author of an item.</b>
 </p>
 
-{{#example}} code
-/**
- * @author Some Author
- * @version 20121008
- */
-function wobble() {
-    return 'flam';
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-author-0.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

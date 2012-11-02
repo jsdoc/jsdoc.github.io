@@ -18,65 +18,26 @@
     <b>In CommonJS modules the exports namespace is understood by JSDoc 3</b>
 </p>
 
-{{#example}} code
-/**
-    A module that says hello!
-    @module hello/world
- */
+{{#includeExample}}
+    jake/extended_docs/examples/tags-exports-0.js
+{{/includeExample}}
 
-/** Say Hello. */
-exports.sayHello = function() {
-    return 'Hello world';
-};
-{{/example}}
 <p>
     <b>In AMD modules any namespace called "exports" is assumed by JSDoc 3 to be the exported object</b>
 </p>
 
-{{#example}} code
-define(function () {
+{{#includeExample}}
+    jake/extended_docs/examples/tags-exports-1.js
+{{/includeExample}}
 
-    /**
-        A module that says hello!
-        @module hello/world
-     */
-    var exports = {};
-    
-    /** Say Hello. */
-    exports.sayHello = function() {
-        return 'Hello world';
-    };
-
-    return exports;
-});
-{{/example}}
 <p>
     <b>If your AMD module exports a constructor, you can still use the "exports" name to indicate what the module is</b>
 </p>
 
-{{#example}} code
-define(function() {
-     /**
-        A module that creates greeters.
-        @module greeter
-     */
-     
-    /**
-        @constructor
-        @param {string} subject - Whom to greet.
-     */
-    var exports = function(subject) {
-        this.subject = subject || 'world';
-    }
-    
-    /** Say Hello. */
-    exports.prototype.sayHello = function() {
-        return 'Hello ' + this.subject;
-    };
-    
-    return exports;
-});
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-exports-2.js
+{{/includeExample}}
+
 <p>
     If you are exporting an object named anything other than "exports", use the <code>@exports</code> tag to indicate what is being exported.
 </p>
@@ -85,23 +46,10 @@ define(function() {
     <b>The @exports tag is used to document that the "ns" namespace is being exported</b>
 </p>
 
-{{#example}} code
-define(function () {
+{{#includeExample}}
+    jake/extended_docs/examples/tags-exports-3.js
+{{/includeExample}}
 
-    /**
-        A module that says hello!
-        @exports hello/world
-     */
-    var ns = {};
-    
-    /** Say Hello. */
-    ns.sayHello = function() {
-        return 'Hello world';
-    };
-
-    return ns;
-});
-{{/example}}
 <h3>
     See Also
 </h3>

@@ -32,15 +32,10 @@
     <b>A doclet with both a description and a class description</b>
 </p>
 
-{{#example}} code
-/**
- * This is a description of the MyClass constructor function.
- * @class
- * @classdesc This is a description of the MyClass class.
- */
-function MyClass() {
-}
-{{/example}}
+{{#includeExample}}
+    jake/extended_docs/examples/tags-classdesc-0.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

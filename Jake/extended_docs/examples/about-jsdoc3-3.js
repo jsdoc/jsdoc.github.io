@@ -1,0 +1,1 @@
+./jsdoc yourSourceCodeFile.js

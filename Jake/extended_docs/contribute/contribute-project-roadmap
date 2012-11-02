@@ -16,14 +16,10 @@
             <b>Example</b>
         </p>
 
-        {{#example}} code
+        {{#includeExample}}
+    jake/extended_docs/examples/contribute-project-roadmap-0.js
+{{/includeExample}}
 
-/** for a */
-var a,
-/** for b */
-b;
-
-{{/example}}
     </li>
 
     <li>✓ Support multiple doclets associated with a single code symbol.
@@ -31,25 +27,10 @@ b;
             <b>Example</b>
         </p>
 
-        {{#example}} code
+        {{#includeExample}}
+    jake/extended_docs/examples/contribute-project-roadmap-1.js
+{{/includeExample}}
 
-/**
- * Set the name.
- * @param {string} newName
- *//**
- * Get the name.
- * @returns {string}
- */
-this.name = function(newName){
-    if (typeof newName === 'string') {
-        this._name = newName;
-    }
-    else {
-        return this._name;
-    }
-}
-
-{{/example}}
     </li>
 
     <li>✓ Support documenting CommonJS modules with exported symbols.
@@ -57,19 +38,10 @@ this.name = function(newName){
             <b>Example</b>
         </p>
 
-        {{#example}} code
+        {{#includeExample}}
+    jake/extended_docs/examples/contribute-project-roadmap-2.js
+{{/includeExample}}
 
-/**
- * @module foo/bar
- */
-
-/**
- * An exported function.
- */
-exports.doit = function(){
-}
-
-{{/example}}
     </li>
 
     <li>Improve compatibility with <a href="http://code.google.com/closure/compiler/docs/js-for-compiler.html#tags">Google's Closure Compiler</a>.
@@ -80,16 +52,10 @@ exports.doit = function(){
             <b>Example</b>
         </p>
 
-        {{#example}} code
+        {{#includeExample}}
+    jake/extended_docs/examples/contribute-project-roadmap-3.js
+{{/includeExample}}
 
-/**
- * Is documented as having a default value of 1.
- * @type {number}
- * @default
- */
-var count = 1;
-
-{{/example}}
     </li>
 
     <li>✓ Simplify the commandline arguments as much as possible.

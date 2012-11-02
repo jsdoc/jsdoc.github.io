@@ -220,9 +220,10 @@
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : howto-commonjs-modules-0.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /** @module my/shirt */
 
 /** Try it on. */
@@ -235,7 +236,8 @@ exports.unbutton = function(someShirt) {
 
 </pre>
 </dd>
-</dl><h3>
+</dl>
+<h3>
     Document Members Assigned to <code>module.exports</code>
 </h3>
 
@@ -248,9 +250,10 @@ exports.unbutton = function(someShirt) {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : howto-commonjs-modules-1.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /** @module color/mixer */
 
 module.exports = {
@@ -263,7 +266,8 @@ exports.darken = function(color, shade) { }
 
 </pre>
 </dd>
-</dl><h3>
+</dl>
+<h3>
     Document Members Exported on the Global <code>this</code>
 </h3>
 
@@ -276,9 +280,10 @@ exports.darken = function(color, shade) { }
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : howto-commonjs-modules-2.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /**
  * @module bookshelf
  */
@@ -293,7 +298,8 @@ this.Book = function(title) {
 
 </pre>
 </dd>
-</dl><h3>
+</dl>
+<h3>
     Document a Function that returns a RequireJS Module
 </h3>
 
@@ -306,9 +312,10 @@ this.Book = function(title) {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : howto-commonjs-modules-3.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 define('my/shirt', function () {
    /** 
         A module representing a shirt.
@@ -332,7 +339,8 @@ define('my/shirt', function () {
 
 </pre>
 </dd>
-</dl><h3>
+</dl>
+<h3>
     Document a Module as a Constructor
 </h3>
 
@@ -345,9 +353,10 @@ define('my/shirt', function () {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : howto-commonjs-modules-4.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /** 
     A module representing a jacket.
     @module jacket
@@ -369,7 +378,8 @@ define('jacket', function () {
 
 </pre>
 </dd>
-</dl><p>
+</dl>
+<p>
     The same pattern can be documented in CommonJS environments.
 </p>
 
@@ -378,9 +388,10 @@ define('jacket', function () {
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : howto-commonjs-modules-5.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 /** 
     A module representing a jacket.
     @module jacket
@@ -401,7 +412,8 @@ module.exports = Jacket;
 
 </pre>
 </dd>
-</dl><h3>
+</dl>
+<h3>
     Document Multiple RequireJS Modules Defined in a Single File
 </h3>
 
@@ -414,9 +426,10 @@ module.exports = Jacket;
 </p>
 
 <dl class="example">
-<dt>code</dt>
+<dt>Example : howto-commonjs-modules-6.js</dt>
 <dd>
 <pre class="prettyprint lang-js">
+
 // one module
 define('html/utils',
     /** 
@@ -451,7 +464,8 @@ define('tag',
 
 </pre>
 </dd>
-</dl><h3>
+</dl>
+<h3>
     See Also
 </h3>
 

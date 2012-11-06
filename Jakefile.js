@@ -9,7 +9,7 @@ desc('Building the site.');
 task('default', [], function () {
     var builder;
     console.log('Rebuilding site...');
-    builder = new (require('Jsdoc3SiteBuilder').Jsdoc3SiteBuilder)();
+    builder = new (require('jsdoc-3-docs-project-tools').SiteBuilder)();
     builder.buildSite();
     //console.log(sys.inspect(arguments));
 });

@@ -1,0 +1,21 @@
+{
+    "author": {
+        "name": "Alan Hoffmeister",
+        "email": "contato@cranic.com.br",
+        "url": "https://github.com/cranic"
+    },
+    "name": "phpjs",
+    "description": "PHP.js port for Node.js",
+    "version": "0.0.1",
+    "homepage": "https://github.com/cranic/node-phpjs",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/cranic/node-phpjs.git"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "optionalDependencies": {},
+    "engines": {
+        "node": "*"
+    }
+}

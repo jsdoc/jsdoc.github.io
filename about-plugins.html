@@ -306,10 +306,9 @@
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-0.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 ...
 "plugins": [
     "plugins/shout"
@@ -353,10 +352,9 @@
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-1.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 exports.handlers = {
     newDoclet: function(e) {
         //Do something when we see a new doclet
@@ -414,10 +412,9 @@ exports.handlers = {
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-2.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 exports.handlers = {
     beforeParse: function(e) {
         var extraDoc = ["",
@@ -563,10 +560,9 @@ exports.handlers = {
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-3.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 exports.handlers = {
     newDoclet: function(e) {
         // e.doclet will refer to the newly created doclet
@@ -619,10 +615,9 @@ exports.handlers = {
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-4.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 exports.defineTags = function(dictionary) {
     //define tags here
 }
@@ -667,10 +662,9 @@ exports.defineTags = function(dictionary) {
                 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-5.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 dictionary.defineTag('instance', { 
     onTagged: function(doclet, tag) {
         doclet.scope = "instance";
@@ -693,10 +687,9 @@ dictionary.defineTag('instance', {
         </p>
 
 <dl class="example">
-<dt>Example : about-plugins-6.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
 .synonym('throws');
         
@@ -734,10 +727,9 @@ dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-7.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 exports.nodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
         //do all sorts of crazy things here
@@ -792,10 +784,9 @@ exports.nodeVisitor = {
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-8.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 exports.nodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
         if (node.type === Token.OBJECTLIT &amp;&amp; node.parent &amp;&amp; node.parent.type === Token.CALL &amp;&amp; isInWidgetFactory(node, 1)) {
@@ -890,10 +881,9 @@ function isInWidgetFactory(node, depth) {
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-9.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 $&gt;jake install[path/to/YourPluginFolder]
 
 </pre>
@@ -908,10 +898,9 @@ $&gt;jake install[path/to/YourPluginFolder]
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-10.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 $&gt;jake 'install[path/to/YourPluginFolder]'
 
 </pre>
@@ -926,10 +915,9 @@ $&gt;jake 'install[path/to/YourPluginFolder]'
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-11.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 YourPluginFolder
  |- plugins
  |   |- YourPlugin.js
@@ -1003,10 +991,9 @@ YourPluginFolder
 </p>
 
 <dl class="example">
-<dt>Example : about-plugins-12.js</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint linenums">
-
 function hooray() {
     console.log('I love to say @partial "hooray"!');
 }

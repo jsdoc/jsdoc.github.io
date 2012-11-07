@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@module",
     "out" :         "tags-module.html",
-    "description" : "[todo] Document a JavaScript module."
+    "description" : "Document a JavaScript module."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

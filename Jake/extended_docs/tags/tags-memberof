@@ -1,18 +1,7 @@
 <h3>
-    Overview
-</h3>
-
-<h3>
     Examples
 </h3>
 
-<p>
-    <b>Example goes here</b>
-</p>
-
-{{#includeExample}}
-    jake/extended_docs/examples/tags-memberof-0.js
-{{/includeExample}}
 {{#includeExample}}
     ../jsdoc/test/fixtures/memberoftag.js
 {{/includeExample}}
@@ -26,12 +15,10 @@
     ../jsdoc/test/fixtures/memberoftag4.js
 {{/includeExample}}
 
-<h3>
-    See Also
-</h3>
+<p>
+    You can force documenting a member with @memberof!
+</p>
 
-<ul>
-    <li>
-        <a href="#">...</a>
-    </li>
-</ul>
+{{#includeExample}}
+    ../jsdoc/test/fixtures/memberoftagforced.js
+{{/includeExample}}

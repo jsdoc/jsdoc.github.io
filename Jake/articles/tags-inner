@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@inner",
     "out" :         "tags-inner.html",
-    "description" : "[todo] Document an inner object."
+    "description" : "Document an inner object."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

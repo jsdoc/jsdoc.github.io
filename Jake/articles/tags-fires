@@ -4,6 +4,10 @@
     "description" : "Describe the events this method may fire."
 }-->
 
+<p>
+    {{description}}
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}
     jake/API/describeTags/tags-fires.html

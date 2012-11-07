@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@summary",
     "out" :         "tags-summary.html",
-    "description" : "[todo] A shorter version of the full description."
+    "description" : "Document a shorter version of the full description."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

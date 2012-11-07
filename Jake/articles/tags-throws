@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@throws",
     "out" :         "tags-throws.html",
-    "description" : "[todo] Describe what errors could be thrown."
+    "description" : "Document exceptions thrown by a method or function."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@since",
     "out" :         "tags-since.html",
-    "description" : "[todo] When was this feature added?"
+    "description" : "Document when an item was added to the codebase."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

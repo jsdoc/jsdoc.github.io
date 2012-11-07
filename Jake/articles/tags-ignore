@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@ignore",
     "out" :         "tags-ignore.html",
-    "description" : "[todo] Remove this from the final output."
+    "description" : "Specify that the item shold not be documented."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

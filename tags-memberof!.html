@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <meta name="description" content="TODO: Document the memberof! tag.">
+    <meta name="description" content="Force documenting an item as a member of another.">
     
     
     <title>Use JSDoc: @memberof!</title>
@@ -199,6 +199,10 @@
     <h1>@memberof!</h1>
     
 
+<p>
+    Force documenting an item as a member of another.
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 <div class="tags-definition" id="memberof!-definition">
 <h3 class="tags-name">memberof!</h3>
@@ -209,14 +213,99 @@
 <td class="tags-property-name" id="memberof!-title-name"><b>title</b></td> <td class="tags-property-value" id="memberof!-title-value">memberof!</td>
 </tr>
 <tr>
-<td class="tags-property-name" id="memberof!-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="memberof!-synonyms-value">memberof</td>
+<td class="tags-property-name" id="memberof!-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="memberof!-synonyms-value"><a href="tags-memberof.html">@memberof</a>,</td>
 </tr>
 </tbody></table></div>
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="memberof!-overview">
+<h3>
+    Examples
+</h3>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @constructor 
+    @memberof mathlib
+ */
+function Data() {
+
+    /** @member */
+    this.point = {};
+}
+
+/** @namespace */
+mathlib = {Data: Data};
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+create(
+    'Observable',
+    {
+        /** @memberof Observable */
+        cache: [],
+        
+        /** @memberof Observable.prototype */
+        publish: function(msg) {}
+    }
+);
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @module terrain
+    @example
+        var terrain = require('terrain'),
+            forest = new terrain.Forest(),
+            tree = new forest.Tree();
+*/
+
+/** @class */
+exports.Forest = function(){}
+var Forest = exports.Forest;
+
+/**
+    @class
+    @memberof module:terrain
+*/
+Forest.prototype.Tree = function() {
+    /** A leaf */
+    this.leaf = 1;
+}
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * Namespace doStuff.
+ * @namespace doStuff
+ */
+
+/**
+ * Function with the same name as its namespace.
+ * @memberof doStuff
+ */
+function doStuff() {}
+
+/**
+ * Function with a different name than the namespace.
+ * @memberof doStuff
+ */
+function doOtherStuff() {}
+</pre>
+</dd>
+</dl>
 <p>
-    TODO: Finish Documentation
+    You can force documenting a member with @memberof!
 </p>
 
 <dl class="example">

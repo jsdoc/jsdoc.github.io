@@ -1,25 +1,3 @@
-<h3>
-    Overview
-</h3>
-
-<h3>
-    Examples
-</h3>
-
 <p>
-    <b>Example goes here</b>
+    Todo: finish docs
 </p>
-
-{{#includeExample}}
-    jake/extended_docs/examples/tags-member-0.js
-{{/includeExample}}
-
-<h3>
-    See Also
-</h3>
-
-<ul>
-    <li>
-        <a href="#">...</a>
-    </li>
-</ul>

@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@public",
     "out" :         "tags-public.html",
-    "description" : "[todo] This member is meant to be public."
+    "description" : "Document a method or property as public."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

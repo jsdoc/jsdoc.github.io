@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <meta name="description" content="TODO: Document the fileoverview tag.">
+    <meta name="description" content="Documetn a file description.">
     
     
     <title>Use JSDoc: @fileoverview</title>
@@ -199,6 +199,10 @@
     <h1>@fileoverview</h1>
     
 
+<p>
+    Documetn a file description.
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 <div class="tags-definition" id="fileoverview-definition">
 <h3 class="tags-name">fileoverview</h3>
@@ -209,15 +213,77 @@
 <td class="tags-property-name" id="fileoverview-title-name"><b>title</b></td> <td class="tags-property-value" id="fileoverview-title-value">fileoverview</td>
 </tr>
 <tr>
-<td class="tags-property-name" id="fileoverview-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="fileoverview-synonyms-value">file</td>
+<td class="tags-property-name" id="fileoverview-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="fileoverview-synonyms-value"><a href="tags-file.html">@file</a>,</td>
 </tr>
 </tbody></table></div>
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="fileoverview-overview">
+<h3>
+    Overview
+</h3>
+
 <p>
-    TODO: Finish Documentation
+    Gives a description of the file. Place the comment at the top of the file. The text following the @file tag will be used as the description of the file in the default template.
 </p>
+
+<h3>
+    Examples
+</h3>
+
+<p>
+    <b>Giving an overview of a file</b>
+</p>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * @file Describe the file
+ * @author Some Author
+ * @version 20121008
+ */
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * @overview This is a file doclet.
+ * @copyright Michael Mathews 2011
+ */
+
+function ignoreMe() {
+}
+</pre>
+</dd>
+</dl>
+<h3>
+    See Also
+</h3>
+
+<ul>
+    <li>
+        <a href="tags-version.html">@version</a>
+    </li>
+
+    <li>
+        <a href="tags-author.html">@author</a>
+    </li>
+</ul>
+
+<p>
+    Contributers to these docs
+</p>
+
+<ul>
+    <li>
+        <a href="https://github.com/matthewkastor">matthewkastor</a>
+    </li>
+</ul>
 </div>
     </article>
     

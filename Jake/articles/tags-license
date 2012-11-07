@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@license",
     "out" :         "tags-license.html",
-    "description" : "[todo] Document the software license that applies to this code."
+    "description" : "Document the software license that applies to this code."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

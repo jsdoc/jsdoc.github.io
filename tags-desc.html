@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <meta name="description" content="TODO: Document the desc tag.">
+    <meta name="description" content="Provide a description for the documented item.">
     
     
     <title>Use JSDoc: @desc</title>
@@ -199,6 +199,10 @@
     <h1>@desc</h1>
     
 
+<p>
+    Provide a description for the documented item.
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 <div class="tags-definition" id="desc-definition">
 <h3 class="tags-name">desc</h3>
@@ -209,15 +213,91 @@
 <td class="tags-property-name" id="desc-title-name"><b>title</b></td> <td class="tags-property-value" id="desc-title-value">desc</td>
 </tr>
 <tr>
-<td class="tags-property-name" id="desc-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="desc-synonyms-value">description</td>
+<td class="tags-property-name" id="desc-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="desc-synonyms-value"><a href="tags-description.html">@description</a>,</td>
 </tr>
 </tbody></table></div>
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="desc-overview">
+<h3>
+    Syntax
+</h3>
+
 <p>
-    TODO: Finish Documentation
+    <code>@desc &lt;some description&gt;</code>
 </p>
+
+<h3>
+    Overview
+</h3>
+
+<p>
+    The @desc tag allows you to provide a general description of the symbol you are documenting. The text can be in the form of HTML or, if you have enabled the markdown plugin, it can be formatted as one of the various flavors or MarkDown.
+</p>
+
+<h3>
+    Examples
+</h3>
+
+<p>
+    The @desc (or it's synonym @description) is the default tag in JSDoc, so if no other tag is in effect you can just start writing your description text.
+</p>
+
+<p>
+    <b>A tagless description is allowed if no other tag is in effect</b>
+</p>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+    Add two numbers.
+    @param {number} a
+    @param {number} b
+    @returns {number}
+ */
+function add(a, b) {
+    return a+b;
+}
+
+</pre>
+</dd>
+</dl>
+<p>
+    If any other tag has previously been used in a given doc comment, then you must use a @desc tag if you wish to provide a description.
+</p>
+
+<p>
+    <b>A @desc tag is necessary if any other tag is in effect</b>
+</p>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+    @param {number} a
+    @param {number} b
+    @returns {number}
+    @desc Add two numbers.
+ */
+function add(a, b) {
+    return a+b;
+}
+
+</pre>
+</dd>
+</dl>
+<h3>
+    See Also
+</h3>
+
+<ul>
+    <li>
+        <a href="tags-classdesc.html">@classdesc</a>
+    </li>
+</ul>
 </div>
     </article>
     

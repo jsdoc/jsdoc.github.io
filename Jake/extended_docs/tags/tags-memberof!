@@ -1,7 +1,3 @@
-<p>
-    TODO: Finish Documentation
-</p>
-
-{{#includeExample}}
-    ../jsdoc/test/fixtures/memberoftagforced.js
-{{/includeExample}}
+{{#include}}
+    Jake/extended_docs/tags/tags-memberof
+{{/include}}

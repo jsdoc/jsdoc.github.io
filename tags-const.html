@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <meta name="description" content="TODO: Document the const tag.">
+    <meta name="description" content="Document a constant.">
     
     
     <title>Use JSDoc: @const</title>
@@ -199,6 +199,10 @@
     <h1>@const</h1>
     
 
+<p>
+    Document a constant.
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 <div class="tags-definition" id="const-definition">
 <h3 class="tags-name">const</h3>
@@ -209,15 +213,79 @@
 <td class="tags-property-name" id="const-title-name"><b>title</b></td> <td class="tags-property-value" id="const-title-value">const</td>
 </tr>
 <tr>
-<td class="tags-property-name" id="const-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="const-synonyms-value">constant</td>
+<td class="tags-property-name" id="const-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="const-synonyms-value"><a href="tags-constant.html">@constant</a>,</td>
 </tr>
 </tbody></table></div>
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="const-overview">
+<h3>
+    Synonyms
+</h3>
+
+<ul>
+    <li>@const
+    </li>
+</ul>
+
+<h3>
+    Syntax
+</h3>
+
 <p>
-    TODO: Finish Documentation
+    <code>@constant [&lt;type&gt; &lt;name&gt;]</code>
 </p>
+
+<h3>
+    Overview
+</h3>
+
+<p>
+    The @constant tag is used to mark the documentation as belonging to a symbol that is a constant.
+</p>
+
+<h3>
+    Examples
+</h3>
+
+<p>
+    In this example we are documenting a string constant. Note that although the code is using the <code>const</code> keyword, this is not required by JSDoc. If your JavaScript host environment doesn't yet support constant declarations, the @const documentation can just as effectively be used on <code>var</code> declarations.
+</p>
+
+<p>
+    <b>A string constant representing the color red</b>
+</p>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @constant
+    @type {string}
+    @default
+*/
+const RED = 'FF0000';
+
+</pre>
+</dd>
+</dl>
+<p>
+    Note that the example provides the type in a @type tag. This is optional. Also the optional @default tag is used here too, this will automatically add whatever the assigned value is (for example 'FF0000') to the documentation.
+</p>
+
+<h3>
+    See Also
+</h3>
+
+<ul>
+    <li>
+        <a href="tags-default.html">@default</a>
+    </li>
+
+    <li>
+        <a href="tags-type.html">@type</a>
+    </li>
+</ul>
 </div>
     </article>
     

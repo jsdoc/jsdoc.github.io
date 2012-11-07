@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@exception",
     "out" :         "tags-exception.html",
-    "description" : "[TODO] Document the exception tag"
+    "description" : "Document exceptions thrown by a method or function."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

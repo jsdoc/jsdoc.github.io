@@ -126,60 +126,48 @@
     jake/extended_docs/examples/about-templates-4.js
 {{/includeExample}}
 
-<html>
-    <body>
-        \n'; templateStr += '\n\n\n'; templateStr += '\n
+<h3 name="Generating_HTML_Using_Template_Files"
+    id="Generating_HTML_Using_Template_Files">
+    Generating HTML Using Template Files
+</h3>
 
-        {{#includeExample}}
-    jake/extended_docs/examples/about-templates-5.js
-{{/includeExample}}
+<p>
+    This next example shows how to load template files. This will make it easier for you to transform the data into something presentable, without making a huge mess trying to write out a template in escaped JavaScript strings. This example requires several files in order to function. The most important of which are <code>publish.js</code> and <code>layout.tmpl</code>. With just these two files you'll be able to generate pages containing data from JSDoc 3. With just a little css and maybe some JavaScript, your documentation can come alive. The full example can be downloaded <a href="downloads/simpleTemplate.zip">here</a>.
+</p>
 
-\n\n'; templateStr += '\n'; templateData.outputContent = helper.htmlsafe(outputContent); // override default settings, this is done in // jsdoc/rhino_modules/jsdoc/template as well. // It is used to define the template "tags". // Have a look at some of the default template // files to get an idea of what you can do. templateSettings.evaluate = /&lt;\?js([\s\S]+?)\?&gt;/g; templateSettings.interpolate= /&lt;\?js=([\s\S]+?)\?&gt;/g; templateSettings.escape = /&lt;\?js~([\s\S]+?)\?&gt;/g; outputContent = renderTemplate(templateStr, templateData, templateSettings); // replacing all backslashes with forward slashes in the path // this avoids a few issues on Windows. outputDir = outputDir.replace(/\\/g, '/'); // removing any trailing slash outputDir = outputDir.replace(/\/+$/, ''); outputFile = outputDir + outputFile; fs.mkPath(outputDir); fs.writeFileSync(outputFile, outputContent); };
-        <h3 name="Generating_HTML_Using_Template_Files"
-            id="Generating_HTML_Using_Template_Files">
-            Generating HTML Using Template Files
-        </h3>
+<p>
+    <b>simpleTemplate Directory Tree</b>
+</p>
 
-        <p>
-            This next example shows how to load template files. This will make it easier for you to transform the data into something presentable, without making a huge mess trying to write out a template in escaped JavaScript strings. This example requires several files in order to function. The most important of which are <code>publish.js</code> and <code>layout.tmpl</code>. With just these two files you'll be able to generate pages containing data from JSDoc 3. With just a little css and maybe some JavaScript, your documentation can come alive. The full example can be downloaded <a href="downloads/simpleTemplate.zip">here</a>.
-        </p>
-
-        <p>
-            <b>simpleTemplate Directory Tree</b>
-        </p>
-
-        {{#includeExample}}
+{{#includeExample}}
     jake/extended_docs/examples/about-templates-6.js
 {{/includeExample}}
 
-        <p>
-            <b>Note that if you want to run this example you'll need to create the directory structure shown above, or just download the example and play with it.</b> You can get away with not having any of the files besides <code>publish.js</code> and <code>layout.tmpl</code> but you'll need the folders.
-        </p>
+<p>
+    <b>Note that if you want to run this example you'll need to create the directory structure shown above, or just download the example and play with it.</b> You can get away with not having any of the files besides <code>publish.js</code> and <code>layout.tmpl</code> but you'll need the folders.
+</p>
 
-        <p>
-            <b>templates/simpleTemplate/publish.js</b>
-        </p>
+<p>
+    <b>templates/simpleTemplate/publish.js</b>
+</p>
 
-        {{#includeExample}}
+{{#includeExample}}
     jake/extended_docs/examples/about-templates-7.js
 {{/includeExample}}
 
-        <p>
-            <b>templates/simpleTemplate/tmpl/layout.tmpl</b>
-        </p>
+<p>
+    <b>templates/simpleTemplate/tmpl/layout.tmpl</b>
+</p>
 
-        {{#includeExample}}
+{{#includeExample}}
     jake/extended_docs/examples/about-templates-8.js
 {{/includeExample}}
 
-            <h2 name="More_Info"
-                id="More_Info">
-                More Info
-            </h2>
+<h2 name="More_Info"
+    id="More_Info">
+    More Info
+</h2>
 
-            <p>
-                Hopefully after reading everything above you'll be able to start using the <code>data</code> provided by JSDoc 3. Now that you've got some sense of how to read and write with templates, take a look at the default template and see how it builds up a coherent set of documents from the <code>data</code>.
-            </p>
-        </body>
-    </body>
-</html>
+<p>
+    Hopefully after reading everything above you'll be able to start using the <code>data</code> provided by JSDoc 3. Now that you've got some sense of how to read and write with templates, take a look at the default template and see how it builds up a coherent set of documents from the <code>data</code>.
+</p>

@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@todo",
     "out" :         "tags-todo.html",
-    "description" : "[todo] Document tasks to be completed for an object."
+    "description" : "Document tasks to be completed."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

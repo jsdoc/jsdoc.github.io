@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@kind",
     "out" :         "tags-kind.html",
-    "description" : "[todo] What kind of object is this?"
+    "description" : "Document what kind of object is being documented."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

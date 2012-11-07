@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <meta name="description" content="TODO: Document the return tag.">
+    <meta name="description" content="Document the return value of a function.">
     
     
     <title>Use JSDoc: @return</title>
@@ -199,6 +199,10 @@
     <h1>@return</h1>
     
 
+<p>
+    Document the return value of a function.
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 <div class="tags-definition" id="return-definition">
 <h3 class="tags-name">return</h3>
@@ -209,15 +213,128 @@
 <td class="tags-property-name" id="return-title-name"><b>title</b></td> <td class="tags-property-value" id="return-title-value">return</td>
 </tr>
 <tr>
-<td class="tags-property-name" id="return-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="return-synonyms-value">returns</td>
+<td class="tags-property-name" id="return-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="return-synonyms-value"><a href="tags-returns.html">@returns</a>,</td>
 </tr>
 </tbody></table></div>
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="return-overview">
+<h3>
+    Overview
+</h3>
+
 <p>
-    TODO: Finish Documentation
+    The @returns tag documents the value that a function returns.
 </p>
+
+<h3>
+    Examples
+</h3>
+
+<p>
+    <b>Type of the return value</b>
+</p>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * Returns the sum of a and b
+ * @param {Number} a
+ * @param {Number} b
+ * @returns {Number}
+ */
+function sum(a, b) {
+    return a + b;
+}
+
+</pre>
+</dd>
+</dl>
+<p>
+    <b>Type and description of the return value</b>
+</p>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * Returns the sum of a and b
+ * @param {Number} a
+ * @param {Number} b
+ * @returns {Number} Sum of a and b
+ */
+function sum(a, b) {
+    return a + b;
+}
+
+</pre>
+</dd>
+</dl>
+<p>
+    <b>The return value can have different types</b>
+</p>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * Returns the sum of a and b
+ * @param {Number} a
+ * @param {Number} b
+ * @param {Boolean} retArr If set to true, the function will return an array
+ * @returns {Number|Array} Sum of a and b or an array that contains a, b and the sum of a and b.
+ */
+function sum(a, b, retArr) {
+    if (retArr) {
+        return [a, b, a + b];
+    }
+    return a + b;
+}
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+*  @returns { String | Array&lt;String>}  The names of the found item(s).
+*/
+function find(targetName) {
+}
+
+/**
+*  @return The binding id.
+*/
+function bind(callback) {
+}
+
+</pre>
+</dd>
+</dl>
+<h3>
+    See Also
+</h3>
+
+<ul>
+    <li>
+        <a href="tags-param.html">@param</a>
+    </li>
+</ul>
+
+<h5>
+    Contributers to these docs
+</h5>
+
+<ul>
+    <li>
+        <a href="https://github.com/customcommander">customcommander</a>
+    </li>
+</ul>
 </div>
     </article>
     

@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@method",
     "out" :         "tags-method.html",
-    "description" : "[todo] Describe a method or function."
+    "description" : "Document a method."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

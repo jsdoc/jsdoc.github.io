@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@readonly",
     "out" :         "tags-readonly.html",
-    "description" : "[todo] This variable is meant to be readonly."
+    "description" : "Document that an item is meant to be readonly."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@classdesc",
     "out" :         "tags-classdesc.html",
-    "description" : "Use the following text to describe the entire class."
+    "description" : "Provides a description for the documented class."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

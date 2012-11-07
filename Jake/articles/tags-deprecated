@@ -4,6 +4,10 @@
     "description" : "Document that this is no longer the preferred way."
 }-->
 
+<p>
+    {{description}}
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}
     jake/API/describeTags/tags-deprecated.html

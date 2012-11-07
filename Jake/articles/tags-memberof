@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@memberof",
     "out" :         "tags-memberof.html",
-    "description" : "[todo] This object is a member or another object."
+    "description" : "Document that an item is a member of another."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

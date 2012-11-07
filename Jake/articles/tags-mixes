@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@mixes",
     "out" :         "tags-mixes.html",
-    "description" : "[todo] This object mixes in all the members from another object."
+    "description" : "Document that the object mixes in all the members from another object."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

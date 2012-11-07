@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <meta name="description" content="[TODO] Document the class tag">
+    <meta name="description" content="Identifies a class.">
     
     
     <title>Use JSDoc: @class</title>
@@ -199,6 +199,10 @@
     <h1>@class</h1>
     
 
+<p>
+    Identifies a class.
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 <div class="tags-definition" id="class-definition">
 <h3 class="tags-name">class</h3>
@@ -228,15 +232,92 @@ function (doclet, tag) {
 </td>
 </tr>
 <tr>
-<td class="tags-property-name" id="class-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="class-synonyms-value">constructor</td>
+<td class="tags-property-name" id="class-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="class-synonyms-value"><a href="tags-constructor.html">@constructor</a>,</td>
 </tr>
 </tbody></table></div>
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="class-overview">
+<h3>
+    Synonyms
+</h3>
+
+<ul>
+    <li>@class
+    </li>
+</ul>
+
+<h3>
+    Syntax
+</h3>
+
 <p>
-    TODO: Finish documentation.
+    <code>@constructor [&lt;type&gt; &lt;name&gt;]</code>
 </p>
+
+<h3>
+    Overview
+</h3>
+
+<p>
+    The @constructor tag marks an function as being a constructor, meant to be called with the new keyword to return an instance.
+</p>
+
+<h3>
+    Examples
+</h3>
+
+<p>
+    <b>A function that constructs Person instances.</b>
+</p>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+    Creates a new Person.
+    @constructor 
+*/ 
+Person = function() {
+}
+
+var p = new Person();
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+    Describe your constructor function here.
+    @class Describe your class here.
+    @constructor
+    @param {string} url
+    @throws MalformedURL
+ */
+function Feed(url) {
+}
+
+/**
+    Document your method here.
+*/
+Feed.prototype.refresh = function() {
+}
+
+</pre>
+</dd>
+</dl>
+<h3>
+    See Also
+</h3>
+
+<ul>
+    <li>
+        <a href="tags-constructs.html">@constructs</a>
+    </li>
+</ul>
 
 <dl class="example">
 <dt></dt>

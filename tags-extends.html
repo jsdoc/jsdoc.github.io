@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <meta name="description" content="TODO: Document the extends tag.">
+    <meta name="description" content="Document that an object adds onto a parent object.">
     
     
     <title>Use JSDoc: @extends</title>
@@ -199,6 +199,10 @@
     <h1>@extends</h1>
     
 
+<p>
+    Document that an object adds onto a parent object.
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 <div class="tags-definition" id="extends-definition">
 <h3 class="tags-name">extends</h3>
@@ -209,15 +213,187 @@
 <td class="tags-property-name" id="extends-title-name"><b>title</b></td> <td class="tags-property-value" id="extends-title-value">extends</td>
 </tr>
 <tr>
-<td class="tags-property-name" id="extends-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="extends-synonyms-value">augments</td>
+<td class="tags-property-name" id="extends-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="extends-synonyms-value"><a href="tags-augments.html">@augments</a>,</td>
 </tr>
 </tbody></table></div>
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="extends-overview">
+<h3>
+    Synonyms
+</h3>
+
+<ul>
+    <li>@extends
+    </li>
+</ul>
+
+<h3>
+    Syntax
+</h3>
+
 <p>
-    TODO: Finish Documentation
+    <code>@augments &lt;namepath&gt;</code>
 </p>
+
+<h3>
+    Overview
+</h3>
+
+<p>
+    The @augments or @extends tag marks a symbol as augmenting another symbol.
+</p>
+
+<p>
+    While current versions of JavaScript don't allow classes or subclasses in the same way that class-based languages like Java do, many programmers choose to think of their code structure in these terms. For this purpose JSDoc provides the @class and @extends tags. If you wish to express a similar relationship between two symbols, but don't wish to promote the classical analogy, you can use the @contructor and @augments tags instead.
+</p>
+
+<h3>
+    Examples
+</h3>
+
+<p>
+    In the example below I wish to document the fact that Ducks are a specialised form of Animal: meaning that Duck instances are like Animal instances which have been augmented with additional properties.
+</p>
+
+<p>
+    <b>Documenting a class/subclass type of relationship.</b>
+</p>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * @constructor
+ */
+function Animal() {
+    /** Is this animal alive? */
+    this.alive = true;
+}
+
+/**
+ * @constructor
+ * @augments Animal
+ */
+function Duck() {
+}
+Duck.prototype = new Animal();
+
+/** What do ducks say? */
+Duck.prototype.speak = function() {
+    if (this.alive) {
+        alert('Quack!');
+    }
+}
+
+var d = new Duck();
+d.speak(); // Quack!
+d.alive = false; // dead duck?
+d.speak;
+
+</pre>
+</dd>
+</dl>
+<p>
+    A related pattern can be documented with the @mixin and @mixes tags. Or, if the augmented symbol is only reusing one or two members of another symbol, you may find the @borrows tag more convenient.
+</p>
+
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * @constructor
+ */
+function Foo() {
+    /** First property */
+    this.prop1 = true;
+}
+
+/**
+ * Second property
+ * @type {String}
+ */
+Foo.prototype.prop2 = "parent prop2";
+
+/**
+ * First parent method.
+ */
+Foo.prototype.method1 = function() {};
+
+/**
+ * Second parent method.
+ */
+Foo.prototype.method2 = function() {};
+
+
+/**
+ * @constructor
+ * @extends Foo
+ */
+function Bar() {
+    /** Thrid prop **/
+    this.prop3 = true;
+}
+
+/**
+ * Second child method.
+ */
+Bar.prototype.method2 = function() {};
+
+/**
+ * @constructor
+ * @extends {Bar}
+ */
+function Baz() {
+    /** Override prop1 */
+    this.prop1 = "new";
+}
+
+/**
+ * Third grandchild method.
+ */
+Baz.prototype.method3 = function() {};
+
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+// Test for @augments/@extends tags that refer to undefined symbols
+/**
+ * @constructor
+ * @extends UndocumentedThing
+ */
+function Qux() {}
+
+</pre>
+</dd>
+</dl><h3>
+    See Also
+</h3>
+
+<ul>
+    <li>
+        <a href="tags-constructor.html">@constructor or @class</a>
+    </li>
+
+    <li>
+        <a href="tags-mixin.html">@mixin</a>
+    </li>
+
+    <li>
+        <a href="tags-mixes.html">@mixes</a>
+    </li>
+
+    <li>
+        <a href="tags-borrows.html">@borrows</a>
+    </li>
+</ul>
 </div>
     </article>
     

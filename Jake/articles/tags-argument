@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@argument",
     "out" :         "tags-argument.html",
-    "description" : "TODO: Document the argument tag."
+    "description" : "Document a function parameter."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

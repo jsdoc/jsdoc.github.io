@@ -4,6 +4,10 @@
     "description" : "[TODO] Document the abstract tag"
 }-->
 
+<p>
+    {{description}}
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}
     jake/API/describeTags/tags-abstract.html

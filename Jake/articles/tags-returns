@@ -4,6 +4,10 @@
     "description" : "Document the return value of a function."
 }-->
 
+<p>
+    {{description}}
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}
     jake/API/describeTags/tags-returns.html

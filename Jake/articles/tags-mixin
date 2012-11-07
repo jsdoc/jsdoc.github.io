@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@mixin",
     "out" :         "tags-mixin.html",
-    "description" : "[todo] Document a mix-in object."
+    "description" : "Document a mix-in object."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@overview",
     "out" :         "tags-overview.html",
-    "description" : "TODO: Document the overview tag."
+    "description" : "Give a description for a file."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

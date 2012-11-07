@@ -1,6 +1,6 @@
-<p>
-    TODO: Finish documentation.
-</p>
+{{#include}}
+    jake/extended_docs/tags/tags-constructor
+{{/include}}
 
 {{#includeExample}}
     ../jsdoc/test/fixtures/classtag.js

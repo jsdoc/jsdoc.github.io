@@ -4,6 +4,10 @@
     "description" : "This function is intended to be called with the 'new' keyword."
 }-->
 
+<p>
+    {{description}}
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}
     jake/API/describeTags/tags-constructor.html

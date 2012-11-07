@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@instance",
     "out" :         "tags-instance.html",
-    "description" : "[todo] Document an instance member."
+    "description" : "Document an instance member."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

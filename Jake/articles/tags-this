@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@this",
     "out" :         "tags-this.html",
-    "description" : "[todo] What does the this keyword refer to here?"
+    "description" : "Document what the this variable refers to in called or applied code."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@private",
     "out" :         "tags-private.html",
-    "description" : "[todo] This member is meant to be private."
+    "description" : "Document a method or property as private."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

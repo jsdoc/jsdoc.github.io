@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@file",
     "out" :         "tags-file.html",
-    "description" : "Describe a file."
+    "description" : "Document a file description."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@see",
     "out" :         "tags-see.html",
-    "description" : "[todo] Refer to some other documentation for more information."
+    "description" : "Refer to some other documentation for more information."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

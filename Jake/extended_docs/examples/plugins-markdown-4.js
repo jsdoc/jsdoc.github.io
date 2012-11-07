@@ -1,8 +1,6 @@
-...
 "plugins": [ "plugins/markdown" ],
 
 "markdown": {
     "parser": "gfm",
     "hardwrap": true
 }
-...

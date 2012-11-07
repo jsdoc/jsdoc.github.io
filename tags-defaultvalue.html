@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     
-    <meta name="description" content="TODO: Document the defaultvalue tag.">
+    <meta name="description" content="Document the default value.">
     
     
     <title>Use JSDoc: @defaultvalue</title>
@@ -199,6 +199,10 @@
     <h1>@defaultvalue</h1>
     
 
+<p>
+    Document the default value.
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 <div class="tags-definition" id="defaultvalue-definition">
 <h3 class="tags-name">defaultvalue</h3>
@@ -209,16 +213,94 @@
 <td class="tags-property-name" id="defaultvalue-title-name"><b>title</b></td> <td class="tags-property-value" id="defaultvalue-title-value">defaultvalue</td>
 </tr>
 <tr>
-<td class="tags-property-name" id="defaultvalue-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="defaultvalue-synonyms-value">default</td>
+<td class="tags-property-name" id="defaultvalue-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="defaultvalue-synonyms-value"><a href="tags-default.html">@default</a>,</td>
 </tr>
 </tbody></table></div>
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="defaultvalue-overview">
+<h3>
+    Syntax
+</h3>
+
 <p>
-    TODO: Finish Documentation
+    <code>@default [&lt;some value&gt;]</code>
 </p>
-</div>
+
+<h3>
+    Overview
+</h3>
+
+<p>
+    The @default tag allows you to document the assigned value of a symbol. You can supply this tag with a value yourself or you can allow JSDoc to automatically document the value from the source code -- only possible when the documented symbol is being assigned a single, simple value that is either: a string, a number, a boolean or null.
+</p>
+
+<h3>
+    Examples
+</h3>
+
+<p>
+    In this example a constant is documented. The value of the constant is <code>0xff0000</code>. By adding the @default tag this value is automatically added to the documentation.
+</p>
+
+<p>
+    <b>Document the number value of a constant</b>
+</p>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ *  @constant
+ *  @default
+ */
+const RED = 0xff0000;
+
+</pre>
+</dd>
+</dl>
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+    @default
+ */
+var request = null;
+
+/**
+    @default
+ */
+var response = 'ok';
+
+/**
+    @default
+ */
+var rcode = 200;
+
+/**
+    @default
+ */
+var rvalid = true;
+
+/**
+    @default
+ */
+var rerrored = false;
+
+/**
+    @default the parent window
+ */
+var win = getParentWindow();
+
+/**
+    @default
+ */
+var header = getHeaders(request);
+</pre>
+</dd>
+</dl></div>
     </article>
     
     <footer>

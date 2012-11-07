@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@member",
     "out" :         "tags-member.html",
-    "description" : "[todo] Document a member."
+    "description" : "Document a member."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

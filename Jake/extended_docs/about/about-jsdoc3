@@ -1,7 +1,3 @@
-<h1>
-    JSDoc 3
-</h1>
-
 <p>
     An inline API documentation processor for JavaScript. JSDoc 3 is intended to be an upgrade to JsDoc Toolkit (JSDoc 2).
 </p>

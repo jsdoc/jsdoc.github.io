@@ -4,6 +4,10 @@
     "description" : "Document an event."
 }-->
 
+<p>
+    {{description}}
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}
     jake/API/describeTags/tags-event.html

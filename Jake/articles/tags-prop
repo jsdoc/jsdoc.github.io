@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@prop",
     "out" :         "tags-prop.html",
-    "description" : "TODO: Document the prop tag."
+    "description" : "Document a property of an object."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

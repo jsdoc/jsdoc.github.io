@@ -199,6 +199,10 @@
     <h1>@virtual</h1>
     
 
+<p>
+    TODO: Document the virtual tag.
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 <div class="tags-definition" id="virtual-definition">
 <h3 class="tags-name">virtual</h3>
@@ -209,16 +213,40 @@
 <td class="tags-property-name" id="virtual-title-name"><b>title</b></td> <td class="tags-property-value" id="virtual-title-value">virtual</td>
 </tr>
 <tr>
-<td class="tags-property-name" id="virtual-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="virtual-synonyms-value">abstract</td>
+<td class="tags-property-name" id="virtual-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="virtual-synonyms-value"><a href="tags-abstract.html">@abstract</a>,</td>
 </tr>
 </tbody></table></div>
 
 <h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
 <div class="tags-overview" id="virtual-overview">
 <p>
-    TODO: Finish Documentation
+    TODO: Finish documentation.
 </p>
-</div>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @constructor */
+function Thingy() {
+
+    /** @abstract */
+    this.pez = 2;
+    
+}
+
+// same as...
+
+/** @constructor */
+function OtherThingy() {
+
+    /** @virtual */
+    this.pez = 2;
+    
+}
+</pre>
+</dd>
+</dl></div>
     </article>
     
     <footer>

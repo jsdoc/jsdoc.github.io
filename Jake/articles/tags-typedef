@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@typedef",
     "out" :         "tags-typedef.html",
-    "description" : "[todo] Document a custom type."
+    "description" : "Document a custom type."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

@@ -1,8 +1,12 @@
 <!--{
     "title" :       "@alias",
     "out" :         "tags-alias.html",
-    "description" : "[TODO] Document the alias tag"
+    "description" : "Document an item under a different name."
 }-->
+
+<p>
+    {{description}}
+</p>
 
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}

@@ -4,6 +4,10 @@
     "description" : "Document a collection of related properties."
 }-->
 
+<p>
+    {{description}}
+</p>
+
 <h2 name="definition" id="definition">Definition</h2>
 {{#include}}
     jake/API/describeTags/tags-enum.html

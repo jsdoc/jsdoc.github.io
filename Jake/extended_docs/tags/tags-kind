@@ -1,22 +1,3 @@
-<h3>
-    Overview
-</h3>
-
-<h3>
-    Examples
-</h3>
-
-
-{{#includeExample}}
-    jake/extended_docs/examples/tags-kind-0.js
-{{/includeExample}}
-
-<h3>
-    See Also
-</h3>
-
-<ul>
-    <li>
-        <a href="#">...</a>
-    </li>
-</ul>
+<p>
+    todo: finish documentation
+</p>

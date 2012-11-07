@@ -1,25 +1,6 @@
 <h3>
-    Overview
-</h3>
-
-<h3>
     Examples
 </h3>
-
-
-{{#includeExample}}
-    jake/extended_docs/examples/tags-since-0.js
-{{/includeExample}}
 {{#includeExample}}
     ../jsdoc/test/fixtures/sincetag.js
 {{/includeExample}}
-
-<h3>
-    See Also
-</h3>
-
-<ul>
-    <li>
-        <a href="#">...</a>
-    </li>
-</ul>

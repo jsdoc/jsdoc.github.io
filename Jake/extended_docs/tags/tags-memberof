@@ -22,3 +22,13 @@
 {{#includeExample}}
     ../jsdoc/test/fixtures/memberoftagforced.js
 {{/includeExample}}
+
+<h3>
+    See Also
+</h3>
+
+<ul>
+    <li>
+        <a href="about-namepaths.html">Using namepaths with JSDoc 3</a>
+    </li>
+</ul>

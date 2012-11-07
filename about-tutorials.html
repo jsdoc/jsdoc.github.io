@@ -209,11 +209,11 @@
 </p>
 
 <p>
-    With <code>-u</code> option you can specify a directory, which JSDoc will search for tutorials. It will treat any file with extension .xml, .xhtml, .html and .htm as tutorial content files. Also .md and .markdown extensions are supported and will be additionally parsed as Markdown and converted to HTML.
+    With <code>-u</code> commandline option you can specify a directory, which JSDoc will search for tutorials. It will treat any file with extension .xml, .xhtml, .html and .htm as tutorial content files. Also .md and .markdown extensions are supported and will be additionally parsed as Markdown and converted to HTML.
 </p>
 
 <p>
-    By default each tutorial is top-level. Top-level tutorials are listed in navigation menu.
+    By default each tutorial is top-level. Top-level tutorials are listed in navigation menu. Tutorials can have child pages.
 </p>
 
 <h3>
@@ -235,7 +235,7 @@
 </ul>
 
 <p>
-    When tutorial has <code>children</code> property set, it's children will be listed in it's <em>ToC</em> as sub-articles instead of top-level navigation menu.
+    When tutorial has <code>children</code> property set, it's children will be listed in it's <em>TOC</em> as sub-articles instead of top-level navigation menu.
 </p>
 
 <h3>
@@ -247,15 +247,15 @@
 </p>
 
 <h3>
-    @tutorial tag
+    <code>@tutorial</code> tag
 </h3>
 
 <p>
-    Doclets can have assigned tutorials (similar to <code>@link</code> and <code>@see</code> tags) through @tutorial tag:
+    Doclets can have assigned tutorials (similar to <code>@link</code> and <code>@see</code> tags) through <code>@tutorial</code> tag:
 </p>
 
 <p>
-    <b>Example of the @tutorial tag</b>
+    <b>Example of the <code>@tutorial</code> tag</b>
 </p>
 
 <dl class="example">
@@ -272,7 +272,7 @@
 </dd>
 </dl>
 <p>
-    @tutorial tag can also be handled in-line in descriptions:
+    <code>@tutorial</code> tag can also be handled in-line in descriptions:
 </p>
 
 <p>
@@ -301,7 +301,7 @@
 </p>
 
 <p>
-    <b>Using the @tutorial tag in content</b>
+    <b>Using the <code>@tutorial</code> tag in content</b>
 </p>
 
 <dl class="example">
@@ -321,9 +321,9 @@
     It is purely additional feature - if one won't specify <code>-u</code> option it won't affect documentation building. Also template <code>publish()</code> method is not a problem, since tutorials are passed as last argument, so if template function is not prepared for tutorials it just won't process them.
 </p>
 
-<h5>
+<h3>
     Contributers to these docs
-</h5>
+</h3>
 
 <ul>
     <li>

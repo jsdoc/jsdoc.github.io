@@ -20,9 +20,6 @@
     Examples
 </h3>
 
-<p>
-    <b>Example goes here</b>
-</p>
 
 {{#includeExample}}
     jake/extended_docs/examples/tags-copyright-0.js

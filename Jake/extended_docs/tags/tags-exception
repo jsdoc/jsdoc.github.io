@@ -1,6 +1,6 @@
-<p>
-    TODO: Finish documentation.
-</p>
+<h3>
+    Examples
+</h3>
 
 {{#includeExample}}
     ../jsdoc/test/fixtures/exceptiontag.js

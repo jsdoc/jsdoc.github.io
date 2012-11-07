@@ -33,6 +33,9 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-returns-2.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/returnstag.js
+{{/includeExample}}
 
 <h3>
     See Also

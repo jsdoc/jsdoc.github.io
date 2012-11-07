@@ -13,6 +13,9 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-namespace-0.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/jslangnames.js
+{{/includeExample}}
 
 <h3>
     See Also

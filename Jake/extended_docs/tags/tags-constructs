@@ -34,6 +34,21 @@
     jake/extended_docs/examples/tags-constructs-1.js
 {{/includeExample}}
 
+{{#includeExample}}
+    ../jsdoc/test/fixtures/constructstag.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/constructstag2.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/constructstag3.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/constructstag4.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/constructstag5.js
+{{/includeExample}}
 <h3>
     See Also
 </h3>

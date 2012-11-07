@@ -34,6 +34,9 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-constructor-0.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/constructortag.js
+{{/includeExample}}
 
 <h3>
     See Also

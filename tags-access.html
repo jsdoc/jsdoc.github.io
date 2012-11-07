@@ -236,7 +236,43 @@ function (doclet, tag) {
 <p>
     TODO: Finish documentation.
 </p>
-</div>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @constructor */
+function Thingy() {
+
+    /** @access private */
+    var foo = 0;
+    
+    /** @access protected */
+    this._bar = 1;
+    
+    /** @access public */
+    this.pez = 2;
+    
+}
+
+// same as...
+
+/** @constructor */
+function OtherThingy() {
+
+    /** @private */
+    var foo = 0;
+    
+    /** @protected */
+    this._bar = 1;
+    
+    /** @public */
+    this.pez = 2;
+    
+}
+</pre>
+</dd>
+</dl></div>
     </article>
     
     <footer>

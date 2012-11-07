@@ -14,6 +14,23 @@
     jake/extended_docs/examples/tags-module-0.js
 {{/includeExample}}
 
+
+{{#includeExample}}
+    ../jsdoc/test/fixtures/moduleinner.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/moduleisconstructor.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/moduletag.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/moduletag2.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/moduletag3.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

@@ -13,6 +13,18 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-memberof-0.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/memberoftag.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/memberoftag2.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/memberoftag3.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/memberoftag4.js
+{{/includeExample}}
 
 <h3>
     See Also

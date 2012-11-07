@@ -241,7 +241,34 @@ function (doclet, tag) {
 <p>
     TODO: Finish documentation.
 </p>
-</div>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+    @throws {InvalidArgumentException}
+*/
+function foo(x) {
+    
+}
+
+/**
+    @exception Will throw an error if argument is null.
+*/
+function bar(x) {
+    
+}
+
+/**
+    @exception {DivideByZero} Argument x must be non-zero.
+*/
+function pez(x) {
+    
+}
+</pre>
+</dd>
+</dl></div>
     </article>
     
     <footer>

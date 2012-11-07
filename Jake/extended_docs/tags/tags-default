@@ -30,3 +30,6 @@
     jake/extended_docs/examples/tags-default-0.js
 {{/includeExample}}
 
+{{#includeExample}}
+    ../jsdoc/test/fixtures/defaulttag.js
+{{/includeExample}}

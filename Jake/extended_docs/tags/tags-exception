@@ -1,3 +1,7 @@
 <p>
     TODO: Finish documentation.
 </p>
+
+{{#includeExample}}
+    ../jsdoc/test/fixtures/exceptiontag.js
+{{/includeExample}}

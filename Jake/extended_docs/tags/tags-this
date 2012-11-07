@@ -13,6 +13,9 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-this-0.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/thistag.js
+{{/includeExample}}
 
 <h3>
     See Also

@@ -272,6 +272,31 @@ Milkshake.prototype.drink = function() {
 
 </pre>
 </dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * @class
+ */
+var Hurl = function () {
+};
+
+/**
+ * Throw a snowball.
+ *
+ * @fires Hurl#snowball
+ * @fires Hurl#event:brick
+ */
+Hurl.prototype.snowball = function () {
+    /**
+     * @event Hurl#snowball
+     */
+    this.emit('snowball', {});
+};
+
+</pre>
+</dd>
 </dl>
 <h3>
     See Also

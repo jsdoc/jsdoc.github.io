@@ -33,6 +33,9 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-enum-0.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/enumtag.js
+{{/includeExample}}
 
 <h3>
     See Also

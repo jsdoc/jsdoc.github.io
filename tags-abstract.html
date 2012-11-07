@@ -232,7 +232,31 @@ function (doclet, tag) {
 <p>
     TODO: Finish documentation.
 </p>
-</div>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @constructor */
+function Thingy() {
+
+    /** @abstract */
+    this.pez = 2;
+    
+}
+
+// same as...
+
+/** @constructor */
+function OtherThingy() {
+
+    /** @virtual */
+    this.pez = 2;
+    
+}
+</pre>
+</dd>
+</dl></div>
     </article>
     
     <footer>

@@ -13,6 +13,9 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-readonly-0.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/readonlytag.js
+{{/includeExample}}
 
 <h3>
     See Also

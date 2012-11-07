@@ -246,6 +246,70 @@ function (doclet, tag) {
 
 </pre>
 </dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+function sendMessage(text) {
+    /** document me */
+    var encoding = 'utf8';
+    
+    /** document me */
+    function encrypt(){}
+}
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @constructor */
+function Message(to) {
+    
+    var headers = {},
+        response;
+    
+    /** document me */
+    headers.to = to;
+    
+    (function() {
+        /** document me */
+        response.code = '200';
+        
+        /** document me */
+        headers.from = '';
+    })()
+}
+
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @constructor */
+function Message(to) {
+    
+    var headers = {};
+    
+    /** document me */
+    headers.to = to;
+    
+    (function() {
+        var headers = {
+            /** document me */
+            cache: {}
+        };
+       
+        /** document me */
+        headers.from = '';
+    })()
+}
+
+
+</pre>
+</dd>
 </dl>
 <h3>
     See Also

@@ -359,6 +359,125 @@ define(function () {
 </pre>
 </dd>
 </dl>
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * An example of a server-side JavaScript module.
+ * @module hello/world
+ * @example
+ *    var g = require('hello/world').sayHello('Gracie');
+ */
+
+/**
+ * Generate a greeting.
+ * @param {string} [subject="world"] To whom we greet.
+ * @returns {string}
+ */
+exports.sayHello = function(subject) {
+    return 'Hello ' + (subject || 'World');
+};
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+define(function () {
+   /** 
+        A module representing a shirt.
+        @exports my/shirt
+        @version 1.0
+     */
+    var shirt = {
+    
+        /** A property of the module. */
+        color: "black",
+        
+        /** @constructor */
+        Turtleneck: function(size) {
+            /** A property of the class. */
+            this.size = size;
+        }
+    };
+
+    return shirt;
+});
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+define(
+    ["my/buttons"],
+    function () {
+       /** 
+            A module representing a coat.
+            @exports my/coat
+            @requires my/buttons
+            @version 1.0
+         */
+        var myModule = function(wool) {
+            /** document me */
+            this.wool = wool;
+        }
+    
+        return myModule;
+        
+    }
+);
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+define(
+    /** 
+        Utility functions to ease working with DOM elements.
+        @exports html/utils
+     */
+    function () {
+    
+        var exports = {
+            /** Get the value of a property on an element. */
+            getStyleProperty: function(element, propertyName) {
+                // ...
+            }
+        };
+        
+        /** Determine if an element is in the document head. */
+        exports.isInHead = function(element) {
+            // ...
+        }
+        
+        return exports;
+    }
+);
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+define(
+   /** @exports some/module */
+   function () {
+       /** @class */
+       function myClass() {}
+
+       /** Some method */
+       myClass.prototype.myMethod = function () {};
+
+       return new myClass();
+   }
+);
+</pre>
+</dd>
+</dl>
 <h3>
     See Also
 </h3>

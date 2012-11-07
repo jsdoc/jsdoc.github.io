@@ -34,3 +34,9 @@
     jake/extended_docs/examples/tags-borrows-0.js
 {{/includeExample}}
 
+{{#includeExample}}
+    ../jsdoc/test/fixtures/borrowstag.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/borrowstag2.js
+{{/includeExample}}

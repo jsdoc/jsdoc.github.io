@@ -1,3 +1,16 @@
 <p>
     TODO: Finish documentation.
 </p>
+
+{{#includeExample}}
+    ../jsdoc/test/fixtures/lends.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/lends2.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/lends3.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/lendsglobal.js
+{{/includeExample}}

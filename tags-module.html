@@ -260,6 +260,124 @@ function (doclet, tag) {
 </pre>
 </dd>
 </dl>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+* @module my/module
+*/
+(function() {
+
+/** document fooIn */
+fooIn = function() {
+};
+
+/** @namespace */
+bar = {
+    /** document bar.Zop */
+    zop: function() {
+    }
+}
+
+/** @constructor */
+exports.Frotz = function() {
+    /** document exports.Frotz#quaz */
+    this.quaz = 1;
+}
+
+}) ();
+
+/** document fooOut 
+*/
+fooOut = function() {
+};
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+   Describe the module here.
+   @module mymodule/config
+*/
+
+/**
+    Create a new configuration
+    @param {string} id
+    @constructor
+    @alias module:mymodule/config
+*/
+function Config(id) {
+   /** Document me. */
+   this.id = id;
+}
+
+module.exports = Config;
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * @module bookshelf
+ */
+
+/**
+ * @class
+ */
+this.Book = function(title) {
+    /** document me */
+    this.title = title;
+}
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @module color/mixer */
+
+module.exports = {
+    /** Blend two colors together. */
+    blend: function(color1, color2) { }
+}
+
+/** Darken a color by the given shade. */
+exports.darken = function(color, shade) { }
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+@module foo/Photo/manager
+@desc Manage a collection of photos.
+*/
+
+/**
+Construct a new Photo manager
+@constructor module:foo/Photo/manager
+@param {String} collectionId The identifier of the managed collection.
+*/
+module.exports = function(collectionId) {
+
+    /**
+    @function module:foo/Photo/manager#getPhoto
+    @param {String} photoName
+    */
+    this.getPhoto = function() {}
+
+}
+
+
+</pre>
+</dd>
+</dl>
 <h3>
     See Also
 </h3>

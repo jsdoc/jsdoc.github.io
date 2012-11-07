@@ -22,3 +22,7 @@
     jake/extended_docs/examples/tags-global-0.js
 {{/includeExample}}
 
+
+{{#includeExample}}
+    ../jsdoc/test/fixtures/globaltag.js
+{{/includeExample}}

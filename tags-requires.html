@@ -256,6 +256,25 @@ function (doclet, tag) {
 
 </pre>
 </dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+*  @requires module:foo/helper
+*/
+function foo() {
+}
+
+/**
+* @requires foo
+* @requires Pez#blat this text is ignored
+*/
+function bar() {
+}
+
+</pre>
+</dd>
 </dl>
 <h3>
     See Also

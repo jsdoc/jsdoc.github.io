@@ -30,3 +30,7 @@
     jake/extended_docs/examples/tags-deprecated-0.js
 {{/includeExample}}
 
+
+{{#includeExample}}
+    ../jsdoc/test/fixtures/deprecatedtag.js
+{{/includeExample}}

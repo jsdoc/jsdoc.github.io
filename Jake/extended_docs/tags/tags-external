@@ -1,3 +1,10 @@
 <p>
     TODO: Finish documentation.
 </p>
+
+{{#includeExample}}
+    ../jsdoc/test/fixtures/externals.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/externals2.js
+{{/includeExample}}

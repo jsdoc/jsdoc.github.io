@@ -50,6 +50,22 @@
     jake/extended_docs/examples/tags-exports-3.js
 {{/includeExample}}
 
+{{#includeExample}}
+    ../jsdoc/test/fixtures/exports.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/exportstag.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/exportstag2.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/exportstag3.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/exportstag4.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

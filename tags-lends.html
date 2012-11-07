@@ -230,7 +230,98 @@ function (doclet, tag) {
 <p>
     TODO: Finish documentation.
 </p>
-</div>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @class */
+var Person = makeClass(
+    /** @lends Person# */
+    {
+        /** Set up initial values. */
+        initialize: function(name) {
+            /** The name of the person. */
+            this.name = name;
+        },
+        
+        /** Speak a message. */
+        say: function(message) {
+            return this.name + " says: " + message;
+        }
+    }
+);
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+
+var Person = makeClass(
+    /** @lends Person# */
+    {
+        /** Construct a Person.
+            @constructs Person
+         */
+        initialize: function(name) {
+            /** The name of the person. */
+            this.name = name;
+        },
+        
+        /** Speak a message. */
+        say: function(message) {
+            return this.name + " says: " + message;
+        }
+    }
+);
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @class */
+var Person = makeClass(
+    /**
+     * @lends Person#
+     */
+    {
+        /** Set up initial values. */
+        initialize: function(name) {
+            /** The name of the person. */
+            this.name = name;
+        },
+        
+        /** Speak a message. */
+        say: function(message) {
+            return this.name + " says: " + message;
+        }
+    }
+);
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+declare({
+    globals: /** @lends */ {
+    
+        /** document me */
+        'test': function() { },
+        
+        /** @namespace */
+        'test1': {
+        
+            /** document me */
+            'test2': function() {  }
+        }
+    }
+});
+</pre>
+</dd>
+</dl></div>
     </article>
     
     <footer>

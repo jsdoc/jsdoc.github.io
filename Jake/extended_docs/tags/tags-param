@@ -89,6 +89,9 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-param-6.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/paramtag.js
+{{/includeExample}}
 
 <h3>
     See Also

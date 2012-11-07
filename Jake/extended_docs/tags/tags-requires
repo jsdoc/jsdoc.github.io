@@ -13,6 +13,9 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-requires-0.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/requirestag.js
+{{/includeExample}}
 
 <h3>
     See Also

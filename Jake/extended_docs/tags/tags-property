@@ -29,6 +29,9 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-property-0.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/propertytag.js
+{{/includeExample}}
 
 <h3>
     See Also

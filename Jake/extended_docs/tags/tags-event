@@ -50,6 +50,9 @@
     jake/extended_docs/examples/tags-event-1.js
 {{/includeExample}}
 
+{{#includeExample}}
+    ../jsdoc/test/fixtures/eventfirestag.js
+{{/includeExample}}
 <h3>
     See Also
 </h3>

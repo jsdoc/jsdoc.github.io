@@ -252,6 +252,22 @@ function (doclet, tag) {
 
 </pre>
 </dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/** @constructor */
+function Foo(name) {
+    setName.apply(this, name);
+}
+
+/** @this Foo */
+function setName(name) {
+    /** document me */
+    this.name = name;
+}
+</pre>
+</dd>
 </dl>
 <h3>
     See Also

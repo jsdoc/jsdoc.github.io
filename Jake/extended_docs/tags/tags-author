@@ -18,6 +18,10 @@
     jake/extended_docs/examples/tags-author-0.js
 {{/includeExample}}
 
+{{#includeExample}}
+    ../jsdoc/test/fixtures/authortag.js
+{{/includeExample}}
+
 <h3>
     See Also
 </h3>

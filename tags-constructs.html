@@ -302,7 +302,139 @@ makeClass('Menu',
 </pre>
 </dd>
 </dl>
-<h3>
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+Classify('TextBlock', {
+    
+    /**
+        Document your constructor function here.
+        @constructs TextBlock
+        @classdesc Describe your class here
+        @param {object} opts
+        @throws MissingNode
+     */
+    construct: function(node, opts) {
+    },
+    
+    /**
+        Document your method here.
+        @memberof TextBlock#
+     */
+    align: function() {
+    }
+});
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+Classify('Menu', 
+    /**
+        @constructs Menu
+        @param items
+     */
+    function (items) {
+        
+    },
+    {
+        /**
+            @memberof Menu#
+         */
+        show: function(){
+        }
+    }
+);
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+    A class that represents a person.
+    @class
+ */
+var Person = Class.create({
+
+    /**
+        @constructs Person
+        @param {string} name
+     */
+    initialize: function(name) {
+    
+        /** The name of the person. */
+        this.name = name;
+    },
+    
+    /**
+        @memberof Person#
+        @param {string} message
+     */
+    say: function(message) {
+    
+        /** The person's message. */
+        this.message = message;
+    }
+});
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+var Person = Class.create(/** @lends Person# */{
+
+    /**
+        Describe the constructor.
+        @classdesc A class that represents a person.
+        @constructs
+        @param {string} name
+     */
+    initialize: function(name) {
+    
+        /** The name of the person. */
+        this.name = name;
+    },
+    
+    /**
+        @param {string} message
+     */
+    say: function(message) {
+    
+        /** The person's message. */
+        this.message = message;
+    }
+});
+
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+Duck = (function() {
+        return /** @lends Duck# */ {
+            /**
+               Constructs a duck. 
+               @constructs
+               @param tog
+            */
+            constructor: function(tog) {
+            },
+            /** Say hello. */
+            quack: function() {
+            }
+        }
+})();
+</pre>
+</dd>
+</dl><h3>
     See Also
 </h3>
 

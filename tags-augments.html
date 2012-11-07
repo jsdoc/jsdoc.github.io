@@ -321,7 +321,81 @@ d.speak;
     A related pattern can be documented with the @mixin and @mixes tags. Or, if the augmented symbol is only reusing one or two members of another symbol, you may find the @borrows tag more convenient.
 </p>
 
-<h3>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * @constructor
+ */
+function Foo() {
+    /** First property */
+    this.prop1 = true;
+}
+
+/**
+ * Second property
+ * @type {String}
+ */
+Foo.prototype.prop2 = "parent prop2";
+
+/**
+ * First parent method.
+ */
+Foo.prototype.method1 = function() {};
+
+/**
+ * Second parent method.
+ */
+Foo.prototype.method2 = function() {};
+
+
+/**
+ * @constructor
+ * @extends Foo
+ */
+function Bar() {
+    /** Thrid prop **/
+    this.prop3 = true;
+}
+
+/**
+ * Second child method.
+ */
+Bar.prototype.method2 = function() {};
+
+/**
+ * @constructor
+ * @extends {Bar}
+ */
+function Baz() {
+    /** Override prop1 */
+    this.prop1 = "new";
+}
+
+/**
+ * Third grandchild method.
+ */
+Baz.prototype.method3 = function() {};
+
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+// Test for @augments/@extends tags that refer to undefined symbols
+/**
+ * @constructor
+ * @extends UndocumentedThing
+ */
+function Qux() {}
+
+</pre>
+</dd>
+</dl><h3>
     See Also
 </h3>
 

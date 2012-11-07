@@ -232,7 +232,149 @@ function (doclet, tag) {
 <p>
     TODO: Finish documentation.
 </p>
-</div>
+
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+var myObject = (function() {
+    
+    /** Give x another name.
+        @alias myObject
+        @namespace 
+     */
+    var x = {
+        /** document me */
+        myProperty: 'foo'
+    }
+    
+    return x;
+})();
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+(function() {
+    
+    /** @alias ns.Myclass# */
+    var x = {
+        /** document me */
+        myProperty: 'foo'
+    }
+    
+    return x;
+})();
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+Klass('trackr.CookieManager',
+
+    /** @class
+        @alias trackr.CookieManager
+        @param {object} kv
+    */
+    function(kv) {
+        /** document me */
+        this.value = kv;
+    }
+    
+);
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+(function() {
+
+    /** @alias &lt;global>.log */
+    var log = function() {
+    }
+    
+})();
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+(function () {
+    /**
+     * Creates a new test object.
+     * @alias Test
+     * @constructor
+     */
+    var Test = function(testName) {
+        /** Document me. */
+        this.name = testName;
+    }
+
+    /** Document me. */
+    Test.prototype.run = function(message) {
+    };
+    
+    /** Document me. */
+    Test.counter = 1;
+})();
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * @namespace
+ */
+var A = {};
+
+(function(ns) {
+    /**
+     * @namespace
+     * @alias A.F
+     */
+    var f = {};
+
+    /**
+     * @return {String}
+     */
+    f.method = function(){};
+
+    ns.F = f;
+})(A);
+</pre>
+</dd>
+</dl><dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint linenums">
+/**
+ * @namespace
+ */
+var A = {};
+
+/**
+ * @namespace
+ * @alias A.F
+ */
+var f = {};
+
+(function(ns) {
+    /**
+     * @return {String}
+     */
+    f.method = function(){};
+
+    ns.F = f;
+})(A);
+</pre>
+</dd>
+</dl></div>
     </article>
     
     <footer>

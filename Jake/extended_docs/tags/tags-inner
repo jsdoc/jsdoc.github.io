@@ -13,6 +13,15 @@
 {{#includeExample}}
     jake/extended_docs/examples/tags-inner-0.js
 {{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/inner.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/innerscope.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/innerscope2.js
+{{/includeExample}}
 
 <h3>
     See Also

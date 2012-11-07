@@ -47,6 +47,13 @@
     A related pattern can be documented with the @mixin and @mixes tags. Or, if the augmented symbol is only reusing one or two members of another symbol, you may find the @borrows tag more convenient.
 </p>
 
+
+{{#includeExample}}
+    ../jsdoc/test/fixtures/augmentstag.js
+{{/includeExample}}
+{{#includeExample}}
+    ../jsdoc/test/fixtures/augmentstag2.js
+{{/includeExample}}
 <h3>
     See Also
 </h3>

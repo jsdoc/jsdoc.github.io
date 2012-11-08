@@ -41,8 +41,6 @@
 {{#generateLinksList}}about-
 {{generateLinksList}}
 {{/generateLinksList}}
-    <dt><a href="./Jake/API/jsdoc/index.html">API Docs</a></dt>
-        <dd>A look under the hood always helps.</dd>
 </dl>
 
 <h2 name="JSDoc_Examples" id="JSDoc_Examples">JSDoc Examples</h2>

@@ -1,0 +1,11 @@
+<!--{
+    "title" :       "JSDoc 3 API Reference",
+    "out" :         "about-jsdoc-3-api-reference-index.html",
+    "description" : "Index of JSDoc 3 API Reference"
+}-->
+
+<div>
+{{#generateIndex}}
+    Jake/API/jsdoc/
+{{/generateIndex}}
+</div>

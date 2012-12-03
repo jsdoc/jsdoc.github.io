@@ -52,13 +52,6 @@
       </li>
       <li><a href="#packaging-jsdoc-3-plugins">Packaging JSDoc 3 Plugins
         </a></li>
-      <li><a href="#hegemonics-plugin-walkthrough">Hegemonics Plugin Walkthrough
-        </a>
-        <ol>
-          <li><a href="#example-modifying-the-partial-plugin">Example: modifying the partial plugin
-            </a></li>
-        </ol>
-      </li>
     </ol>
   </li>
 </ol>

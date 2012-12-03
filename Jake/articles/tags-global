@@ -1,21 +1,26 @@
 <!--{
-    "title" :       "@global",
-    "out" :         "tags-global.html",
-    "description" : "Document a global object."
+    "title":       "@global",
+    "out":         "tags-global.html",
+    "description": "Document a global object."
 }-->
+<h3>Overview</h3>
 
 <p>
-    {{description}}
+In cases where the static analysis feature of JSDoc is not able to derive the scope that you intend purely from the code surrounding your doc comments, you can use the @global tag to explicitly specify that a symbol should appear in the documentation as a <em>global</em> symbol.
 </p>
 
-<h2 name="definition" id="definition">Definition</h2>
-{{#include}}
-    jake/API/describeTags/tags-global.html
-{{/include}}
+<h3>Examples</h3>
 
-<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
-<div class="tags-overview" id="global-overview">
-{{#include}}
-    jake/extended_docs/tags/tags-global
-{{/include}}
-</div>
+<p>
+Use the @global tag to specify that a symbol should be documented as global.
+</p>
+
+{{#example}}Document an inner variable as a global
+(function() {
+    /** @global */
+    var foo = 'hello foo';
+
+    this.foo = foo;
+}).apply(window);
+{{/example}}
+

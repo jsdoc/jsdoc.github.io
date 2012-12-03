@@ -1,21 +1,24 @@
 <!--{
-    "title" :       "@throws",
-    "out" :         "tags-throws.html",
-    "description" : "Document exceptions thrown by a method or function."
+    "title":       "@throws",
+    "out":         "tags-throws.html",
+    "description": "[todo] Describe what errors could be thrown."
 }-->
+<h3>Overview</h3>
 
 <p>
-    {{description}}
 </p>
 
-<h2 name="definition" id="definition">Definition</h2>
-{{#include}}
-    jake/API/describeTags/tags-throws.html
-{{/include}}
+<h3>Examples</h3>
 
-<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
-<div class="tags-overview" id="throws-overview">
-{{#include}}
-    jake/extended_docs/tags/tags-throws
-{{/include}}
-</div>
+<p>
+</p>
+
+{{#example}}Example goes here
+// todo
+{{/example}}
+
+<h3>See Also</h3>
+
+<ul>
+    <li><a href="#">...</a></li>
+</ul>

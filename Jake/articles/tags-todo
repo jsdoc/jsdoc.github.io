@@ -1,21 +1,24 @@
 <!--{
-    "title" :       "@todo",
-    "out" :         "tags-todo.html",
-    "description" : "Document tasks to be completed."
+    "title":       "@todo",
+    "out":         "tags-todo.html",
+    "description": "[todo] Document tasks to be completed for an object."
 }-->
+<h3>Overview</h3>
 
 <p>
-    {{description}}
 </p>
 
-<h2 name="definition" id="definition">Definition</h2>
-{{#include}}
-    jake/API/describeTags/tags-todo.html
-{{/include}}
+<h3>Examples</h3>
 
-<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
-<div class="tags-overview" id="todo-overview">
-{{#include}}
-    jake/extended_docs/tags/tags-todo
-{{/include}}
-</div>
+<p>
+</p>
+
+{{#example}}Example goes here
+// todo
+{{/example}}
+
+<h3>See Also</h3>
+
+<ul>
+    <li><a href="#">...</a></li>
+</ul>

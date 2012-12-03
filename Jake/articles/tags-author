@@ -1,21 +1,39 @@
 <!--{
-    "title" :       "@author",
-    "out" :         "tags-author.html",
-    "description" : "Documents the author of an item."
+    "title":       "@author",
+    "out":         "tags-author.html",
+    "description": "Documents the author of an item."
 }-->
 
-<p>
-    {{description}}
+<h3>Overview</h3>
+
+<p>Document the author of an item. The text following the @author tag 
+will be used to describe the author in the default template.
 </p>
 
-<h2 name="definition" id="definition">Definition</h2>
-{{#include}}
-    jake/API/describeTags/tags-author.html
-{{/include}}
+<h3>Examples</h3>
 
-<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
-<div class="tags-overview" id="author-overview">
-{{#include}}
-    jake/extended_docs/tags/tags-author
-{{/include}}
-</div>
+<p>
+</p>
+
+{{#example}}Documenting the author of an item.
+/**
+ * @author Some Author
+ * @version 20121008
+ */
+function wobble() {
+	return 'flam';
+}
+{{/example}}
+
+<h3>See Also</h3>
+
+<ul>
+    <li><a href="tags-version.html">@version</a></li>
+	<li><a href="tags-file.html">@file</a></li>
+</ul>
+
+<h5>Contributers to these docs</h5>
+
+<ul>
+    <li><a href="https://github.com/matthewkastor">matthewkastor</a></li>
+</ul>

@@ -1,6 +1,0 @@
-<h3>
-    Examples
-</h3>
-{{#includeExample}}
-    ../jsdoc/test/fixtures/accesstag.js
-{{/includeExample}}

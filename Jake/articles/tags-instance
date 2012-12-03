@@ -1,21 +1,24 @@
 <!--{
-    "title" :       "@instance",
-    "out" :         "tags-instance.html",
-    "description" : "Document an instance member."
+    "title":       "@instance",
+    "out":         "tags-instance.html",
+    "description": "[todo] Document an instance member."
 }-->
+<h3>Overview</h3>
 
 <p>
-    {{description}}
 </p>
 
-<h2 name="definition" id="definition">Definition</h2>
-{{#include}}
-    jake/API/describeTags/tags-instance.html
-{{/include}}
+<h3>Examples</h3>
 
-<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
-<div class="tags-overview" id="instance-overview">
-{{#include}}
-    jake/extended_docs/tags/tags-instance
-{{/include}}
-</div>
+<p>
+</p>
+
+{{#example}}Example goes here
+// todo
+{{/example}}
+
+<h3>See Also</h3>
+
+<ul>
+    <li><a href="#">...</a></li>
+</ul>

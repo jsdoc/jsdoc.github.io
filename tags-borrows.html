@@ -1,250 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    
-    <meta name="description" content="This object uses something from another object.">
-    
-    
-    <title>Use JSDoc: @borrows</title>
-    
-    <link rel="stylesheet" href="lib/desert.css" />
-    <script src="lib/prettify.js"></script>
-    
-    <script type="text/javascript">
-        /* Make HTML 5 elements stylable in IE */
+	<meta charset="utf-8">
+	<meta name="description" content="This object uses something from another object."><title>Use JSDoc: @borrows</title>
+	
+	<link rel="stylesheet" href="lib/prettify.css" />
+	<script src="lib/prettify.js"></script>
+	
+	<script type="text/javascript">
+	    /* Make HTML 5 elements stylable in IE */
         document.createElement('header');
         document.createElement('nav');
         document.createElement('article');
         document.createElement('footer');
         document.createElement('hgroup');
-    </script>
-    
-    <style>
-        body 
-        {
-            font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            padding: 0;
-            margin: 0;
-        }
-        
-        a, a:visited, a:active 
-        {
-            color: #605C89;
-        }
-        
-        /* Make HTML 5 elements display block-level for consistent styling */
-        header, nav, article, footer, address 
-        {
-            display: block;
-        }
-        
-        header
-        {
-            background-color: #EBEBEB;
-            color: #006FBB;
-            margin: 0;
-            margin-bottom: 32px;
-            padding: 18px;
-            font-size: 2.4em;
-            font-weight: bold;
-            border-bottom: 1px #C6C6C6 solid;
-        }
-        
-        header a, header a:visited 
-        {
-            color: #006FBB;
-            text-decoration: none;
-        }
-        
-        article 
-        {
-            margin: 18px;
-        }
-        
-        footer
-        {
-            margin: 16px;
-            margin-top: 32px;
-            font-style: italic;
-            font-size: 0.8em;
-        }
-        
-        h1, h2, h3, h4, h5, h6
-        {
-            color: #B93A38;
-        }
-        
-        h1
-        {
-            font-size: 1.428em;
-            text-indent: 0;
-        }
+	</script>
+	
+	<style>
+		body 
+		{
+			font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			padding: 0;
+			margin: 0;
+		}
+		
+		a, a:visited, a:active 
+		{
+			color: #605C89;
+		}
+		
+		/* Make HTML 5 elements display block-level for consistent styling */
+		header, nav, article, footer, address 
+		{
+			display: block;
+		}
+		
+		header
+		{
+			background-color: #EBEBEB;
+			color: #006FBB;
+			margin: 0;
+			margin-bottom: 32px;
+			padding: 18px;
+			font-size: 2.4em;
+			font-weight: bold;
+			border-bottom: 1px #C6C6C6 solid;
+		}
+		
+		header a, header a:visited 
+		{
+		    color: #006FBB;
+			text-decoration: none;
+		}
+		
+		article 
+		{
+			margin: 18px;
+		}
+		
+		footer
+		{
+			margin: 16px;
+			margin-top: 32px;
+			font-style: italic;
+			font-size: 0.8em;
+		}
+		
+		h1, h2, h3, h4, h5, h6
+		{
+			color: #B93A38;
+		}
+		
+		h1
+		{
+			font-size: 1.428em;
+			text-indent: 0;
+		}
 
-        h2
-        {
-            font-size: 1.285em;
-            text-indent: 1%;
-        }
+		h2
+		{
+			font-size: 1.285em;
+			text-indent: 1%;
+		}
 
-        h3
-        {
-            font-size: 1.142em;
-            text-indent: 2%;
-        }
+		h3
+		{
+			font-size: 1.142em;
+			text-indent: 2%;
+		}
 
-        h4
-        {
-            font-size: 1em;
-            text-indent: 3%;
-        }
+		h4
+		{
+			font-size: 1em;
+			text-indent: 3%;
+		}
 
-        h5
-        {
-            font-size: 0.857em;
-            text-indent: 4%;
-        }
+		h5
+		{
+			font-size: 0.857em;
+			text-indent: 4%;
+		}
 
-        h6
-        {
-            font-size: 0.714em;
-            text-indent: 5%;
-        }
-        
-        p
-        {
-            text-indent: 2%;
-        }
-        
-        dl
-        {
-            margin-left: 2%;
-            padding-left: 0;
-        }
-        
-        dt
-        {
-            margin-left: 16px;
-            padding-left: 4px;
-            margin-top: 8px;
-        }
-        
-        dt a, dt a:visited 
-        {
-            color: #3E00B6;
-        }
-        
-        dd
-        {
-            margin-left: 16px;
-            padding-left: 4px;
-        }
-        
-        ol, ul
-        {
-            margin-left: 2%;
-        }
-        
-        code 
-        {
-            font: 1em Consolas, "Lucida Console", Monaco, monospace;
-            background-color: #DEDEDE;
-        }
-        
-        pre
-        {
-            display: block;
-            border: 1px solid #999;
-            margin: 12px;
-            padding: 8px;
-            white-space: pre-wrap;
-            background-color: #333333;
-            color: #03FF00;
-        }
-        
-        .example dt 
-        {
-            font-weight: bold;
-        }
-        
-        .tags-definition {
-            margin: 0px 1%;
-        }
-        
-        .tags-definition th {
-            text-align: left;
-            vertical-align: top;
-            font-weight: 800;
-            background-color: gold;
-        }
-        
-        .tags-definition td {
-            text-align: left;
-            vertical-align: top;
-        }
+		h6
+		{
+			font-size: 0.714em;
+			text-indent: 5%;
+		}
+		
+		p
+		{
+			text-indent: 2%;
+		}
+		
+		dl
+		{
+			margin-left: 2%;
+			padding-left: 0;
+		}
+		
+		dt
+		{
+			margin-left: 16px;
+			padding-left: 4px;
+			margin-top: 8px;
+		}
+		
+		dt a, dt a:visited 
+		{
+			color: #3E00B6;
+		}
+		
+		dd
+		{
+			margin-left: 16px;
+			padding-left: 4px;
+		}
+		
+		ol, ul
+		{
+			margin-left: 2%;
+		}
+		
+		code 
+		{
+			font: 1em Consolas, "Lucida Console", Monaco, monospace;
+			background-color: #DEDEDE;
+		}
+		
+		pre
+		{
+			display: block;
+			border: 1px solid #999;
+			margin: 12px;
+			padding: 8px;
+			white-space: pre-wrap;
+			background-color: #DEDEDE;
+		}
+		
+		.example dt 
+		{
+			font-weight: bold;
+		}
 
-    </style>
+	</style>
 </head>
 
 <body>
-    <header>
-        <a href="./index.html">@use JSDoc</a><br>
-        <span style="font-size: 0.5em; margin-left: 6%;"><a href="http://usejsdoc.org/index.html">The best documentation tool for JavaScript, ever.&trade;</a></span>
-    </header>
-    
-    <nav>
-    </nav>
-    
-    <article>
-    <h1>@borrows</h1>
-    
+	<header>
+	    <a href="./index.html">@use JSDoc</a>
+	</header>
+	
+	<nav>
+	</nav>
+	
+	<article>
+	<h1>@borrows</h1>
 
-<p>
-    This object uses something from another object.
-</p>
+<h3>Syntax</h3>
 
-<h2 name="definition" id="definition">Definition</h2>
-<div class="tags-definition" id="borrows-definition">
-<h3 class="tags-name">borrows</h3>
-<table><thead>
-<tr><th>Property</th> <th>Value</th></tr>
-</thead><tbody>
-<tr>
-<td class="tags-property-name" id="borrows-title-name"><b>title</b></td> <td class="tags-property-value" id="borrows-title-value">borrows</td>
-</tr>
-<tr>
-<td class="tags-property-name" id="borrows-mustHaveValue-name"><b>mustHaveValue</b></td> <td class="tags-property-value" id="borrows-mustHaveValue-value">true</td>
-</tr>
-<tr>
-<td class="tags-property-name" id="borrows-onTagged-name"><b>onTagged</b></td> <td class="tags-property-value" id="borrows-onTagged-value">
+<code>@borrows &lt;that namepath&gt; as &lt;this namepath&gt;</code>
 
-<pre class="prettyprint lang-js">
-function (doclet, tag) {
-    var borrows = parseBorrows(doclet, tag);
-    doclet.borrow(borrows.target, borrows.source);
-}
-</pre>
-
-</td>
-</tr>
-<tr>
-<td class="tags-property-name" id="borrows-synonyms-name"><b>synonyms</b></td> <td class="tags-property-value" id="borrows-synonyms-value"></td>
-</tr>
-</tbody></table></div>
-
-<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
-<div class="tags-overview" id="borrows-overview">
-<h3>
-    Syntax
-</h3>
-
-<p>
-    <code>@borrows &lt;that namepath&gt; as &lt;this namepath&gt;</code>
-</p>
-
-<h3>
-    Overview
-</h3>
+<h3>Overview</h3>
 
 <p>
     The @borrows tag allows you to add documentation for another symbol to your documentation.
@@ -254,22 +190,16 @@ function (doclet, tag) {
     This tag would be useful if you had more than one way to reference a function, but you didn't want to duplicate the same documentation in two places.
 </p>
 
-<h3>
-    Examples
-</h3>
+<h3>Examples</h3>
 
 <p>
     In this example there exists documentation for the "trstr" function, but "util.trim" is just a reference to that same function by a different name.
 </p>
 
-<p>
-    <b>Duplicate the documentation for trstr as util.trim</b>
-</p>
-
 <dl class="example">
-<dt></dt>
+<dt>Duplicate the documentation for trstr as util.trim</dt>
 <dd>
-<pre class="prettyprint linenums">
+<pre class="prettyprint lang-js">
 /**
     @namespace
     @borrows trstr as trim
@@ -288,64 +218,14 @@ function trstr(str) {
 </pre>
 </dd>
 </dl>
-<dl class="example">
-<dt></dt>
-<dd>
-<pre class="prettyprint linenums">
-/** @namespace
-    @borrows trstr as trim
-*/
-var util = {
-    "trim": trstr
-};
-
-/** 
-    Remove whitespace from around a string.
-    @param {string} str
- */
-function trstr(str) {
-}
-
-
-</pre>
-</dd>
-</dl><dl class="example">
-<dt></dt>
-<dd>
-<pre class="prettyprint linenums">
-/** @namespace
-    @borrows rtrim
-*/
-var str = {
-    rtrim: util.rtrim
-};
-
-/** @namespace
-    @borrows rtrim
-*/
-var util = {
-    rtrim: rtrim
-};
-
-/** 
-    Remove whitespace from the right side of a string.
-    @param {string} str
- */
-function rtrim(str) {
-}
-
-
-</pre>
-</dd>
-</dl></div>
     </article>
     
     <footer>
         <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /><br>
-        Copyright &#169; 2012 The <a href="http://usejsdoc.org/contribute-contributors.html">contributors</a> to the JSDoc 3 user guides project<br>
+        Copyright &#169; 2012 The <a href="http://usejsdoc.org/about-contributors.html">contributors</a> to the JSDoc 3 user guides project<br>
         This site is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
-    </footer>
+	</footer>
 
-    <script>prettyPrint();</script>
+	<script>prettyPrint()</script>
 </body>
 </html>

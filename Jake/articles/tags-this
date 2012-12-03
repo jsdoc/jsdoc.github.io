@@ -1,21 +1,24 @@
 <!--{
-    "title" :       "@this",
-    "out" :         "tags-this.html",
-    "description" : "Document what the this variable refers to in called or applied code."
+    "title":       "@this",
+    "out":         "tags-this.html",
+    "description": "[todo] What does the this keyword refer to here?"
 }-->
+<h3>Overview</h3>
 
 <p>
-    {{description}}
 </p>
 
-<h2 name="definition" id="definition">Definition</h2>
-{{#include}}
-    jake/API/describeTags/tags-this.html
-{{/include}}
+<h3>Examples</h3>
 
-<h2 name="Extended_Info" id="Extended_Info">Extended Info</h2>
-<div class="tags-overview" id="this-overview">
-{{#include}}
-    jake/extended_docs/tags/tags-this
-{{/include}}
-</div>
+<p>
+</p>
+
+{{#example}}Example goes here
+// todo
+{{/example}}
+
+<h3>See Also</h3>
+
+<ul>
+    <li><a href="#">...</a></li>
+</ul>

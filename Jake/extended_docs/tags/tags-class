@@ -1,8 +1,0 @@
-<!-- edit the included file -->
-{{#include}}
-    jake/extended_docs/tags/tags-constructor
-{{/include}}
-
-{{#includeExample}}
-    ../jsdoc/test/fixtures/classtag.js
-{{/includeExample}}

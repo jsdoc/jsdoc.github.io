@@ -1,11 +1,348 @@
 <!--{
-    "title" :       "JSDoc 3 Template Reference",
-    "out" :         "about-templates.html",
-    "description" : "How to create customized templates for JSDoc 3."
+    "title":       "JSDoc3 Template Reference",
+    "out":         "about-templates.html",
+    "description": "JSDoc3 Template Reference"
 }-->
 
-<div class="about-overview" id="templates-overview">
-{{#include}}
-    Jake/extended_docs/about/about-templates
-{{/include}}
-</div>
+<ol>
+    <li><a href="#The_basics">The basics</a>
+        <ol>
+            <li><a href="#Barebones_Example">Barebones Example</a>
+            </li>
+        </ol>
+    </li>
+
+    <li><a href="#Intermediate_Examples">Intermediate Examples</a>
+        <ol>
+            <li><a href="#Generating_HTML_Using_Template_Strings">Generating HTML Using Template Strings</a>
+            </li>
+
+            <li><a href="#Generating_HTML_Using_Template_Files">Generating HTML Using Template Files</a>
+            </li>
+        </ol>
+    </li>
+
+    <li><a href="#More_Info">More Info</a>
+    </li>
+</ol>
+
+<h2 name="The_basics" id="The_basics">
+    The basics
+</h2>
+
+<p>
+    To invoke JSDoc 3 with your own template, use the <code>-t</code> or <code>--template</code> command line option, giving it the path to your template folder.
+</p>
+
+{{#example}}Usage
+./jsdoc mycode.js -t /path/to/mycooltemplate
+{{/example}}
+
+<p>
+    If you've installed (copied) the template into the templates folder, then you can specify a short path like the following.
+</p>
+
+{{#example}}Usage
+./jsdoc mycode.js --template templates/default
+{{/example}}
+
+<h3 name="Barebones_Example" id="Barebones_Example">
+    Barebones Example
+</h3>
+
+<p>
+    To create or use your own template, create a folder, and give it the name of your template, for example "mycooltemplate". Within this folder create a file named "publish.js". That file must export a method named "publish".
+</p>
+
+{{#example}} Barebones Example - console.log
+/**
+ * Turn the data about your docs into file output.
+ * @param {TAFFY} data A TaffyDB collection representing
+ *                       all the symbols documented in your code.
+ * @param {object} opts An object with options information.
+ * @param {Tutorial} tutorialResolverRoot An object with information about included tutorials
+ * @see http://www.taffydb.com/
+ * @see http://www.taffydb.com/workingwithdata
+ * @see http://underscorejs.org/#template
+ * @see http://nodejs.org/api/fs.html
+ * @see http://nodejs.org/api/path.html
+ */
+exports.publish = function(data, opts, tutorialResolverRoot) {
+    
+    // do stuff here to generate your output files
+    
+    console.log('-------- data() --------');
+    console.log(data());
+    console.log('-------- opts --------');
+    console.log(opts);
+    console.log('-------- tutorialResolverRoot --------');
+    console.log(tutorialResolverRoot);
+    console.log('-------- data().get() --------');
+    console.log(data().get());
+
+};
+{{/example}}
+
+<p>
+    <b>Note that:</b>
+</p>
+
+<ul>
+    <li>Templating is handled by underscore by default. See: <a target="_blank" href="http://underscorejs.org/#template">http://underscorejs.org/#template</a>
+    </li>
+
+    <li>The data passed to your publish function is a TaffyDB database. See: <a target="_blank" href="http://www.taffydb.com/workingwithdata">http://www.taffydb.com/workingwithdata</a>
+    </li>
+
+    <li>Helper functions for the included underscore template module are located at <code>jsdoc/rhino_modules/jsdoc/template.js</code> Using this will allow you to load templates from files.
+    </li>
+
+    <li>Filesystem functions are available in <code>jsdoc/rhino_modules/fs.js</code> See: <a target="_blank" href="http://nodejs.org/api/fs.html">http://nodejs.org/api/fs.html</a>
+    </li>
+
+    <li>Functions for dealing with paths are available in <code>jsdoc/rhino_modules/path.js</code> See: <a target="_blank" href="http://nodejs.org/api/path.html">http://nodejs.org/api/path.html</a>
+    </li>
+
+    <li>Helper functions are available at <code>jsdoc/rhino_modules/jsdoc/util/templateHelper.js</code> Using this, you will be able to sort and filter the data from JSDoc easily.
+    </li>
+</ul>
+
+<h2 name="Intermediate_Examples" id="Intermediate_Examples">
+    Intermediate Examples
+</h2>
+
+{{#example}} A More Complex Example - Writing Data to a File
+/**
+ * Turn the data about your docs into file output.
+ * @param {TAFFY} data A TaffyDB collection representing
+ *                       all the symbols documented in your code.
+ * @param {object} opts An object with options information.
+ * @param {Tutorial} tutorialResolverRoot An object with information about included tutorials
+ * @see http://www.taffydb.com/
+ * @see http://www.taffydb.com/workingwithdata
+ * @see http://underscorejs.org/#template
+ * @see http://nodejs.org/api/fs.html
+ * @see http://nodejs.org/api/path.html
+ */
+exports.publish = function(data, opts, tutorialResolverRoot) {
+    
+    var outputFile   = '/tmp.txt';
+    var fs           = require('fs');
+    var path         = require('path');
+    var outputDir    = path.resolve(opts.destination);
+    var outputContent= JSON.stringify(data().first(), null, '    ');
+    
+    // replacing all backslashes with forward slashes in the path 
+    // this avoids a few issues on Windows.
+    outputDir        = outputDir.replace(/\\/g, '/');
+    // removing any trailing slash
+    outputDir        = outputDir.replace(/\/+$/, '');
+    
+    outputFile       = outputDir + outputFile;
+    
+    fs.mkPath(outputDir);
+    fs.writeFileSync(outputFile, outputContent);
+
+};
+{{/example}}
+
+<h3 name="Generating_HTML_Using_Template_Strings" id="Generating_HTML_Using_Template_Strings">
+    Generating HTML Using Template Strings
+</h3>
+
+{{#example}} An Even More Complex Example - Using Templates to Generate HTML
+/**
+ * Turn the data about your docs into file output.
+ * @param {TAFFY} data A TaffyDB collection representing
+ *                       all the symbols documented in your code.
+ * @param {object} opts An object with options information.
+ * @param {Tutorial} tutorialResolverRoot An object with information about included tutorials
+ * @see http://www.taffydb.com/
+ * @see http://www.taffydb.com/workingwithdata
+ * @see http://underscorejs.org/#template
+ * @see http://nodejs.org/api/fs.html
+ * @see http://nodejs.org/api/path.html
+ */
+exports.publish = function(data, opts, tutorialResolverRoot) {
+    
+    var outputFile   = '/tmp.html';
+    var fs           = require('fs');
+    var path         = require('path');
+    var outputDir    = path.resolve(opts.destination);
+    var outputContent= JSON.stringify(data().first(), null, '    ');
+    
+    
+    var helper          = require('jsdoc/util/templateHelper');
+    var templateStr     = '';
+    var templateData    = {};
+    // only handles templates as strings.
+    var renderTemplate  = require('underscore').template;
+    var templateSettings= {};
+    
+    templateStr  = '<!DOCTYPE html>\n';
+    templateStr += '<html>\n';
+    templateStr += '<head>\n<title>OMFG!</title>\n</head>\n';
+    templateStr += '<body>\n<pre><?js= outputContent ?></pre>\n</body>\n';
+    templateStr += '</html>\n';
+    
+    templateData.outputContent = helper.htmlsafe(outputContent);
+    
+    // override default settings, this is done in 
+    // jsdoc/rhino_modules/jsdoc/template as well. 
+    // It is used to define the template "tags". 
+    // Have a look at some of the default template 
+    // files to get an idea of what you can do.
+    templateSettings.evaluate   = /<\?js([\s\S]+?)\?>/g;
+    templateSettings.interpolate= /<\?js=([\s\S]+?)\?>/g;
+    templateSettings.escape     = /<\?js~([\s\S]+?)\?>/g;
+    
+    outputContent = renderTemplate(templateStr, templateData, templateSettings);
+    
+    
+    // replacing all backslashes with forward slashes in the path 
+    // this avoids a few issues on Windows.
+    outputDir        = outputDir.replace(/\\/g, '/');
+    // removing any trailing slash
+    outputDir        = outputDir.replace(/\/+$/, '');
+    
+    outputFile       = outputDir + outputFile;
+    
+    fs.mkPath(outputDir);
+    fs.writeFileSync(outputFile, outputContent);
+};
+{{/example}}
+
+<h3 name="Generating_HTML_Using_Template_Files" id="Generating_HTML_Using_Template_Files">
+    Generating HTML Using Template Files
+</h3>
+
+<p>
+    This next example shows how to load template files. This will make it easier for you to transform the data into something presentable, without making a huge mess trying to write out a template in escaped JavaScript strings. This example requires several files in order to function. The most important of which are <code>publish.js</code> and <code>layout.tmpl</code>. With just these two files you'll be able to generate pages containing data from JSDoc3. With just a little css and maybe some JavaScript, your documentation can come alive. The full example can be downloaded <a href="downloads/simpleTemplate.zip">here</a>.
+</p>
+
+{{#example}}simpleTemplate Directory Tree
+\---templates
+    \---simpleTemplate
+        |   publish.js
+        |
+        +---static
+        |   +---scripts
+        |   |   \---prettify
+        |   |           Apache-License-2.0.txt
+        |   |           prettify.js
+        |   |
+        |   \---styles
+        |           desert.css
+        |           prettify.css
+        |           sunburst.css
+        |
+        \---tmpl
+                layout.tmpl
+{{/example}}
+
+<p>
+    <b>Note that if you want to run this example you'll need to create the directory structure shown above, or just download the example and play with it.</b> You can get away with not having any of the files besides <code>publish.js</code> and <code>layout.tmpl</code> but you'll need the folders.
+</p>
+
+{{#example}} templates/simpleTemplate/publish.js
+/**
+ * @file A simple template to get an idea of where to start.
+ * @author <a href="mailto:matthewkastor@gmail.com">Matthew Kastor</a>
+ */
+ 
+/**
+ * Recursively copies a directory and files to user specified depth.
+ * @param {String} sourceDirectory The directory to copy.
+ * @param {String} outputDirectory The output directory.
+ * @param {Number} recursionDepth How many folders deep the copy will go.
+ */
+function copyDirectory(sourceDirectory, outputDirectory, recursionDepth) {
+    var fs   = require('fs');
+    var path = require('path');
+    recursionDepth = recursionDepth || 3;
+    var staticFiles = fs.ls(sourceDirectory, recursionDepth);
+    staticFiles.forEach(function(fileName) {
+        var toDir = fs.toDir(fileName.replace(sourceDirectory, outputDirectory));
+        fs.mkPath(toDir);
+        if(!fs.existsSync(path.join(toDir, '/' + fileName))) {
+            fs.copyFileSync(fileName, toDir);
+        }
+    });
+}
+
+/**
+ * Turn the data about your docs into file output.
+ * @param {TAFFY} data A TaffyDB collection representing
+ *                       all the symbols documented in your code.
+ * @param {object} opts An object with options information.
+ * @param {Tutorial} tutorialResolverRoot An object with information about included tutorials
+ * @see http://www.taffydb.com/
+ * @see http://www.taffydb.com/workingwithdata
+ * @see http://underscorejs.org/#template
+ * @see http://nodejs.org/api/fs.html
+ * @see http://nodejs.org/api/path.html
+ */
+exports.publish = function(data, opts, tutorialResolverRoot) {
+    var fs                     = require('fs');
+    var path                   = require('path');
+    var helper                 = require('jsdoc/util/templateHelper');
+    var template               = require('jsdoc/template');
+    
+    var outputFileName         = data().first().meta.filename;
+    var sourceCode             = JSON.stringify(data().first(), null, '    ');
+    var outputDirectory        = path.resolve(opts.destination);
+    var staticFilesDirectory   = path.resolve(env.dirname + '/templates/simpleTemplate/static');
+    var outputFile             = path.join(outputDirectory, outputFileName + '.html');
+    
+    var templatePath           = path.resolve(env.dirname + '/templates/simpleTemplate');
+    var temmplateFilesDirectory= path.join(templatePath, '/tmpl');
+    var templateName           = 'layout.tmpl';
+    var templateData           = {};
+    
+    templateData.title         = 'Source of : ' + outputFileName;
+    templateData.sourceCode    = helper.htmlsafe(sourceCode);
+    
+    var view                   = new template.Template(temmplateFilesDirectory);
+    var outputContent          = view.render(templateName, templateData);
+    
+    fs.mkPath(outputDirectory);
+    fs.writeFileSync(outputFile, outputContent);
+    copyDirectory(staticFilesDirectory, outputDirectory, 3);
+};
+{{/example}}
+
+{{#example}} templates/simpleTemplate/tmpl/layout.tmpl
+<!DOCTYPE html>
+  <head>
+      <meta charset="utf-8">
+      <title><?js= title ?></title>
+      <style type="text/css">
+          pre, code
+          {
+              white-space: pre-wrap;
+          }
+      </style>
+      <script src="scripts/prettify/prettify.js"> </script>
+      <!--[if lt IE 9]>
+          <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+      <link type="text/css" title="desert" rel="stylesheet" href="styles/desert.css">
+      <link type="text/css" title="sunburst" rel="alternate stylesheet" href="styles/sunburst.css">
+      <link type="text/css" title="prettify" rel="alternate stylesheet" href="styles/prettify.css">
+  </head>
+  <body>
+      <pre class="prettyprint lang-js linenums">
+<?js= sourceCode ?>
+      </pre>
+      <script>prettyPrint();</script>
+  </body>
+</html>
+{{/example}}
+
+<h2 name="More_Info" id="More_Info">
+    More Info
+</h2>
+
+<p>
+    Hopefully after reading everything above you'll be able to start using the <code>data</code> provided by JSDoc3. Now that you've got some sense of how to read and write with templates, take a look at the default template and see how it builds up a coherent set of documents from the <code>data</code>.
+</p>

@@ -1,7 +1,7 @@
 <!--{
-    "title":       "JSDoc3 Plugin Reference",
+    "title":       "JSDoc 3 Plugin Reference",
     "out":         "about-plugins.html",
-    "description": "JSDoc3 Plugin Reference."
+    "description": "JSDoc 3 Plugin Reference."
 }-->
 
 <p>
@@ -292,7 +292,7 @@ exports.handlers = {
     <li>params: an object containing the list of parameters to a function
     </li>
 
-    <li>tags: an object containing the set of tags not handled by the parser (note: this is only available if <code>allowUnknownTags</code> is set to true in the conf.json file for JSDoc3)
+    <li>tags: an object containing the set of tags not handled by the parser (note: this is only available if <code>allowUnknownTags</code> is set to true in the conf.json file for JSDoc 3)
     </li>
 </ul>
 
@@ -581,64 +581,4 @@ YourPluginFolder
 {{/example}}
 <p>
     Basically everything is copied over into the jsdoc installation directory, the directory should contain anything you want to put there.
-</p>
-
-<h2 name="hegemonics-plugin-walkthrough" id="hegemonics-plugin-walkthrough">
-    Hegemonic's Plugin Walkthrough
-</h2>
-
-<p>
-    Let's see if I can walk you through this.
-</p>
-
-<p>
-    There are three things a plugin can do:
-</p>
-
-<ol>
-    <li>Add event handlers to JSDoc's parser.
-    </li>
-
-    <li>Define new JSDoc tags.
-    </li>
-
-    <li>Process each node in the parse tree.
-    </li>
-</ol>
-
-<h3 name="example-modifying-the-partial-plugin" id="example-modifying-the-partial-plugin">
-    Example: modifying the <code>partial</code> plugin
-</h3>
-
-<p>
-    You might assume that the <code>partial</code> plugin is defining a new <code>@partial</code> tag. In fact, it adds an event handler to the parser, so let's focus on how that works.
-</p>
-
-<p>
-    When the parser finds a new file, it fires a <code>fileBegin</code> event. Then it fires a <code>beforeParse</code> event; let's call the event <code>e</code>. The event gives you access to the file's name (<code>e.filename</code>) and contents (<code>e.source</code>).
-</p>
-
-<p>
-    The <code>partial</code> plugin adds a handler for <code>beforeParse</code> events. When an event fires, the plugin searches the file's contents for the text <code>@partial</code>, followed by a space and a double-quoted value (for example, <code>@partial "foo.jsdoc"</code>). If the plugin finds that text, the plugin removes the text and replaces it with the contents of <code>foo.jsdoc</code>, which can contain anything at all--Markdown text, JSDoc tags, whatever.
-</p>
-
-<p>
-    Could this plugin have been implemented by defining a new JSDoc <code>@partial</code> tag? I think the answer is no. When you define a new tag, you can specify a callback that runs when the tag is found. But by the time the callback runs, I think the doclet has already been parsed. That means it's too late to insert a bunch of arbitrary JSDoc tags into the doclet source.
-</p>
-
-<p>
-    But I think it'd be better if the plugin hooked into <code>jsdocCommentFound</code> events rather than <code>beforeParse</code> events, because really, you only care about <code>@partial</code> tags in doclets. Right now I'm pretty sure the following JS source would cause the plugin to attempt to load a nonexistent file called <code>hooray</code>, after which everything would blow up:
-</p>
-
-{{#example}}Example
-function hooray() {
-    console.log('I love to say @partial "hooray"!');
-}
-{{/example}}
-<p>
-    Back to your original request. You wanted a plugin that adds arbitrary content to a doclet. The <code>@partial</code> plugin already does that. If you'd rather use <code>@resource</code> tags, just change <code>@partial</code> to <code>@resource</code> in the plugin. And if, say, you wanted to wrap the content in a <code>&lt;pre&gt;</code> tag, you could change line 27 of the plugin from <code>return partialData;</code> to <code>return '&lt;pre&gt;' + partialData + '&lt;/pre&gt;';</code>.
-</p>
-
-<p>
-    Hope that helps!
 </p>

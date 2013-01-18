@@ -221,6 +221,9 @@
                 </a></li>
             </ol>
           </li>
+          <li><a href="#throwing-errors">Throwing Errors
+            </a>
+          </li>
         </ol>
       </li>
       <li><a href="#packaging-jsdoc-3-plugins">Packaging JSDoc 3 Plugins
@@ -753,6 +756,25 @@ function isInWidgetFactory(node, depth) {
 
 <p>
     Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting a <code>stopPropagation</code> property on the event object (e.stopPropagation = true). A plugin can stop the event from firing setting a <code>preventDefault</code> property.
+</p>
+
+<h3 name="throwing-errors" id="throwing-errors">
+    Throwing Errors
+</h3>
+<p>
+    If you wish your plugin to throw an error, do it using the <code>handle</code> function in the <code>jsdoc/util/error</code> module.
+</p>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+require('jsdoc/util/error').handle( new Error('I do not like green eggs and ham!') );
+
+</pre>
+</dd>
+</dl><p>
+    By default this will throw the error, halting the execution of <code>jsdoc</code>. However, if the user used the <code>--lenient</code> switch when they ran <code>jsdoc</code> it will simply log the error to the console and continue.
 </p>
 
 <h2 name="packaging-jsdoc-3-plugins" id="packaging-jsdoc-3-plugins">

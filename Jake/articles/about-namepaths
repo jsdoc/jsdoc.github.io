@@ -82,3 +82,8 @@ In this case, to refer to the method named "consider," you would use the followi
 
 <p>
 This chaining can be used with any combination of the connecting symbols: <code># . ~</code></p>
+
+<h3>See Also</h3>
+<ul>
+ <li><a href="about-inline-tags.html">Inline links within the documentation</a></li>
+</ul>

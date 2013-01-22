@@ -1,0 +1,49 @@
+<!--{
+    title:       'Inline tags',
+    out:         'about-inline-tags.html',
+    description: 'Linking with inline tags @link, @linkplain, @linkcode and @tutorial.'
+}-->
+<h2>Inline tags in JSDoc 3</h2>
+
+<p>
+    <b>Table of Contents</b>
+</p>
+<ol id="Toc">
+  <li><a href="#links">Links to other symbols
+    </a>
+    <ol>
+      <li><a href="#link">@link
+        </a></li>
+      <li><a href="#linkplain">@linkplain
+        </a></li>
+      <li><a href="#linkmono">@linkmono
+        </a></li>
+      <li><a href="#configuring-link-output">Configuring link output
+        </a></li>
+    </ol>
+  </li>
+  <li><a href="#tutorials">Links to tutorials, @tutorial
+    </a></li>
+  <li><a href="#see-also">See also
+    </a></li>
+</ol>
+
+<p>
+JSDoc has a number of inline tags.
+These are different to its normal tags, because they can occur <em>within</em> the content of other tags.
+The inline tags mainly provide ways to create links or cross-references to other parts of the documentation.
+</p>
+
+<h3 id="links" name="links">Links to other symbols</h3>
+<h4 id="link" name="link">@link</h4>
+<h4 id="linkplain" name="linkplain">@linkplain</h4>
+<h4 id="linkmono" name="linkmono">@linkmono</h4>
+<h4 id="configuring-link-output" name="configuring-link-output">Configuring link output</h4>
+
+<h3 id="tutorials" name="tutorials">Links to other tutorials (@tutorial)</h3>
+
+<h3 id="see-also" name="see-also">See Also</h3>
+<ul>
+ <li><a href="about-namepaths.html">About Namepaths</a></li>
+ <li>Non-inline use of the <a href="tags-tutorial.html">@tutorial</a> tag.</li>
+</ul>

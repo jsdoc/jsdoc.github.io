@@ -36,6 +36,8 @@
         <dd>Additional longtext tutorials for your code.</dd>
 	<dt><a href="about-including-readme.html">Adding Content to Index.html</a></dt>
         <dd>Using Readme files to add content to the default index.html</dd>
+    <dt><a href="about-inline-tags.html">Linking.</a></dt>
+        <dd>All about inline tags @link, @linkplain, @linkcode, @tutorial.</dd>
 	<dt><a href="about-plugins.html">All about plugins</a></dt>
         <dd>Installing plugins and writing your own.</dd>
 	<dt><a href="plugins-markdown.html">Configuring the markdown plugin</a></dt>
@@ -62,6 +64,8 @@
 
 <h2 name="JSDoc3_Tag_Dictionary" id="JSDoc3_Tag_Dictionary">JSDoc 3 Tag Dictionary</h2>
 <dl>
+    <dt><a href="about-inline-tags.html">Inline tags</a></dt>
+        <dd>All about inline tags {@link ...}, {@linkplain ...}, {@linkcode ...}, {@tutorial ...}.</dd>
 {{#tagRefEntry}}
  {{tagRefEntry}}
 {{/tagRefEntry}}

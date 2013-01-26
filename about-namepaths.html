@@ -183,12 +183,12 @@ When referring to a JavaScript variable that is elsewhere in your documentation,
 </p>
 
 <dl class="example">
-<dt>Basic Syntax Examples of Nameptahs in JSDoc 3</dt>
+<dt>Basic Syntax Examples of Namepaths in JSDoc 3</dt>
 <dd>
 <pre class="prettyprint lang-js">
 myFunction
 MyConstructor
-MyConstructor#instancMember
+MyConstructor#instanceMember
 MyConstructor.staticMember
 MyConstructor~innerMember // note that JSDoc 2 uses a dash
 
@@ -271,6 +271,31 @@ In this case, to refer to the method named "consider," you would use the followi
 
 <p>
 This chaining can be used with any combination of the connecting symbols: <code># . ~</code></p>
+
+<dl class="example">
+<dt>Special cases: modules, externals and events.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** A module. Its name is module:foo/bar.
+ * @module foo/bar
+ */
+/** The built in string object. Its name is external:String.
+ * @external String
+ */
+/** An event. Its name is module:foo/bar.event:MyEvent.
+ * @event module:foo/bar.event:MyEvent
+ */
+
+</pre>
+</dd>
+</dl><p>
+There are some special cases with namepaths: <a href="tags-module.html">@modules</a> are prefixed by "module:", <a href="tags-external.html">@externals</a> are prefixed by "external:", and <a href="tags-event.html">@event</a> names are prefixed by "event:".
+</p>
+
+<h3>See Also</h3>
+<ul>
+ <li><a href="about-inline-tags.html">Inline links within the documentation</a></li>
+</ul>
 
     </article>
     

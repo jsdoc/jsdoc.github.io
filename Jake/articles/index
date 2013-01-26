@@ -36,7 +36,7 @@
         <dd>Additional longtext tutorials for your code.</dd>
 	<dt><a href="about-including-readme.html">Adding Content to Index.html</a></dt>
         <dd>Using Readme files to add content to the default index.html</dd>
-    <dt><a href="about-inline-tags.html">Linking.</a></dt>
+    <dt><a href="about-inline-tags.html">Linking using inline tags</a></dt>
         <dd>All about inline tags @link, @linkplain, @linkcode, @tutorial.</dd>
 	<dt><a href="about-plugins.html">All about plugins</a></dt>
         <dd>Installing plugins and writing your own.</dd>

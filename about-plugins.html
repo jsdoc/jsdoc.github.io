@@ -181,75 +181,71 @@
     <b>Table of Contents</b>
 </p>
 <ol id="Toc">
-    <li>
-		<a href="#adding-a-plugin">Adding a Plugin
-		</a>
+  <li><a href="#adding-a-plugin">Creating and Enabling a Plugin
+    </a></li>
+  <li><a href="#authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins
+    </a>
     <ol>
-      <li><a href="#authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins
+      <li><a href="#event-handlers">Event Handlers
         </a>
         <ol>
-          <li><a href="#event-handlers">Event Handlers
-            </a>
-            <ol>
-              <li><a href="#event-fileBegin">Event: fileBegin
-                </a></li>
-              <li><a href="#event-beforeParse">Event: beforeParse
-                </a></li>
-              <li><a href="#event-jsdocCommentFound">Event: jsdocCommentFound
-                </a></li>
-              <li><a href="#event-symbolFound">Event: symbolFound
-                </a></li>
-              <li><a href="#event-newDoclet">Event: newDoclet
-                </a></li>
-              <li><a href="#event-fileComplete">Event: fileComplete
-                </a></li>
-            </ol>
-          </li>
-          <li><a href="#tag-definitions">Tag Definitions
-            </a>
-            <ol>
-              <li><a href="#the-dictionary">The Dictionary
-                </a></li>
-            </ol>
-          </li>
-          <li><a href="#node-visitors">Node Visitors
-            </a>
-            <ol>
-              <li><a href="#making-things-happen">Making things happen
-                </a></li>
-              <li><a href="#example">Example
-                </a></li>
-            </ol>
-          </li>
-          <li><a href="#throwing-errors">Throwing Errors
-            </a>
-          </li>
+          <li><a href="#event-fileBegin">Event: fileBegin
+            </a></li>
+          <li><a href="#event-beforeParse">Event: beforeParse
+            </a></li>
+          <li><a href="#event-jsdocCommentFound">Event: jsdocCommentFound
+            </a></li>
+          <li><a href="#event-symbolFound">Event: symbolFound
+            </a></li>
+          <li><a href="#event-newDoclet">Event: newDoclet
+            </a></li>
+          <li><a href="#event-fileComplete">Event: fileComplete
+            </a></li>
         </ol>
       </li>
-      <li><a href="#packaging-jsdoc-3-plugins">Packaging JSDoc 3 Plugins
-        </a></li>
+      <li><a href="#tag-definitions">Tag Definitions
+        </a>
+        <ol>
+          <li><a href="#the-dictionary">The Dictionary
+            </a></li>
+        </ol>
+      </li>
+      <li><a href="#node-visitors">Node Visitors
+        </a>
+        <ol>
+          <li><a href="#making-things-happen">Making things happen
+            </a></li>
+          <li><a href="#example">Example
+            </a></li>
+        </ol>
+      </li>
+      <li><a href="#throwing-errors">Throwing Errors
+        </a>
+      </li>
     </ol>
   </li>
+  <li><a href="#packaging-jsdoc-3-plugins">Packaging JSDoc 3 Plugins
+    </a></li>
 </ol>
 
 <h2 name="adding-a-plugin" id="adding-a-plugin">
-    Adding a Plugin
+    Creating and Enabling a Plugin
 </h2>
 
 <p>
-    There are two steps required to install a new plugin:
+    There are two steps required to create and enable a new JSDoc plugin:
 </p>
 
 <ol>
     <li>Create a JavaScript module to contain your plugin code.
     </li>
 
-    <li>Include the name of that module in the "plugins" array of <code>conf.json</code>.
+    <li>Include that module in the "plugins" array of <code>conf.json</code>. You can specify an absolute or relative path. If you use a relative path, JSDoc searches for the plugin in the current working directory and the JSDoc directory, in that order.
     </li>
 </ol>
 
 <p>
-    For example, if your plugin source code was saved in the "plugins/shout.js" file, you would include it by adding a reference to it in conf.json like so:
+    For example, if your plugin source code was saved in the "plugins/shout.js" file in the current working directory, you would include it by adding a reference to it in conf.json like so:
 </p>
 
 <dl class="example">
@@ -774,7 +770,7 @@ require('jsdoc/util/error').handle( new Error('I do not like green eggs and ham!
 </pre>
 </dd>
 </dl><p>
-    By default this will throw the error, halting the execution of <code>jsdoc</code>. However, if the user used the <code>--lenient</code> switch when they ran <code>jsdoc</code> it will simply log the error to the console and continue.
+    By default, this will throw the error, halting the execution of JSDoc. However, if the user enabled JSDoc's <code>--lenient</code> switch, JSDoc will simply log the error to the console and continue.
 </p>
 
 <h2 name="packaging-jsdoc-3-plugins" id="packaging-jsdoc-3-plugins">
@@ -782,7 +778,7 @@ require('jsdoc/util/error').handle( new Error('I do not like green eggs and ham!
 </h2>
 
 <p>
-    The JSDoc 3 Jakefile has an <code>install</code> task that can be used to install a plugin into the jsdoc 3 installation. So running the following will install the plugin:
+    The JSDoc 3 Jakefile has an <code>install</code> task that can be used to install a plugin into the JSDoc directory. So running the following will install the plugin:
 </p>
 
 <dl class="example">
@@ -794,7 +790,7 @@ $&gt;jake install[path/to/YourPluginFolder]
 </pre>
 </dd>
 </dl><p>
-    <em>note: on some systems (like MacOS X), you may need to quote the target name and parameters</em>:
+    <strong>Note</strong>: On some operating systems, including OS X, you may need to quote the target name and parameters:
 </p>
 
 <dl class="example">
@@ -827,10 +823,7 @@ YourPluginFolder
 
 </pre>
 </dd>
-</dl><p>
-    Basically everything is copied over into the jsdoc installation directory, the directory should contain anything you want to put there.
-</p>
-
+</dl>
     </article>
     
     <footer>

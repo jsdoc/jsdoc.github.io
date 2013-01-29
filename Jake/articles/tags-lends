@@ -1,0 +1,111 @@
+<!--{
+    "title":       "@lends",
+    "out":         "tags-lends.html",
+    "description": "Document properties on an object literal as if they belonged to an object with a given name"
+}-->
+<h3>Syntax</h3>
+
+<code>@lends &lt;namepath></code>
+
+<h3>Overview</h3>
+
+<p>
+	The <code>@lends</code> tag allows you to document all the members of an anonymous object literal as if they 
+	were members of an object with the given name. You might want to do this if you were passing an anonymous 
+	object literal into a function that creates a named class from its members
+</p>
+
+<h3>Examples</h3>
+
+<p>
+	In this example we want to use a helper function to make a class named "Person," along with instance 
+	methods named "initialize" and "say." This is similar to how some popular frameworks handle class creation.
+</p>
+
+{{#example}} Example class
+// we want to document this as being a class
+var Person = makeClass(
+    // we want to document these as being methods
+    {
+        initialize: function(name) {
+            this.name = name;
+        },
+        say: function(message) {
+            return this.name + " says: " + message;
+        }
+    }
+);
+{{/example}}
+
+<p>
+	Without any doc comments JsDoc Toolkit won't automatically recognize either a class named "Person" nor it's 
+	two methods. To document the methods we must use a "@lends" tag in a doc comment immediately before the 
+	object literal to tell JsDoc Toolkit that all the member names of that object literal are being "lent" to a 
+	variable named "Person."
+</p>
+
+{{#example}} Documented as static methods
+/** @class */
+var Person = makeClass(
+    /** @lends Person */
+    {
+        initialize: function(name) {
+            this.name = name;
+        },
+        say: function(message) {
+            return this.name + " says: " + message;
+        }
+    }
+);
+{{/example}}
+
+<p>
+	Now the functions named "initialize" and "say" will be documented, but they appear as static methods of an 
+	class named "Person." That is possibly what you meant, but in this case we want "initialize" and "say" to 
+	belong to the instances of the "Person" class. So we change things slightly by lending the methods to the 
+	class's prototype:
+</p>
+
+{{#example}} Documented as instance methods
+/** @class */
+var Person = makeClass(
+    /** @lends Person.prototype */
+    {
+        initialize: function(name) {
+            this.name = name;
+        },
+        say: function(message) {
+            return this.name + " says: " + message;
+        }
+    }
+);
+{{/example}}
+
+<p>
+	If you are using one of the lent functions to construct the class, you can mark it as such using the 
+	@constructs tag, but remember to remove the @class tag in that case, or else two @classes will be documented.
+</p>
+
+{{#example}} Documented constructor
+var Person = makeClass(
+    /**
+      @lends Person.prototype
+    */
+    {
+        /** @constructs */
+        initialize: function(name) {
+            this.name = name;
+        },
+        say: function(message) {
+            return this.name + " says: " + message;
+        }
+    }
+);
+{{/example}}
+
+<h3>See Also</h3>
+
+<ul>
+    <li><a href="tags-borrows.html">@borrows</a></li>
+    <li><a href="tags-constructs.html">@constructs</a></li>
+</ul>

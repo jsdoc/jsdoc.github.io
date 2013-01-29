@@ -107,5 +107,5 @@ var Person = makeClass(
 
 <ul>
     <li><a href="tags-borrows.html">@borrows</a></li>
-    <li><a href="tags-cnstructs.html">@constructs</a></li>
+    <li><a href="tags-constructs.html">@constructs</a></li>
 </ul>

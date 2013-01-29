@@ -50,7 +50,7 @@ task('default', [], function (params) {
     console.log('Building new gh-pages...');
     
     articles.forEach(function (article) {
-        var html = Mustache.to_html(
+        var html = convertEOL(Mustache.to_html(
                 templates.article, {
                 title : article.title,
                 description : article.description,
@@ -69,7 +69,7 @@ task('default', [], function (params) {
                 head : templates.head,
                 foot : templates.foot,
                 article : article.body
-            });
+            }), '\n');
         
         fs.writeFileSync(outdir + article.out, html, 'utf8');
         console.log('> created ' + outdir + article.out);

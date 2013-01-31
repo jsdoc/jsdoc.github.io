@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Remove this from the final output."><title>Use JSDoc: @ignore</title>
+	<meta name="description" content="Remove this from the final output."><title>Use JSDoc: @ignore</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -179,26 +179,35 @@
 <h3>Overview</h3>
 
 <p>
+    The @ignore tag indicates that an object in your code should be exclude from the documentation,
+    when it otherwise would be documented.
+</p>
+<p>
+    This tag has precedence over any other mechanism, and guarantees that an ignored object will not be documented.
 </p>
 
 <h3>Examples</h3>
 
 <p>
+    Note that in the following example, both Foo and bar will be excluded from the documentation;
+    when a parent object is ignored, all of its members are also ignored
 </p>
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Demonstrate how to use @ignore</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
-
+/**
+ * @constructor
+ * @ignore
+ */
+function Foo() {
+    this.bar = function() {
+    }
+}
 </pre>
 </dd>
-</dl><h3>See Also</h3>
-
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+</dl>
     </article>
     
     <footer>

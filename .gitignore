@@ -8,3 +8,7 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
+
+#IntelliJ Files
+.idea/
+*.iml

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Document an inner object."><title>Use JSDoc: @inner</title>
+	<meta name="description" content="Document an inner object."><title>Use JSDoc: @inner</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -179,25 +179,40 @@
 <h3>Overview</h3>
 
 <p>
+Use the @inner tag to indicate the function is an inner function.
+Inner functions are declared in the scope of an outer function, and are not directly accessible from outside that outer function.
 </p>
 
 <h3>Examples</h3>
 
 <p>
+In many cases this tag is not necessary, as JsDoc Toolkit can already recognize the fact that a function is an inner function on its own.
 </p>
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/**
+    @constructor
+ */
+Person = function() {
+    /** @inner */
+    function daydream() {
+    }
+}
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><p>
+Because of the limited scope of the Person function, the daydream function is not directly accessible from outside of Person.
+For this reason JsDoc Toolkit will also mark it as <code>@private</code>.
+</p>
+
+<h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-inner.html">@inner</a></li>
 </ul>
     </article>
     

@@ -36,6 +36,10 @@
         <dd>Additional longtext tutorials for your code.</dd>
 	<dt><a href="about-including-readme.html">Adding Content to Index.html</a></dt>
         <dd>Using Readme files to add content to the default index.html</dd>
+	<dt><a href="about-commandline.html">Command-line options to JSDoc 3</a></dt>
+		<dd>About the command-line options JSDoc supports.</dd>
+	<dt><a href="about-configuring-jsdoc.html">Configuring JSDoc 3 with conf.json</a></dt>
+		<dd>How to configure JSDoc's output with a configuration file.</dd>
 	<dt><a href="about-plugins.html">All about plugins</a></dt>
         <dd>Installing plugins and writing your own.</dd>
 	<dt><a href="plugins-markdown.html">Configuring the markdown plugin</a></dt>

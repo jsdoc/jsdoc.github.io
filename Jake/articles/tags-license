@@ -1,11 +1,17 @@
 <!--{
     "title":       "@license",
     "out":         "tags-license.html",
-    "description": "[todo] Document the software license that applies to this code."
+    "description": "Document the software license that applies to this code."
 }-->
+
+<h3>Syntax</h3>
+
+<code>@license &lt;description&gt;</code>
+
 <h3>Overview</h3>
 
 <p>
+The @license tags is used to insert information about the license under which the source code is protected.
 </p>
 
 <h3>Examples</h3>
@@ -14,11 +20,10 @@
 </p>
 
 {{#example}}Example goes here
-// todo
+/**
+ * @preserve Copyright 2013 SomeCompany LLC
+ * Here is the full license text and copyright notice for this file.
+  * Note that the notice can span several
+ * lines and is only terminated by the closing star and slash:
+ */
 {{/example}}
-
-<h3>See Also</h3>
-
-<ul>
-    <li><a href="#">...</a></li>
-</ul>

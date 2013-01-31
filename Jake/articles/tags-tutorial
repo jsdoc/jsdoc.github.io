@@ -3,22 +3,45 @@
     "out":         "tags-tutorial.html",
     "description": "Insert a link to an included tutorial file."
 }-->
+<h3>Syntax</h3>
+<p>As a block tag:</p>
+<code>@tutorial &lt;tutorialID&gt;</code>
+
+<p>As an inline tag:</p>
+<code>{@tutorial &lt;tutorialID&gt;}</code>
 <h3>Overview</h3>
 
-<p>
+<p>The @tutorial tag can be used both inline and as a normal tag.
+It inserts a link to an included tutorial file.
+See the <a href="about-tutorials.html">tutorials tutorial</a> for instructions on creating tutorials.
 </p>
 
 <h3>Examples</h3>
 
-<p>
+{{#example}}Using @tutorial in a doclet.
+/** Description
+ * @class
+ * @tutorial tutorial-1
+ * @tutorial tutorial-2
+ */
+function MyClass() {}
+{{/example}}
+<p>In the above example the MyClass documentation will have links to the tutorials identified by 'tutorial-1' and 'tutorial-2', a bit like the <a href="tags-see.html">@see</a> tag.
 </p>
 
-{{#example}}Example goes here
-// todo
+{{#example}}Using @tutorial inline.
+/** Description.
+ * Check out {@tutorial tutorial-1} and {@tutorial tutorial-2}.
+ * @class
+ */
+function MyClass() {}
 {{/example}}
+<p>In its in-line usage the @tutorial tag is exactly like @link, but for tutorials.</p>
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li>The <a href="about-tutorials.html">tutorials tutorial</a></li>
+    <li>The <a href="tags-see.html">@see</a> tag, like @tutorial.</li>
+    <li>The <a href="tags-link.html">@link</a> tag, like {@tutorial} but for code objects or URLs.</li>
 </ul>

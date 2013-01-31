@@ -9,10 +9,10 @@
 When referring to a JavaScript variable that is elsewhere in your documentation, you must provide a unique identifier that maps to that variable. A namepath provides a way to do so and disambiguate between instance members, static members and inner variables.
 </p>
 
-{{#example}}Basic Syntax Examples of Nameptahs in JSDoc 3
+{{#example}}Basic Syntax Examples of Namepaths in JSDoc 3
 myFunction
 MyConstructor
-MyConstructor#instancMember
+MyConstructor#instanceMember
 MyConstructor.staticMember
 MyConstructor~innerMember // note that JSDoc 2 uses a dash
 {{/example}}
@@ -82,3 +82,24 @@ In this case, to refer to the method named "consider," you would use the followi
 
 <p>
 This chaining can be used with any combination of the connecting symbols: <code># . ~</code></p>
+
+{{#example}}Special cases: modules, externals and events.
+/** A module. Its name is module:foo/bar.
+ * @module foo/bar
+ */
+/** The built in string object. Its name is external:String.
+ * @external String
+ */
+/** An event. Its name is module:foo/bar.event:MyEvent.
+ * @event module:foo/bar.event:MyEvent
+ */
+{{/example}}
+
+<p>
+There are some special cases with namepaths: <a href="tags-module.html">@modules</a> are prefixed by "module:", <a href="tags-external.html">@externals</a> are prefixed by "external:", and <a href="tags-event.html">@event</a> names are prefixed by "event:".
+</p>
+
+<h3>See Also</h3>
+<ul>
+ <li><a href="about-inline-tags.html">Inline links within the documentation</a></li>
+</ul>

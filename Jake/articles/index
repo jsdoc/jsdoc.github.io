@@ -40,6 +40,8 @@
 		<dd>About the command-line options JSDoc supports.</dd>
 	<dt><a href="about-configuring-jsdoc.html">Configuring JSDoc 3 with conf.json</a></dt>
 		<dd>How to configure JSDoc's output with a configuration file.</dd>
+    <dt><a href="about-inline-tags.html">Linking using inline tags</a></dt>
+        <dd>All about inline tags @link, @linkplain, @linkcode, @tutorial.</dd>
 	<dt><a href="about-plugins.html">All about plugins</a></dt>
         <dd>Installing plugins and writing your own.</dd>
 	<dt><a href="plugins-markdown.html">Configuring the markdown plugin</a></dt>
@@ -66,6 +68,8 @@
 
 <h2 name="JSDoc3_Tag_Dictionary" id="JSDoc3_Tag_Dictionary">JSDoc 3 Tag Dictionary</h2>
 <dl>
+    <dt><a href="about-inline-tags.html">Inline tags</a></dt>
+        <dd>All about inline tags {@link ...}, {@linkplain ...}, {@linkcode ...}, {@tutorial ...}.</dd>
 {{#tagRefEntry}}
  {{tagRefEntry}}
 {{/tagRefEntry}}

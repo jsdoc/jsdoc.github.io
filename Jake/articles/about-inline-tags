@@ -1,0 +1,236 @@
+<!--{
+    title:       'Inline tags',
+    out:         'about-inline-tags.html',
+    description: 'Linking with inline tags @link, @linkplain, @linkcode and @tutorial.'
+}-->
+<p>
+    <b>Table of Contents</b>
+</p>
+<ol id="Toc">
+  <li><a href="#links">Links to other symbols
+    </a>
+    <ol>
+      <li><a href="#link">@link
+        </a></li>
+      <li><a href="#configuring-link-output">Intelligent @link rendering.
+        </a></li>
+      <li><a href="#linkplain">@linkplain
+        </a></li>
+      <li><a href="#linkcode">@linkcode
+        </a></li>
+      <li><a href="#link-example">Example
+        </a></li>
+    </ol>
+  </li>
+  <li><a href="#tutorials">Links to tutorials, @tutorial
+    </a></li>
+  <li><a href="#see-also">See also
+    </a></li>
+</ol>
+
+<p>
+JSDoc has a number of inline tags.
+These are different to its normal tags, because they can occur <em>within</em> the content of other tags.
+The inline tags mainly provide ways to create links or cross-references to other parts of the documentation.
+</p>
+
+<p>
+@tutorial tags form links to tutorials.
+</p>
+<p>
+@link tags form links to everything else: external URLs or other JSDoc symbols.
+Using the @linkcode tag forces the link's text to be rendered in monospace (useful if you are @link-ing to, say, a constant). Using the @linkplain tag keeps the link's text as-is.
+</p>
+<p>
+Furthermore, the <a href="about-configuring-jsdoc.html#configuration-file-templates">configuration options</a> <code>template.monospaceLinks</code> and <code>templates.cleverLinks</code> can automatically render @link tags in monospace all the time or when the link is non-external respectively.
+</p>
+
+<h2 id="links" name="links">Links to other symbols</h2>
+<p>
+The @link, @linkcode and @linkplain tags allow links to other documented objects or external URLs to be created within doclets.
+</p>
+<p>
+You need to use a symbol's full name to have it linked (e.g. <code>{@link MyNamespace.MyClass#property}</code> rather than <code>MyClass#property</code>). 
+Also, remember that <a href="tags-module.html">@module</a>s, <a href="tags-external.html">@external</a>s and <a href="tags-event.html">@event</a>s are prefixed by the tag name (e.g. "module:myModule").
+</p>
+
+{{#example}}Linking modules, externals and events.
+/** A module. Refer to it using {@link module:foo/bar}.
+ * @module foo/bar
+ */
+/** The built in string object. Refer to it with {@link external:String}.
+ * @external String
+ */
+/** An event. Refer to with {@link module:foo/bar.event:MyEvent}.
+ * @event module:foo/bar.event:MyEvent
+ */
+{{/example}}
+
+<h3 id="link" name="link">The @link tag</h3>
+{{#example}}Syntax
+{@link someNamepathOrURL}
+[link text here]{@link someNamepathOrURL}
+{@link someNamepathOrURL|link text here}
+{@link someNamepathOrURL Link text here (after the first space)}
+{{/example}}
+<p>The {@link ...} tag creates a (HTML) link in the generated output to the specified symbol or URL.
+A link text may be provided using the forms specified above. 
+If it isn't given, then the URL/symbol path is used as the link text.
+If the symbol path doesn't exist, then the link is not created (the link text is still shown though).
+</p>
+
+{{#example}}Using @link
+/** See {@link MyClass} and [MyClass's foo property]{@link MyClass#foo}.
+ * Also check out {@link http://www.google.com|google} and {@link http://github.com Github}.
+ */
+function myFunction() {}
+
+/** A class.
+ * @class */
+function MyClass() {
+    /** foo property */
+    this.foo = 1;
+}
+{{/example}}
+
+<p>
+The above produces (except that the first two links actually link to the generated documentation for MyClass and MyClass#foo):
+</p>
+
+<p>
+See <a href="#">MyClass</a> and <a href="#">MyClass's foo property</a>.
+Also check out <a href="http://www.google.com">google</a> and <a href="http://github.com">Github</a>.
+</p>
+
+<p>
+By default, {@link ...} just generates HTML <code>&lt;a href="link URL"&gt;link text&lt;/code&gt;</code>.
+It may be of interest to have link texts always rendered in monospace, particularly if it's a link to another code object. For example, you may want "{@link MY_CONSTANT}" to be rendered <a href="#"><code>MY_CONSTANT</code></a> rather than <a href="#">MY_CONSTANT</a>.
+</p>
+
+<p>There are a number of ways to deal with this:
+<ul>
+ <li>force a link's text to render in monospace font with @linkcode,</li>
+ <li>force a link's text to render in <em>normal</em> font with @linkplain, or</li>
+ <li>ask JSDoc to make an intelligent guess at how to render @links.</li>
+</ul>
+</p>
+
+<h3 id="configuring-link-output" name="configuring-link-output">Intelligent @link rendering</h3>
+<p>
+The <a href="about-configuring-jsdoc.html#configuration-file-templates">configuration options</a> <code>templates.monospaceLinks</code> and <code>templates.cleverLinks</code> can be used to specify how @link captions appear.
+</p>
+
+<p>
+By default both options are switched off. Turn either of them on by modifying your <code>conf.json</code>:
+</p>
+{{#example}}conf.json
+{
+    ...
+    "templates": {
+        // in this example we turn cleverLinks on.
+        "cleverLinks": true,
+        "monospaceLinks": false
+    },
+    ...
+}
+{{/example}}
+
+<p>
+When <code>templates.monospaceLinks</code> is true, all @link tags appear in monospace font. 
+For example, "{@link asdf}" will become <a href="#">asdf</a>.
+Use <a href="#linkplain">@linkplain</a> if you want a link to <em>not</em> be monospace.
+</p>
+
+<p>
+When <code>templates.cleverLinks</code> is true, @links to external URLs (http or ftp) appear in normal font, while @links to other symbols (like classes, members, functions) will appear in monospace.
+</p>
+
+<p>
+If <em>both</em> options are true, <code>templates.cleverLinks</code> is used.
+</p>
+
+<h3 id="linkplain" name="linkplain">The @linkplain tag</h3>
+{{#example}}Syntax
+{@linkplain someNamepathOrURL}
+[link text here]{@linkplain someNamepathOrURL}
+{@linkplain someNamepathOrURL|link text here}
+{@linkplain someNamepathOrURL Link text here (after the first space)}
+{{/example}}
+
+<p>
+The @linkplain tag is exactly the same as @link, but ensures that the link text is <em>not</em> turned into monospace if you had <code>templates.monospaceLinks</code> or <code>templates.cleverLinks</code> turned on.
+</p>
+
+<p>
+For example, if I turned <code>templates.monospaceLinks</code> on and wrote "{@link fooBar}", it would render <a href="#"><code>fooBar</code></a>. However, if I write "{@linkplain fooBar}" it will render <a href="#">fooBar</a>.
+</p>
+
+<h3 id="linkcode" name="linkcode">The @linkcode tag</h3>
+{{#example}}Syntax
+{@linkcode someNamepathOrURL}
+[link text here]{@linkcode someNamepathOrURL}
+{@linkcode someNamepathOrURL|link text here}
+{@linkcode someNamepathOrURL Link text here (after the first space)}
+{{/example}}
+
+<p>
+The @linkcode tag is exactly the same as @link, but renders the link caption in monospace.
+For example, "{@linkcode fooBar}" turns into <a href="#"><code>fooBar</code></a>.
+</p>
+
+<h3 id="link-example" name="link-example">Example</h3>
+<p>
+Suppose I had <code>templates.cleverLinks</code> switched on and a file like so:
+</p>
+
+{{#example}} 
+/** This is a variable {@link FOO}, cleverLinks makes this monospace.
+ * This is a link to external site {@link http://www.github.com|Github}, not monospace as it's external.
+ * This is a link to {@linkplain FOO}, but we forced it not to be monospace.
+ * This is a link to {@linkcode http://www.github.com Github}, but we forced it to be monospace.
+ * @const
+ */
+var FOO = 1;
+{{/example}}
+
+<p>
+will become:
+</p>
+
+<p>
+This is a variable <a href="#"><code>FOO</code></a>, cleverLinks makes this monospace.<br />
+This is a link to external site <a href="http://www.github.com">Github</a>, not monospace as it's external.<br />
+This is a link to <a href="#">FOO</a>, but we forced it not to be monospace.<br />
+This is a link to <a href="http://www.github.com"><code>Github</code></a>, but we forced it to be monospace.
+</p>
+
+<p>
+If we had <code>templates.monospaceLinks</code> on instead, all the links would be monospace except for the "{@linkplain FOO}".
+If we had both options off (the default), all links would be in normal font except for the "{@linkcode http://www.github.com Github}".
+</p>
+
+<h2 id="tutorials" name="tutorials">Links to other tutorials (@tutorial)</h2>
+{{#example}}Syntax
+{@tutorial tutorialID}
+{{/example}}
+
+<p>
+In its in-line usage the @tutorial tag is exactly like @link, but for tutorials (and the link text is always in normal font).
+See the <a href="about-tutorials.html">tutorials tutorial</a> for more information on setting up tutorials. 
+The @tutorial tag may also be used in block format; see the <a href="tags-tutorial.html">@tutorial</a> page for more information.
+</p>
+
+{{#example}}Using @tutorial inline.
+/** Description.
+ * Check out {@tutorial tutorial1} and {@tutorial tutorial2}.
+ * @class
+ */
+{{/example}}
+
+<h2 id="see-also" name="see-also">See Also</h2>
+<ul>
+ <li>The <a href="about-tutorials.html">Tutorials tutorial</a></li>
+ <li><a href="about-namepaths.html">About Namepaths</a></li>
+ <li>The <a href="tags-tutorial.html">@tutorial</a> tag</li>
+ <li>The <a href="tags-link.html">@link</a> tag</li>
+</ul>

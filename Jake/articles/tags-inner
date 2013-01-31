@@ -1,7 +1,7 @@
 <!--{
     "title":       "@inner",
     "out":         "tags-inner.html",
-    "description": "[todo] Document an inner object."
+    "description": "Document an inner object."
 }-->
 <h3>Overview</h3>
 

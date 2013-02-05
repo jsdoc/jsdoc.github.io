@@ -10,7 +10,7 @@
 
 <h3>Examples</h3>
 
-<p>
+<p>Note that a doclet may have multiple examples.
 </p>
 
 {{#example}}Documenting examples.
@@ -18,10 +18,13 @@
  * Solves equations of the form a * x = b
  * @example
  * // returns 2
- * globalNS.method1(5,10);
+ * globalNS.method1(5, 10);
+ * @example
+ * // returns 3
+ * globalNS.method(5, 15);
  * @returns {Number} Returns the value of x for the equation.
  */
-globalNS.method1 = function (a,b) {
+globalNS.method1 = function (a, b) {
     return b / a;
 };
 {{/example}}
@@ -31,16 +34,25 @@ globalNS.method1 = function (a,b) {
  * Solves equations of the form a * x = b
  * @example
 // returns 2
-globalNS.method1(5,10);
+globalNS.method1(5, 10);
  * @returns {Number} Returns the value of x for the equation.
  */
-globalNS.method1 = function (a,b) {
+globalNS.method1 = function (a, b) {
     return b / a;
 };
 {{/example}}
 
-<h3>See Also</h3>
+<p>Examples can also be captioned using <code>&lt;caption&gt;&lt;/caption&gt;</code> after the @example tag.</p>
 
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+{{#example}}Documenting examples with a caption.
+/**
+ * Solves equations of the form a * x = b
+ * @example <caption>Example usage of method1.</caption>
+ * // returns 2
+ * globalNS.method1(5, 10);
+ * @returns {Number} Returns the value of x for the equation.
+ */
+globalNS.method1 = function (a, b) {
+    return b / a;
+};
+{{/example}}

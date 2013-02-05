@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] What does the this keyword refer to here?"><title>Use JSDoc: @this</title>
+	<meta name="description" content="What does the &lt;code&gt;this&lt;/code&gt; keyword refer to here?"><title>Use JSDoc: @this</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,44 @@
 	<article>
 	<h1>@this</h1>
 
+<h3>Syntax</h3>
+<code>@this &lt;namePath&gt;</code>
+
 <h3>Overview</h3>
 
-<p>
+<p>The @this tag tells the parser what the <code>this</code> keyword is referring to.
+This is useful in cases where JSDoc would not properly work it out otherwise.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
 <dl class="example">
-<dt>Example goes here</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/** @constructor */
+function Foo(name) {
+    setName.apply(this, name);
+}
+
+/** @this Foo */
+function setName(name) {
+    /** document me */
+    this.name = name;
+}
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><p>In the example above, <code>this.name</code> from the <code>setName</code> function is documented as <code>Foo#name</code>.
+Without the @this tag, a global symbol "name" would have been documented instead.
+</p>
+
+<h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-memberof.html">@memberof</a></li>
 </ul>
+
     </article>
     
     <footer>

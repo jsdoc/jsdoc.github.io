@@ -1,24 +1,86 @@
 <!--{
     "title":       "@typedef",
     "out":         "tags-typedef.html",
-    "description": "[todo] Document a custom type."
+    "description": "Document a custom type."
 }-->
+<h3>Synonyms</h3>
+<ul>
+ <li><a href="tags-callback.html">@callback</a> is equivalent to <code>@typedef {function}</code></li>
+</ul>
+
+<h3>Syntax</h3>
+<code> 
+@typedef [&lt;type&gt;] &lt;namepath&gt;
+</code>
+
 <h3>Overview</h3>
 
 <p>
+The @typedef tag is handy for documenting custom types, particulary if you wish to use them repeatedly.
+These types can then be used within other tags expecting a type, like <a href="tags-type.html">@type</a> or <a href="tags-param.html">@param</a>.
 </p>
 
 <h3>Examples</h3>
 
+{{#example}}@typedef example.
+/** @typedef {(number|string)} NumberLike */
+
+/** @param {NumberLike} x - a number or a string. */
+function readNumber(x) {
+}
+{{/example}}
 <p>
+ In the above example we store the "(number|string)" in a type called "NumberLike".
+ Then, whenever we want to refer to a type that is a number or string, we can instead write NumberLike.
+ This is particularly handy if we use this type over and over again within our code - instead of writing "(number|string)" each time, one can just write "NumberLike".
 </p>
 
-{{#example}}Example goes here
-// todo
+{{#example}}Using @typedef to document an object type
+/** This is a datatype that is an object with properties 'a' and 'b'
+ *  holding a string and a number respectively.
+ * @typedef {Object} MyDataType
+ * @property {string} a - explain here.
+ * @property {number} b - explain here.
+ */
+
+// now let's use our new type in another doclet.
+// it will link to the documentation for MyDataType.
+/** My function.
+ * @param {MyDataType} x - explain here.
+ */
+function myFunction(x) {
+}
 {{/example}}
+<p>
+ The above is a slightly more complex example where our custom type is an Object with a number of properties.
+ Some people like using this pattern to document parameters to a function that are objects, as opposed to using "@param {{a: string, b:number}} x - a is ..., b is ..., and x is used for ...". There are other ways to document a type that is an object when it is used in the @param tag; see the <a href="tags-param.html#documenting-objects">@param examples</a> for these.
+
+{{#example}}Special case: callbacks
+/**
+ * Does something asynchronously, calling the callback on completion.
+ * @param {requestCallback} cb - The callback that handles the response.
+ */
+function doSomethingAsynchronously(cb) {
+    // code
+};
+
+/**
+ * This callback is displayed as a global member.
+ * @typedef {function} requestCallback
+ * @param {number} responseCode
+ * @param {string} responseMessage
+ */
+// Note - could have done @callback requestCallback instead.
+{{/example}}
+
+<p>The above shows one way of documenting a callback, by making a custom typedef for it and setting its type to function.
+The <a href="tags-callback.html">@callback</a> tag is a shorthand for "@typedef {function}" and either form could be used here.
+</p>
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-callback.html">@callback</a></li>
+    <li><a href="tags-type.html">@type</a></li>
+    <li><a href="tags-param.html">@param</a></li>
 </ul>

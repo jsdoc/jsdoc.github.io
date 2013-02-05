@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Refer to some other documentation for more information."><title>Use JSDoc: @see</title>
+	<meta name="description" content="Refer to some other documentation for more information."><title>Use JSDoc: @see</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,45 @@
 	<article>
 	<h1>@see</h1>
 
+<h3>Syntax</h3>
+<code>@see pathName<br />
+@see Some text here.</code>
+
 <h3>Overview</h3>
 
-<p>
+<p>The @see tag allows you to refer to another symbol or resource that may be related to the one being documented.
+You can provide free-form text or the name of another symbol. In the latter case, the symbol will be linked for you (in the default template).
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
 <dl class="example">
-<dt>Example goes here</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/** Both of these will link to the bar function.
+ * @see {@link bar}
+ * @see bar
+ */
+function foo() {
+}
+
+/**
+ * @see {@link foo} for further information.
+ * @see {@link http://github.com|Github}
+ */
+function bar() {
+}
 
 </pre>
 </dd>
 </dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-link.html">@link</a> which can be used to duplicate the behaviour of @see within other tags.</li>
+    <li><a href="tags-tutorial.html">@tutorial</a>, like @see but links to tutorials.</li>
 </ul>
+
     </article>
     
     <footer>

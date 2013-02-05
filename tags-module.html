@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Document a JavaScript module."><title>Use JSDoc: @module</title>
+	<meta name="description" content="Document a JavaScript module."><title>Use JSDoc: @module</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,97 @@
 	<article>
 	<h1>@module</h1>
 
+<h3>Syntax</h3>
+<code>@module [&lt;ModuleName&gt;]</code>
+
 <h3>Overview</h3>
 
-<p>
+<p>This marks the current file as being its own module. 
+All symbols in the file are members of the module (unless documented otherwise, see (e.g.) <a href="tags-memberof.html">@memberof</a>).
 </p>
 
-<h3>Examples</h3>
+<p>Link to a module (e.g. within a <a href="tags-link.html">@link</a> or <a href="tags-see.html">@see</a>) using "module:moduleName". For example, "@module foo/bar" can be linked to using "{@link module:foo/bar}".
+</p>
 
-<p>
+<p>If the module name is not provided, it is set to the current filename relative to the folder JSDoc is run on.
+</p>
+
+<p>For example, suppose I have a file <code>test.js</code> with doclet <code>/** @module */</code> in it, in folder 'src'.
+Here are some scenarios for running JSDoc and the resulting module names for test.js:
 </p>
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Derived module names if none is provided.</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+# from src/
+jsdoc ./test.js   # module name 'test'
+
+# from src's parent directory:
+jsdoc src/test.js # module name 'src/test'
+jsdoc -r src/     # module name 'test'
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><h3>Examples</h3>
+<dl class="example">
+<dt>Basic @module use.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @module myModule */
+
+/** will be module:myMmodule~foo */
+var foo = 1;
+
+</pre>
+</dd>
+</dl>There are many ways to export objects as belonging to a module (i.e. as static members rather than inner as in the example above). These include assigning the objects to <code>module.exports</code> or <code>exports</code> or <code>this</code>.
+
+<dl class="example">
+<dt>Using &#39;this&#39; in a file with @module.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @module bookshelf */
+/** @class */
+this.Book = function (title) {
+    /** The title. */
+    this.title = title;
+};
+
+</pre>
+</dd>
+</dl><p>When a global symbol is a member of 'this' in a file with a @module tag, the symbol is documented as a member of that module.
+So the Book class above is documented as <code>module:bookshelf.Book</code>. The title is <code>module:bookshelf.Book#title</code> as expected.
+</p>
+
+<dl class="example">
+<dt>Documenting under a namespace &#39;module.exports&#39; or &#39;exports&#39;.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @module color/mixer */
+module.exports = {
+    /** Blend two colours together. */
+    blend: function (color1, color2) {}
+};
+/** Darkens a color. */
+exports.darken = function (color, shade) {};
+
+</pre>
+</dd>
+</dl><p>JSDoc recognises assigning to <code>module.exports</code> or <code>exports</code> as assigning to the module.
+Hence the two functions above will have names "module:color/mixer.blend" and "module:color/mixer.darken".
+</p>
+
+See <a href="howto-commonjs-modules.html">Documenting Javascript Modules</a> for further examples of using @module as a constructor, or documenting multiple modules in a file.
+
+<h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="howto-commonjs-modules.html">Other helpful @module examples</a></li>
+    <li><a href="tags-exports.html">@exports</a></li>
+    <li><a href="tags-namespace.html">@namespace</a></li>
 </ul>
+
     </article>
     
     <footer>

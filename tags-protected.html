@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] This member is meant to be protected."><title>Use JSDoc: @protected</title>
+	<meta name="description" content="This member is meant to be protected."><title>Use JSDoc: @protected</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -178,27 +178,33 @@
 
 <h3>Overview</h3>
 
-<p>
+<p>This tag marks a doclet as protected.
 </p>
+
+<p>Note that "@protected" is equivalent to "@access protected", see <a href="tags-access.html">@access</a>.</p>
 
 <h3>Examples</h3>
-
-<p>
-</p>
-
 <dl class="example">
-<dt>Example goes here</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/** @constructor */
+function Thingy() {
+    // same as @access protected
+    /** @protected */
+    this._bar = 1;
+}
 
 </pre>
 </dd>
 </dl><h3>See Also</h3>
-
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-private.html">@private</a></li>
+    <li><a href="tags-public.html">@public</a></li>
+    <li><a href="tags-access.html">@access</a> which encompasses @protected, @protected and @public.</li>
+    <li><a href="tags-instance.html">@instance</a>, <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a> and <a href="tags-global.html">@global</a> for modifying the <em>scope</em> of a doclet.</li>
 </ul>
+
     </article>
     
     <footer>

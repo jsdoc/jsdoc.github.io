@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Document a namespace object."><title>Use JSDoc: @namespace</title>
+	<meta name="description" content="Document a namespace object."><title>Use JSDoc: @namespace</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,51 @@
 	<article>
 	<h1>@namespace</h1>
 
+<h3>Syntax</h3>
+
+<code>@namespace [&lt;SomeName&gt;]</code>
+
 <h3>Overview</h3>
 
 <p>
+The @namespace tag marks an object as being a namespace.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Defining a namespace as an object.</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/** A namespace.
+ * @namespace */
+var MyNamespace = {
+    /** MyNamespace.foo */
+    foo: function () {},
+    /** MyNamespace.bar */
+    bar: 1
+};
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt>Defining a namespace virtually.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** A namespace.
+ * @namespace MyNamespace */
+/** A function in MyNamespace (MyNamespace.myFunction)
+ * @function myFunction
+ * @memberof MyNamespace */
 
 </pre>
 </dd>
 </dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-module.html">@module</a></li>
 </ul>
+
     </article>
     
     <footer>

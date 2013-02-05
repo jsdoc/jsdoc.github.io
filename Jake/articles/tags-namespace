@@ -1,24 +1,41 @@
 <!--{
     "title":       "@namespace",
     "out":         "tags-namespace.html",
-    "description": "[todo] Document a namespace object."
+    "description": "Document a namespace object."
 }-->
+<h3>Syntax</h3>
+
+<code>@namespace [&lt;SomeName&gt;]</code>
+
 <h3>Overview</h3>
 
 <p>
+The @namespace tag marks an object as being a namespace.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
+{{#example}}Defining a namespace as an object.
+/** A namespace.
+ * @namespace */
+var MyNamespace = {
+    /** MyNamespace.foo */
+    foo: function () {},
+    /** MyNamespace.bar */
+    bar: 1
+};
+{{/example}}
 
-{{#example}}Example goes here
-// todo
+{{#example}}Defining a namespace virtually.
+/** A namespace.
+ * @namespace MyNamespace */
+/** A function in MyNamespace (MyNamespace.myFunction)
+ * @function myFunction
+ * @memberof MyNamespace */
 {{/example}}
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-module.html">@module</a></li>
 </ul>

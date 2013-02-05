@@ -1,0 +1,48 @@
+<!--{
+    "title":       "@static",
+    "out":         "tags-static.html",
+    "description": "Document a static member."
+}-->
+<h3>Overview</h3>
+<p>
+Using the @static tag will mark a symbol as an static member of its parent symbol.
+This means it can be referred to by "Parent.Child".
+</p>
+
+<p>
+Using '@static' will override a doclet's default scope (unless it is in the global scope, in which case it will remain global).
+</p>
+
+<h3>Examples</h3>
+
+{{#example}}Using @static to make a virtual doclet a static member
+/** @namespace MyNamespace */
+/** myFunction is now MyNamespace.myFunction.
+ * @function myFunction
+ * @memberof MyNamespace
+ * @static
+ */
+{{/example}}
+<p>
+Note that in the above we could have used "@function MyNamespace.myFunction" instead of the @memberof and @static tags.
+</p>
+
+{{#example}}Using @static
+/** @module myModule */
+/** foo is now myModule.foo rather than myModule~foo.
+ * @static */
+var foo = 1;
+{{/example}}
+
+<p>
+In the above example, we use @static to force an inner member of a module to be documented as a static member. 
+This means that <code>foo</code> now has longname <code>myPlugin.foo</code> instead of <code>myPlugin~foo</code> that it would have been otherwise.
+</p>
+
+<h3>See Also</h3>
+
+<ul>
+    <li><a href="tags-inner.html">@inner</a> which marks a symbol as an inner member (Parent~Child).</li>
+    <li><a href="tags-static.html">@static</a> which marks a symbol as an static member (Parent#Child).</li>
+    <li><a href="tags-global.html">@global</a> which marks a symbol as global (Child).</li>
+</ul>

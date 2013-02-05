@@ -1,0 +1,115 @@
+<!--{
+    "title":       "@alias",
+    "out":         "tags-alias.html",
+    "description": "Cause an object to be given a different name."
+}-->
+<h3>Syntax</h3>
+<code>@alias &lt;aliasNamepath&gt;</code>
+
+<h3>Overview</h3>
+
+<p>Using <code>@alias Foo</code> in the doclet for object <code>Bar</code> causes the Bar doclet to be renamed to Foo (within JSDoc). If Bar is a container (class, namespace, module), then subsequent assignations to it (in the code) will be assigned to Foo (in the documentation).
+</p>
+
+<p>At its most basic use @alias can be used to simply rename a code object from one thing to another (although why wouldn't you just rename your object in the code itself?).</p>
+
+<p>However, @alias is be more powerful than that. It is most helpful when one wishes to rename a container class (e.g. namespace) with name <code>Bar</code> where its members have all been assigned to <code>Foo</code> in the code and we do not wish to go and rename them all. Instead, find the definition of <code>Bar</code> and use "@alias Foo" to ask JSDoc to change all of Bar and its descendants' doclets to point to Foo instead of Bar (see the examples, they make it clearer).
+</p>
+
+<h3>Examples</h3>
+{{#example}}Very basic @alias example - renaming an object.
+/** @alias Baz */
+function Bar() {}
+{{/example}}
+<p>
+In the example above, the function Baz is renamed to Bar. Bar's doclet is the same as Baz's would have been without the @alias, except that the name is changed.
+</p>
+
+<p>Compare this to if we had used @name. Since @name disregards surrounding code, we would have ended up with an object Baz and an undocumented function Bar. In particular, Baz wouldn't have been marked as a function as its doclet doesn't specify so.
+However, since @alias <em>does</em> consider surrounding code (it's essentially a rename after parsing of the doclet), we would end up with a single <em>function</em> Baz.
+</p>
+
+{{#example}}A more typical @alias example.
+Klass('trackr.CookieManager',
+
+    /** @class
+        @alias trackr.CookieManager
+        @param {object} kv
+    */
+    function(kv) {
+        /** document me */
+        this.value = kv;
+    }
+
+);
+{{/example}}
+<p>
+In the example above we use @alias to rename the anonymous function to be the class "trackr.CookieManager".
+Note that the <code>this</code> keyword is then interpreted relative to trackr.CookieManager: we end up with "trackr.CooieManager#value".
+</p>
+
+{{#example}}Another typical @alias example.
+/** @namespace */
+var A = {};
+
+(function(ns) {
+    /** Alias f as A.F
+     * @namespace
+     * @alias A.F
+     */
+    var f = {};
+
+    /** This will end up as A.F.method */
+    f.method = function(){};
+
+    ns.F = f;
+})(A);
+{{/example}}
+<p>The above shows how if one aliases a local object (in this case <code>f</code>) and makes changes to it, the changes are reflected in the aliased object (<code>f.method</code> becomes <code>A.F.method</code>).
+</p>
+
+{{#example}}Use @alias to tell JSDoc a symbol's name when it may not be clear.
+var myObject = (function() {
+
+    /** Give x another name.
+        @alias myObject
+        @namespace
+     */
+    var x = {
+        /** property myProperty */
+        myProperty: 'foo'
+    }
+
+    return x;
+})();
+{{/example}}
+<p>In the above example we help JSDoc to recognise <code>x.myProperty</code> as actually being <code>myObject.myProperty</code>. We do this by @alias-ing the inner <code>x</code> variable as "myObject".
+If we hadn't used @alias, the parser would not have realised that <code>x.myProperty</code> was the same as <code>myObject.myProperty</code> since it was hidden in an anonymous function.
+</p>
+<p>
+(We could also have achieved this by documenting <code>myObject</code> with @namespace and marking <code>x</code> with "@lends MyObject"; see <a href="tags-lends.html">@lends</a>).
+<p>
+
+{{#example}}Using @alias to force an object to be global.
+(function() {
+
+    /** @alias <global>.log */
+    var log = function() {
+    }
+
+})();
+{{/example}}
+<p>
+In the above example we cause the log function to be in the global scope, that is, recognised by longname "log".
+Without the @alias tag it would have been hidden from the output, as it is an inner member of anonymous container.
+</p>
+<p>
+(We could have achieved the same using "@memberof! &lt;global&gt;" or "@global" instead; see <a href="tags-memberof.html">@memberof</a>, <a href="tags-global.html">@global</a>.)
+</p>
+
+<h3>See Also</h3>
+
+<ul>
+    <li><a href="tags-name.html">@name</a> - for assigning a name to a doclet, ignoring the surrounding code.</li>
+    <li><a href="tags-lends.html">@lends</a></li>
+</ul>

@@ -1,7 +1,7 @@
 <!--{
     "title":       "@link",
     "out":         "tags-link.html",
-    "description": "[IN PROGRESS] Inline tag - create a link."
+    "description": "Inline tag - create a link."
 }-->
 <h3>Syntax</h3>
 <code>

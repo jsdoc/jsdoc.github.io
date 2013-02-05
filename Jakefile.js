@@ -48,7 +48,8 @@ task('default', [], function (params) {
     });
     
     console.log('Building new gh-pages...');
-    
+   
+    articles.sort(function (a, b) { return a.title.localeCompare(b.title); });
     articles.forEach(function (article) {
         var html = Mustache.to_html(
                 templates.article, {

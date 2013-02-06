@@ -1,0 +1,24 @@
+<!--{
+    "title":       "@abstract",
+    "out":         "tags-abstract.html",
+    "description": "This member is meant to be abstract."
+}-->
+<h3>Synonyms</h3>
+<ul>
+ <li>@virtual</li>
+</ul>
+
+<h3>Overview</h3>
+
+<p>This marks an object as being abstract.
+</p>
+
+<h3>Examples</h3>
+
+{{#example}}Example
+/** @constructor */
+function Thingy() {
+    /** @abstract */
+    this.pez = 2;
+}
+{{/example}}

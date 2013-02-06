@@ -1,24 +1,77 @@
 <!--{
     "title":       "@name",
     "out":         "tags-name.html",
-    "description": "[todo] Document the name of an object."
+    "description": "Document the name of an object."
 }-->
+<h3>Syntax</h3>
+<code>@name &lt;namePath&gt;</code>
+
 <h3>Overview</h3>
 
+<p>The @name tag forces JSDoc to document the current doclet with the given name, ignoring all surrounding code.
+</p>
+
 <p>
+In most cases JSDoc can determine the namepath of an object for you. 
+This is a great convenience because it allows you to shorten your documentation comments to just the minimum information you wish to add. 
+However, when it isn't clear you can provide the namepath yourself by using the @name tag.
+</p>
+
+<p>
+This can be a powerful technique because it allows you to write documentation for objects that are not visible in the code itself (or are obscure for some reason).
+<b style="color: red">Be warned though</b>: by using the @name tag you are telling JSDoc to ignore the surrounding code and to treat your documentation comment in isolation. 
 </p>
 
 <h3>Examples</h3>
 
-<p>
+{{#example}}Using @name.
+/**
+ * @name hiliteSearchTerm
+ * @function
+ */
+eval("window.hiliteSearchTerm = function(term) {};")
+{{/example}}
+<p>Without the @name tag, the <code>hiliteSearchTerm</code> function would be invisible to JSDoc. 
+That's because it never tries to run your code, and can't parse strings the way <code>eval</code> would.
 </p>
 
-{{#example}}Example goes here
-// todo
+<p>
+Note that the @function tag was also required, and in many cases the @memberOf tag would be needed as well. 
+Essentially this technique requires that you <em>explicitly</em> document <em>all</em> of the information about an object, and so can be very verbose. 
+Luckily, most of the time, it isn't needed as JSDoc can determine all such information automatically for you.
+</p>
+
+{{#example}}Warning about using @name.
+/** @name Foo */
+Bar = function() {
+};
 {{/example}}
+<p>
+As mentioned, using the @name tag essentially isolates your documentation comment from the code. 
+</p>
+
+<p>
+In the example above, you'd end up with two objects - a (documented) Foo object and a (undocumented) Bar object. 
+Only the Foo object would show up in the documentation, and it <em>wouldn't</em> be documented as a function like Bar is.
+In particular, @name does <em>not</em> force the Bar function to be treated as if were named Foo.
+</p>
+
+{{#example}}Further warning.
+/** @name Baz */
+Baz = function () {
+};
+{{/example}}
+<p>This is just to reinforce the warning that <b>@name causes the surrounding code to be ignored</b>.
+In the example above it is easy to be tricked into thinking that the Baz doclet would turn out as a function (because of the code). 
+However, it wouldn't since the code is ignored in the presence of a "@name" tag: you'd have to explicitly add the <a href="tags-method.html">"@function"</a> tag to the doclet to have it treated as such.
+</p>
+<p>Note that using <a href="tags-alias.html">@alias Baz</a> would have worked in this case, because @alias is a little like @name but takes note of the surrounding code. However, @alias could not have replaced @name in the very first example (<code>hiliteSearchTerm</code>) because the parser couldn't have worked out that <code>hiliteSearchTerm</code> was a function.
+</p>
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-memberof.html">@memberof</a></li>
+    <li><a href="tags-alias.html">@alias</a> which is a bit like @name, but will take into account the surrounding code.</li>
+    <li><a href="about-namepaths.html">About namepaths</a></li>
 </ul>

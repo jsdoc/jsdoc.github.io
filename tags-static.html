@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Document a property of an object."><title>Use JSDoc: @property</title>
+	<meta name="description" content="Document a static member."><title>Use JSDoc: @static</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -174,61 +174,59 @@
 	</nav>
 	
 	<article>
-	<h1>@property</h1>
+	<h1>@static</h1>
 
-<h3>Synonyms</h3>
-<ul>
- <li>@prop</li>
-</ul>
 <h3>Overview</h3>
-
 <p>
-    The @property tag is a way to easily document a list of static properties of a class, namespace or other object.
+Using the @static tag will mark a symbol as an static member of its parent symbol.
+This means it can be referred to by "Parent.Child".
 </p>
 
 <p>
-    Normally JSDoc templates would create an entire new page to display information about each level of a nested namespace hierarchy. Sometimes what you really want is to just list all the properties, including nested properties, all together on the same page.
-</p>
-
-<p>
-    Note that property tags must be used in doc comments for the thing that they are properties of, a namespace or a class for example. This tag is intended for simple collections of static properties, it does not allow you to provide @examples or similar complex information for each property, just the type, name and description.
+Using '@static' will override a doclet's default scope (unless it is in the global scope, in which case it will remain global).
 </p>
 
 <h3>Examples</h3>
 
-<p>
-    In this example we have a namespace named "config." We want all the information about the defaults property, including it's nested values to appear on the same page with the documentation for config.
-</p>
-
 <dl class="example">
-<dt>A namespace with defaults and nested default properties</dt>
+<dt>Using @static to make a virtual doclet a static member</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/**
- * @namespace
- * @property {object}  defaults               - The default values for parties.
- * @property {number}  defaults.players       - The default number of players.
- * @property {string}  defaults.level         - The default level for the party.
- * @property {object}  defaults.treasure      - The default treasure.
- * @property {number}  defaults.treasure.gold - How much gold the party starts with.
+/** @namespace MyNamespace */
+/** myFunction is now MyNamespace.myFunction.
+ * @function myFunction
+ * @memberof MyNamespace
+ * @static
  */
-var config = {
-    defaults: {
-        players: 1,
-        level:   'beginner',
-        treasure: {
-            gold: 0
-        }
-    }
-};
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><p>
+Note that in the above we could have used "@function MyNamespace.myFunction" instead of the @memberof and @static tags.
+</p>
+
+<dl class="example">
+<dt>Using @static</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @module myModule */
+/** foo is now myModule.foo rather than myModule~foo.
+ * @static */
+var foo = 1;
+
+</pre>
+</dd>
+</dl><p>
+In the above example, we use @static to force an inner member of a module to be documented as a static member. 
+This means that <code>foo</code> now has longname <code>myPlugin.foo</code> instead of <code>myPlugin~foo</code> that it would have been otherwise.
+</p>
+
+<h3>See Also</h3>
 
 <ul>
-    <li>Contrast this tag with the <a href="tags-member.html">@member</a> tag.</li>
-    <li><a href="tags-enum.html">@enum</a></li>
+    <li><a href="tags-inner.html">@inner</a> which marks a symbol as an inner member (Parent~Child).</li>
+    <li><a href="tags-static.html">@static</a> which marks a symbol as an static member (Parent#Child).</li>
+    <li><a href="tags-global.html">@global</a> which marks a symbol as global (Child).</li>
 </ul>
 
     </article>

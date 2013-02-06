@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] This member is meant to be private."><title>Use JSDoc: @private</title>
+	<meta name="description" content="This member is meant to be private."><title>Use JSDoc: @private</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -178,27 +178,68 @@
 
 <h3>Overview</h3>
 
-<p>
+<p>This tag marks a doclet as private, or not meant for general use.
+Private members are not shown in the generated output unless JSDoc is run with the <code>-p</code> or <code>--private</code> switch.
 </p>
+
+<p>Note that "@private" is equivalent to "@access private", see <a href="tags-access.html">@access</a>.</p>
 
 <h3>Examples</h3>
-
-<p>
-</p>
-
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Usage of @private.</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/** @namespace */
+var Parts = {
+    /** My head. */
+    Head: 1,
+    /** @private */
+    FamilyJewels: 2
+};
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><p>
+In the above, <code>Parts</code> and <code>Parts.Head</code> appear in the generated documentation, but not <code>Parts.FamilyJewels</code> because it is private. If JSDoc were run with -p or --private then it would appear.
+</p>
 
+<dl class="example">
+<dt>@private is not inherited</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** 
+ * @private
+ * @namespace */
+var Clothes = {
+    /** @class */
+    Jacket: function () {},
+
+    /** @member */
+    foo: 1
+};
+
+</pre>
+</dd>
+</dl><p>
+Private status is not passed onto member objects. Even though <code>Clothes</code> is marked private, <code>Clothes.Jacket</code> and <code>Clothes.foo</code> are not.
+</p>
+<p>
+<code>Clothes.Jacket</code> will show up in the Classes index of the generated documentation and its documentation page will be generated.
+</p>
+<p>
+However, <code>Clothes.foo</code> will <em>not</em> be in the output documentation (for the default template).
+This is because the default template only documents "non-special" (non-namespace/class) members of a namespace on the namespace page itself, which was not generated due to being private.
+</p>
+
+<h3>See Also</h3>
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-protected.html">@protected</a></li>
+    <li><a href="tags-public.html">@public</a></li>
+    <li><a href="tags-access.html">@access</a> which encompasses @private, @protected and @public.</li>
+    <li><a href="about-commandline.html">Command-line options to JSDoc</a></li>
+    <li><a href="tags-instance.html">@instance</a>, <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a> and <a href="tags-global.html">@global</a> for modifying the <em>scope</em> of a doclet.</li>
 </ul>
+
     </article>
     
     <footer>

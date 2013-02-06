@@ -1,7 +1,7 @@
 <!--{
     "title":       "@link",
     "out":         "tags-link.html",
-    "description": "[IN PROGRESS] Inline tag - create a link."
+    "description": "Inline tag - create a link."
 }-->
 <h3>Syntax</h3>
 <code>
@@ -86,13 +86,38 @@ function MyClass() {
     this.foo = 1;
 }
 {{/example}}
-
 <p>
 The above produces (except that the first two links actually link to the generated documentation for MyClass and MyClass#foo):
 <blockquote>
 See <a href="#">MyClass</a> and <a href="#">MyClass's foo property</a>.
 Also check out <a href="http://www.google.com">google</a> and <a href="http://github.com">Github</a>.
 </blockquote>
+</p>
+
+{{#example}}Linking to unusually-named objects.
+/** @namespace */
+var chat = {
+    /** Refer to this by {@link chat."#channel"}.
+     * @namespace */
+    "#channel": {
+        /** Refer to this by {@link chat."#channel".open}.
+         * @type {boolean}
+         * @defaultvalue */
+        open: true,
+        /** Internal quotes have to be escaped by backslash. This is
+         * {@link chat."#channel"."say-\"hello\""}. */
+        'say-"hello"': function (msg) {};
+    }
+};
+
+/** Now we define an event in our {@link chat.#channel} namespace.
+	@event chat."#channel"."op:announce-motd"
+ */
+{{/example}}
+<p>
+Above is an example of a namespace with "unusual" characters in its member names.
+To refer to these you just need quote the names: chat."#channel", chat."#channel"."op:announce-motd", and so on.
+Internal quotes in names should be escaped with backslashes: chat."#channel"."say-\"hello\"".
 </p>
 
 {{#example}}Example with @linkplain and @linkcode
@@ -134,4 +159,5 @@ This is a link to <a href="http://www.github.com"><code>Github</code></a>, but w
     <li><a href="tags-tutorial.html">{@tutorial ...}</a></li>
     <li><a href="about-inline-tags.html">About Inline tags</a></li>
     <li><a href="about-configuring-jsdoc.html#configuration-file-templates">Configuring JSDoc</a></li>
+    <li><a href="about-namepaths.html">About namepaths</a></li>
 </ul>

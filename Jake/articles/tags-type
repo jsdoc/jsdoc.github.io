@@ -1,24 +1,301 @@
 <!--{
     "title":       "@type",
     "out":         "tags-type.html",
-    "description": "[todo] Document the type of an object."
+    "description": "Document the type of an object."
 }-->
+<style>
+table {
+    border-collapse:collapse;
+}
+table, th, td {
+    border: 1px solid #999;
+}
+th {
+    background-color: #DEDEDE;
+    color: #B93A38;
+}
+td dl.example dt {
+    font-weight: normal;
+}
+</style>
+<h3>Syntax</h3>
+<code>@type {typeName}</code>
+
 <h3>Overview</h3>
 
 <p>
+The @type tag allows you to document the type of value a variable refers to, or the type of value returned by a function.
 </p>
+
+<p>
+The specified type can be any string.
+It could be the namepath to a documented JSDoc object (e.g. <code>myNamespace.MyClass</code>), or a basic type (e.g. <code>string</code>), or a combination of these.
+</p>
+
+<p>
+While technically one may specify a type in any way they like, JSDoc knows how to parse certain forms (e.g. for optional parameters or nullable types) and store the resulting properties.
+In simple cases it can even make links from types to the relevant documentation. For example, <code>@type {MyClass}</code> will link to the MyClass documentation if it has been documented.
+</p>
+
+<p>
+As mentioned, JSDoc can only do this (parse and understand types) in simple cases.
+It can't yet fully parse some more complex Google Closure Compiler types (e.g. <code>{Array.&lt;(string|function(?string=, ...[number]))&gt;}</code>), but there is an <a href="https://github.com/jsdoc3/jsdoc/issues/152">open issue</a> for this and it is in <a href="https://github.com/jsdoc3/jsdoc/wiki/Project-roadmap">JSDoc 3.2's roadmap</a>.
+</p>
+
+<p>
+In the table below are some standard patterns for types.
+These type specifications work wherever a type specification is expected, for example in the <a href="tags-param.html">@param</a> tag, as well as the @type tag.
+They very closely follow the <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler#types">Google Closure Compiler</a> type specification.
+</p>
+
+
+<table id="jsdoc-types" name="jsdoc-types">
+<tr>
+ <th>Kind of type</th>
+ <th>Syntax examples</th>
+ <th>Description</th>
+</tr>
+
+<tr>
+ <td>Type name</td>
+ <td>
+{{#example}} 
+{boolean}
+{myNamespace.MyClass}
+{{/example}}
+ </td>
+ <td>
+  <p>
+  Specifies the name of a type. 
+  If it is an object that you have documented with JSDoc (e.g. <code>myNamespace.MyClass</code> or a <a href="tags-typedef.html">@typedef</a> or <a href="tags-callback.html">@callback</a>), a link will be made to that object's page.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Multiple types
+ </td>
+ <td>
+{{#example}}This can be a number or a boolean.
+{number|boolean}
+{{/example}}
+ </td>
+ <td>
+  <p>
+  This means a value can have one of multiple types, separated by <code>|</code>.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Arrays and objects
+ </td>
+ <td>
+
+{{#example}}An array of MyClass instances.
+{Array.&lt;MyClass&gt;}
+{MyClass[]}
+{{/example}}
+
+{{#example}}An object with string keys and number values:
+{Object.&lt;string, number&gt;}
+{{/example}}
+
+{{#example}}An anonymous type that is an object with properties "a" (a number), "b" (a string) and "c" (any type).
+&#123;{a: number, b: string, c}}
+{{/example}}
+
+</p>
+ </td>
+ <td><p>
+  Documenting arrays or objects.
+  </p>
+  <p>
+  JSDoc does not yet create links for the inside types but once Google Closure Compiler type parsing is added to JSDoc, it will.
+  </p>
+  <p>
+  Another way to document object types is using a <a href="tags-typedef.html">@typedef</a> or with the <a href="tags-param.html#documenting-objects">@param</a> tag.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Nullable type
+ </td>
+ <td>
+{{#example}}A number or null.
+{?number}
+{{/example}}
+ </td>
+ <td>
+  <p>
+  This indicates that the type is either the specified type, or <code>null</code>.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Non-nullable type
+ </td>
+ <td>
+{{#example}}A number, but never null.
+{!number}
+{{/example}}
+ </td>
+ <td>
+  <p>
+   Indicates that the value is of the specified type, but cannot be <code>null</code>.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Variable number of that type
+ </td>
+ <td>
+{{#example}}This function may take a variable number of numbers.
+@param {...number} num
+{{/example}}
+ </td>
+ <td>
+  <p>
+  Indicates that the function accepts a variable number of parameters, and specifies a type for the parameters.
+  For example:
+  </p>
+{{#example}} 
+/**
+ * Returns the sum of all numbers passed to the function.
+ * @param {...Number} num A positive or negative number
+ */
+function sum(num) {
+    var i=0, n=arguments.length, t=0;
+    for (; i&lt;n; i++) {
+        t += arguments[i];
+    }
+    return t;
+}
+{{/example}}
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Optional parameter
+ </td>
+ <td>
+{{#example}}An optional parameter named foo.
+@param {number} [foo]
+@param {number=} foo
+{{/example}}
+
+{{#example}}An optional parameter foo with default value 1.
+@param {number} [foo=1]
+{{/example}}
+ </td>
+ <td>
+  <p>
+  This means that the parameter is optional. 
+  Note that in Javascript, parameters not passed to a function have the value <code>undefined</code>.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Callbacks
+ </td>
+ <td>
+{{#example}} 
+/** @callback myCallback
+ * @param {number} x - ...
+ */
+
+/** @type {myCallback} */
+var cb;
+{{/example}}
+ </td>
+ <td>
+  <p>
+  Document a callback using the <a href="tags-callback.html">@callback</a> tag. 
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Complex types
+ </td>
+ <td>
+{{#example}}Documenting a type with properties 'id', 'name', 'age'. 
+/** @typedef PropertiesHash
+ * @type {object}
+ * @property {string} id - an ID.
+ * @property {string} name - your name.
+ * @property {number} age - your age.
+ */
+
+/** @type {PropertiesHash} */
+var props;
+{{/example}}
+ </td>
+ <td>
+  <p>
+  You can document complex types using the <a href="tags-typedef.html">@typedef</a> tag. 
+  It's handy if you use this type a lot in your code.
+  </p>
+ </td>
+</tr>
+
+<!--tr>
+ <td>
+ </td>
+ <td>
+{{#example}} 
+{{/example}}
+ </td>
+ <td>
+ </td>
+</tr-->
+</table>
 
 <h3>Examples</h3>
 
+{{#example}}Example
+/** @type {string|Array<string>} */
+var foo;
+/** @type integer */
+var bar = 1;
+{{/example}}
+
+{{#example}}Many tags can take a type specification.
+/** @type {number}
+ *  @const */
+var FOO = 1;
+
+// same as:
+
+/** @const {number} */
+var FOO = 1;
+{{/example}}
+
 <p>
+Often the type of an object can be specified in other tags identifying the doclet, and so the @type tag is not needed.
+See the example above.
 </p>
 
-{{#example}}Example goes here
-// todo
-{{/example}}
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-typedef.html">@typedef</a></li>
+    <li><a href="tags-callback.html">@callback</a></li>
+    <li><a href="tags-param.html">@param</a></li>
+    <li><a href="tags-property.html">@property</a></li>
+    <li><a href="tags-param.html#documenting-objects">Documenting object types</a></li>
+    <li><a href="https://developers.google.com/closure/compiler/docs/js-for-compiler#types">Google Closure Compiler type specifications</a></li>
 </ul>

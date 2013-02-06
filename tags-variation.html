@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Document a property of an object."><title>Use JSDoc: @property</title>
+	<meta name="description" content="Distinguish different objects with the same name."><title>Use JSDoc: @variation</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -174,63 +174,86 @@
 	</nav>
 	
 	<article>
-	<h1>@property</h1>
+	<h1>@variation</h1>
 
-<h3>Synonyms</h3>
-<ul>
- <li>@prop</li>
-</ul>
+<h3>Syntax</h3>
+<code>@variation &lt;variationNumber&gt;</code>
+
 <h3>Overview</h3>
 
-<p>
-    The @property tag is a way to easily document a list of static properties of a class, namespace or other object.
+<p>Sometimes there might be multiple different symbols with the same longname. For example, you might have both a global class and a namespace called <code>Foo</code>.
+In cases such as these, what does "{@link Foo}" or "@memberof Foo" mean? The global namespace, or the global class?
 </p>
 
 <p>
-    Normally JSDoc templates would create an entire new page to display information about each level of a nested namespace hierarchy. Sometimes what you really want is to just list all the properties, including nested properties, all together on the same page.
+Variations provide a way to distinguish between different objects with the same longname within JSDoc.
+For example, if I add "@variation 2" to the class Foo's doclet, then "{@link Foo(2)}" will refer to the class Foo, and "{@link Foo}" will refer to the namespace Foo. The varation only exists at the documentation-level; in the generated output you will not see the "(2)" anywhere.
 </p>
 
 <p>
-    Note that property tags must be used in doc comments for the thing that they are properties of, a namespace or a class for example. This tag is intended for simple collections of static properties, it does not allow you to provide @examples or similar complex information for each property, just the type, name and description.
+Alternatively, one can specify the variation while they specify the doclet's name, as in "@name Foo(2)".
+</p>
+
+<p>
+All that is required is that the combination of the doclet's longname and its variation is unique (i.e. the @variation value should be different within all objects with the same longname).
 </p>
 
 <h3>Examples</h3>
-
 <p>
-    In this example we have a namespace named "config." We want all the information about the defaults property, including it's nested values to appear on the same page with the documentation for config.
+In the below example, we have a global namespace <code>foo</code> and a global class <code>foo</code>.
+We use variations to distinguish between the two.
 </p>
-
 <dl class="example">
-<dt>A namespace with defaults and nested default properties</dt>
+<dt>Example</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/**
- * @namespace
- * @property {object}  defaults               - The default values for parties.
- * @property {number}  defaults.players       - The default number of players.
- * @property {string}  defaults.level         - The default level for the party.
- * @property {object}  defaults.treasure      - The default treasure.
- * @property {number}  defaults.treasure.gold - How much gold the party starts with.
+/** A namespace.
+ * @namespace foo
  */
-var config = {
-    defaults: {
-        players: 1,
-        level:   'beginner',
-        treasure: {
-            gold: 0
-        }
-    }
-};
+/** A global class.
+ * @class foo
+ * @variation 2
+ */
+
+/** A method in class foo (foo#classMethod). We need to use foo(2) in the memberof tag
+ *  so JSDoc knows which foo we're talking about.
+ * @method classMethod
+ * @instance
+ * @memberof foo(2)
+ */
+/** A function in the *namespace* foo (foo.namespaceMethod)
+ * @method namespaceMethod
+ * @memberof foo
+ */
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><p>
+The below example is the same as the previous, but takes use of JSDoc's naming mechanism to combine some of the tags (reduce the typing).
+</p>
 
-<ul>
-    <li>Contrast this tag with the <a href="tags-member.html">@member</a> tag.</li>
-    <li><a href="tags-enum.html">@enum</a></li>
-</ul>
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** A namespace.
+ * @namespace foo
+ */
+/** A global class.
+ * @class foo(2)
+ */
 
+/** A method in class foo (foo#classMethod). We need to use foo(2) in the memberof tag
+ *  so JSDoc knows which foo we're talking about.
+ * @method foo(2)#classMethod
+ */
+/** A function in the *namespace* foo (foo.namespaceMethod)
+ * @method foo.namespaceMethod
+ */
+
+</pre>
+</dd>
+</dl>
     </article>
     
     <footer>

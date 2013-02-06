@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Document a property of an object."><title>Use JSDoc: @property</title>
+	<meta name="description" content="Document an external class/namespace/module."><title>Use JSDoc: @external</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -174,62 +174,93 @@
 	</nav>
 	
 	<article>
-	<h1>@property</h1>
+	<h1>@external</h1>
 
 <h3>Synonyms</h3>
 <ul>
- <li>@prop</li>
+ <li>@host</li>
 </ul>
+
+<h3>Syntax</h3>
+<code>@external &lt;NameOfExternal&gt;</code>
+
 <h3>Overview</h3>
 
-<p>
-    The @property tag is a way to easily document a list of static properties of a class, namespace or other object.
+<p>The @external tag is used for documenting a class or namespace or module that is external to the project.
+It is then known within JSDoc so you can <a href="tags-augments.html">@extend</a> it, be a <a href="tags-memberof.html">@memberof</a> it and so on as you would any other class/namespace/module.
 </p>
 
 <p>
-    Normally JSDoc templates would create an entire new page to display information about each level of a nested namespace hierarchy. Sometimes what you really want is to just list all the properties, including nested properties, all together on the same page.
-</p>
-
-<p>
-    Note that property tags must be used in doc comments for the thing that they are properties of, a namespace or a class for example. This tag is intended for simple collections of static properties, it does not allow you to provide @examples or similar complex information for each property, just the type, name and description.
+When you refer to an external object, prefix "external:" to it - for example, "{@link external:Foo}" or "@augments external:Foo".
 </p>
 
 <h3>Examples</h3>
 
-<p>
-    In this example we have a namespace named "config." We want all the information about the defaults property, including it's nested values to appear on the same page with the documentation for config.
-</p>
-
 <dl class="example">
-<dt>A namespace with defaults and nested default properties</dt>
+<dt>Documenting methods added to built-in classes.</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
- * @namespace
- * @property {object}  defaults               - The default values for parties.
- * @property {number}  defaults.players       - The default number of players.
- * @property {string}  defaults.level         - The default level for the party.
- * @property {object}  defaults.treasure      - The default treasure.
- * @property {number}  defaults.treasure.gold - How much gold the party starts with.
+ * The built in string object.
+ * @external String
+ * @see {@link https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String String}
  */
-var config = {
-    defaults: {
-        players: 1,
-        level:   'beginner',
-        treasure: {
-            gold: 0
-        }
-    }
-};
+
+/**
+ * Adds a new method to the built-in string.
+ * @function external:String#rot13
+ * @example
+ * var greeting = new String('hello world');
+ * console.log( greeting.rot13() ); // uryyb jbeyq
+ */
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><p>Suppose we added function <code>rot13</code> to the String class.
+The above adds documentation for the String class as an external, allowing <code>rot13</code> to be properly documented as an instance member of String.
+</p>
 
-<ul>
-    <li>Contrast this tag with the <a href="tags-member.html">@member</a> tag.</li>
-    <li><a href="tags-enum.html">@enum</a></li>
-</ul>
+
+<dl class="example">
+<dt>Documenting external namespaces.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/**
+ * The jQuery plugin namespace.
+ * @external "jQuery.fn"
+ * @see {@link http://docs.jquery.com/Plugins/Authoring The jQuery Plugin Guide}
+ */
+
+/**
+ * A jQuery plugin to make stars fly around your home page.
+ * @function external:"jQuery.fn".starfairy
+ */
+
+</pre>
+</dd>
+</dl><p>The above creates <code>jQuery.fn</code> as an external namespace, allowing us to document our <code>starfairy</code> function as a member of it.</p>
+
+<dl class="example">
+<dt>Extending an external.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/**                                                                             
+    Namespace provided by the browser.                                          
+    @external XMLHttpRequest                                                    
+    @see https://developer.mozilla.org/en/xmlhttprequest                        
+ */                                                                             
+                                                                                
+/**                                                                             
+    Extends the built in XMLHttpRequest to send data encoded with a secret key. 
+    @class EncryptedRequest                                                     
+    @extends external:XMLHttpRequest                                            
+*/
+
+</pre>
+</dd>
+</dl><p>One can even <a href="tags-augments.html">@extend</a> an external. <code>EncryptedRequest</code> is a class that extends (external) <code>XMLHttpRequest</code>.
+</p>
+
 
     </article>
     

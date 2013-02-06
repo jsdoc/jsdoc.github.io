@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] What kind of object is this?"><title>Use JSDoc: @kind</title>
+	<meta name="description" content="What kind of object is this?"><title>Use JSDoc: @kind</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,67 @@
 	<article>
 	<h1>@kind</h1>
 
+<h3>Syntax</h3>
+
+<code>@kind &lt;kindName&gt;</code>
+<p>
+where <code>&lt;kindName&gt;</code> is one of class, constant, event, external, file, function, member, mixin, module, namespace, typedef.
+</p>
+
 <h3>Overview</h3>
 
 <p>
+The @kind tag is used to document what kind of object a symbol has - i.e. whether it is a class, module, namespace, etc.
+This is different to the <a href="tags-type.html">@type</a> tag which applies to some specific kinds (e.g. constants or members) and further specifies the type (number, string, etc).
+</p>
+
+<p>
+Usually you do not need to specify @kind because it is determined by other tags in the doclet.
+For example, using <code>@class</code> tag automatically implies <code>@kind class</code>,
+or using <code>namespace</code> implies <code>@kind namespace</code>.
 </p>
 
 <h3>Examples</h3>
 
-<p>
+<dl class="example">
+<dt>Using @kind: the following two are equivalent.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+// You can use @kind constant or @constant, they are the same.
+
+/** A constant.
+ * @kind constant */
+const asdf = 1;
+
+/** A constant.
+ * @constant */
+const asdf = 1;
+
+</pre>
+</dd>
+</dl><p>In the case of tags with conflicting kinds (e.g. using both <code>@module</code> which sets the kind to 'module' and <code>@kind constant</code> which sets the kind to 'constant' on the same doclet), the *last* kind-modifying tag is used.
 </p>
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Conflicting @kind statements: the last one is used.</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/** This will show up as a constant
+ * @module myModule
+ * @kind constant */
+
+/** This will show up as a module.
+ * @kind constant
+ * @module myModule */
 
 </pre>
 </dd>
 </dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-type.html">@type</a></li>
 </ul>
+
     </article>
     
     <footer>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Document the type of an object."><title>Use JSDoc: @type</title>
+	<meta name="description" content="Document the type of an object."><title>Use JSDoc: @type</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,376 @@
 	<article>
 	<h1>@type</h1>
 
+<style>
+table {
+    border-collapse:collapse;
+}
+table, th, td {
+    border: 1px solid #999;
+}
+th {
+    background-color: #DEDEDE;
+    color: #B93A38;
+}
+td dl.example dt {
+    font-weight: normal;
+}
+</style>
+<h3>Syntax</h3>
+<code>@type {typeName}</code>
+
 <h3>Overview</h3>
 
 <p>
+The @type tag allows you to document the type of value a variable refers to, or the type of value returned by a function.
 </p>
-
-<h3>Examples</h3>
 
 <p>
+The specified type can be any string.
+It could be the namepath to a documented JSDoc object (e.g. <code>myNamespace.MyClass</code>), or a basic type (e.g. <code>string</code>), or a combination of these.
 </p>
 
+<p>
+While technically one may specify a type in any way they like, JSDoc knows how to parse certain forms (e.g. for optional parameters or nullable types) and store the resulting properties.
+In simple cases it can even make links from types to the relevant documentation. For example, <code>@type {MyClass}</code> will link to the MyClass documentation if it has been documented.
+</p>
+
+<p>
+As mentioned, JSDoc can only do this (parse and understand types) in simple cases.
+It can't yet fully parse some more complex Google Closure Compiler types (e.g. <code>{Array.&lt;(string|function(?string=, ...[number]))&gt;}</code>), but there is an <a href="https://github.com/jsdoc3/jsdoc/issues/152">open issue</a> for this and it is in <a href="https://github.com/jsdoc3/jsdoc/wiki/Project-roadmap">JSDoc 3.2's roadmap</a>.
+</p>
+
+<p>
+In the table below are some standard patterns for types.
+These type specifications work wherever a type specification is expected, for example in the <a href="tags-param.html">@param</a> tag, as well as the @type tag.
+They very closely follow the <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler#types">Google Closure Compiler</a> type specification.
+</p>
+
+
+<table id="jsdoc-types" name="jsdoc-types">
+<tr>
+ <th>Kind of type</th>
+ <th>Syntax examples</th>
+ <th>Description</th>
+</tr>
+
+<tr>
+ <td>Type name</td>
+ <td>
 <dl class="example">
-<dt>Example goes here</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+{boolean}
+{myNamespace.MyClass}
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl></td>
+ <td>
+  <p>
+  Specifies the name of a type. 
+  If it is an object that you have documented with JSDoc (e.g. <code>myNamespace.MyClass</code> or a <a href="tags-typedef.html">@typedef</a> or <a href="tags-callback.html">@callback</a>), a link will be made to that object's page.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Multiple types
+ </td>
+ <td>
+<dl class="example">
+<dt>This can be a number or a boolean.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+{number|boolean}
+
+</pre>
+</dd>
+</dl></td>
+ <td>
+  <p>
+  This means a value can have one of multiple types, separated by <code>|</code>.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Arrays and objects
+ </td>
+ <td>
+
+<dl class="example">
+<dt>An array of MyClass instances.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+{Array.&lt;MyClass&gt;}
+{MyClass[]}
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt>An object with string keys and number values:</dt>
+<dd>
+<pre class="prettyprint lang-js">
+{Object.&lt;string, number&gt;}
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt>An anonymous type that is an object with properties &quot;a&quot; (a number), &quot;b&quot; (a string) and &quot;c&quot; (any type).</dt>
+<dd>
+<pre class="prettyprint lang-js">
+&#123;{a: number, b: string, c}}
+
+</pre>
+</dd>
+</dl></p>
+ </td>
+ <td><p>
+  Documenting arrays or objects.
+  </p>
+  <p>
+  JSDoc does not yet create links for the inside types but once Google Closure Compiler type parsing is added to JSDoc, it will.
+  </p>
+  <p>
+  Another way to document object types is using a <a href="tags-typedef.html">@typedef</a> or with the <a href="tags-param.html#documenting-objects">@param</a> tag.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Nullable type
+ </td>
+ <td>
+<dl class="example">
+<dt>A number or null.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+{?number}
+
+</pre>
+</dd>
+</dl></td>
+ <td>
+  <p>
+  This indicates that the type is either the specified type, or <code>null</code>.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Non-nullable type
+ </td>
+ <td>
+<dl class="example">
+<dt>A number, but never null.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+{!number}
+
+</pre>
+</dd>
+</dl></td>
+ <td>
+  <p>
+   Indicates that the value is of the specified type, but cannot be <code>null</code>.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Variable number of that type
+ </td>
+ <td>
+<dl class="example">
+<dt>This function may take a variable number of numbers.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+@param {...number} num
+
+</pre>
+</dd>
+</dl></td>
+ <td>
+  <p>
+  Indicates that the function accepts a variable number of parameters, and specifies a type for the parameters.
+  For example:
+  </p>
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint lang-js">
+/**
+ * Returns the sum of all numbers passed to the function.
+ * @param {...Number} num A positive or negative number
+ */
+function sum(num) {
+    var i=0, n=arguments.length, t=0;
+    for (; i&lt;n; i++) {
+        t += arguments[i];
+    }
+    return t;
+}
+
+</pre>
+</dd>
+</dl></td>
+</tr>
+
+<tr>
+ <td>
+  Optional parameter
+ </td>
+ <td>
+<dl class="example">
+<dt>An optional parameter named foo.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+@param {number} [foo]
+@param {number=} foo
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt>An optional parameter foo with default value 1.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+@param {number} [foo=1]
+
+</pre>
+</dd>
+</dl></td>
+ <td>
+  <p>
+  This means that the parameter is optional. 
+  Note that in Javascript, parameters not passed to a function have the value <code>undefined</code>.
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Callbacks
+ </td>
+ <td>
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @callback myCallback
+ * @param {number} x - ...
+ */
+
+/** @type {myCallback} */
+var cb;
+
+</pre>
+</dd>
+</dl></td>
+ <td>
+  <p>
+  Document a callback using the <a href="tags-callback.html">@callback</a> tag. 
+  </p>
+ </td>
+</tr>
+
+<tr>
+ <td>
+  Complex types
+ </td>
+ <td>
+<dl class="example">
+<dt>Documenting a type with properties &#39;id&#39;, &#39;name&#39;, &#39;age&#39;.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @typedef PropertiesHash
+ * @type {object}
+ * @property {string} id - an ID.
+ * @property {string} name - your name.
+ * @property {number} age - your age.
+ */
+
+/** @type {PropertiesHash} */
+var props;
+
+</pre>
+</dd>
+</dl></td>
+ <td>
+  <p>
+  You can document complex types using the <a href="tags-typedef.html">@typedef</a> tag. 
+  It's handy if you use this type a lot in your code.
+  </p>
+ </td>
+</tr>
+
+<!--tr>
+ <td>
+ </td>
+ <td>
+<dl class="example">
+<dt></dt>
+<dd>
+<pre class="prettyprint lang-js">
+</pre>
+</dd>
+</dl></td>
+ <td>
+ </td>
+</tr-->
+</table>
+
+<h3>Examples</h3>
+
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @type {string|Array&lt;string>} */
+var foo;
+/** @type integer */
+var bar = 1;
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt>Many tags can take a type specification.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @type {number}
+ *  @const */
+var FOO = 1;
+
+// same as:
+
+/** @const {number} */
+var FOO = 1;
+
+</pre>
+</dd>
+</dl><p>
+Often the type of an object can be specified in other tags identifying the doclet, and so the @type tag is not needed.
+See the example above.
+</p>
+
+
+<h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-typedef.html">@typedef</a></li>
+    <li><a href="tags-callback.html">@callback</a></li>
+    <li><a href="tags-param.html">@param</a></li>
+    <li><a href="tags-property.html">@property</a></li>
+    <li><a href="tags-param.html#documenting-objects">Documenting object types</a></li>
+    <li><a href="https://developers.google.com/closure/compiler/docs/js-for-compiler#types">Google Closure Compiler type specifications</a></li>
 </ul>
+
     </article>
     
     <footer>

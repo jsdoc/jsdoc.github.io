@@ -3,6 +3,10 @@
     "out":         "tags-property.html",
     "description": "Document a property of an object."
 }-->
+<h3>Synonyms</h3>
+<ul>
+ <li>@prop</li>
+</ul>
 <h3>Overview</h3>
 
 <p>

@@ -217,6 +217,72 @@ var MyNamespace = {
 </pre>
 </dd>
 </dl><dl class="example">
+<dt>Namespaces with unusual member names.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @namespace window */
+
+/** Shorthand for the alert function.
+ * Refer to it as {@link window."!"} (note the quotes).
+ */
+window["!"] = function (msg) { alert(msg); };
+
+</pre>
+</dd>
+</dl><p>
+When a member of a namespace has an unusual name (like '!' in the example above), use quotes to refer to it.
+To refer to <code>window["!"]</code> we would use <code>window."!"</code>, e.g. {@link window."!"}.
+</p>
+
+<dl class="example">
+<dt>Namespaces with unusual member names 2.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @namespace */
+var chat = {
+    /** Refer to this by {@link chat."#channel"}.
+     * @namespace */
+    "#channel": {
+        /** Refer to this by {@link chat."#channel".open}.
+         * @type {boolean}
+         * @defaultvalue */
+        open: true
+    }
+};
+
+/** Now we define an event in our {@link chat.#channel} namespace.
+    @event chat."#channel"."op:announce-motd"
+ */
+
+</pre>
+</dd>
+</dl><p>
+Above is another example of namespaces with unusual members, in this case the "#channel" sub-namespace and the "op:announce-motd" event.
+To refer to these you just need to remember to quote the names: chat."#channel", chat."#channel"."op:announce-motd", and so on.
+</p>
+
+<dl class="example">
+<dt>Namespaces with unusual member names 3.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @namespace */
+var contacts = {
+    /** link with {@link contacts."say-\"hello\"@example.com"}.
+     * @namespace */
+    'say-"hello"@example.com': {
+        /** document me */
+        "username": 'Sue Smart'
+    }
+}
+
+</pre>
+</dd>
+</dl><p>
+Above is yet another example of a namespace with unusual characters in the member name.
+If the name already has quotes in it, you can escape them with a backslash: <code>contacts."say-\"hello\"@example.com</code>.
+</p>
+
+<dl class="example">
 <dt>A namespace with a type.</dt>
 <dd>
 <pre class="prettyprint lang-js">

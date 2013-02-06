@@ -177,7 +177,8 @@
 	<h1>@module</h1>
 
 <h3>Syntax</h3>
-<code>@module [&lt;ModuleName&gt;]</code>
+<code>@module [[{&lt;type&gt;}] &lt;ModuleName&gt;]</code>
+<p>Note: if you provide a type, you <em>must</em> also provide a name.</p>
 
 <h3>Overview</h3>
 
@@ -257,7 +258,18 @@ exports.darken = function (color, shade) {};
 Hence the two functions above will have names "module:color/mixer.blend" and "module:color/mixer.darken".
 </p>
 
-See <a href="howto-commonjs-modules.html">Documenting Javascript Modules</a> for further examples of using @module as a constructor, or documenting multiple modules in a file.
+<dl class="example">
+<dt>Module with a type</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @module {Number} one */
+
+/** This will be one.add. */
+exports.add = function (n) { return n + 1; };
+
+</pre>
+</dd>
+</dl>See <a href="howto-commonjs-modules.html">Documenting Javascript Modules</a> for further examples of using @module as a constructor, or documenting multiple modules in a file.
 
 <h3>See Also</h3>
 

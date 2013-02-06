@@ -4,7 +4,8 @@
     "description": "Document a JavaScript module."
 }-->
 <h3>Syntax</h3>
-<code>@module [&lt;ModuleName&gt;]</code>
+<code>@module [[{&lt;type&gt;}] &lt;ModuleName&gt;]</code>
+<p>Note: if you provide a type, you <em>must</em> also provide a name.</p>
 
 <h3>Overview</h3>
 
@@ -65,6 +66,13 @@ exports.darken = function (color, shade) {};
 <p>JSDoc recognises assigning to <code>module.exports</code> or <code>exports</code> as assigning to the module.
 Hence the two functions above will have names "module:color/mixer.blend" and "module:color/mixer.darken".
 </p>
+
+{{#example}}Module with a type
+/** @module {Number} one */
+
+/** This will be one.add. */
+exports.add = function (n) { return n + 1; };
+{{/example}}
 
 See <a href="howto-commonjs-modules.html">Documenting Javascript Modules</a> for further examples of using @module as a constructor, or documenting multiple modules in a file.
 

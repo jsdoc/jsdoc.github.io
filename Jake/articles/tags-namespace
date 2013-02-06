@@ -5,12 +5,13 @@
 }-->
 <h3>Syntax</h3>
 
-<code>@namespace [&lt;SomeName&gt;]</code>
+<code>@namespace [[{&lt;type&gt;}] &lt;SomeName&gt;]</code>
 
 <h3>Overview</h3>
 
 <p>
 The @namespace tag marks an object as being a namespace.
+If you wish to provide a type for the namespace, the name <em>must</em> also be specified.
 </p>
 
 <h3>Examples</h3>
@@ -32,6 +33,16 @@ var MyNamespace = {
 /** A function in MyNamespace (MyNamespace.myFunction)
  * @function myFunction
  * @memberof MyNamespace */
+{{/example}}
+
+{{#example}}A namespace with a type.
+/** To give a type for a namespace, the name has to be specified too.
+  @namespace {Number} one
+*/
+var one = new Number(1);
+
+/** @function */
+one.add = function (n) { return n + 1; }
 {{/example}}
 
 <h3>See Also</h3>

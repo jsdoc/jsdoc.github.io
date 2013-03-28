@@ -1,24 +1,27 @@
 <!--{
     "title":       "@requires",
     "out":         "tags-requires.html",
-    "description": "[todo] This JavaScript module requires another JavaScript module."
+    "description": "This JavaScript module requires another JavaScript module."
 }-->
+<h3>Syntax</h3>
+<code>@requires &lt;someModuleName&gt;</code>
+
 <h3>Overview</h3>
 
+<p>The @requires tag allows you to document that a module that is needed to use this code. 
+A doclet can have multiple @requires. The module name can be specified as "moduleName" or "module:moduleName"; both forms will be interpreted as modules.
+</p>
 <p>
+Note this is for the purpose of documentation only - JSDoc won't "include" it in any way when it does its parsing.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
-{{#example}}Example goes here
-// todo
+{{#example}}Usage of @requires.
+/** This will require module:foo/helper and module:foo/helper~Foo#bar.
+ * @requires module:foo/helper
+ * @requires foo/helper~Foo#bar this text will be ignored
+ */
+function bar() {
+}
 {{/example}}
-
-<h3>See Also</h3>
-
-<ul>
-    <li><a href="#">...</a></li>
-</ul>

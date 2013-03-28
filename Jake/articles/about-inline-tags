@@ -51,7 +51,7 @@ The @link, @linkcode and @linkplain tags allow links to other documented objects
 </p>
 <p>
 You need to use a symbol's full name to have it linked (e.g. <code>{@link MyNamespace.MyClass#property}</code> rather than <code>MyClass#property</code>). 
-Also, remember that <a href="tags-module.html">@module</a>s, <a href="tags-external.html">@external</a>s and <a href="tags-event.html">@event</a>s are prefixed by the tag name (e.g. "module:myModule").
+Also, remember that <a href="tags-module.html">@modules</a>, <a href="tags-external.html">@externals</a> and <a href="tags-event.html">@events</a> are prefixed by the tag name (e.g. "module:myModule").
 </p>
 
 {{#example}}Linking modules, externals and events.
@@ -65,6 +65,32 @@ Also, remember that <a href="tags-module.html">@module</a>s, <a href="tags-exter
  * @event module:foo/bar.event:MyEvent
  */
 {{/example}}
+
+{{#example}}Linking objects with special characters in the name.
+/** @namespace */
+var chat = {
+    /** Refer to this by {@link chat."#channel"}.
+     * @namespace */
+    "#channel": {
+        /** Refer to this by {@link chat."#channel".open}.
+         * @type {boolean}
+         * @defaultvalue */
+        open: true,
+        /** Internal quotes have to be escaped by backslash. This is
+         * {@link chat."#channel"."say-\"hello\""}. */
+        'say-"hello"': function (msg) {};
+    }
+};
+
+/** Now we define an event in our {@link chat.#channel} namespace.
+	@event chat."#channel"."op:announce-motd"
+ */
+{{/example}}
+<p>
+Above is an example of a namespace with "unusual" characters in its member names (the hash character, dashes, even quotes).
+To refer to these you just need quote the names: chat."#channel", chat."#channel"."op:announce-motd", and so on.
+Internal quotes in names should be escaped with backslashes: chat."#channel"."say-\"hello\"".
+</p>
 
 <h3 id="link" name="link">The @link tag</h3>
 {{#example}}Syntax

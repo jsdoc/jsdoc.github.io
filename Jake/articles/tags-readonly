@@ -1,24 +1,27 @@
 <!--{
     "title":       "@readonly",
     "out":         "tags-readonly.html",
-    "description": "[todo] This variable is meant to be readonly."
+    "description": "This variable is meant to be readonly."
 }-->
 <h3>Overview</h3>
 
-<p>
+<p>This marks that a member is intended to be read-only.
+Note this is for the purpose of documentation only - JSDoc won't check whether you've <em>actually</em> treated the variable as read-only in your code.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
-{{#example}}Example goes here
-// todo
+{{#example}}
+/** A constant.
+ * @readonly
+ * @const {number} */
+const FOO = 1;
 {{/example}}
 
-<h3>See Also</h3>
-
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+{{#example}}
+/** @class */
+function MyClass() {
+    /** @readonly */
+    this.foo = 1;
+}
+{{/example}}

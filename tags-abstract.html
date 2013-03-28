@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="This member is meant to be public."><title>Use JSDoc: @public</title>
+	<meta name="description" content="This member is meant to be abstract."><title>Use JSDoc: @abstract</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -174,42 +174,33 @@
 	</nav>
 	
 	<article>
-	<h1>@public</h1>
+	<h1>@abstract</h1>
+
+<h3>Synonyms</h3>
+<ul>
+ <li>@virtual</li>
+</ul>
 
 <h3>Overview</h3>
 
-<p>The @public tag indicates that a variable should be documented as if it were public.
-</p>
-<p>
-This tag doesn't really do anything - all doclets are public by default anyway, so leaving the tag out is the same as putting it in.
-All @public does is negate a @protected or @private. 
-It <em>doesn't</em> affect scopes; <a href="tags-instance.html">@instance</a>, <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a> and <a href="tags-global.html">@global</a> do that.
+<p>This marks an object as being abstract.
 </p>
 
 <h3>Examples</h3>
 
 <dl class="example">
-<dt></dt>
+<dt>Example</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/** @class */
+/** @constructor */
 function Thingy() {
-    /** The @public doesn't really do anything - this is still Thingy~foo.
-     * @public */
-    var foo = 0;
+    /** @abstract */
+    this.pez = 2;
 }
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
-
-<ul>
-    <li><a href="tags-protected.html">@protected</a></li>
-    <li><a href="tags-private.html">@private</a></li>
-    <li><a href="tags-access.html">@access</a> which encompasses @private, @protected and @public.</li>
-    <li><a href="tags-instance.html">@instance</a>, <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a> and <a href="tags-global.html">@global</a> for modifying the <em>scope</em> of a doclet.</li>
-</ul>
-
+</dl>
     </article>
     
     <footer>

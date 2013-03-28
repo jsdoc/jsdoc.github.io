@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Document a custom type."><title>Use JSDoc: @typedef</title>
+	<meta name="description" content="Document a custom type."><title>Use JSDoc: @typedef</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,102 @@
 	<article>
 	<h1>@typedef</h1>
 
+<h3>Synonyms</h3>
+<ul>
+ <li><a href="tags-callback.html">@callback</a> is equivalent to <code>@typedef {function}</code></li>
+</ul>
+
+<h3>Syntax</h3>
+<code> 
+@typedef [&lt;type&gt;] &lt;namepath&gt;
+</code>
+
 <h3>Overview</h3>
 
 <p>
+The @typedef tag is handy for documenting custom types, particulary if you wish to use them repeatedly.
+These types can then be used within other tags expecting a type, like <a href="tags-type.html">@type</a> or <a href="tags-param.html">@param</a>.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>@typedef example.</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/** @typedef {(number|string)} NumberLike */
+
+/** @param {NumberLike} x - a number or a string. */
+function readNumber(x) {
+}
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><p>
+ In the above example we store the "(number|string)" in a type called "NumberLike".
+ Then, whenever we want to refer to a type that is a number or string, we can instead write NumberLike.
+ This is particularly handy if we use this type over and over again within our code - instead of writing "(number|string)" each time, one can just write "NumberLike".
+</p>
+
+<dl class="example">
+<dt>Using @typedef to document an object type</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** This is a datatype that is an object with properties 'a' and 'b'
+ *  holding a string and a number respectively.
+ * @typedef {Object} MyDataType
+ * @property {string} a - explain here.
+ * @property {number} b - explain here.
+ */
+
+// now let's use our new type in another doclet.
+// it will link to the documentation for MyDataType.
+/** My function.
+ * @param {MyDataType} x - explain here.
+ */
+function myFunction(x) {
+}
+
+</pre>
+</dd>
+</dl><p>
+ The above is a slightly more complex example where our custom type is an Object with a number of properties.
+ Some people like using this pattern to document parameters to a function that are objects, as opposed to using "@param  x - a is ..., b is ..., and x is used for ...". There are other ways to document a type that is an object when it is used in the @param tag; see the <a href="tags-param.html#documenting-objects">@param examples</a> for these.
+
+<dl class="example">
+<dt>Special case: callbacks</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/**
+ * Does something asynchronously, calling the callback on completion.
+ * @param {requestCallback} cb - The callback that handles the response.
+ */
+function doSomethingAsynchronously(cb) {
+    // code
+};
+
+/**
+ * This callback is displayed as a global member.
+ * @typedef {function} requestCallback
+ * @param {number} responseCode
+ * @param {string} responseMessage
+ */
+// Note - could have done @callback requestCallback instead.
+
+</pre>
+</dd>
+</dl><p>The above shows one way of documenting a callback, by making a custom typedef for it and setting its type to function.
+The <a href="tags-callback.html">@callback</a> tag is a shorthand for "@typedef {function}" and either form could be used here.
+</p>
+
+<h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-callback.html">@callback</a></li>
+    <li><a href="tags-type.html">@type</a></li>
+    <li><a href="tags-param.html">@param</a></li>
 </ul>
+
     </article>
     
     <footer>

@@ -1,24 +1,49 @@
 <!--{
     "title":       "@instance",
     "out":         "tags-instance.html",
-    "description": "[todo] Document an instance member."
+    "description": "Document an instance member."
 }-->
 <h3>Overview</h3>
+<p>
+Using the @instance tag will mark a symbol as an instance member of its parent symbol.
+This means it can be referred to by "Parent#Child".
+</p>
 
 <p>
+Using '@instance' will override a doclet's default scope (unless it is in the global scope, in which case it will remain global).
 </p>
 
 <h3>Examples</h3>
 
+{{#example}}Using @instance to make a virtual doclet an instance member
+/** @namespace MyNamespace */
+/** myFunction is now MyNamespace#myFunction.
+ * @function myFunction
+ * @memberof MyNamespace
+ * @instance
+ */
+{{/example}}
 <p>
+Note that in the above we could have used "@function MyNamespace#myFunction" and skipped the @memberof and @instance tags instead.
 </p>
 
-{{#example}}Example goes here
-// todo
+{{#example}}Using @instance
+/** @namespace */
+var MyNamespace = {
+    /** foo is now MyNamespace#foo rather than MyNamespace.foo.
+     * @instance */
+    foo: 1
+};
 {{/example}}
+
+<p>
+In the above example, we use @instance to force a member of a namespace to be documented as an instance member (by default, it would be a static member). This means that <code>foo</code> now has longname <code>MyNamespace#foo</code> instead of <code>MyNamespace.foo</code> that it would have been otherwise.
+</p>
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-instance.html">@instance</a> which marks a symbol as an instance member (Parent~Child).</li>
+    <li><a href="tags-global.html">@global</a> which marks a symbol as global (Child).</li>
+    <li><a href="tags-static.html">@static</a> which marks a symbol as a static member (Parent.Child)</li>
 </ul>

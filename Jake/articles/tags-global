@@ -24,3 +24,11 @@ Use the @global tag to specify that a symbol should be documented as global.
 }).apply(window);
 {{/example}}
 
+<h3>See Also</h3>
+
+<ul>
+    <li><a href="tags-inner.html">@inner</a> which marks a symbol as an inner member (Parent~Child).</li>
+    <li><a href="tags-instance.html">@instance</a> which marks a symbol as an instance member (Parent#Child).</li>
+    <li><a href="tags-static.html">@static</a> which marks a symbol as a static member (Parent.Child)</li>
+    <li><a href="tags-memberof.html">@memberof! &lt;global&gt;</a>, same as @global</li>
+</ul>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="This member is meant to be public."><title>Use JSDoc: @public</title>
+	<meta name="description" content="Distinguish different objects with the same name."><title>Use JSDoc: @variation</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -174,42 +174,86 @@
 	</nav>
 	
 	<article>
-	<h1>@public</h1>
+	<h1>@variation</h1>
+
+<h3>Syntax</h3>
+<code>@variation &lt;variationNumber&gt;</code>
 
 <h3>Overview</h3>
 
-<p>The @public tag indicates that a variable should be documented as if it were public.
+<p>Sometimes there might be multiple different symbols with the same longname. For example, you might have both a global class and a namespace called <code>Foo</code>.
+In cases such as these, what does "{@link Foo}" or "@memberof Foo" mean? The global namespace, or the global class?
 </p>
+
 <p>
-This tag doesn't really do anything - all doclets are public by default anyway, so leaving the tag out is the same as putting it in.
-All @public does is negate a @protected or @private. 
-It <em>doesn't</em> affect scopes; <a href="tags-instance.html">@instance</a>, <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a> and <a href="tags-global.html">@global</a> do that.
+Variations provide a way to distinguish between different objects with the same longname within JSDoc.
+For example, if I add "@variation 2" to the class Foo's doclet, then "{@link Foo(2)}" will refer to the class Foo, and "{@link Foo}" will refer to the namespace Foo. The varation only exists at the documentation-level; in the generated output you will not see the "(2)" anywhere.
+</p>
+
+<p>
+Alternatively, one can specify the variation while they specify the doclet's name, as in "@name Foo(2)".
+</p>
+
+<p>
+All that is required is that the combination of the doclet's longname and its variation is unique (i.e. the @variation value should be different within all objects with the same longname).
 </p>
 
 <h3>Examples</h3>
-
+<p>
+In the below example, we have a global namespace <code>foo</code> and a global class <code>foo</code>.
+We use variations to distinguish between the two.
+</p>
 <dl class="example">
-<dt></dt>
+<dt>Example</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/** @class */
-function Thingy() {
-    /** The @public doesn't really do anything - this is still Thingy~foo.
-     * @public */
-    var foo = 0;
-}
+/** A namespace.
+ * @namespace foo
+ */
+/** A global class.
+ * @class foo
+ * @variation 2
+ */
+
+/** A method in class foo (foo#classMethod). We need to use foo(2) in the memberof tag
+ *  so JSDoc knows which foo we're talking about.
+ * @method classMethod
+ * @instance
+ * @memberof foo(2)
+ */
+/** A function in the *namespace* foo (foo.namespaceMethod)
+ * @method namespaceMethod
+ * @memberof foo
+ */
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><p>
+The below example is the same as the previous, but takes use of JSDoc's naming mechanism to combine some of the tags (reduce the typing).
+</p>
 
-<ul>
-    <li><a href="tags-protected.html">@protected</a></li>
-    <li><a href="tags-private.html">@private</a></li>
-    <li><a href="tags-access.html">@access</a> which encompasses @private, @protected and @public.</li>
-    <li><a href="tags-instance.html">@instance</a>, <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a> and <a href="tags-global.html">@global</a> for modifying the <em>scope</em> of a doclet.</li>
-</ul>
+<dl class="example">
+<dt>Example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** A namespace.
+ * @namespace foo
+ */
+/** A global class.
+ * @class foo(2)
+ */
 
+/** A method in class foo (foo#classMethod). We need to use foo(2) in the memberof tag
+ *  so JSDoc knows which foo we're talking about.
+ * @method foo(2)#classMethod
+ */
+/** A function in the *namespace* foo (foo.namespaceMethod)
+ * @method foo.namespaceMethod
+ */
+
+</pre>
+</dd>
+</dl>
     </article>
     
     <footer>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[IN PROGRESS] Inline tag - create a link."><title>Use JSDoc: @link</title>
+	<meta name="description" content="Inline tag - create a link."><title>Use JSDoc: @link</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -277,6 +277,37 @@ Also check out <a href="http://www.google.com">google</a> and <a href="http://gi
 </p>
 
 <dl class="example">
+<dt>Linking to unusually-named objects.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @namespace */
+var chat = {
+    /** Refer to this by {@link chat."#channel"}.
+     * @namespace */
+    "#channel": {
+        /** Refer to this by {@link chat."#channel".open}.
+         * @type {boolean}
+         * @defaultvalue */
+        open: true,
+        /** Internal quotes have to be escaped by backslash. This is
+         * {@link chat."#channel"."say-\"hello\""}. */
+        'say-"hello"': function (msg) {};
+    }
+};
+
+/** Now we define an event in our {@link chat.#channel} namespace.
+    @event chat."#channel"."op:announce-motd"
+ */
+
+</pre>
+</dd>
+</dl><p>
+Above is an example of a namespace with "unusual" characters in its member names.
+To refer to these you just need quote the names: chat."#channel", chat."#channel"."op:announce-motd", and so on.
+Internal quotes in names should be escaped with backslashes: chat."#channel"."say-\"hello\"".
+</p>
+
+<dl class="example">
 <dt>Example with @linkplain and @linkcode</dt>
 <dd>
 <pre class="prettyprint lang-js">
@@ -319,6 +350,7 @@ This is a link to <a href="http://www.github.com"><code>Github</code></a>, but w
     <li><a href="tags-tutorial.html">{@tutorial ...}</a></li>
     <li><a href="about-inline-tags.html">About Inline tags</a></li>
     <li><a href="about-configuring-jsdoc.html#configuration-file-templates">Configuring JSDoc</a></li>
+    <li><a href="about-namepaths.html">About namepaths</a></li>
 </ul>
 
     </article>

@@ -1,24 +1,26 @@
 <!--{
     "title":       "@since",
     "out":         "tags-since.html",
-    "description": "[todo] When was this feature added?"
+    "description": "When was this feature added?"
 }-->
+<h3>Syntax</h3>
+<code>@since versionDescription</code>
+
 <h3>Overview</h3>
 
-<p>
+<p>The @since tag indicates that a method or property of another class has been added at a given version number.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
-{{#example}}Example goes here
-// todo
+{{#example}}
+/** @since version 1.0.1 */
+function foo() {
+}
 {{/example}}
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+	<li><a href="tags-version.html">@version</a></li>
 </ul>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Document a namespace object."><title>Use JSDoc: @namespace</title>
+	<meta name="description" content="Document a namespace object."><title>Use JSDoc: @namespace</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,132 @@
 	<article>
 	<h1>@namespace</h1>
 
+<h3>Syntax</h3>
+
+<code>@namespace [[{&lt;type&gt;}] &lt;SomeName&gt;]</code>
+
 <h3>Overview</h3>
 
 <p>
+The @namespace tag marks an object as being a namespace.
+If you wish to provide a type for the namespace, the name <em>must</em> also be specified.
 </p>
 
 <h3>Examples</h3>
 
-<p>
+<dl class="example">
+<dt>Defining a namespace as an object.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** A namespace.
+ * @namespace */
+var MyNamespace = {
+    /** MyNamespace.foo */
+    foo: function () {},
+    /** MyNamespace.bar */
+    bar: 1
+};
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt>Defining a namespace virtually.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** A namespace.
+ * @namespace MyNamespace */
+/** A function in MyNamespace (MyNamespace.myFunction)
+ * @function myFunction
+ * @memberof MyNamespace */
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt>Namespaces with unusual member names.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @namespace window */
+
+/** Shorthand for the alert function.
+ * Refer to it as {@link window."!"} (note the quotes).
+ */
+window["!"] = function (msg) { alert(msg); };
+
+</pre>
+</dd>
+</dl><p>
+When a member of a namespace has an unusual name (like '!' in the example above), use quotes to refer to it.
+To refer to <code>window["!"]</code> we would use <code>window."!"</code>, e.g. {@link window."!"}.
 </p>
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Namespaces with unusual member names 2.</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/** @namespace */
+var chat = {
+    /** Refer to this by {@link chat."#channel"}.
+     * @namespace */
+    "#channel": {
+        /** Refer to this by {@link chat."#channel".open}.
+         * @type {boolean}
+         * @defaultvalue */
+        open: true
+    }
+};
+
+/** Now we define an event in our {@link chat.#channel} namespace.
+    @event chat."#channel"."op:announce-motd"
+ */
+
+</pre>
+</dd>
+</dl><p>
+Above is another example of namespaces with unusual members, in this case the "#channel" sub-namespace and the "op:announce-motd" event.
+To refer to these you just need to remember to quote the names: chat."#channel", chat."#channel"."op:announce-motd", and so on.
+</p>
+
+<dl class="example">
+<dt>Namespaces with unusual member names 3.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @namespace */
+var contacts = {
+    /** link with {@link contacts."say-\"hello\"@example.com"}.
+     * @namespace */
+    'say-"hello"@example.com': {
+        /** document me */
+        "username": 'Sue Smart'
+    }
+}
+
+</pre>
+</dd>
+</dl><p>
+Above is yet another example of a namespace with unusual characters in the member name.
+If the name already has quotes in it, you can escape them with a backslash: <code>contacts."say-\"hello\"@example.com</code>.
+</p>
+
+<dl class="example">
+<dt>A namespace with a type.</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** To give a type for a namespace, the name has to be specified too.
+  @namespace {Number} one
+*/
+var one = new Number(1);
+
+/** @function */
+one.add = function (n) { return n + 1; }
 
 </pre>
 </dd>
 </dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-module.html">@module</a></li>
 </ul>
+
     </article>
     
     <footer>

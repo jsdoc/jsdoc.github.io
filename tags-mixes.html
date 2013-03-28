@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] This object mixes in all the members from another object."><title>Use JSDoc: @mixes</title>
+	<meta name="description" content="This object mixes in all the members from another object."><title>Use JSDoc: @mixes</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,100 @@
 	<article>
 	<h1>@mixes</h1>
 
+<h3>Syntax</h3>
+<code>@mixes &lt;OtherObjectPath&gt;</code>
+
 <h3>Overview</h3>
 
 <p>
+The @mixes tag indicates that the current object mixes in all the members from <code>OtherObjectPath</code>, which is a <a href="tags-mixin.html">@mixin</a>.
 </p>
 
 <h3>Examples</h3>
-
 <p>
+To start we document a mixin with the <a href="tags-mixin.html">@mixin</a> tag (as a side note - we could have documented the <code>handler</code> paremeter to <code>Eventful.on</code> using the <a href="tags-callback.html">@callback</a> tag).
 </p>
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Example of a @mixin</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/**
+ * This provides methods used for event handling. It's not meant to
+ * be used directly, except as a provider of related methods.
+ *
+ * @mixin
+ */
+var Eventful = {
+    /** Register a handler function to be called whenever this event is fired.
+     * @param {string} eventName - name of the event
+     * @param {function(object)} handler - the handler to be called.
+     */
+    on: function(eventName, handler) {
+        // code...
+    },
+   
+    /** Fires an event, causing all handlers for that event name to run.
+     * @param {string} eventName - name of the event 
+     * @param {object} eventData - passed into each handler.
+     */
+    fire: function(eventName, eventData) {
+        // code...
+    }
+};
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><p>
+Now we create a class <code>FormButton</code> and mix all of Eventful's functions into it so that FormButton can also fire events and have listeners to these. 
+This is where we use the @mixes tag.
+</p>
+
+<dl class="example">
+<dt>@mixes example</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/**
+ * @constructor FormButton
+ * @mixes Eventful
+ */
+var FormButton = function() {
+    // code...
+};
+FormButton.prototype.press = function() {
+  this.fire('press', {});
+}
+mix(Eventful).into(FormButton.prototype);
+
+function mix(source) {
+  return {into: function(target) {
+    for (var property in source) {
+      if( !(property in {}) ) {
+        target[property] = source[property]
+      }
+    }
+    return this;
+  }};
+}
+
+</pre>
+</dd>
+</dl><p>
+Note that like all JSDoc tags, @mixes affects the documentation only; we still have to actually mix Eventful's functions into FormButton in the code ourselves somehow.
+</p>
+
+<p>
+Also, this <b>doesn't</b> allow you to refer to "{@link FormButton#on}" or "{@link FormButton#fire}" (yet, &lt;=JSDoc 3.1); all it does in the default template is add a "Mixes" section to FormButton's page, giving a link to the Eventful mixin.
+</p>
+
+<h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-mixin.html">@mixin</a></li>
+    <li><a href="tags-borrows.html">@borrows</a></li>
+    <li><a href="tags-constructor.html">@class</a></li>
 </ul>
+
     </article>
     
     <footer>

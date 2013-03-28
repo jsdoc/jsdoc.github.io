@@ -10,9 +10,9 @@
 
 <h3>Syntax</h3>
 <code>
- @exception free-form description<br />
- @exception {&lt;type&gt;}<br />
- @exception {&lt;type&gt;} free-form description
+ @throws free-form description<br />
+ @throws {&lt;type&gt;}<br />
+ @throws {&lt;type&gt;} free-form description
 </code>
 
 <h3>Overview</h3>
@@ -32,7 +32,7 @@ function foo(x) {
 
 {{#example}}
 /**
- * @exception Will throw an error if the argument is null.
+ * @throws Will throw an error if the argument is null.
  */
 function bar() {
 }
@@ -40,7 +40,7 @@ function bar() {
 
 {{#example}}
 /**
- * @exception {DivideByZero} Argument x must be non-zero.
+ * @throws {DivideByZero} Argument x must be non-zero.
  */
 function baz(x) {
 }

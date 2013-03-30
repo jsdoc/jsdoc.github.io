@@ -59,16 +59,16 @@ The above adds documentation for the String class as an external, allowing <code
 
 {{#example}}Extending an external.
 /**                                                                             
-    Namespace provided by the browser.                                          
-    @external XMLHttpRequest                                                    
-    @see https://developer.mozilla.org/en/xmlhttprequest                        
+ * Namespace provided by the browser.                                          
+ * @external XMLHttpRequest                                                    
+ * @see https://developer.mozilla.org/en/xmlhttprequest                        
  */                                                                             
                                                                                 
 /**                                                                             
-    Extends the built in XMLHttpRequest to send data encoded with a secret key. 
-    @class EncryptedRequest                                                     
-    @extends external:XMLHttpRequest                                            
-*/
+ * Extends the built in XMLHttpRequest to send data encoded with a secret key.
+ * @class EncryptedRequest
+ * @extends external:XMLHttpRequest
+ */
 {{/example}}
 <p>One can even <a href="tags-augments.html">@extend</a> an external. <code>EncryptedRequest</code> is a class that extends (external) <code>XMLHttpRequest</code>.
 </p>

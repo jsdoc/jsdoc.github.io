@@ -23,9 +23,9 @@
 
 {{#example}}A function that constructs Person instances.
 /**
-    Creates a new Person.
-    @constructor 
-*/ 
+ * Creates a new Person.
+ *@constructor 
+ */ 
 Person = function() {
 }
 

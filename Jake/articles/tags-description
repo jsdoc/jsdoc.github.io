@@ -26,10 +26,10 @@ The @desc (or it's synonym @description) is the default tag in JSDoc, so if no o
 
 {{#example}}A tagless description is allowed if no other tag is in effect
 /**
-    Add two numbers.
-    @param {number} a
-    @param {number} b
-    @returns {number}
+ * Add two numbers.
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
  */
 function add(a, b) {
     return a+b;
@@ -42,10 +42,10 @@ If any other tag has previously been used in a given doc comment, then you must 
 
 {{#example}}A @desc tag is necessary if any other tag is in effect
 /**
-    @param {number} a
-    @param {number} b
-    @returns {number}
-    @desc Add two numbers.
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
+ * @desc Add two numbers.
  */
 function add(a, b) {
     return a+b;

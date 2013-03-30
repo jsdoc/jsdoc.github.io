@@ -34,8 +34,8 @@ var Person = makeClass(
 {{#example}}Whithout @lends you must provide the name of the class
 makeClass('Menu', 
     /**
-        @constructs Menu
-        @param items
+     * @constructs Menu
+     * @param items
      */
     function (items) { },
     {

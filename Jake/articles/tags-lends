@@ -89,8 +89,8 @@ var Person = makeClass(
 {{#example}} Documented constructor
 var Person = makeClass(
     /**
-      @lends Person.prototype
-    */
+     * @lends Person.prototype
+     */
     {
         /** @constructs */
         initialize: function(name) {

@@ -193,8 +193,8 @@ In cases where you are using the special "exports" namespace, the <code>@exports
 <dd>
 <pre class="prettyprint lang-js">
 /**
-    A module that says hello!
-    @module hello/world
+ * A module that says hello!
+ * @module hello/world
  */
 
 /** Say Hello. */
@@ -211,8 +211,8 @@ exports.sayHello = function() {
 define(function () {
 
     /**
-        A module that says hello!
-        @module hello/world
+     * A module that says hello!
+     * @module hello/world
      */
     var exports = {};
     
@@ -231,14 +231,14 @@ define(function () {
 <dd>
 <pre class="prettyprint lang-js">
 define(function() {
-     /**
-        A module that creates greeters.
-        @module greeter
+    /**
+     * A module that creates greeters.
+     * @module greeter
      */
      
     /**
-        @constructor
-        @param {string} subject - Whom to greet.
+     * @constructor
+     * @param {string} subject - Whom to greet.
      */
     var exports = function(subject) {
         this.subject = subject || 'world';
@@ -265,8 +265,8 @@ If you are exporting an object named anything other than "exports", use the <cod
 define(function () {
 
     /**
-        A module that says hello!
-        @exports hello/world
+     * A module that says hello!
+     * @exports hello/world
      */
     var ns = {};
     

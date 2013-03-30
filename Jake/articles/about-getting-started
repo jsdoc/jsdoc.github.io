@@ -35,8 +35,8 @@ Special "documentation tags" can be used to give more information. For example, 
 
 {{#example}}Use a documentation tag to describe your code.
 /**
-    Represents a book.
-    @constructor
+ * Represents a book.
+ * @constructor
  */
 function Book(title, author) {
 }
@@ -48,10 +48,10 @@ More tags can be used to add more information. See the Tag Dictionary for a comp
 
 {{#example}}Adding more information with tags.
 /**
-    Represents a book.
-    @constructor
-    @param {string} title - The title of the book.
-    @param {string} author - The author of the book.
+ * Represents a book.
+ * @constructor
+ * @param {string} title - The title of the book.
+ * @param {string} author - The author of the book.
  */
 function Book(title, author) {
 }

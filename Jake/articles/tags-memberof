@@ -34,7 +34,7 @@ var hammer = function() {
 
 Tools.hammer = hammer;
 {{/example}}
-<p>Without the @memberOf tag, the <code>hammer</code> function would be documented as a global function.
+<p>Without the @memberof tag, the <code>hammer</code> function would be documented as a global function.
 That's because, in fact, it is a global function, but it is also a member of the <code>Tools</code> namespace as well, and that's how you wish to document it.
 </p>
 
@@ -43,16 +43,22 @@ That's because, in fact, it is a global function, but it is also a member of the
 create(
     'Observable',
     {
-        /** This will be a static member Observable.cache.
-         * @memberof Observable */
+        /**
+         * This will be a static member Observable.cache.
+         * @memberof Observable
+         */
         cache: [],
 
-        /** This will be an instance member Observable#publish.
-         * @memberof Observable.prototype */
+        /**
+         * This will be an instance member Observable#publish.
+         * @memberof Observable.prototype
+         */
         publish: function(msg) {},
 
-        /** This will also be an instance member Observable#save.
-         * @memberof Observable# */
+        /**
+         * This will also be an instance member Observable#save.
+         * @memberof Observable#
+         */
         save: function() {}
     }
 );
@@ -63,21 +69,24 @@ Alternatively, we could have used "@memberof Observable" with "@instance".
 </p>
 
 {{#example}} Using @memberof! [someOtherObject].
- /** @class */
- function Data() {
-     /** @type {object}
-         @property {number} y This will show up as a property of Data#point but won't be linkable. */
-     this.point = {
-         /** This forces this member to have name `point.x` (rather than `x`)
-             and also to be a memberof Data#. This means {@link Data#point.x}
-             will work.
-             @name point.x
-             @memberof! Data#
+/** @class */
+function Data() {
+    /**
+     * @type {object}
+     * @property {number} y This will show up as a property of Data#point but won't be linkable.
+     */
+    this.point = {
+        /**
+         * This forces this member to have name `point.x` (rather than `x`)
+         * and also to be a memberof Data#. This means {@link Data#point.x}
+         * will work.
+         * @name point.x
+         * @memberof! Data#
          */
-         x: 0,
-         y: 1
-     };
- }
+        x: 0,
+        y: 1
+    };
+}
 {{/example}}
 <p>In the above example we use the forced memberof tag "@memberof!" to document a property of an object that is a member of a class.
 Note that the Data#point has properties x and y.
@@ -98,14 +107,14 @@ To achieve this, we force Data#point.x to have name "point.x" and be a member of
 {{#example}}Using @memberof! <global>.
 var map = {
     /**
-        @type {Array}
-        @name map.routes
-        @memberof! <global>
+     * @type {Array}
+     * @name map.routes
+     * @memberof! <global>
      */
     routes: []
-}
+};
 {{/example}}
-<p>The forced memberof tag can also be used with special parent path "&lt;global&gt;" to mark an object as being global even if it has a nested-type name.
+<p>The forced @memberof tag can also be used with special parent path "&lt;global&gt;" to mark an object as being global even if it has a nested-type name.
 In the above example, <code>map.routes</code> is a global object. 
 If we just used "@memberof" instead of "@memberof!", JSDoc would have tried to document object <code>routes</code> in object <code>map</code> which is global, but since <code>map</code> is not documented <code>map.routes</code> wouldn't appear in the output. We also have to force the doclet's name to be "map.routes", or else it would show up with name "routes".
 </p>
@@ -118,8 +127,10 @@ var MyNamespace = {};
 var bar;
 MyNamespace.bar = bar;
 
-/** We could have just written the following instead to create MyNamespace.bar:
- * @name MyNamespace.bar */
+/**
+ * We could have just written the following instead to create MyNamespace.bar:
+ * @name MyNamespace.bar
+ */
 {{/example}}
 
 <p>In the above example, first we use @memberof to mark <code>bar</code> as a member of <code>MyNamespace</code>, i.e. <code>MyNamespace.bar</code>. However, we could also have just written <code>@name MyNamespace.bar</code> which achieves the same thing.

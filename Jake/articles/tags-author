@@ -31,9 +31,3 @@ function wobble() {
     <li><a href="tags-version.html">@version</a></li>
 	<li><a href="tags-file.html">@file</a></li>
 </ul>
-
-<h5>Contributers to these docs</h5>
-
-<ul>
-    <li><a href="https://github.com/matthewkastor">matthewkastor</a></li>
-</ul>

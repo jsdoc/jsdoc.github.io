@@ -185,8 +185,8 @@
 </p>
 
 <p>
-Note that a doclet's <em>access level</em> is different to its <em>scope</em>; an inner variable documented as (say) @public will still be inner and still be referred to as "Parent~child".
-To change a doclet's scope, see the <a href="tags-instance.html">@instance</a>, <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a> and <a href="tags-global.html">@global</a> tags.
+Note that a doclet's <em>access level</em> is different from its <em>scope</em>. For example, if "Parent" has an inner variable "child" that is documented as @public, "child" will still be treated as an inner variable with the namepath "Parent~child".
+To change a doclet's scope, see the <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a>, and <a href="tags-global.html">@global</a> tags.
 </p>
 
 <h3>Examples</h3>
@@ -233,7 +233,7 @@ function OtherThingy() {
     <li><a href="tags-private.html">@private</a> and the <a href="about-commandline.html">--private command-line option</a>.</li>
     <li><a href="tags-protected.html">@protected</a></li>
     <li><a href="tags-public.html">@public</a></li>
-    <li><a href="tags-instance.html">@instance</a>, <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a> and <a href="tags-global.html">@global</a> for modifying the <em>scope</em> of a doclet.</li>
+    <li><a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a> and <a href="tags-global.html">@global</a> for modifying the <em>scope</em> of a doclet.</li>
 </ul>
 
     </article>

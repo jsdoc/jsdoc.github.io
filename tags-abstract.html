@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="This member is meant to be abstract."><title>Use JSDoc: @abstract</title>
+	<meta name="description" content="This member must be implemented (or overridden) by the inheritor."><title>Use JSDoc: @abstract</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -183,20 +183,47 @@
 
 <h3>Overview</h3>
 
-<p>This marks an object as being abstract.
+<p>
+The @abstract tag identifies members that must be implemented (or overridden) by objects that
+inherit the member.
 </p>
 
-<h3>Examples</h3>
+<h3>Example</h3>
 
 <dl class="example">
-<dt>Example</dt>
+<dt>Parent class with abstract method, and child class that implements the method</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/** @constructor */
-function Thingy() {
-    /** @abstract */
-    this.pez = 2;
-}
+/**
+ * Generic dairy product.
+ * @constructor
+ */
+function DairyProduct() {}
+
+/**
+ * Check whether the dairy product is solid at room temperature.
+ * @abstract
+ * @return {boolean}
+ */
+DairyProduct.prototype.isSolid = function() {
+    throw new Error('must be implemented by subclass!');	
+};
+
+
+/**
+ * Cool, refreshing milk.
+ * @constructor
+ * @augments DairyProduct
+ */
+function Milk() {}
+
+/**
+ * Check whether milk is solid at room temperature.
+ * @return {boolean} Always returns true.
+ */
+Milk.prototype.isSolid = function() {
+    return true;
+};
 
 </pre>
 </dd>

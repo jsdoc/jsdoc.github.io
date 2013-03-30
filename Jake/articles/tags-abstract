@@ -1,7 +1,7 @@
 <!--{
     "title":       "@abstract",
     "out":         "tags-abstract.html",
-    "description": "This member is meant to be abstract."
+    "description": "This member must be implemented (or overridden) by the inheritor."
 }-->
 <h3>Synonyms</h3>
 <ul>
@@ -10,15 +10,42 @@
 
 <h3>Overview</h3>
 
-<p>This marks an object as being abstract.
+<p>
+The @abstract tag identifies members that must be implemented (or overridden) by objects that
+inherit the member.
 </p>
 
-<h3>Examples</h3>
+<h3>Example</h3>
 
-{{#example}}Example
-/** @constructor */
-function Thingy() {
-    /** @abstract */
-    this.pez = 2;
-}
+{{#example}}Parent class with abstract method, and child class that implements the method
+/**
+ * Generic dairy product.
+ * @constructor
+ */
+function DairyProduct() {}
+
+/**
+ * Check whether the dairy product is solid at room temperature.
+ * @abstract
+ * @return {boolean}
+ */
+DairyProduct.prototype.isSolid = function() {
+	throw new Error('must be implemented by subclass!');	
+};
+
+
+/**
+ * Cool, refreshing milk.
+ * @constructor
+ * @augments DairyProduct
+ */
+function Milk() {}
+
+/**
+ * Check whether milk is solid at room temperature.
+ * @return {boolean} Always returns true.
+ */
+Milk.prototype.isSolid = function() {
+	return true;
+};
 {{/example}}

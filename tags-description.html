@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Describe the object."><title>Use JSDoc: @desc</title>
+	<meta name="description" content="Describe a symbol."><title>Use JSDoc: @desc</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -188,17 +188,20 @@
 <h3>Overview</h3>
 
 <p>
-The @desc tag allows you to provide a general description of the symbol you are documenting. The text can be in the form of HTML or, if you have enabled the markdown plugin, it can be formatted as one of the various flavors or MarkDown.
+The @desc tag allows you to provide a general description of the symbol you are documenting. The
+description may include HTML markup. It may also include Markdown formatting if the
+<a href="plugins-markdown.html">Markdown plugin</a> is enabled.
 </p>
 
 <h3>Examples</h3>
 
 <p>
-The @desc (or it's synonym @description) is the default tag in JSDoc, so if no other tag is in effect you can just start writing your description text.
+If you describe a symbol at the very beginning of a JSDoc comment, before using any block tags, you
+may omit the @desc tag.
 </p>
 
 <dl class="example">
-<dt>A tagless description is allowed if no other tag is in effect</dt>
+<dt>Describing a symbol without the @desc tag</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
@@ -208,17 +211,17 @@ The @desc (or it's synonym @description) is the default tag in JSDoc, so if no o
  * @returns {number}
  */
 function add(a, b) {
-    return a+b;
+    return a + b;
 }
 
 </pre>
 </dd>
 </dl><p>
-If any other tag has previously been used in a given doc comment, then you must use a @desc tag if you wish to provide a description.
+By using the @desc tag, you can place the description anywhere in the JSDoc comment.
 </p>
 
 <dl class="example">
-<dt>A @desc tag is necessary if any other tag is in effect</dt>
+<dt>Describing a symbol with the @desc tag</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
@@ -228,7 +231,7 @@ If any other tag has previously been used in a given doc comment, then you must 
  * @desc Add two numbers.
  */
 function add(a, b) {
-    return a+b;
+    return a + b;
 }
 
 </pre>

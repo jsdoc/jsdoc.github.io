@@ -187,15 +187,14 @@
 <h3>Overview</h3>
 
 <p>
-The @member tag documents a member (as opposed to a @class or a @function or a ...).
-It can optionally have a type as well as a name. 
-This is the generic kind all objects get unless they have a more specific kind (@class, @function, @constant, ...).
+The @member tag identifies any member that does not have a more specialized kind, such as "class",
+"function", or "constant". A member can optionally have a type as well as a name. 
 </p>
 
 <h3>Examples</h3>
 
 <dl class="example">
-<dt>Using @member to mark Data#point.</dt>
+<dt>Using @member with Data#point</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /** @class */
@@ -206,25 +205,30 @@ function Data() {
 
 </pre>
 </dd>
-</dl><p>Here is an example of using @member to document a (virtual) variable 'foo'.
+</dl><p>Here is an example of using @var, a synonym of @member, to document a (virtual) variable 'foo'.
 </p>
 
 <dl class="example">
-<dt>Using @member to document a virtual member.</dt>
+<dt>Using @member to document a virtual member</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/** A variable in the global namespace called 'foo'.
- * @var {number} foo */
+/**
+ * A variable in the global namespace called 'foo'.
+ * @var {number} foo
+ */
 
 </pre>
 </dd>
-</dl><p>The above is equivalent to:</p>
+</dl><p>The above example is equivalent to the following:</p>
 
 <dl class="example">
-<dt>/** A variable in the global namespace called &#39;foo&#39;.</dt>
+<dt></dt>
 <dd>
 <pre class="prettyprint lang-js">
-* @type {number} */
+/**
+ * A variable in the global namespace called 'foo'.
+ * @type {number}
+ */
 var foo;
 
 </pre>

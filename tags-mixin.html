@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Document a mix-in object."><title>Use JSDoc: @mixin</title>
+	<meta name="description" content="Document a mixin object."><title>Use JSDoc: @mixin</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -183,85 +183,42 @@
 <h3>Overview</h3>
 
 <p>
-A mixin is a class providing functionality that is intended to be added in to other classes desiring that functionality.
-The @mixin tag allows the user to mark an object as a mixin.
-</p>
-
-<p>
-For example, you might have an "Eventful" mixin which provides event handling methods to other classes, but isn't intended to be used itself.
+A mixin provides functionality that is intended to be added to other objects. If desired, you can
+use the @mixin tag to indicate that an object is a mixin. You can then add the @mixes tag to objects
+that use the mixin.
 </p>
 
 <h3>Examples</h3>
 
 <dl class="example">
-<dt>Example of a @mixin</dt>
+<dt>Using @mixin</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
  * This provides methods used for event handling. It's not meant to
- * be used directly, except as a provider of related methods.
+ * be used directly.
  *
  * @mixin
  */
 var Eventful = {
-    /** Register a handler function to be called whenever this event is fired.
-     * @param {string} eventName - name of the event
-     * @param {Eventful~eventHandler} handler - the handler to be called.
+    /**
+     * Register a handler function to be called whenever this event is fired.
+     * @param {string} eventName - Name of the event.
+     * @param {function(Object)} handler - The handler to call.
      */
     on: function(eventName, handler) {
         // code...
     },
    
-    /** Fires an event, causing all handlers for that event name to run.
-     * @param {string} eventName - name of the event 
-     * @param {object} eventData - passed into each handler.
+    /**
+     * Fire an event, causing all handlers for that event name to run.
+     * @param {string} eventName - Name of the event.
+     * @param {Object} eventData - The data provided to each handler.
      */
     fire: function(eventName, eventData) {
         // code...
     }
 };
-/** Used as an event callback {@link Eventful.on}.
- * @callback Eventful~eventHandler
- * @param {object} eventData - the event data.
- */
-
-</pre>
-</dd>
-</dl><p>
-In the above we document a set of methods, Eventful, that can be mixed in to other classes to give them the ability to fire and listen to events.
-(Note also the use of the <a href="tags-callback.html">@callback</a> tag to document the event handler parameter in the "on" function - we could have just written "@param {function(object)} handler" instead if we didn't want to use that).
-</p>
-
-<p>
-Use <a href="tags-mixes.html">@mixes</a> to indicate in the documentation that another class mixes in Eventful (you are still responsible for doing the actual mixing in the code, however). Note, this doesn't support references like "{@link FormButton#on}" (yet). 
-</p>
-
-<dl class="example">
-<dt>Having another class @mixes Eventful</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
- * @constructor FormButton
- * @mixes Eventful
- */
-var FormButton = function() {
-    // code...
-};
-FormButton.prototype.press = function() {
-  this.fire('press', {});
-}
-mix(Eventful).into(FormButton.prototype);
-
-function mix(source) {
-  return {into: function(target) {
-    for (var property in source) {
-      if( !(property in {}) ) {
-        target[property] = source[property]
-      }
-    }
-    return this;
-  }};
-}
 
 </pre>
 </dd>

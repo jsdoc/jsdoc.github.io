@@ -184,20 +184,17 @@ will be used to denote the version of the item.
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
 <dl class="example">
-<dt>Documenting an item&#39;s version.</dt>
+<dt>Using the @version tag</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
- * Solves equations of the form a * x = b
- * @author Some Author
- * @version 20121008
- * @tutorial method1
+ * Solves equations of the form a * x = b. Returns the value
+ * of x.
+ * @version 1.2.3
+ * @tutorial solver
  */
-method1 = function (a,b) {
+function solver(a, b) {
     return b / a;
 }
 
@@ -206,8 +203,6 @@ method1 = function (a,b) {
 </dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="tags-author.html">@author</a></li>
-	<li><a href="tags-tutorial.html">@tutorial</a></li>
 	<li><a href="tags-since.html">@since</a></li>
 </ul>
 

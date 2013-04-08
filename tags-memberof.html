@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="This object is a member or another object."><title>Use JSDoc: @memberof</title>
+	<meta name="description" content="This symbol belongs to a parent symbol."><title>Use JSDoc: @memberof</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -182,23 +182,30 @@
 
 <h3>Overview</h3>
 
-<p>The @memberof tag marks a doclet as a member of another object.
+<p>The @memberof tag identifies a member symbol that belongs to a parent symbol.
 </p>
 
 <p>
-With the @memberof tag, the member is documented as static.
-If you want to document a member as belonging to an instance or prototype, use "@memberof parentNamepath#" or "@memberof parentNamepath.prototype" (see the examples).
-Alternatively, use the <a href="tags-inner.html">@inner</a> or <a href="tags-instance.html">@instance</a> tags.
+By default, the @memberof tag documents member symbols as static members. For inner and instance
+members, you can use scoping punctuation after the namepath, or you can add the
+<a href="tags-inner.html">@inner</a> or <a href="tags-instance.html">@instance</a> tag.
 </p>
 
 <p>
-The "forced" memberof tag, @memberof!, forces the object to be documented as belonging to parentNamepath even if it is nested deeper. See the examples.
+The "forced" @memberof tag, @memberof!, forces the object to be documented as belonging to a specific
+parent even if it appears to have a different parent.
 </p>
 
 <h3>Examples</h3>
 
+<p>In the following example, the <code>hammer</code> function would normally be documented as
+a global function. That's because, in fact, it is a global function, but it is also a member of the
+<code>Tools</code> namespace, and that's how you wish to document it. The solution is to add a
+@memberof tag:
+</p>
+
 <dl class="example">
-<dt>Using @memberof (basic use).</dt>
+<dt>Using @memberof</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /** @namespace */
@@ -206,18 +213,19 @@ var Tools = {};
 
 /** @memberof Tools */
 var hammer = function() {
-}
+};
 
 Tools.hammer = hammer;
 
 </pre>
 </dd>
-</dl><p>Without the @memberof tag, the <code>hammer</code> function would be documented as a global function.
-That's because, in fact, it is a global function, but it is also a member of the <code>Tools</code> namespace as well, and that's how you wish to document it.
+</dl><p>For instance members of a class, use the syntax "@memberof ClassName.prototype" or
+"@memberof ClassName#". Alternatively, you can combine "@memberof ClassName" with the "@instance"
+tag.
 </p>
 
 <dl class="example">
-<dt>@memberof a class prototype sets the scope to instance.</dt>
+<dt>Using @memberof with a class prototype</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /** @class Observable */
@@ -225,48 +233,61 @@ create(
     'Observable',
     {
         /**
-         * This will be a static member Observable.cache.
+         * This will be a static member, Observable.cache.
          * @memberof Observable
          */
         cache: [],
 
         /**
-         * This will be an instance member Observable#publish.
+         * This will be an instance member, Observable#publish.
          * @memberof Observable.prototype
          */
         publish: function(msg) {},
 
         /**
-         * This will also be an instance member Observable#save.
+         * This will also be an instance member, Observable#save.
          * @memberof Observable#
          */
-        save: function() {}
+        save: function() {},
+
+        /**
+         * This will also be an instance member, Observable#end.
+         * @memberof Observable
+         * @instance
+         */
+        end: function() {}
     }
 );
 
 </pre>
 </dd>
-</dl><p>As mentioned before, @memberof causes the scope to be static.
-To mark a member as belonging to a prototype or instance, use <code>@memberof ClassName.prototype</code> or <code>@memberof ClassName#</code>.
-Alternatively, we could have used "@memberof Observable" with "@instance".
+</dl><p>The following example uses the forced @memberof tag, "@memberof!", to document a property of an
+object (Data#point) that is an instance member of a class (Date).
+</p>
+
+<p>When you use the @property tag to document a property, you cannot link to the property using its
+longname. We can force the property to be linkable by using "@alias" and "@memberof!" to tell JSDoc
+that Data#point.y should be documented as a member "point.y" of "Data#", rather than a member "y" of
+"point" of "Data#".
 </p>
 
 <dl class="example">
-<dt>Using @memberof! [someOtherObject].</dt>
+<dt>Using @memberof! for object properties</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /** @class */
 function Data() {
     /**
      * @type {object}
-     * @property {number} y This will show up as a property of Data#point but won't be linkable.
+     * @property {number} y This will show up as a property of `Data#point`,
+     * but you cannot link to the property as {@link Data#point.y}.
      */
     this.point = {
         /**
-         * This forces this member to have name `point.x` (rather than `x`)
-         * and also to be a memberof Data#. This means {@link Data#point.x}
-         * will work.
-         * @name point.x
+         * The @alias and @memberof! tags force JSDoc to document the
+         * property as `point.x` (rather than `x`) and to be a member of
+         * `Data#`. You can link to the property as {@link Data#point.x}.
+         * @alias point.x
          * @memberof! Data#
          */
         x: 0,
@@ -276,63 +297,7 @@ function Data() {
 
 </pre>
 </dd>
-</dl><p>In the above example we use the forced memberof tag "@memberof!" to document a property of an object that is a member of a class.
-Note that the Data#point has properties x and y.
-</p>
-
-<p>Usually one would document these in the way that y is documented, using <code>@property {number} y &lt;description&gt;</code> in the Data#point doclet.
-However, y will <em>not</em> be linkable using <code>{@link Data#point.y}</code> in this way.
-</p>
-
-<p>We can force this to be linkable by pretending that Data#point.y is a member "point.y" of "Data#", rather than a member "y" of "point" of "Data#".
-This is demonstrated in Data#point.x.
-To achieve this, we force Data#point.x to have name "point.x" and be a member of "Data#".
-</p>
-
-<p>We have to use "@memberof!" rather than "@memberof", because otherwise JSDoc will get confused with the nested name "point.x" and try to document x as belonging to Data#point rather than Data#. Hence linking won't work for the same reason that Data#point.y didn't in the example above.
-</p>
-
-<dl class="example">
-<dt>Using @memberof! &lt;global&gt;.</dt>
-<dd>
-<pre class="prettyprint lang-js">
-var map = {
-    /**
-     * @type {Array}
-     * @name map.routes
-     * @memberof! &lt;global>
-     */
-    routes: []
-};
-
-</pre>
-</dd>
-</dl><p>The forced @memberof tag can also be used with special parent path "&lt;global&gt;" to mark an object as being global even if it has a nested-type name.
-In the above example, <code>map.routes</code> is a global object. 
-If we just used "@memberof" instead of "@memberof!", JSDoc would have tried to document object <code>routes</code> in object <code>map</code> which is global, but since <code>map</code> is not documented <code>map.routes</code> wouldn't appear in the output. We also have to force the doclet's name to be "map.routes", or else it would show up with name "routes".
-</p>
-
-<dl class="example">
-<dt>Using @memberof instead of @name.</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/** @namespace */
-var MyNamespace = {};
-
-/** @memberof MyNamespace */
-var bar;
-MyNamespace.bar = bar;
-
-/**
- * We could have just written the following instead to create MyNamespace.bar:
- * @name MyNamespace.bar
- */
-
-</pre>
-</dd>
-</dl><p>In the above example, first we use @memberof to mark <code>bar</code> as a member of <code>MyNamespace</code>, i.e. <code>MyNamespace.bar</code>. However, we could also have just written <code>@name MyNamespace.bar</code> which achieves the same thing.
-
-<h3>See Also</h3>
+</dl><h3>See Also</h3>
 
 <ul>
     <li><a href="tags-name.html">@name</a></li>

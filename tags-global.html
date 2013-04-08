@@ -179,7 +179,9 @@
 <h3>Overview</h3>
 
 <p>
-In cases where the static analysis feature of JSDoc is not able to derive the scope that you intend purely from the code surrounding your doc comments, you can use the @global tag to explicitly specify that a symbol should appear in the documentation as a <em>global</em> symbol.
+The @global tag specifies that a symbol should appear in the documentation as a <em>global</em>
+symbol. JSDoc ignores the symbol's actual scope within the source file. This tag is especially
+useful for symbols that are defined locally, then assigned to a global symbol.
 </p>
 
 <h3>Examples</h3>

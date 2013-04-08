@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Document properties on an object literal as if they belonged to an object with a given name"><title>Use JSDoc: @lends</title>
+	<meta name="description" content="Document properties on an object literal as if they belonged to a symbol with a given name."><title>Use JSDoc: @lends</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -183,25 +183,26 @@
 <h3>Overview</h3>
 
 <p>
-	The <code>@lends</code> tag allows you to document all the members of an anonymous object literal as if they 
-	were members of an object with the given name. You might want to do this if you were passing an anonymous 
-	object literal into a function that creates a named class from its members
+	The <code>@lends</code> tag allows you to document all the members of an object literal as if
+    they were members of a symbol with the given name. You might want to do this if you are passing
+    an object literal into a function that creates a named class from its members.
 </p>
 
 <h3>Examples</h3>
 
 <p>
-	In this example we want to use a helper function to make a class named "Person," along with instance 
-	methods named "initialize" and "say." This is similar to how some popular frameworks handle class creation.
+	In this example, we want to use a helper function to make a class named "Person," along with
+    instance  methods named "initialize" and "say." This is similar to how some popular frameworks
+    handle class creation.
 </p>
 
 <dl class="example">
 <dt>Example class</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// we want to document this as being a class
+// We want to document this as being a class
 var Person = makeClass(
-    // we want to document these as being methods
+    // We want to document these as being methods
     {
         initialize: function(name) {
             this.name = name;
@@ -215,10 +216,14 @@ var Person = makeClass(
 </pre>
 </dd>
 </dl><p>
-	Without any doc comments JSDoc won't automatically recognize either a class named "Person" nor it's 
-	two methods. To document the methods we must use a "@lends" tag in a doc comment immediately before the 
-	object literal to tell JSDoc that all the member names of that object literal are being "lent" to a 
-	variable named "Person."
+	Without any comments, JSDoc won't recognize that this code creates a class with two methods
+    called "Person". To document the methods, we must use a "@lends" tag in a doc comment
+    immediately before the object literal. The @lends tag tells JSDoc that all the member names of
+    that object literal are being "lent" to a variable named "Person."
+</p>
+
+<p>
+    The following example gets us closer to what we want:
 </p>
 
 <dl class="example">
@@ -241,10 +246,10 @@ var Person = makeClass(
 </pre>
 </dd>
 </dl><p>
-	Now the functions named "initialize" and "say" will be documented, but they appear as static methods of an 
-	class named "Person." That is possibly what you meant, but in this case we want "initialize" and "say" to 
-	belong to the instances of the "Person" class. So we change things slightly by lending the methods to the 
-	class's prototype:
+	Now the functions named "initialize" and "say" will be documented, but they appear as static
+    methods of a class named "Person." That is possibly what you meant, but in this case we want
+    "initialize" and "say" to belong to the instances of the "Person" class. So we change things
+    slightly by lending the methods to the class's prototype:
 </p>
 
 <dl class="example">
@@ -267,18 +272,18 @@ var Person = makeClass(
 </pre>
 </dd>
 </dl><p>
-	If you are using one of the lent functions to construct the class, you can mark it as such using the 
-	@constructs tag, but remember to remove the @class tag in that case, or else two @classes will be documented.
+	One final step: Our class framework uses the loaned "initialize" function to construct Person
+    instances, but a Person instance does not have its own "initialize" method. The solution is to
+	add the @constructs tag to the loaned function. Remember to remove the @class tag as well, or
+    else two classes will be documented.
 </p>
 
 <dl class="example">
-<dt>Documented constructor</dt>
+<dt>Documented with a constructor</dt>
 <dd>
 <pre class="prettyprint lang-js">
 var Person = makeClass(
-    /**
-     * @lends Person.prototype
-     */
+    /** @lends Person.prototype */
     {
         /** @constructs */
         initialize: function(name) {

@@ -181,86 +181,48 @@
 
 <h3>Overview</h3>
 
-<p>The @name tag forces JSDoc to document the current doclet with the given name, ignoring all surrounding code.
+<p>
+The @name tag forces JSDoc to associate the remainder of the JSDoc comment with the given name,
+ignoring all surrounding code. This tag is best used in "virtual comments" for symbols that are not
+readily visible in the code, such as methods that are generated at runtime.
 </p>
 
 <p>
-In most cases JSDoc can determine the namepath of an object for you. 
-This is a great convenience because it allows you to shorten your documentation comments to just the minimum information you wish to add. 
-However, when it isn't clear you can provide the namepath yourself by using the @name tag.
+When you use the @name tag, you must provide additional tags that tell JSDoc what kind of symbol you
+are documenting; whether the symbol is a member of another symbol; and so on. If you do not provide
+this information, the symbol will not be documented correctly.
 </p>
 
 <p>
-This can be a powerful technique because it allows you to write documentation for objects that are not visible in the code itself (or are obscure for some reason).
-<b style="color: red">Be warned though</b>: by using the @name tag you are telling JSDoc to ignore the surrounding code and to treat your documentation comment in isolation. 
+<strong>Warning</strong>: By using the @name tag, you are telling JSDoc to <em>ignore the
+surrounding code</em> and treat your documentation comment in isolation. In many cases, it is best
+to use the @alias tag instead, which changes a symbol's name in the documentation but preserves
+other information about the symbol.
 </p>
 
 <h3>Examples</h3>
 
+The following example shows how to use the @name tag to document a function that JSDoc would not
+normally recognize.
+
 <dl class="example">
-<dt>Using @name.</dt>
+<dt>Using the @name tag</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
- * @name hiliteSearchTerm
+ * @name highlightSearchTerm
  * @function
+ * @global
+ * @param {string} term - The search term to highlight.
  */
-eval("window.hiliteSearchTerm = function(term) {};")
+eval("window.highlightSearchTerm = function(term) {};")
 
 </pre>
 </dd>
-</dl><p>Without the @name tag, the <code>hiliteSearchTerm</code> function would be invisible to JSDoc. 
-That's because it never tries to run your code, and can't parse strings the way <code>eval</code> would.
-</p>
-
-<p>
-Note that the @function tag was also required, and in many cases the @memberOf tag would be needed as well. 
-Essentially this technique requires that you <em>explicitly</em> document <em>all</em> of the information about an object, and so can be very verbose. 
-Luckily, most of the time, it isn't needed as JSDoc can determine all such information automatically for you.
-</p>
-
-<dl class="example">
-<dt>Warning about using @name.</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/** @name Foo */
-Bar = function() {
-};
-
-</pre>
-</dd>
-</dl><p>
-As mentioned, using the @name tag essentially isolates your documentation comment from the code. 
-</p>
-
-<p>
-In the example above, you'd end up with two objects - a (documented) Foo object and a (undocumented) Bar object. 
-Only the Foo object would show up in the documentation, and it <em>wouldn't</em> be documented as a function like Bar is.
-In particular, @name does <em>not</em> force the Bar function to be treated as if were named Foo.
-</p>
-
-<dl class="example">
-<dt>Further warning.</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/** @name Baz */
-Baz = function () {
-};
-
-</pre>
-</dd>
-</dl><p>This is just to reinforce the warning that <b>@name causes the surrounding code to be ignored</b>.
-In the example above it is easy to be tricked into thinking that the Baz doclet would turn out as a function (because of the code). 
-However, it wouldn't since the code is ignored in the presence of a "@name" tag: you'd have to explicitly add the <a href="tags-method.html">"@function"</a> tag to the doclet to have it treated as such.
-</p>
-<p>Note that using <a href="tags-alias.html">@alias Baz</a> would have worked in this case, because @alias is a little like @name but takes note of the surrounding code. However, @alias could not have replaced @name in the very first example (<code>hiliteSearchTerm</code>) because the parser couldn't have worked out that <code>hiliteSearchTerm</code> was a function.
-</p>
-
-<h3>See Also</h3>
+</dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="tags-memberof.html">@memberof</a></li>
-    <li><a href="tags-alias.html">@alias</a> which is a bit like @name, but will take into account the surrounding code.</li>
+    <li><a href="tags-alias.html">@alias</a></li>
     <li><a href="about-namepaths.html">About namepaths</a></li>
 </ul>
 

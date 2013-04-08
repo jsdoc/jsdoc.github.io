@@ -8,67 +8,66 @@
 
 <h3>Overview</h3>
 
-<p>Sometimes there might be multiple different symbols with the same longname. For example, you might have both a global class and a namespace called <code>Foo</code>.
-In cases such as these, what does "{@link Foo}" or "@memberof Foo" mean? The global namespace, or the global class?
+<p>
+Sometimes your code may include multiple symbols with the same longname. For example, you might have
+both a global class and a top-level namespace called <code>Widget</code>. In cases such as these,
+what does "{@link Widget}" or "@memberof Widget" mean? The global namespace, or the global class?
 </p>
 
 <p>
-Variations provide a way to distinguish between different objects with the same longname within JSDoc.
-For example, if I add "@variation 2" to the class Foo's doclet, then "{@link Foo(2)}" will refer to the class Foo, and "{@link Foo}" will refer to the namespace Foo. The varation only exists at the documentation-level; in the generated output you will not see the "(2)" anywhere.
+Variations help JSDoc distinguish between different symbols with the same longname. For example, if
+"@variation 2" is added to the JSDoc comment for the Widget class, "{@link Widget(2)}" will refer to
+the class, and "{@link Widget}" will refer to the namespace. Alternatively, you can include the
+variation when you specify the symbol's with tags such as <a href="tags-alias.html">@alias</a> or
+<a href="tags-name.html">@name</a> (for example, "@alias Widget(2)").
 </p>
 
 <p>
-Alternatively, one can specify the variation while they specify the doclet's name, as in "@name Foo(2)".
-</p>
-
-<p>
-All that is required is that the combination of the doclet's longname and its variation is unique (i.e. the @variation value should be different within all objects with the same longname).
+You can provide any value with the @variation tag, as long as the combination of the value and the
+longname results in a globally unique version of the longname. As a best practice, use a predictable
+pattern for choosing the values, which will make it easier for you to document your code.
 </p>
 
 <h3>Examples</h3>
+
 <p>
-In the below example, we have a global namespace <code>foo</code> and a global class <code>foo</code>.
-We use variations to distinguish between the two.
+The following example uses the @variation tag to distinguish between the Widget class and the Widget
+namespace.
 </p>
-{{#example}}Example
-/** A namespace.
- * @namespace foo
+
+{{#example}}Using the @variation tag
+/**
+ * The Widget namespace.
+ * @namespace Widget
  */
-/** A global class.
- * @class foo
+
+// you can also use '@class Widget(2)' and omit the @variation tag
+/**
+ * The Widget class. Defaults to the properties in {@link Widget.properties}.
+ * @class
  * @variation 2
+ * @param {Object} props - Name-value pairs to add to the widget.
  */
+function Widget(props) {}
 
-/** A method in class foo (foo#classMethod). We need to use foo(2) in the memberof tag
- *  so JSDoc knows which foo we're talking about.
- * @method classMethod
- * @instance
- * @memberof foo(2)
+/**
+ * Properties added by default to a new {@link Widget(2)} instance.
  */
-/** A function in the *namespace* foo (foo.namespaceMethod)
- * @method namespaceMethod
- * @memberof foo
- */
+Widget.properties = {
+	/**
+	 * Indicates whether the widget is shiny.
+	 */
+	shiny: true,
+	/**
+	 * Indicates whether the widget is metallic.
+	 */
+	metallic: true
+};
 {{/example}}
 
-<p>
-The below example is the same as the previous, but takes use of JSDoc's naming mechanism to combine some of the tags (reduce the typing).
-</p>
+<h3>See Also</h3>
 
-{{#example}}Example
-/** A namespace.
- * @namespace foo
- */
-/** A global class.
- * @class foo(2)
- */
-
-/** A method in class foo (foo#classMethod). We need to use foo(2) in the memberof tag
- *  so JSDoc knows which foo we're talking about.
- * @method foo(2)#classMethod
- */
-/** A function in the *namespace* foo (foo.namespaceMethod)
- * @method foo.namespaceMethod
- */
-{{/example}}
-
+<ul>
+    <li><a href="tags-alias.html">@alias</a></li>
+    <li><a href="tags-name.html">@name</a></li>
+</ul>

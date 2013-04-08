@@ -1,35 +1,37 @@
 <!--{
     "title":       "@this",
     "out":         "tags-this.html",
-    "description": "What does the <code>this</code> keyword refer to here?"
+    "description": "What does the 'this' keyword refer to here?"
 }-->
 <h3>Syntax</h3>
 <code>@this &lt;namePath&gt;</code>
 
 <h3>Overview</h3>
 
-<p>The @this tag tells the parser what the <code>this</code> keyword is referring to.
-This is useful in cases where JSDoc would not properly work it out otherwise.
+<p>
+The @this tag indicates what the <code>this</code> keyword refers to when used within another
+symbol.
 </p>
 
 <h3>Examples</h3>
 
+<p>
+In the following example, the @this tag causes "this.name" to be documented as "Greeter#name"
+rather than a global symbol called "name".
+</p>
+
 {{#example}}
 /** @constructor */
-function Foo(name) {
+function Greeter(name) {
     setName.apply(this, name);
 }
 
-/** @this Foo */
+/** @this Greeter */
 function setName(name) {
     /** document me */
     this.name = name;
 }
 {{/example}}
-
-<p>In the example above, <code>this.name</code> from the <code>setName</code> function is documented as <code>Foo#name</code>.
-Without the @this tag, a global symbol "name" would have been documented instead.
-</p>
 
 <h3>See Also</h3>
 

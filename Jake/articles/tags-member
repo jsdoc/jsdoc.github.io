@@ -14,14 +14,13 @@
 <h3>Overview</h3>
 
 <p>
-The @member tag documents a member (as opposed to a @class or a @function or a ...).
-It can optionally have a type as well as a name. 
-This is the generic kind all objects get unless they have a more specific kind (@class, @function, @constant, ...).
+The @member tag identifies any member that does not have a more specialized kind, such as "class",
+"function", or "constant". A member can optionally have a type as well as a name. 
 </p>
 
 <h3>Examples</h3>
 
-{{#example}}Using @member to mark Data#point.
+{{#example}}Using @member with Data#point
 /** @class */
 function Data() {
     /** @member {Object} */
@@ -29,18 +28,22 @@ function Data() {
 }
 {{/example}}
 
-<p>Here is an example of using @member to document a (virtual) variable 'foo'.
+<p>Here is an example of using @var, a synonym of @member, to document a (virtual) variable 'foo'.
 </p>
 
-{{#example}}Using @member to document a virtual member.
-/** A variable in the global namespace called 'foo'.
- * @var {number} foo */
+{{#example}}Using @member to document a virtual member
+/**
+ * A variable in the global namespace called 'foo'.
+ * @var {number} foo
+ */
 {{/example}}
 
-<p>The above is equivalent to:</p>
+<p>The above example is equivalent to the following:</p>
 
-{{#example}}
-/** A variable in the global namespace called 'foo'.
- * @type {number} */
+{{#example}} 
+/**
+ * A variable in the global namespace called 'foo'.
+ * @type {number}
+ */
 var foo;
 {{/example}}

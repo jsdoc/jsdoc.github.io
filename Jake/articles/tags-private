@@ -1,58 +1,55 @@
 <!--{
     "title":       "@private",
     "out":         "tags-private.html",
-    "description": "This member is meant to be private."
+    "description": "This symbol is meant to be private."
 }-->
 <h3>Overview</h3>
 
-<p>This tag marks a doclet as private, or not meant for general use.
-Private members are not shown in the generated output unless JSDoc is run with the <code>-p</code> or <code>--private</code> switch.
+<p>
+The @private tag marks a symbol as private, or not meant for general use. Private members are not
+shown in the generated output unless JSDoc is run with the <code>-p</code> or <code>--private</code>
+switch.
 </p>
 
-<p>Note that "@private" is equivalent to "@access private", see <a href="tags-access.html">@access</a>.</p>
+<p>
+The @private tag is not inherited by child members. For example, if the @private tag is added to a
+namespace, members of the namespace can still appear in the generated output; because the namespace
+is private, the members' namepath will not include the namespace.
+</p>
+
+<p>
+The @private tag is equivalent to "@access private". See <a href="tags-access.html">@access</a> for
+details about the @access tag.
+</p>
 
 <h3>Examples</h3>
-{{#example}}Usage of @private.
+
+<p>
+In the following example, <code>Documents</code> and <code>Documents.Newspaper</code> appear in the
+generated documentation, but not <code>Documents.Diary</code>.
+</p>
+
+{{#example}}Using the @private tag
 /** @namespace */
-var Parts = {
-    /** My head. */
-    Head: 1,
-    /** @private */
-    FamilyJewels: 2
+var Documents = {
+    /**
+     * An ordinary newspaper.
+     */
+    Newspaper: 1,
+    /**
+     * My diary.
+     * @private
+     */
+    Diary: 2
 };
 {{/example}}
-<p>
-In the above, <code>Parts</code> and <code>Parts.Head</code> appear in the generated documentation, but not <code>Parts.FamilyJewels</code> because it is private. If JSDoc were run with -p or --private then it would appear.
-</p>
-
-{{#example}}@private is not inherited
-/** 
- * @private
- * @namespace */
-var Clothes = {
-    /** @class */
-    Jacket: function () {},
-
-    /** @member */
-    foo: 1
-};
-{{/example}}
-<p>
-Private status is not passed onto member objects. Even though <code>Clothes</code> is marked private, <code>Clothes.Jacket</code> and <code>Clothes.foo</code> are not.
-</p>
-<p>
-<code>Clothes.Jacket</code> will show up in the Classes index of the generated documentation and its documentation page will be generated.
-</p>
-<p>
-However, <code>Clothes.foo</code> will <em>not</em> be in the output documentation (for the default template).
-This is because the default template only documents "non-special" (non-namespace/class) members of a namespace on the namespace page itself, which was not generated due to being private.
-</p>
 
 <h3>See Also</h3>
 <ul>
     <li><a href="tags-protected.html">@protected</a></li>
     <li><a href="tags-public.html">@public</a></li>
-    <li><a href="tags-access.html">@access</a> which encompasses @private, @protected and @public.</li>
-    <li><a href="about-commandline.html">Command-line options to JSDoc</a></li>
-    <li><a href="tags-instance.html">@instance</a>, <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a> and <a href="tags-global.html">@global</a> for modifying the <em>scope</em> of a doclet.</li>
+    <li><a href="tags-access.html">@access</a></li>
+    <li><a href="about-commandline.html">Command-line Options to JSDoc</a></li>
+    <li><a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a>, and
+    <a href="tags-global.html">@global</a></li>
 </ul>

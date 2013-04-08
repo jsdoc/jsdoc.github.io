@@ -34,7 +34,7 @@ function sayHello(somebody) {
 
 {{#example}}Using a type with @param
 /**
- * @param {String} somebody
+ * @param {string} somebody
  */
 function sayHello(somebody) {
     alert('Hello ' + somebody);
@@ -44,7 +44,7 @@ function sayHello(somebody) {
 
 {{#example}}Using type and description with @param
 /**
- * @param {String} somebody Name
+ * @param {string} somebody Name
  */
 function sayHello(somebody) {
     alert('Hello ' + somebody);
@@ -57,7 +57,7 @@ The following examples show how to indicate that a parameter can be optional and
 
 {{#example}}An optional parameter
 /**
- * @param {String} [somebody] Name
+ * @param {string} [somebody] Name
  */
 function sayHello(somebody) {
     if (!somebody) {
@@ -80,7 +80,8 @@ function sayHello(somebody) {
 {{/example}}
 
 <p>
-A parameter could also have several types instead of just one. It can also be used multiple times. The following examples reflect these situations.
+A parameter could also have several types instead of just one. It can also be used multiple times.
+The following examples reflect these situations.
 </p>
 
 {{#example}}Multiple types
@@ -127,115 +128,6 @@ function doSomethingAsynchronously(cb) {
  * @param {string} responseMessage
  */
 {{/example}}
-
-<h4 name="documenting-objects" id="documenting-objects">
-Different ways to document a function with an object parameter.
-</h4>
-<p>
-Suppose we wish to document a parameter that is an object, while providing further information about what structure the object should have. 
-There are a few ways to do this.
-In particular, <a href="tags-typedef.html">@typedef</a> is a useful way to document complex types.
-</p>
-
-<p>Suppose we wish to document a parameter that is an object with properties:
-<ul>
- <li><code>a</code>: a number,</li>
- <li><code>b</code>: a string,</li>
- <li><code>c</code>: can be any type.</li>
-</ul>
-</p>
-
-{{#example}}Method 1: inline type specification in @param
-/** My function.
-    @param &#123;{a: number, b: string, c}} foobar - document me.
-*/
-function myFunction(foobar) {
-}
-{{/example}}
-<p>
-In the above example, we specify the foobar parameter's type directly with "@param &#123;{a:number, b:string, c}}".
-In its documentation we would explain what <code>a</code>, <code>b</code> and <code>c</code> were for.
-This has the following advantages and disadvantages:
-<ul>
-  <li>Advantages:
-    <ul>
-      <li>When reading the source code, you can easily see what <code>foobar</code> should be.</li>
-    </ul>
-  </li>
-  <li>Disadvantages:
-    <ul>
-      <li>Documentation for <code>foobar</code>'s properties <code>a</code>, <code>b</code> and <code>c</code> has to be written in <code>foobar</code>'s documentation, making it fatter.</li>
-      <li>Reusability: if objects of that form are used more than once throughout the code, it has to be re-documented each time.</li>
-    </ul>
-  </li>
-</ul>
-
-{{#example}}Method 2: @param extended
-/** A function.
-    @param {Object} foobar - an object.
-    @param {number} foobar.a - document me.
-    @param {string} foobar.b - document me.
-    @param foobar.c - document me.
-*/
-function myFunction2(foobar) {
-}
-{{/example}}
-<p>
-In the above example we use @param to provide separate documentation for foobar.a, foobar.b and foobar.c.
-This allows for more detailed information to be given about each property than in our first attempt.
-<ul>
-  <li>Advantages:
-    <ul>
-      <li>When reading the source code, you can easily see what format the <code>foobar</code> parameter should take.</li>
-      <li>Less cluttered than "@param &#123;{a:number, b:string, c}}"</li>
-      <li>Dedicated documentation for each property of <code>foobar</code>.
-    </ul>
-  </li>
-  <li>Disadvantages:
-    <ul>
-      <li>Reusability: if I have another functions with a parameter the same as <code>foobar</code>, I have to redocument all the properties there. These could get out of sync.</li>
-    </ul>
-  </li>
-</ul>
-</p>
-
-<p>
-The above form is most useful when there is only one function that uses a parameter with type "{a: number, b:string, c}".
-But what if I have multiple other functions that also make use of this type? I don't want to have to document the properties in each function that needs this type.
-</p>
-
-{{#example}}Method 3: use @typedef
-/** The FooBar type. Description goes here.
-    @typedef FooBar
-    @type {Object}
-    @property {number} a - document me.
-    @property {string} b - document me.
-    @property c - document me.
-*/
-/** My function.
-    @param {FooBar} foobar - document me.
-*/
-function myFunction3(foobar) {
-}
-{{/example}}
-<p>
-The <a href="tags-typedef.html">@typedef</a> tag is very powerful in documenting custom types that are re-used within the code.
-We document the object and its properties in a dedicated typedef (called FooBar), and then just use "@param {FooBar} foobar" in the function definition.
-We can do this for each function that uses a FooBar-type parameter to avoid duplicating its documentation.
-<ul>
-  <li>Advantages:
-    <ul>
-      <li>Makes parameter <code>foobar</code>'s documentation more succinct, while allowing for more in-depth documentation for each property of our object.</li>
-      <li>Provides a link in the output documentation for <code>foobar</code> to the FooBar documentation</li>
-      <li>Reusability: if I have multiple functions using objects like this as parameters, I can just specify the type as FooBar.</li>
-    </ul>
-  </li>
-  <li>Disadvantages:
-    <ul>
-      <li>When reading the source code or documentation for <code>myFunction3</code>, it isn't immediately obvious that <code>foobar</code> should be an object with particular properties; you have find FooBar's documentation (either in the source or by clicking the link) to understand this.</li>
-    </ul>
-  </li>
-</ul>
 
 <h3>See Also</h3>
 

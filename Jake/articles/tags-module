@@ -5,22 +5,26 @@
 }-->
 <h3>Syntax</h3>
 <code>@module [[{&lt;type&gt;}] &lt;ModuleName&gt;]</code>
-<p>Note: if you provide a type, you <em>must</em> also provide a name.</p>
+<p>Note: If you provide a type, you <em>must</em> also provide a name.</p>
 
 <h3>Overview</h3>
 
-<p>This marks the current file as being its own module. 
-All symbols in the file are members of the module (unless documented otherwise, see (e.g.) <a href="tags-memberof.html">@memberof</a>).
+<p>
+The @module tag marks the current file as being its own module. All symbols in the file are assumed
+to be members of the module unless documented otherwise.
 </p>
 
-<p>Link to a module (e.g. within a <a href="tags-link.html">@link</a> or <a href="tags-see.html">@see</a>) using "module:moduleName". For example, "@module foo/bar" can be linked to using "{@link module:foo/bar}".
+<p>
+Link to a module (e.g. within a <a href="tags-link.html">@link</a> or
+<a href="tags-see.html">@see</a> tag) using "module:moduleName". For example, "@module foo/bar" can
+be linked to using "{@link module:foo/bar}".
 </p>
 
-<p>If the module name is not provided, it is set to the current filename relative to the folder JSDoc is run on.
-</p>
-
-<p>For example, suppose I have a file <code>test.js</code> with doclet <code>/** @module */</code> in it, in folder 'src'.
-Here are some scenarios for running JSDoc and the resulting module names for test.js:
+<p>
+If the module name is not provided, it is derived from the module's path and filename. For example,
+suppose I have a file <code>test.js</code>, located in the <code>src</code> directory, that contains
+the block comment <code>/** @module */</code>. Here are some scenarios for running JSDoc and the
+resulting module names for test.js:
 </p>
 
 {{#example}}Derived module names if none is provided.
@@ -33,16 +37,34 @@ jsdoc -r src/     # module name 'test'
 {{/example}}
 
 <h3>Examples</h3>
-{{#example}}Basic @module use.
+
+<p>
+The following example shows the namepaths that are used for symbols in a module. The first symbol
+is a module-private, or "inner," variable--it can be only accessed within the module. The second
+symbol is a static function that is exported by the module.
+</p>
+
+{{#example}}Basic @module use
 /** @module myModule */
 
-/** will be module:myMmodule~foo */
+/** will be module:myModule~foo */
 var foo = 1;
+
+/** will be module:myModule.bar */
+var bar = function() {};
 {{/example}}
 
-There are many ways to export objects as belonging to a module (i.e. as static members rather than inner as in the example above). These include assigning the objects to <code>module.exports</code> or <code>exports</code> or <code>this</code>.
+<p>
+When an exported symbol is defined as a member of <code>module.exports</code>, <code>exports</code>,
+or <code>this</code>, JSDoc infers that the symbol is a static member of the module.
+</p>
 
-{{#example}}Using 'this' in a file with @module.
+<p>
+In the following example, the Book class is documented as a static member, "module:bookshelf.Book",
+with one instance member, "module:bookshelf.Book#title".
+</p>
+
+{{#example}}Defining exported symbols as a member of 'this'
 /** @module bookshelf */
 /** @class */
 this.Book = function (title) {
@@ -50,11 +72,13 @@ this.Book = function (title) {
     this.title = title;
 };
 {{/example}}
-<p>When a global symbol is a member of 'this' in a file with a @module tag, the symbol is documented as a member of that module.
-So the Book class above is documented as <code>module:bookshelf.Book</code>. The title is <code>module:bookshelf.Book#title</code> as expected.
+
+<p>
+In the following example, the two functions have the namepaths "module:color/mixer.blend" and
+"module:color/mixer.darken".
 </p>
 
-{{#example}}Documenting under a namespace 'module.exports' or 'exports'.
+{{#example}}Defining exported symbols as a member of 'module.exports' or 'exports'
 /** @module color/mixer */
 module.exports = {
     /** Blend two colours together. */
@@ -63,23 +87,14 @@ module.exports = {
 /** Darkens a color. */
 exports.darken = function (color, shade) {};
 {{/example}}
-<p>JSDoc recognises assigning to <code>module.exports</code> or <code>exports</code> as assigning to the module.
-Hence the two functions above will have names "module:color/mixer.blend" and "module:color/mixer.darken".
+
+<p>
+See <a href="howto-commonjs-modules.html">Documenting JavaScript Modules</a> for further examples.
 </p>
-
-{{#example}}Module with a type
-/** @module {Number} one */
-
-/** This will be one.add. */
-exports.add = function (n) { return n + 1; };
-{{/example}}
-
-See <a href="howto-commonjs-modules.html">Documenting Javascript Modules</a> for further examples of using @module as a constructor, or documenting multiple modules in a file.
 
 <h3>See Also</h3>
 
 <ul>
     <li><a href="howto-commonjs-modules.html">Other helpful @module examples</a></li>
     <li><a href="tags-exports.html">@exports</a></li>
-    <li><a href="tags-namespace.html">@namespace</a></li>
 </ul>

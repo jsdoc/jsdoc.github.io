@@ -4,36 +4,38 @@
     "description": "Refer to some other documentation for more information."
 }-->
 <h3>Syntax</h3>
-<code>@see pathName<br />
-@see Some text here.</code>
+<code>@see &lt;namepath&gt;<br />
+@see &lt;text&gt;</code>
 
 <h3>Overview</h3>
 
-<p>The @see tag allows you to refer to another symbol or resource that may be related to the one being documented.
-You can provide free-form text or the name of another symbol. In the latter case, the symbol will be linked for you (in the default template).
+<p>
+The @see tag allows you to refer to another symbol or resource that may be related to the one being
+documented. You can provide either a symbol's namepath or free-form text. If you provide a namepath,
+JSDoc's default template automatically converts the namepath to a link.
 </p>
 
 <h3>Examples</h3>
 
-{{#example}}
-/** Both of these will link to the bar function.
+{{#example}}Using the @see tag
+/**
+ * Both of these will link to the bar function.
  * @see {@link bar}
  * @see bar
  */
-function foo() {
-}
+function foo() {}
 
+// Use the inline {@link} tag to include a link within a free-form description.
 /**
  * @see {@link foo} for further information.
- * @see {@link http://github.com|Github}
+ * @see {@link http://github.com|GitHub}
  */
-function bar() {
-}
+function bar() {}
 {{/example}}
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="tags-link.html">@link</a> which can be used to duplicate the behaviour of @see within other tags.</li>
-    <li><a href="tags-tutorial.html">@tutorial</a>, like @see but links to tutorials.</li>
+    <li><a href="tags-link.html">@link</a></li>
+    <li><a href="tags-tutorial.html">@tutorial</a></li>
 </ul>

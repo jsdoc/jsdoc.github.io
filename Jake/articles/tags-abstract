@@ -43,9 +43,9 @@ function Milk() {}
 
 /**
  * Check whether milk is solid at room temperature.
- * @return {boolean} Always returns true.
+ * @return {boolean} Always returns false.
  */
 Milk.prototype.isSolid = function() {
-	return true;
+	return false;
 };
 {{/example}}

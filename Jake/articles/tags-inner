@@ -10,14 +10,16 @@ This means it can be referred to by "Parent~Child".
 </p>
 
 <p>
-Using '@inner' will override a doclet's default scope (unless it is in the global scope, in which case it will remain global).
+Using @inner will override a doclet's default scope (unless it is in the global scope, in which case
+it will remain global).
 </p>
 
 <h3>Examples</h3>
 
 {{#example}}Using @inner to make a virtual doclet an inner member
 /** @namespace MyNamespace */
-/** myFunction is now MyNamespace~myFunction.
+/**
+ * myFunction is now MyNamespace~myFunction.
  * @function myFunction
  * @memberof MyNamespace
  * @inner
@@ -30,20 +32,22 @@ Note that in the above we could have used "@function MyNamespace~myFunction" ins
 {{#example}}Using @inner
 /** @namespace */
 var MyNamespace = {
-    /** foo is now MyNamespace~foo rather than MyNamespace.foo.
-     * @inner */
+    /**
+     * foo is now MyNamespace~foo rather than MyNamespace.foo.
+     * @inner
+     */
     foo: 1
 };
 {{/example}}
 
 <p>
-In the above example, we use @inner to force a member of a namespace to be documented as an inner member (by default, it would be a static member). This means that <code>foo</code> now has longname <code>MyNamespace~foo</code> instead of <code>MyNamespace.foo</code> that it would have been otherwise.
+In the above example, we use @inner to force a member of a namespace to be documented as an inner member (by default, it would be a static member). This means that <code>foo</code> now has the longname <code>MyNamespace~foo</code> instead of <code>MyNamespace.foo</code>.
 </p>
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="tags-instance.html">@instance</a> which marks a symbol as an instance member (Parent#Child).</li>
-    <li><a href="tags-global.html">@global</a> which marks a symbol as global (Child).</li>
-    <li><a href="tags-static.html">@static</a> which marks a symbol as a static member (Parent.Child)</li>
+    <li><a href="tags-instance.html">@instance</a>, which marks a symbol as an instance member (Parent#Child).</li>
+    <li><a href="tags-global.html">@global</a>, which marks a symbol as global.</li>
+    <li><a href="tags-static.html">@static</a>, which marks a symbol as a static member (Parent.Child)</li>
 </ul>

@@ -83,7 +83,7 @@
 </h3>
 
 <p>
-	Tutorial content is precessed with <code>resolveLinks()</code>, which means you can use both <code>{@link}</code> and <code>{@tutorial}</code> tags within tutorial text! They will be processed just like doclets descriptions.
+	Tutorial content is processed with <code>resolveLinks()</code>, which means you can use both <code>{@link}</code> and <code>{@tutorial}</code> tags within tutorial text! They will be processed just like doclets descriptions.
 </p>
 
 {{#example}}Using the @tutorial tag in content

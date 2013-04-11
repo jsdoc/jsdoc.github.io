@@ -102,21 +102,28 @@ There are some special cases with namepaths: <a href="tags-module.html">@modules
 {{#example}}Namepaths of objects with special characters in the name.
 /** @namespace */
 var chat = {
-    /** Refer to this by {@link chat."#channel"}.
-     * @namespace */
+    /**
+     * Refer to this by {@link chat."#channel"}.
+     * @namespace
+     */
     "#channel": {
-        /** Refer to this by {@link chat."#channel".open}.
+        /**
+         * Refer to this by {@link chat."#channel".open}.
          * @type {boolean}
-         * @defaultvalue */
+         * @defaultvalue
+         */
         open: true,
-        /** Internal quotes have to be escaped by backslash. This is
-         * {@link chat."#channel"."say-\"hello\""}. */
+        /**
+         * Internal quotes have to be escaped by backslash. This is
+         * {@link chat."#channel"."say-\"hello\""}.
+         */
         'say-"hello"': function (msg) {}
     }
 };
 
-/** Now we define an event in our {@link chat."#channel"} namespace.
-	@event chat."#channel"."op:announce-motd"
+/**
+ * Now we define an event in our {@link chat."#channel"} namespace.
+ * @event chat."#channel"."op:announce-motd"
  */
 {{/example}}
 <p>

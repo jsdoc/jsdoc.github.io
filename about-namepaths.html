@@ -307,11 +307,11 @@ var chat = {
         open: true,
         /** Internal quotes have to be escaped by backslash. This is
          * {@link chat."#channel"."say-\"hello\""}. */
-        'say-"hello"': function (msg) {};
+        'say-"hello"': function (msg) {}
     }
 };
 
-/** Now we define an event in our {@link chat.#channel} namespace.
+/** Now we define an event in our {@link chat."#channel"} namespace.
     @event chat."#channel"."op:announce-motd"
  */
 

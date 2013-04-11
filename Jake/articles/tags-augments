@@ -57,7 +57,7 @@ Duck.prototype.speak = function() {
 var d = new Duck();
 d.speak(); // Quack!
 d.alive = false; // dead duck?
-d.speak;
+d.speak();
 {{/example}}
 
 <p>

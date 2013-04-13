@@ -81,7 +81,7 @@ create(
 {{/example}}
 
 <p>The following example uses the forced @memberof tag, "@memberof!", to document a property of an
-object (Data#point) that is an instance member of a class (Date).
+object (Data#point) that is an instance member of a class (Data).
 </p>
 
 <p>When you use the @property tag to document a property, you cannot link to the property using its

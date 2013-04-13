@@ -24,7 +24,7 @@ function Thingy() {
 <ul>
     <li><a href="tags-private.html">@private</a></li>
     <li><a href="tags-public.html">@public</a></li>
-    <li><a href="tags-access.html">@access</a>, which encompasses @protected, @protected, and @public.</li>
+    <li><a href="tags-access.html">@access</a>, which encompasses @private, @protected, and @public.</li>
     <li><a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a>, and
     <a href="tags-global.html">@global</a></li>
 </ul>

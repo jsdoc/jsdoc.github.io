@@ -46,6 +46,8 @@
         <dd>Installing plugins and writing your own.</dd>
 	<dt><a href="plugins-markdown.html">Configuring the markdown plugin</a></dt>
         <dd>This allows markdown in code comments and offers 2 flavors.</dd>
+	<dt><a href="about-migration.html">Migration Guide from JSDoc Toolkit</a></dt>
+        <dd>Difference points between JSDoc Toolkit(JSDoc 2) and JSDoc 3.</dd>
 	<dt><a href="about-testing-jsdoc3.html">Testing JSDoc 3</a></dt>
         <dd>About running the self tests included with JSDoc 3.</dd>
 	<dt><a href="about-license-jsdoc3.html">License</a></dt>

@@ -72,10 +72,10 @@ this.Book = function(title) {
 {{#example}}The color property and the Turtleneck class are documented as members of the "my/shirt" module.
 define('my/shirt', function () {
    /** 
-        A module representing a shirt.
-        @exports my/shirt
-        @version 1.0
-     */
+    * A module representing a shirt.
+    * @exports my/shirt
+    * @version 1.0
+    */
     var shirt = {
     
         /** A property of the module. */
@@ -99,13 +99,13 @@ define('my/shirt', function () {
 
 {{#example}}Use the @alias tag simplify documenting a constructor-module in RequireJS.
 /** 
-    A module representing a jacket.
-    @module jacket
+ * A module representing a jacket.
+ * @module jacket
  */
 define('jacket', function () {
     /**
-        @constructor
-        @alias module:jacket
+     * @constructor
+     * @alias module:jacket
      */
     var exports = function() {
     }
@@ -122,13 +122,13 @@ define('jacket', function () {
 
 {{#example}}Use the @alias tag to document constructor-modules in CommonJS.
 /** 
-    A module representing a jacket.
-    @module jacket
+ * A module representing a jacket.
+ * @module jacket
  */
 
 /**
-    @constructor
-    @alias module:jacket
+ * @constructor
+ * @alias module:jacket
  */
 function Jacket() {
 }
@@ -148,8 +148,8 @@ module.exports = Jacket;
 // one module
 define('html/utils',
     /** 
-        Utility functions to ease working with DOM elements.
-        @exports html/utils
+     * Utility functions to ease working with DOM elements.
+     * @exports html/utils
      */
     function() {
         var exports = {

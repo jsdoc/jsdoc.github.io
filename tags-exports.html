@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="Document the name of a JavaScript module."><title>Use JSDoc: @exports</title>
+	<meta name="description" content="Identify the member that is exported by a JavaScript module."><title>Use JSDoc: @exports</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,28 +176,36 @@
 	<article>
 	<h1>@exports</h1>
 
+<h3>Syntax</h3>
+
+<code>@exports &lt;moduleName></code>
+
+
 <h3>Overview</h3>
 
 <p>
-Use the <code>@exports</code> tag when documenting JavaScript modules to indicate that an object is being exported.
+Use the @exports tag when documenting JavaScript modules that export anything other than the
+"exports" object or the "module.exports" property.
 </p>
 
 <h3>Examples</h3>
 
 <p>
-In cases where you are using the special "exports" namespace, the <code>@exports</code> tag is never needed...
+In modules where you are using the special "exports" object, the @exports tag is never needed. JSDoc
+automatically recognizes that this object's members are being exported. Similarly, JSDoc
+automatically recognizes the special "module.exports" property in Node.js modules.
 </p>
 
 <dl class="example">
-<dt>In CommonJS modules the exports namespace is understood by JSDoc 3</dt>
+<dt>CommonJS module</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
-    A module that says hello!
-    @module hello/world
+ * A module that says hello!
+ * @module hello/world
  */
 
-/** Say Hello. */
+/** Say hello. */
 exports.sayHello = function() {
     return 'Hello world';
 };
@@ -205,20 +213,36 @@ exports.sayHello = function() {
 </pre>
 </dd>
 </dl><dl class="example">
-<dt>In AMD modules any namespace called &quot;exports&quot; is assumed by JSDoc 3 to be the exported object</dt>
+<dt>Node.js module</dt>
 <dd>
 <pre class="prettyprint lang-js">
-define(function () {
+/**
+ * A module that shouts hello!
+ * @module hello/world
+ */
+
+/** SAY HELLO. */
+module.exports = function() {
+    return "HELLO WORLD";
+};
+
+</pre>
+</dd>
+</dl><dl class="example">
+<dt>AMD module that exports an object literal</dt>
+<dd>
+<pre class="prettyprint lang-js">
+define(function() {
 
     /**
-        A module that says hello!
-        @module hello/world
+     * A module that whispers hello!
+     * @module hello/world
      */
     var exports = {};
     
-    /** Say Hello. */
+    /** say hello. */
     exports.sayHello = function() {
-        return 'Hello world';
+        return 'hello world';
     };
 
     return exports;
@@ -227,24 +251,24 @@ define(function () {
 </pre>
 </dd>
 </dl><dl class="example">
-<dt>If your AMD module exports a constructor, you can still use the &quot;exports&quot; name to indicate what the module is</dt>
+<dt>AMD module that exports a constructor</dt>
 <dd>
 <pre class="prettyprint lang-js">
 define(function() {
-     /**
-        A module that creates greeters.
-        @module greeter
-     */
-     
     /**
-        @constructor
-        @param {string} subject - Whom to greet.
+     * A module that creates greeters.
+     * @module greeter
+     */
+    
+    /**
+     * @constructor
+     * @param {string} subject - The subject to greet.
      */
     var exports = function(subject) {
         this.subject = subject || 'world';
-    }
+    };
     
-    /** Say Hello. */
+    /** Say hello to the subject. */
     exports.prototype.sayHello = function() {
         return 'Hello ' + this.subject;
     };
@@ -255,22 +279,23 @@ define(function() {
 </pre>
 </dd>
 </dl><p>
-If you are exporting an object named anything other than "exports", use the <code>@exports</code> tag to indicate what is being exported.
+If your module exports an object named anything other than "exports" or "module.exports", use the
+@exports tag to indicate what is being exported.
 </p>
 
 <dl class="example">
-<dt>The @exports tag is used to document that the &quot;ns&quot; namespace is being exported</dt>
+<dt>AMD module that exports an object</dt>
 <dd>
 <pre class="prettyprint lang-js">
 define(function () {
 
     /**
-        A module that says hello!
-        @exports hello/world
+     * A module that says hello!
+     * @exports hello/world
      */
     var ns = {};
     
-    /** Say Hello. */
+    /** Say hello. */
     ns.sayHello = function() {
         return 'Hello world';
     };
@@ -286,6 +311,7 @@ define(function () {
     <li><a href="tags-module.html">@module</a></li>
     <li><a href="howto-commonjs-modules.html">Documenting JavaScript modules with JSDoc 3</a></li>
 </ul>
+
     </article>
     
     <footer>

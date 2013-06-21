@@ -1,24 +1,48 @@
 <!--{
     "title":       "@public",
     "out":         "tags-public.html",
-    "description": "[todo] This member is meant to be public."
+    "description": "This symbol is meant to be public."
 }-->
 <h3>Overview</h3>
 
 <p>
+The @public tag indicates that a symbol should be documented as if it were public.
+</p>
+
+<p>
+By default, JSDoc treats all symbols as public, so using this tag does not normally affect the
+generated documentation. However, you may prefer to use the @public tag explicitly so it is clear to
+others that you intended to make the symbol public.
+</p>
+<p>
+In contrast to previous version of JSDoc, the @public tag does <em>not</em> affect a symbol's scope.
+Use the <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a>, and
+<a href="tags-global.html">@global</a> to change a symbol's scope.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
-{{#example}}Example goes here
-// todo
+{{#example}}Using the @public tag
+/**
+ * The Thingy class is available to all.
+ * @public
+ * @class
+ */
+function Thingy() {
+    /**
+     * The Thingy~foo member. Note that 'foo' is still an inner member
+     * of 'Thingy', in spite of the @public tag.
+     * @public
+     */
+    var foo = 0;
+}
 {{/example}}
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-protected.html">@protected</a></li>
+    <li><a href="tags-private.html">@private</a></li>
+    <li><a href="tags-access.html">@access</a>, which encompasses @private, @protected, and @public.</li>
+    <li><a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a>, and <a href="tags-global.html">@global</a> for modifying the <em>scope</em> of a symbol.</li>
 </ul>

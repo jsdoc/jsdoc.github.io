@@ -24,7 +24,7 @@
     As shown below, a class has places for two descriptions, one applies to the function itself, while the other applies to the class in general.
 </p>
 
-{{#example}}A doclet with both a description and a class description
+{{#example}}A doclet with both a constructor function description and a class description
 /**
  * This is a description of the MyClass constructor function.
  * @class

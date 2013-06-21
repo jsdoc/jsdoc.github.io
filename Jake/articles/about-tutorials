@@ -83,7 +83,7 @@
 </h3>
 
 <p>
-	Tutorial content is precessed with <code>resolveLinks()</code>, which means you can use both <code>{@link}</code> and <code>{@tutorial}</code> tags within tutorial text! They will be processed just like doclets descriptions.
+	Tutorial content is processed with <code>resolveLinks()</code>, which means you can use both <code>{@link}</code> and <code>{@tutorial}</code> tags within tutorial text! They will be processed just like doclets descriptions.
 </p>
 
 {{#example}}Using the @tutorial tag in content
@@ -97,13 +97,3 @@
 <p>
 	It is purely additional feature - if one won't specify <code>-u</code> option it won't affect documentation building. Also template <code>publish()</code> method is not a problem, since tutorials are passed as last argument, so if template function is not prepared for tutorials it just won't process them.
 </p>
-
-<h5>
-	Contributers to these docs
-</h5>
-
-<ul>
-	<li>
-		<a href="https://github.com/hegemonic">hegemonic</a>
-	</li>
-</ul>

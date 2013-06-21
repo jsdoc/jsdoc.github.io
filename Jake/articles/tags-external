@@ -1,0 +1,75 @@
+<!--{
+    "title":       "@external",
+    "out":         "tags-external.html",
+    "description": "Document an external class/namespace/module."
+}-->
+<h3>Synonyms</h3>
+<ul>
+ <li>@host</li>
+</ul>
+
+<h3>Syntax</h3>
+<code>@external &lt;NameOfExternal&gt;</code>
+
+<h3>Overview</h3>
+
+<p>The @external tag is used for documenting a class or namespace or module that is external to the project.
+It is then known within JSDoc so you can <a href="tags-augments.html">@extend</a> it, be a <a href="tags-memberof.html">@memberof</a> it and so on as you would any other class/namespace/module.
+</p>
+
+<p>
+When you refer to an external object, prefix "external:" to it - for example, "{@link external:Foo}" or "@augments external:Foo".
+</p>
+
+<h3>Examples</h3>
+
+{{#example}}Documenting methods added to built-in classes.
+/**
+ * The built in string object.
+ * @external String
+ * @see {@link https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String String}
+ */
+
+/**
+ * Adds a new method to the built-in string.
+ * @function external:String#rot13
+ * @example
+ * var greeting = new String('hello world');
+ * console.log( greeting.rot13() ); // uryyb jbeyq
+ */
+{{/example}}
+<p>Suppose we added function <code>rot13</code> to the String class.
+The above adds documentation for the String class as an external, allowing <code>rot13</code> to be properly documented as an instance member of String.
+</p>
+
+
+{{#example}}Documenting external namespaces.
+/**
+ * The jQuery plugin namespace.
+ * @external "jQuery.fn"
+ * @see {@link http://docs.jquery.com/Plugins/Authoring The jQuery Plugin Guide}
+ */
+
+/**
+ * A jQuery plugin to make stars fly around your home page.
+ * @function external:"jQuery.fn".starfairy
+ */
+{{/example}}
+<p>The above creates <code>jQuery.fn</code> as an external namespace, allowing us to document our <code>starfairy</code> function as a member of it.</p>
+
+{{#example}}Extending an external.
+/**                                                                             
+ * Namespace provided by the browser.                                          
+ * @external XMLHttpRequest                                                    
+ * @see https://developer.mozilla.org/en/xmlhttprequest                        
+ */                                                                             
+                                                                                
+/**                                                                             
+ * Extends the built in XMLHttpRequest to send data encoded with a secret key.
+ * @class EncryptedRequest
+ * @extends external:XMLHttpRequest
+ */
+{{/example}}
+<p>One can even <a href="tags-augments.html">@extend</a> an external. <code>EncryptedRequest</code> is a class that extends (external) <code>XMLHttpRequest</code>.
+</p>
+

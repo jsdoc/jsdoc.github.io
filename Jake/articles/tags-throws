@@ -1,24 +1,46 @@
 <!--{
     "title":       "@throws",
     "out":         "tags-throws.html",
-    "description": "[todo] Describe what errors could be thrown."
+    "description": "Describe what errors could be thrown."
 }-->
+<h3>Synonyms</h3>
+<ul>
+ <li>@exception</li>
+</ul>
+
+<h3>Syntax</h3>
+<code>
+ @throws free-form description<br />
+ @throws {&lt;type&gt;}<br />
+ @throws {&lt;type&gt;} free-form description
+</code>
+
 <h3>Overview</h3>
 
 <p>
+The @throws tag allows you to document an error that a function might throw. You can include the
+@throws tag more than once in a single JSDoc comment.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
-{{#example}}Example goes here
-// todo
+{{#example}}Using the @throws tag with a type
+/**
+ * @throws {InvalidArgumentException}                                          
+ */                                                           
+function foo(x) {}
 {{/example}}
 
-<h3>See Also</h3>
+{{#example}}Using the @throws tag with a description
+/**
+ * @throws Will throw an error if the argument is null.
+ */
+function bar(x) {}
+{{/example}}
 
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+{{#example}}Using the @throws tag with a type and description
+/**
+ * @throws {DivideByZero} Argument x must be non-zero.
+ */
+function baz(x) {}
+{{/example}}

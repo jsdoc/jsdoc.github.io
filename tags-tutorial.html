@@ -184,18 +184,28 @@
 <code>{@tutorial &lt;tutorialID&gt;}</code>
 <h3>Overview</h3>
 
-<p>The @tutorial tag can be used both inline and as a normal tag.
-It inserts a link to an included tutorial file.
-See the <a href="about-tutorials.html">tutorials tutorial</a> for instructions on creating tutorials.
+<p>The @tutorial tag can be used both as a block and inline tag.
+It inserts a link to a tutorial file that is provided as part of the documentation.
+See the <a href="about-tutorials.html">tutorials overview</a> for instructions on creating tutorials.
+</p>
+
+<p>
+You can use the @tutorial tag more than once in a single JSDoc comment.
 </p>
 
 <h3>Examples</h3>
 
+<p>
+In the following example, the documentation for MyClass will link to the tutorials that have the
+identifiers tutorial-1 and tutorial-2:
+</p>
+
 <dl class="example">
-<dt>Using @tutorial in a doclet.</dt>
+<dt>Using the @tutorial block tag</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/** Description
+/**
+ * Description
  * @class
  * @tutorial tutorial-1
  * @tutorial tutorial-2
@@ -204,14 +214,17 @@ function MyClass() {}
 
 </pre>
 </dd>
-</dl><p>In the above example the MyClass documentation will have links to the tutorials identified by 'tutorial-1' and 'tutorial-2', a bit like the <a href="tags-see.html">@see</a> tag.
+</dl><p>
+The following example inserts inline links to tutorial-1 and tutorial-2 within the description of
+MyClass:
 </p>
 
 <dl class="example">
-<dt>Using @tutorial inline.</dt>
+<dt>Using the @tutorial inline tag</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/** Description.
+/**
+ * Description.
  * Check out {@tutorial tutorial-1} and {@tutorial tutorial-2}.
  * @class
  */
@@ -219,14 +232,12 @@ function MyClass() {}
 
 </pre>
 </dd>
-</dl><p>In its in-line usage the @tutorial tag is exactly like @link, but for tutorials.</p>
-
-<h3>See Also</h3>
+</dl><h3>See Also</h3>
 
 <ul>
-    <li>The <a href="about-tutorials.html">tutorials tutorial</a></li>
-    <li>The <a href="tags-see.html">@see</a> tag, like @tutorial.</li>
-    <li>The <a href="tags-link.html">@link</a> tag, like {@tutorial} but for code objects or URLs.</li>
+    <li>The <a href="about-tutorials.html">tutorials overview</a></li>
+    <li>The <a href="tags-see.html">@see</a></li>
+    <li>The <a href="tags-link.html">@link</a></li>
 </ul>
 
     </article>

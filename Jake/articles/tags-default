@@ -3,6 +3,11 @@
     "out":         "tags-default.html",
     "description": "Document the default value."
 }-->
+<h3>Synonyms</h3>
+<ul>
+ <li>@defaultvalue</li>
+</ul>
+
 <h3>Syntax</h3>
 
 <code>@default [&lt;some value>]</code>

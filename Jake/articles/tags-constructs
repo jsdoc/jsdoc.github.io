@@ -31,11 +31,11 @@ var Person = makeClass(
 );
 {{/example}}
 
-{{#example}}Whithout @lends you must provide the name of the class
+{{#example}}Without @lends you must provide the name of the class
 makeClass('Menu', 
     /**
-        @constructs Menu
-        @param items
+     * @constructs Menu
+     * @param items
      */
     function (items) { },
     {
@@ -49,5 +49,5 @@ makeClass('Menu',
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="tag-lends.html">@lends</a></li>
+    <li><a href="tags-lends.html">@lends</a></li>
 </ul>

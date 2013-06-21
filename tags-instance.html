@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Document an instance member."><title>Use JSDoc: @instance</title>
+	<meta name="description" content="Document an instance member."><title>Use JSDoc: @instance</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -177,28 +177,70 @@
 	<h1>@instance</h1>
 
 <h3>Overview</h3>
+<p>
+Using the @instance tag will mark a symbol as an instance member of its parent symbol.
+This means it can be referred to by "Parent#Child".
+</p>
 
 <p>
+Using @instance will override a doclet's default scope (unless it is in the global scope, in which
+case it will remain global).
 </p>
 
 <h3>Examples</h3>
 
 <p>
+The following example is a longhand way of writing "@function MyNamespace#myFunction":
 </p>
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Using @instance to make a virtual doclet an instance member</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/** @namespace MyNamespace */
+/**
+ * myFunction is now MyNamespace#myFunction.
+ * @function myFunction
+ * @memberof MyNamespace
+ * @instance
+ */
+
+</pre>
+</dd>
+</dl><p>
+More usefully, you can use the @instance tag to override the scope that JSDoc infers. For example,
+you can indicate that a static member is used as an instance member:
+</p>
+
+<dl class="example">
+<dt>Using @instance to identify an instance member</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @namespace */
+var BaseObject = {
+    /**
+     * foo is now BaseObject#foo rather than BaseObject.foo.
+     * @instance
+     */
+    foo: null
+};
+
+/** Generates BaseObject instances. */
+function fooFactory(fooValue) {
+    var props = { foo: fooValue };
+    return Object.create(BaseObject, props);
+}
 
 </pre>
 </dd>
 </dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-inner.html">@inner</a>, which marks a symbol as an inner member (Parent~Child).</li>
+    <li><a href="tags-global.html">@global</a>, which marks a symbol as global.</li>
+    <li><a href="tags-static.html">@static</a>, which marks a symbol as a static member (Parent.Child)</li>
 </ul>
+
     </article>
     
     <footer>

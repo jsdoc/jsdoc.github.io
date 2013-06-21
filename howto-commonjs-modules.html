@@ -260,10 +260,10 @@ this.Book = function(title) {
 <pre class="prettyprint lang-js">
 define('my/shirt', function () {
    /** 
-        A module representing a shirt.
-        @exports my/shirt
-        @version 1.0
-     */
+    * A module representing a shirt.
+    * @exports my/shirt
+    * @version 1.0
+    */
     var shirt = {
     
         /** A property of the module. */
@@ -290,13 +290,13 @@ define('my/shirt', function () {
 <dd>
 <pre class="prettyprint lang-js">
 /** 
-    A module representing a jacket.
-    @module jacket
+ * A module representing a jacket.
+ * @module jacket
  */
 define('jacket', function () {
     /**
-        @constructor
-        @alias module:jacket
+     * @constructor
+     * @alias module:jacket
      */
     var exports = function() {
     }
@@ -317,13 +317,13 @@ define('jacket', function () {
 <dd>
 <pre class="prettyprint lang-js">
 /** 
-    A module representing a jacket.
-    @module jacket
+ * A module representing a jacket.
+ * @module jacket
  */
 
 /**
-    @constructor
-    @alias module:jacket
+ * @constructor
+ * @alias module:jacket
  */
 function Jacket() {
 }
@@ -347,8 +347,8 @@ module.exports = Jacket;
 // one module
 define('html/utils',
     /** 
-        Utility functions to ease working with DOM elements.
-        @exports html/utils
+     * Utility functions to ease working with DOM elements.
+     * @exports html/utils
      */
     function() {
         var exports = {

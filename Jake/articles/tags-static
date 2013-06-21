@@ -1,0 +1,53 @@
+<!--{
+    "title":       "@static",
+    "out":         "tags-static.html",
+    "description": "Document a static member."
+}-->
+<h3>Overview</h3>
+<p>
+The @static tag indicates that a symbol is contained within a parent and can be accessed without
+instantiating the parent.
+</p>
+
+<p>
+Using the @static tag will override a symbol's default scope, with one exception: Symbols in global
+scope will remain global.
+</p>
+
+<h3>Examples</h3>
+
+<p>
+The following example has the same effect as writing "@function MyNamespace.myFunction" and omitting
+the @memberof and @static tags:
+</p>
+
+{{#example}}Using @static in a virtual comment
+/** @namespace MyNamespace */
+
+/**
+ * @function myFunction
+ * @memberof MyNamespace
+ * @static
+ */
+{{/example}}
+
+The following example forces a module's inner member to be documented as a static member:
+
+{{#example}}Using @static to override the default scope
+/** @module Rollerskate */
+
+/**
+ * The 'wheel' variable is documented as Rollerskate.wheel
+ * rather than Rollerskate~wheel.
+ * @static
+ */
+var wheel = 1;
+{{/example}}
+
+<h3>See Also</h3>
+
+<ul>
+    <li><a href="tags-inner.html">@inner</a>, which marks a symbol as an inner member (Parent~Child).</li>
+    <li><a href="tags-instance.html">@instance</a>, which marks a symbol as an instance member (Parent#Child).</li>
+    <li><a href="tags-global.html">@global</a>, which marks a symbol as global (Child).</li>
+</ul>

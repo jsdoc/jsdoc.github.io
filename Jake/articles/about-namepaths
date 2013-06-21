@@ -99,7 +99,41 @@ This chaining can be used with any combination of the connecting symbols: <code>
 There are some special cases with namepaths: <a href="tags-module.html">@modules</a> are prefixed by "module:", <a href="tags-external.html">@externals</a> are prefixed by "external:", and <a href="tags-event.html">@event</a> names are prefixed by "event:".
 </p>
 
+{{#example}}Namepaths of objects with special characters in the name.
+/** @namespace */
+var chat = {
+    /**
+     * Refer to this by {@link chat."#channel"}.
+     * @namespace
+     */
+    "#channel": {
+        /**
+         * Refer to this by {@link chat."#channel".open}.
+         * @type {boolean}
+         * @defaultvalue
+         */
+        open: true,
+        /**
+         * Internal quotes have to be escaped by backslash. This is
+         * {@link chat."#channel"."say-\"hello\""}.
+         */
+        'say-"hello"': function (msg) {}
+    }
+};
+
+/**
+ * Now we define an event in our {@link chat."#channel"} namespace.
+ * @event chat."#channel"."op:announce-motd"
+ */
+{{/example}}
+<p>
+Above is an example of a namespace with "unusual" characters in its member names (the hash character, dashes, even quotes).
+To refer to these you just need quote the names: chat."#channel", chat."#channel"."op:announce-motd", and so on.
+Internal quotes in names should be escaped with backslashes: chat."#channel"."say-\"hello\"".
+</p>
+
 <h3>See Also</h3>
 <ul>
  <li><a href="about-inline-tags.html">Inline links within the documentation</a></li>
+ <li><a href="tags-link.html">@link</a> for producing links to other parts of the documentation</li>
 </ul>

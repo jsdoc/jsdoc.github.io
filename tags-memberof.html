@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] This object is a member or another object."><title>Use JSDoc: @memberof</title>
+	<meta name="description" content="This symbol belongs to a parent symbol."><title>Use JSDoc: @memberof</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,133 @@
 	<article>
 	<h1>@memberof</h1>
 
+<h3>Syntax</h3>
+<code>@memberof &lt;parentNamepath&gt;<br />
+@memberof! &lt;parentNamepath&gt;</code>
+
 <h3>Overview</h3>
 
+<p>The @memberof tag identifies a member symbol that belongs to a parent symbol.
+</p>
+
 <p>
+By default, the @memberof tag documents member symbols as static members. For inner and instance
+members, you can use scoping punctuation after the namepath, or you can add the
+<a href="tags-inner.html">@inner</a> or <a href="tags-instance.html">@instance</a> tag.
+</p>
+
+<p>
+The "forced" @memberof tag, @memberof!, forces the object to be documented as belonging to a specific
+parent even if it appears to have a different parent.
 </p>
 
 <h3>Examples</h3>
 
-<p>
+<p>In the following example, the <code>hammer</code> function would normally be documented as
+a global function. That's because, in fact, it is a global function, but it is also a member of the
+<code>Tools</code> namespace, and that's how you wish to document it. The solution is to add a
+@memberof tag:
 </p>
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Using @memberof</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/** @namespace */
+var Tools = {};
+
+/** @memberof Tools */
+var hammer = function() {
+};
+
+Tools.hammer = hammer;
+
+</pre>
+</dd>
+</dl><p>For instance members of a class, use the syntax "@memberof ClassName.prototype" or
+"@memberof ClassName#". Alternatively, you can combine "@memberof ClassName" with the "@instance"
+tag.
+</p>
+
+<dl class="example">
+<dt>Using @memberof with a class prototype</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @class Observable */
+create(
+    'Observable',
+    {
+        /**
+         * This will be a static member, Observable.cache.
+         * @memberof Observable
+         */
+        cache: [],
+
+        /**
+         * This will be an instance member, Observable#publish.
+         * @memberof Observable.prototype
+         */
+        publish: function(msg) {},
+
+        /**
+         * This will also be an instance member, Observable#save.
+         * @memberof Observable#
+         */
+        save: function() {},
+
+        /**
+         * This will also be an instance member, Observable#end.
+         * @memberof Observable
+         * @instance
+         */
+        end: function() {}
+    }
+);
+
+</pre>
+</dd>
+</dl><p>The following example uses the forced @memberof tag, "@memberof!", to document a property of an
+object (Data#point) that is an instance member of a class (Data).
+</p>
+
+<p>When you use the @property tag to document a property, you cannot link to the property using its
+longname. We can force the property to be linkable by using "@alias" and "@memberof!" to tell JSDoc
+that Data#point.y should be documented as a member "point.y" of "Data#", rather than a member "y" of
+"point" of "Data#".
+</p>
+
+<dl class="example">
+<dt>Using @memberof! for object properties</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/** @class */
+function Data() {
+    /**
+     * @type {object}
+     * @property {number} y This will show up as a property of `Data#point`,
+     * but you cannot link to the property as {@link Data#point.y}.
+     */
+    this.point = {
+        /**
+         * The @alias and @memberof! tags force JSDoc to document the
+         * property as `point.x` (rather than `x`) and to be a member of
+         * `Data#`. You can link to the property as {@link Data#point.x}.
+         * @alias point.x
+         * @memberof! Data#
+         */
+        x: 0,
+        y: 1
+    };
+}
 
 </pre>
 </dd>
 </dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-name.html">@name</a></li>
 </ul>
+
     </article>
     
     <footer>

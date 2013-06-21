@@ -1,8 +1,13 @@
 <!--{
     "title":       "@desc",
     "out":         "tags-description.html",
-    "description": "Describe the object."
+    "description": "Describe a symbol."
 }-->
+<h3>Synonyms</h3>
+<ul>
+ <li>@description</li>
+</ul>
+
 <h3>Syntax</h3>
 
 <code>@desc &lt;some description></code>
@@ -10,40 +15,43 @@
 <h3>Overview</h3>
 
 <p>
-The @desc tag allows you to provide a general description of the symbol you are documenting. The text can be in the form of HTML or, if you have enabled the markdown plugin, it can be formatted as one of the various flavors or MarkDown.
+The @desc tag allows you to provide a general description of the symbol you are documenting. The
+description may include HTML markup. It may also include Markdown formatting if the
+<a href="plugins-markdown.html">Markdown plugin</a> is enabled.
 </p>
 
 <h3>Examples</h3>
 
 <p>
-The @desc (or it's synonym @description) is the default tag in JSDoc, so if no other tag is in effect you can just start writing your description text.
+If you describe a symbol at the very beginning of a JSDoc comment, before using any block tags, you
+may omit the @desc tag.
 </p>
 
-{{#example}}A tagless description is allowed if no other tag is in effect
+{{#example}}Describing a symbol without the @desc tag
 /**
-    Add two numbers.
-    @param {number} a
-    @param {number} b
-    @returns {number}
+ * Add two numbers.
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
  */
 function add(a, b) {
-    return a+b;
+    return a + b;
 }
 {{/example}}
 
 <p>
-If any other tag has previously been used in a given doc comment, then you must use a @desc tag if you wish to provide a description.
+By using the @desc tag, you can place the description anywhere in the JSDoc comment.
 </p>
 
-{{#example}}A @desc tag is necessary if any other tag is in effect
+{{#example}}Describing a symbol with the @desc tag
 /**
-    @param {number} a
-    @param {number} b
-    @returns {number}
-    @desc Add two numbers.
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
+ * @desc Add two numbers.
  */
 function add(a, b) {
-    return a+b;
+    return a + b;
 }
 {{/example}}
 
@@ -51,4 +59,5 @@ function add(a, b) {
 
 <ul>
     <li><a href="tags-classdesc.html">@classdesc</a></li>
+    <li><a href="tags-summary.html">@summary</a></li>
 </ul>

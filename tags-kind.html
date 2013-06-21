@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] What kind of object is this?"><title>Use JSDoc: @kind</title>
+	<meta name="description" content="What kind of symbol is this?"><title>Use JSDoc: @kind</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,92 @@
 	<article>
 	<h1>@kind</h1>
 
+<h3>Syntax</h3>
+
+<code>@kind &lt;kindName&gt;</code>
+<p>
+where <code>&lt;kindName&gt;</code> is one of:
+</p>
+
+<ul>
+<li>class</li>
+<li>constant</li>
+<li>event</li>
+<li>external</li>
+<li>file</li>
+<li>function</li>
+<li>member</li>
+<li>mixin</li>
+<li>module</li>
+<li>namespace</li>
+<li>typedef</li>
+</p>
+
 <h3>Overview</h3>
 
 <p>
+The @kind tag is used to document what <em>kind</em> of symbol is being documented (for example, a
+class or a module). The <em>kind</em> of symbol differs from a symbol's <em>type</em> (for example,
+string or boolean).
+</p>
+
+<p>
+Usually you do not need the @kind tag, because the symbol's kind is determined by other tags in the
+doclet. For example, using the @class tag automatically implies "@kind class", and using the
+@namespace tag implies "@kind namespace".
 </p>
 
 <h3>Examples</h3>
 
-<p>
+<dl class="example">
+<dt>Using @kind</dt>
+<dd>
+<pre class="prettyprint lang-js">
+// The following examples produce the same result:
+
+/**
+ * A constant.
+ * @kind constant
+ */
+const asdf = 1;
+
+/**
+ * A constant.
+ * @constant
+ */
+const asdf = 1;
+
+</pre>
+</dd>
+</dl><p>In the case of tags with conflicting kinds (for example, using both @module, which sets the kind
+to "module", and "@kind constant" which sets the kind to "constant"), the last tag determines the
+kind.
 </p>
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Conflicting @kind statements</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/**
+ * This will show up as a constant
+ * @module myModule
+ * @kind constant
+ */
+
+/**
+ * This will show up as a module.
+ * @kind constant
+ * @module myModule
+ */
 
 </pre>
 </dd>
 </dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-type.html">@type</a></li>
 </ul>
+
     </article>
     
     <footer>

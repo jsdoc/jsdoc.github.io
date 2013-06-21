@@ -178,53 +178,55 @@
 
 <h3>Overview</h3>
 
-<p>Provide an example of how to use a documented item. The text that follows this tag may span multiple lines, it will be displayed as highlighted code. The leading stars in the comment do not have to be present for this to work.
+<p>Provide an example of how to use a documented item. The text that follows this tag will be
+displayed as highlighted code.
 </p>
 
 <h3>Examples</h3>
 
-<p>
+<p>Note that a doclet may have multiple examples.
 </p>
 
 <dl class="example">
-<dt>Documenting examples.</dt>
+<dt>Documenting examples</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
  * Solves equations of the form a * x = b
  * @example
  * // returns 2
- * globalNS.method1(5,10);
+ * globalNS.method1(5, 10);
+ * @example
+ * // returns 3
+ * globalNS.method(5, 15);
  * @returns {Number} Returns the value of x for the equation.
  */
-globalNS.method1 = function (a,b) {
+globalNS.method1 = function (a, b) {
     return b / a;
 };
 
 </pre>
 </dd>
-</dl><dl class="example">
-<dt>Documenting examples (note no leading stars required)</dt>
+</dl><p>Examples can also be captioned using <code>&lt;caption&gt;&lt;/caption&gt;</code> after the @example tag.</p>
+
+<dl class="example">
+<dt>Documenting examples with a caption</dt>
 <dd>
 <pre class="prettyprint lang-js">
 /**
  * Solves equations of the form a * x = b
- * @example
-// returns 2
-globalNS.method1(5,10);
+ * @example &lt;caption>Example usage of method1.&lt;/caption>
+ * // returns 2
+ * globalNS.method1(5, 10);
  * @returns {Number} Returns the value of x for the equation.
  */
-globalNS.method1 = function (a,b) {
+globalNS.method1 = function (a, b) {
     return b / a;
 };
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
-
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+</dl>
     </article>
     
     <footer>

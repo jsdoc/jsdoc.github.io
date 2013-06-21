@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Document the name of an object."><title>Use JSDoc: @name</title>
+	<meta name="description" content="Document the name of an object."><title>Use JSDoc: @name</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,56 @@
 	<article>
 	<h1>@name</h1>
 
+<h3>Syntax</h3>
+<code>@name &lt;namePath&gt;</code>
+
 <h3>Overview</h3>
 
 <p>
+The @name tag forces JSDoc to associate the remainder of the JSDoc comment with the given name,
+ignoring all surrounding code. This tag is best used in "virtual comments" for symbols that are not
+readily visible in the code, such as methods that are generated at runtime.
+</p>
+
+<p>
+When you use the @name tag, you must provide additional tags that tell JSDoc what kind of symbol you
+are documenting; whether the symbol is a member of another symbol; and so on. If you do not provide
+this information, the symbol will not be documented correctly.
+</p>
+
+<p>
+<strong>Warning</strong>: By using the @name tag, you are telling JSDoc to <em>ignore the
+surrounding code</em> and treat your documentation comment in isolation. In many cases, it is best
+to use the @alias tag instead, which changes a symbol's name in the documentation but preserves
+other information about the symbol.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
+The following example shows how to use the @name tag to document a function that JSDoc would not
+normally recognize.
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Using the @name tag</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/**
+ * @name highlightSearchTerm
+ * @function
+ * @global
+ * @param {string} term - The search term to highlight.
+ */
+eval("window.highlightSearchTerm = function(term) {};")
 
 </pre>
 </dd>
 </dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-alias.html">@alias</a></li>
+    <li><a href="about-namepaths.html">About namepaths</a></li>
 </ul>
+
     </article>
     
     <footer>

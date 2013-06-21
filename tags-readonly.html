@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] This variable is meant to be readonly."><title>Use JSDoc: @readonly</title>
+	<meta name="description" content="This symbol is meant to be read-only."><title>Use JSDoc: @readonly</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -179,26 +179,51 @@
 <h3>Overview</h3>
 
 <p>
+The @readonly tag indicates that a symbol is intended to be read-only. Note this is for the purpose
+of documentation only - JSDoc won't check whether you've <em>actually</em> treated the symbol as
+read-only in your code.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Using the @readonly tag</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/**
+ * A constant.
+ * @readonly
+ * @const {number}
+ */
+const FOO = 1;
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><dl class="example">
+<dt>Using the @readonly tag with a getter</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/**
+ * Options for ordering a delicious slice of pie.
+ * @namespace
+ */
+var pieOptions = {
+    /**
+     * Plain.
+     */
+    plain: 'pie',
+    /**
+     * A la mode.
+     * @readonly
+     */
+    get aLaMode() {
+        return this.plain + ' with ice cream';
+    }
+};
 
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+</pre>
+</dd>
+</dl>
     </article>
     
     <footer>

@@ -33,7 +33,7 @@ jsdoc -T
 {{/example}}
 
 <p>
-    ... or on a Max OSX or *nix platform:
+    ... or on a Mac OS X or *nix platform:
 </p>
 
 {{#example}}Example

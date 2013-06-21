@@ -1,24 +1,49 @@
 <!--{
     "title":       "@member",
     "out":         "tags-member.html",
-    "description": "[todo] Document a member."
+    "description": "Document a member."
 }-->
+<h3>Synonyms</h3>
+<ul>
+ <li>@var</li>
+</ul>
+
+<h3>Syntax</h3>
+<code>@member [&lt;type&gt;] [&lt;name&gt;]</code>
+
 <h3>Overview</h3>
 
 <p>
+The @member tag identifies any member that does not have a more specialized kind, such as "class",
+"function", or "constant". A member can optionally have a type as well as a name. 
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
-{{#example}}Example goes here
-// todo
+{{#example}}Using @member with Data#point
+/** @class */
+function Data() {
+    /** @member {Object} */
+    this.point = {};
+}
 {{/example}}
 
-<h3>See Also</h3>
+<p>Here is an example of using @var, a synonym of @member, to document a (virtual) variable 'foo'.
+</p>
 
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+{{#example}}Using @member to document a virtual member
+/**
+ * A variable in the global namespace called 'foo'.
+ * @var {number} foo
+ */
+{{/example}}
+
+<p>The above example is equivalent to the following:</p>
+
+{{#example}} 
+/**
+ * A variable in the global namespace called 'foo'.
+ * @type {number}
+ */
+var foo;
+{{/example}}

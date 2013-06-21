@@ -1,66 +1,86 @@
 <!--{
     "title":       "@exports",
     "out":         "tags-exports.html",
-    "description": "Document the name of a JavaScript module."
+    "description": "Identify the member that is exported by a JavaScript module."
 }-->
+<h3>Syntax</h3>
+
+<code>@exports &lt;moduleName></code>
+
+
 <h3>Overview</h3>
 
 <p>
-Use the <code>@exports</code> tag when documenting JavaScript modules to indicate that an object is being exported.
+Use the @exports tag when documenting JavaScript modules that export anything other than the
+"exports" object or the "module.exports" property.
 </p>
 
 <h3>Examples</h3>
 
 <p>
-In cases where you are using the special "exports" namespace, the <code>@exports</code> tag is never needed...
+In modules where you are using the special "exports" object, the @exports tag is never needed. JSDoc
+automatically recognizes that this object's members are being exported. Similarly, JSDoc
+automatically recognizes the special "module.exports" property in Node.js modules.
 </p>
 
-{{#example}}In CommonJS modules the exports namespace is understood by JSDoc 3
+{{#example}}CommonJS module
 /**
-    A module that says hello!
-    @module hello/world
+ * A module that says hello!
+ * @module hello/world
  */
 
-/** Say Hello. */
+/** Say hello. */
 exports.sayHello = function() {
     return 'Hello world';
 };
 {{/example}}
 
-{{#example}}In AMD modules any namespace called "exports" is assumed by JSDoc 3 to be the exported object
-define(function () {
+{{#example}}Node.js module
+/**
+ * A module that shouts hello!
+ * @module hello/world
+ */
+
+/** SAY HELLO. */
+module.exports = function() {
+    return "HELLO WORLD";
+};
+{{/example}}
+
+{{#example}}AMD module that exports an object literal
+define(function() {
 
     /**
-        A module that says hello!
-        @module hello/world
+     * A module that whispers hello!
+     * @module hello/world
      */
     var exports = {};
     
-    /** Say Hello. */
+    /** say hello. */
     exports.sayHello = function() {
-        return 'Hello world';
+        return 'hello world';
     };
 
     return exports;
 });
 {{/example}}
 
-{{#example}}If your AMD module exports a constructor, you can still use the "exports" name to indicate what the module is
+{{#example}}AMD module that exports a constructor
 define(function() {
-     /**
-        A module that creates greeters.
-        @module greeter
-     */
-     
     /**
-        @constructor
-        @param {string} subject - Whom to greet.
+     * A module that creates greeters.
+     * @module greeter
+     */
+    
+    /**
+     * @constructor
+     * @param {string} subject - The subject to greet.
      */
     var exports = function(subject) {
         this.subject = subject || 'world';
-    }
+    };
     
-    /** Say Hello. */
+    /** Say hello to the subject. */
     exports.prototype.sayHello = function() {
         return 'Hello ' + this.subject;
     };
@@ -70,19 +90,20 @@ define(function() {
 {{/example}}
 
 <p>
-If you are exporting an object named anything other than "exports", use the <code>@exports</code> tag to indicate what is being exported.
+If your module exports an object named anything other than "exports" or "module.exports", use the
+@exports tag to indicate what is being exported.
 </p>
 
-{{#example}}The @exports tag is used to document that the "ns" namespace is being exported
+{{#example}}AMD module that exports an object
 define(function () {
 
     /**
-        A module that says hello!
-        @exports hello/world
+     * A module that says hello!
+     * @exports hello/world
      */
     var ns = {};
     
-    /** Say Hello. */
+    /** Say hello. */
     ns.sayHello = function() {
         return 'Hello world';
     };

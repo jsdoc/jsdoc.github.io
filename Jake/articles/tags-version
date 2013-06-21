@@ -11,17 +11,14 @@ will be used to denote the version of the item.
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
-{{#example}}Documenting an item's version.
+{{#example}}Using the @version tag
 /**
- * Solves equations of the form a * x = b
- * @author Some Author
- * @version 20121008
- * @tutorial method1
+ * Solves equations of the form a * x = b. Returns the value
+ * of x.
+ * @version 1.2.3
+ * @tutorial solver
  */
-method1 = function (a,b) {
+function solver(a, b) {
 	return b / a;
 }
 {{/example}}
@@ -29,12 +26,5 @@ method1 = function (a,b) {
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="tags-author.html">@author</a></li>
-	<li><a href="tags-tutorial.html">@tutorial</a></li>
-</ul>
-
-<h5>Contributers to these docs</h5>
-
-<ul>
-    <li><a href="https://github.com/matthewkastor">matthewkastor</a></li>
+	<li><a href="tags-since.html">@since</a></li>
 </ul>

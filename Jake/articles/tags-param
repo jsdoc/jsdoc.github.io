@@ -1,7 +1,7 @@
 <!--{
     "title":       "@param",
     "out":         "tags-param.html",
-    "description": ">Document the parameter to a function."
+    "description": "Document the parameter to a function."
 }-->
 
 <h3>Synonyms</h3>
@@ -34,7 +34,7 @@ function sayHello(somebody) {
 
 {{#example}}Using a type with @param
 /**
- * @param {String} somebody
+ * @param {string} somebody
  */
 function sayHello(somebody) {
     alert('Hello ' + somebody);
@@ -44,7 +44,7 @@ function sayHello(somebody) {
 
 {{#example}}Using type and description with @param
 /**
- * @param {String} somebody Name
+ * @param {string} somebody Name
  */
 function sayHello(somebody) {
     alert('Hello ' + somebody);
@@ -57,7 +57,7 @@ The following examples show how to indicate that a parameter can be optional and
 
 {{#example}}An optional parameter
 /**
- * @param {String} [somebody] Name
+ * @param {string} [somebody] Name
  */
 function sayHello(somebody) {
     if (!somebody) {
@@ -80,7 +80,8 @@ function sayHello(somebody) {
 {{/example}}
 
 <p>
-A parameter could also have several types instead of just one. It can also be used multiple times. The following examples reflect these situations.
+A parameter could also have several types instead of just one. It can also be used multiple times.
+The following examples reflect these situations.
 </p>
 
 {{#example}}Multiple types
@@ -111,16 +112,28 @@ function sum(num) {
 }
 {{/example}}
 
+{{#example}}Parameters that are callbacks
+/**
+ * Does something asynchronously, calling the callback on completion.
+ * @param {requestCallback} cb - The callback that handles the response.
+ */
+function doSomethingAsynchronously(cb) {
+    // code
+};
 
+/**
+ * This callback is displayed as a global member.
+ * @callback requestCallback
+ * @param {number} responseCode
+ * @param {string} responseMessage
+ */
+{{/example}}
 
 <h3>See Also</h3>
 
 <ul>
     <li><a href="tags-returns.html">@returns</a></li>
-</ul>
-
-<h5>Contributers to these docs</h5>
-
-<ul>
-    <li><a href="https://github.com/customcommander">customcommander</a></li>
+    <li><a href="tags-type.html">@type</a></li>
+    <li><a href="tags-typedef.html">@typedef</a></li>
+    <li><a href="tags-callback.html">@callback</a></li>
 </ul>

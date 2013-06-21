@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] What does the this keyword refer to here?"><title>Use JSDoc: @this</title>
+	<meta name="description" content="What does the &#39;this&#39; keyword refer to here?"><title>Use JSDoc: @this</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,45 @@
 	<article>
 	<h1>@this</h1>
 
+<h3>Syntax</h3>
+<code>@this &lt;namePath&gt;</code>
+
 <h3>Overview</h3>
 
 <p>
+The @this tag indicates what the <code>this</code> keyword refers to when used within another
+symbol.
 </p>
 
 <h3>Examples</h3>
 
 <p>
+In the following example, the @this tag causes "this.name" to be documented as "Greeter#name"
+rather than a global symbol called "name".
 </p>
 
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>/** @constructor */</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+function Greeter(name) {
+    setName.apply(this, name);
+}
+
+/** @this Greeter */
+function setName(name) {
+    /** document me */
+    this.name = name;
+}
 
 </pre>
 </dd>
 </dl><h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-memberof.html">@memberof</a></li>
 </ul>
+
     </article>
     
     <footer>

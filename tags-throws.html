@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] Describe what errors could be thrown."><title>Use JSDoc: @throws</title>
+	<meta name="description" content="Describe what errors could be thrown."><title>Use JSDoc: @throws</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,61 @@
 	<article>
 	<h1>@throws</h1>
 
+<h3>Synonyms</h3>
+<ul>
+ <li>@exception</li>
+</ul>
+
+<h3>Syntax</h3>
+<code>
+ @throws free-form description<br />
+ @throws {&lt;type&gt;}<br />
+ @throws {&lt;type&gt;} free-form description
+</code>
+
 <h3>Overview</h3>
 
 <p>
+The @throws tag allows you to document an error that a function might throw. You can include the
+@throws tag more than once in a single JSDoc comment.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Using the @throws tag with a type</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/**
+ * @throws {InvalidArgumentException}                                          
+ */                                                           
+function foo(x) {}
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
+</dl><dl class="example">
+<dt>Using the @throws tag with a description</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/**
+ * @throws Will throw an error if the argument is null.
+ */
+function bar(x) {}
 
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+</pre>
+</dd>
+</dl><dl class="example">
+<dt>Using the @throws tag with a type and description</dt>
+<dd>
+<pre class="prettyprint lang-js">
+/**
+ * @throws {DivideByZero} Argument x must be non-zero.
+ */
+function baz(x) {}
+
+</pre>
+</dd>
+</dl>
     </article>
     
     <footer>

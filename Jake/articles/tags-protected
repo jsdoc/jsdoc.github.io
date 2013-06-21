@@ -1,24 +1,30 @@
 <!--{
     "title":       "@protected",
     "out":         "tags-protected.html",
-    "description": "[todo] This member is meant to be protected."
+    "description": "This member is meant to be protected."
 }-->
 <h3>Overview</h3>
 
-<p>
+<p>This tag marks a doclet as protected.
 </p>
+
+<p>Note that "@protected" is equivalent to "@access protected". See
+<a href="tags-access.html">@access</a> for details.</p>
 
 <h3>Examples</h3>
-
-<p>
-</p>
-
-{{#example}}Example goes here
-// todo
+{{#example}} Using the @protected tag
+/** @constructor */
+function Thingy() {
+    /** @protected */
+    this._bar = 1;
+}
 {{/example}}
 
 <h3>See Also</h3>
-
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-private.html">@private</a></li>
+    <li><a href="tags-public.html">@public</a></li>
+    <li><a href="tags-access.html">@access</a>, which encompasses @private, @protected, and @public.</li>
+    <li><a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a>, and
+    <a href="tags-global.html">@global</a></li>
 </ul>

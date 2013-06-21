@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="description" content="[todo] This JavaScript module requires another JavaScript module."><title>Use JSDoc: @requires</title>
+	<meta name="description" content="This file requires a JavaScript module."><title>Use JSDoc: @requires</title>
 	
 	<link rel="stylesheet" href="lib/prettify.css" />
 	<script src="lib/prettify.js"></script>
@@ -176,29 +176,41 @@
 	<article>
 	<h1>@requires</h1>
 
+<h3>Syntax</h3>
+<code>@requires &lt;someModuleName&gt;</code>
+
 <h3>Overview</h3>
 
 <p>
+The @requires tag allows you to document that a module is needed to use this code. A JSDoc comment
+can have multiple @require tags. The module name can be specified as "moduleName" or
+"module:moduleName"; both forms will be interpreted as modules.
+</p>
+
+<p>
+JSDoc does not attempt to process the module that is being included. If you want the module to be
+included in the documentation, you must include the module in the list of JavaScript files to
+process.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
 <dl class="example">
-<dt>Example goes here</dt>
+<dt>Using the @requires tag</dt>
 <dd>
 <pre class="prettyprint lang-js">
-// todo
+/**
+ * This class requires the modules {@link module:xyzcorp/helper} and
+ * {@link module:xyzcorp/helper.ShinyWidget#polish}.
+ * @class
+ * @requires module:xyzcorp/helper
+ * @requires xyzcorp/helper.ShinyWidget#polish
+ */
+function Widgetizer() {}
 
 </pre>
 </dd>
-</dl><h3>See Also</h3>
-
-<ul>
-    <li><a href="#">...</a></li>
-</ul>
+</dl>
     </article>
     
     <footer>

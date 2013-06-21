@@ -1,24 +1,54 @@
 <!--{
     "title":       "@mixin",
     "out":         "tags-mixin.html",
-    "description": "[todo] Document a mix-in object."
+    "description": "Document a mixin object."
 }-->
+
+<h3>Syntax</h3>
+<code>@mixin [&lt;MixinName&gt;]</code>
+
 <h3>Overview</h3>
 
 <p>
+A mixin provides functionality that is intended to be added to other objects. If desired, you can
+use the @mixin tag to indicate that an object is a mixin. You can then add the @mixes tag to objects
+that use the mixin.
 </p>
 
 <h3>Examples</h3>
 
-<p>
-</p>
-
-{{#example}}Example goes here
-// todo
+{{#example}}Using @mixin
+/**
+ * This provides methods used for event handling. It's not meant to
+ * be used directly.
+ *
+ * @mixin
+ */
+var Eventful = {
+    /**
+     * Register a handler function to be called whenever this event is fired.
+     * @param {string} eventName - Name of the event.
+     * @param {function(Object)} handler - The handler to call.
+     */
+    on: function(eventName, handler) {
+        // code...
+    },
+   
+    /**
+     * Fire an event, causing all handlers for that event name to run.
+     * @param {string} eventName - Name of the event.
+     * @param {Object} eventData - The data provided to each handler.
+     */
+    fire: function(eventName, eventData) {
+        // code...
+    }
+};
 {{/example}}
 
 <h3>See Also</h3>
 
 <ul>
-    <li><a href="#">...</a></li>
+    <li><a href="tags-mixes.html">@mixes</a></li>
+    <li><a href="tags-borrows.html">@borrows</a></li>
+    <li><a href="tags-constructor.html">@class</a></li>
 </ul>

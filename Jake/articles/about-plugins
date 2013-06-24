@@ -16,6 +16,8 @@
       <li><a href="#event-handlers">Event Handlers
         </a>
         <ol>
+          <li><a href="#event-parseBegin">Event: parseBegin
+            </a></li>
           <li><a href="#event-fileBegin">Event: fileBegin
             </a></li>
           <li><a href="#event-beforeParse">Event: beforeParse
@@ -27,6 +29,10 @@
           <li><a href="#event-newDoclet">Event: newDoclet
             </a></li>
           <li><a href="#event-fileComplete">Event: fileComplete
+            </a></li>
+          <li><a href="#event-parseComplete">Event: parseComplete
+            </a></li>
+          <li><a href="#event-processingComplete">Event: processingComplete
             </a></li>
         </ol>
       </li>
@@ -87,7 +93,7 @@
 </h2>
 
 <p>
-    The plugin system for JSDoc 3 is pretty powerful and provides plugin authors multiple methods, from high-level to low-level, of affecting document generation:
+    JSDoc 3's plugin system offers extensive control over the parsing process. A plugin can affect the parse results by doing any of the following:
 </p>
 
 <ul>
@@ -116,6 +122,27 @@ exports.handlers = {
     }
 }
 {{/example}}
+<h4 name="event-parseBegin" id="event-parseBegin">
+    Event: parseBegin
+</h4>
+
+<p>
+    The <code>parseBegin</code> event is fired before JSDoc starts loading and parsing the source files. Your plugin can control which files JSDoc will parse by modifying the event's contents.
+</p>
+
+<p>
+    <strong>Note</strong>: This event is fired in JSDoc 3.2 and later.
+</p>
+
+<p>
+    The event object will contain the following properties:
+</p>
+
+<ul>
+    <li>sourcefiles: An array of paths to source files that will be parsed.
+    </li>
+</ul>
+
 <h4 name="event-fileBegin" id="event-fileBegin">
     Event: fileBegin
 </h4>
@@ -176,7 +203,7 @@ exports.handlers = {
 </h4>
 
 <p>
-    This is fired whenever a jsdoc comment is found. It may or may not be associated with any code. You might use this to modify the contents of a comment before it is processed.
+    This is fired whenever a JSDoc comment is found. It may or may not be associated with any code. You might use this to modify the contents of a comment before it is processed.
 </p>
 
 <p>
@@ -234,7 +261,7 @@ exports.handlers = {
 </h4>
 
 <p>
-    This is the highest level event and is fired when a new doclet has been created. This means that a jsdoc or a symbol has been processed and the actual doclet that will be passed to the template has been created.
+    This is the highest level event and is fired when a new doclet has been created. This means that a JSDoc comment or a symbol has been processed, and the actual doclet that will be passed to the template has been created.
 </p>
 
 <p>
@@ -275,7 +302,7 @@ exports.handlers = {
     <li>scope: (global|static|instance|inner)
     </li>
 
-    <li>undocumented: true if the symbol didn't have a jsdoc comment
+    <li>undocumented: true if the symbol didn't have a JSDoc comment
     </li>
 
     <li>defaultvalue: the specified default value for a property/variable
@@ -326,12 +353,54 @@ exports.handlers = {
     </li>
 </ul>
 
+<h4 name="event-parseComplete" id="event-parseComplete">
+    Event: parseComplete
+</h4>
+
+<p>
+    The <code>parseComplete</code> event is fired after JSDoc has parsed all of the specified source files.
+</p>
+
+<p>
+    <strong>Note</strong>: This event is fired in JSDoc 3.2 and later.
+</p>
+
+<p>
+    The event object will contain the following properties:
+</p>
+
+<ul>
+    <li>sourcefiles: An array of paths to source files that were parsed.
+    </li>
+</ul>
+
+<h4 name="event-processingComplete" id="event-processingComplete">
+    Event: processingComplete
+</h4>
+
+<p>
+    The <code>processingComplete</code> event is fired after JSDoc updates the parse results to reflect inherited and borrowed symbols.
+</p>
+
+<p>
+    <strong>Note</strong>: This event is fired in JSDoc 3.3 and later.
+</p>
+
+<p>
+    The event object will contain the following properties:
+</p>
+
+<ul>
+    <li>doclets: An array of doclet objects. See the <a href="#event-newDoclet">newDoclet event</a> for details about the properties that each doclet can contain.
+    </li>
+</ul>
+
 <h3 name="tag-definitions" id="tag-definitions">
     Tag Definitions
 </h3>
 
 <p>
-    Adding tags to the tag dictionary is a mid-level way to affect documentation generation. Before a newDoclet event is triggered, jsdoc comment blocks are parsed to determine the description and any jsdoc tags that may be present. When a tag is found, if it has been defined in the tag dictionary, it is given a chance to modify the doclet.
+    Adding tags to the tag dictionary is a mid-level way to affect documentation generation. Before a newDoclet event is triggered, JSDoc comment blocks are parsed to determine the description and any JSDoc tags that may be present. When a tag is found, if it has been defined in the tag dictionary, it is given a chance to modify the doclet.
 </p>
 
 <p>

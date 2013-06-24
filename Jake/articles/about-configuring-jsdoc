@@ -36,8 +36,7 @@ If you do not specify a configuration file, this is what JSDoc will use:</p>
     "templates": {
         "cleverLinks": false,
         "monospaceLinks": false
-    },
-    "jsVersion": 180
+    }
 }
 {{/example}}
 <p>This means:
@@ -169,7 +168,7 @@ To do this, use the longnames of the relevant options in an "opts" section of co
         // these can also be included, though you probably wouldn't bother
         // putting these in conf.json rather than the command line as they cause
         // JSDoc not to produce documentation. 
-        "version": true,                  // same as --version
+        "version": true,                  // same as --version or -v
         "explain": true,                  // same as -X
         "test": true,                     // same as -T
         "help": true,                     // same as --help or -h
@@ -247,8 +246,6 @@ Otherwise, it will just ignore the tag.</p>
     ...
 {{/example}}
 
-<p>The <code>tags.jsVersion</code> tag should be left as-is.</p>
-
 <h2 name="example" id="example">
 Example with all configuration options
 </h2>
@@ -284,15 +281,14 @@ Example with all configuration options
             // these can also be included, though you probably wouldn't bother
             // putting these in conf.json rather than the command line as they cause
             // JSDoc not to produce documentation. 
-            "version": true,                  // same as --version
+            "version": true,                  // same as --version or -v
             "explain": true,                  // same as -X
             "test": true,                     // same as -T
             "help": true,                     // same as --help or -h
             "verbose": true,                  // same as --verbose, only relevant to tests.
             "match": "value",                 // same as --match value, only relevant to tests.
             "nocolor": true                   // same as --nocolor, only relevant to tests
-        },
-        "jsVersion": 180
+        }
     }
 {{/example}}
 

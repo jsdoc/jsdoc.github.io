@@ -197,40 +197,35 @@ td dl.example dt {
 <h3>Overview</h3>
 
 <p>
-The @type tag allows you to document the type of value a variable refers to, or the type of value returned by a function.
+The @type tag allows you to provide a type expression identifying the type of value that a symbol may contain, or the type of value returned by a function. You can also include type expressions with many other JSDoc tags, such as the @param tag.
 </p>
 
 <p>
-The specified type can be any string.
-It could be the namepath to a documented JSDoc object (e.g. <code>myNamespace.MyClass</code>), or a basic type (e.g. <code>string</code>), or a combination of these.
+A type expression can include the JSDoc namepath to a symbol (for example, <code>myNamespace.MyClass</code>); a built-in JavaScript type (for example, <code>string</code>); or a combination of these. You can use any <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler#types">Google Closure Compiler type expression</a>, as well as several other formats that are specific to JSDoc.
 </p>
 
 <p>
-While technically one may specify a type in any way they like, JSDoc knows how to parse certain forms (e.g. for optional parameters or nullable types) and store the resulting properties.
-In simple cases it can even make links from types to the relevant documentation. For example, <code>@type {MyClass}</code> will link to the MyClass documentation if it has been documented.
+If JSDoc determines that a type expression is invalid, it will display an error and stop running. You can turn this error into a warning by running JSDoc with the <code>--lenient</code> option.
 </p>
 
 <p>
-As mentioned, JSDoc can only do this (parse and understand types) in simple cases.
-It can't yet fully parse some more complex Google Closure Compiler types (e.g. <code>{Array.&lt;(string|function(?string=, ...[number]))&gt;}</code>), but there is an <a href="https://github.com/jsdoc3/jsdoc/issues/152">open issue</a> for this and it is in <a href="https://github.com/jsdoc3/jsdoc/wiki/Project-roadmap">JSDoc 3.2's roadmap</a>.
+<strong>Note</strong>: Full support for Google Closure Compiler-style type expressions is available in JSDoc 3.2 and later. Earlier versions of JSDoc included partial support for Closure Compiler type expressions.
 </p>
 
 <p>
-In the table below are some standard patterns for types.
-These type specifications work wherever a type specification is expected, for example in the <a href="tags-param.html">@param</a> tag, as well as the @type tag.
-They very closely follow the <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler#types">Google Closure Compiler</a> type specification.
+Each type is specified by providing a type expression, using one of the formats described below. Where appropriate, JSDoc will automatically create links to the documentation for other symbols. For example, <code>@type {MyClass}</code> will link to the MyClass documentation if that symbol has been documented.
 </p>
 
 
 <table id="jsdoc-types" name="jsdoc-types">
 <tr>
- <th>Kind of type</th>
+ <th>Type name</th>
  <th>Syntax examples</th>
  <th>Description</th>
 </tr>
 
 <tr>
- <td>Type name</td>
+ <td>Symbol name (name expression)</td>
  <td>
 <dl class="example">
 <dt></dt>
@@ -244,36 +239,35 @@ They very closely follow the <a href="https://developers.google.com/closure/comp
 </dl></td>
  <td>
   <p>
-  Specifies the name of a type. 
-  If it is an object that you have documented with JSDoc (e.g. <code>myNamespace.MyClass</code> or a <a href="tags-typedef.html">@typedef</a> or <a href="tags-callback.html">@callback</a>), a link will be made to that object's page.
+  Specifies the name of a symbol. If you have documented the symbol, JSDoc creates a link to the documentation for that symbol.
   </p>
  </td>
 </tr>
 
 <tr>
  <td>
-  Multiple types
+  Multiple types (type union)
  </td>
  <td>
 <dl class="example">
 <dt>This can be a number or a boolean.</dt>
 <dd>
 <pre class="prettyprint lang-js">
-{number|boolean}
+{(number|boolean)}
 
 </pre>
 </dd>
 </dl></td>
  <td>
   <p>
-  This means a value can have one of multiple types, separated by <code>|</code>.
+  This means a value can have one of several types, with the entire list of types enclosed in parentheses and separated by <code>|</code>.
   </p>
  </td>
 </tr>
 
 <tr>
  <td>
-  Arrays and objects
+  Arrays and objects (type applications and record types)
  </td>
  <td>
 
@@ -282,6 +276,9 @@ They very closely follow the <a href="https://developers.google.com/closure/comp
 <dd>
 <pre class="prettyprint lang-js">
 {Array.&lt;MyClass&gt;}
+
+or:
+
 {MyClass[]}
 
 </pre>
@@ -295,23 +292,30 @@ They very closely follow the <a href="https://developers.google.com/closure/comp
 </pre>
 </dd>
 </dl><dl class="example">
-<dt>An anonymous type that is an object with properties &quot;a&quot; (a number), &quot;b&quot; (a string) and &quot;c&quot; (any type).</dt>
+<dt>An object called &quot;myObj&quot; with properties &quot;a&quot; (a number), &quot;b&quot; (a string) and &quot;c&quot; (any type).</dt>
 <dd>
 <pre class="prettyprint lang-js">
-&#123;{a: number, b: string, c}}
+&#123;{a: number, b: string, c}} myObj
+
+or:
+
+{Object} myObj
+{number} myObj.a
+{string} myObj.b
+{*} myObj.c
 
 </pre>
 </dd>
 </dl></p>
  </td>
  <td><p>
-  Documenting arrays or objects.
+  JSDoc supports Closure Compiler's syntax for defining array and object types.
+  <p>
+  <p>
+  You can also indicate an array by appending <code>[]</code> to the type that is contained in the array. For example, the expression <code>string[]</code> indicates an array of strings.
   </p>
   <p>
-  JSDoc does not yet create links for the inside types but once Google Closure Compiler type parsing is added to JSDoc, it will.
-  </p>
-  <p>
-  Another way to document object types is using a <a href="tags-typedef.html">@typedef</a> or with the <a href="tags-param.html#documenting-objects">@param</a> tag.
+  For objects that have a known set of properties, you can use Closure Compiler's syntax for documenting record types. You can document each property individually, which enables you to provide more detailed information about each property.
   </p>
  </td>
 </tr>
@@ -364,7 +368,7 @@ They very closely follow the <a href="https://developers.google.com/closure/comp
  </td>
  <td>
 <dl class="example">
-<dt>This function may take a variable number of numbers.</dt>
+<dt>This function accepts a variable number of numeric parameters.</dt>
 <dd>
 <pre class="prettyprint lang-js">
 @param {...number} num
@@ -383,7 +387,7 @@ They very closely follow the <a href="https://developers.google.com/closure/comp
 <pre class="prettyprint lang-js">
 /**
  * Returns the sum of all numbers passed to the function.
- * @param {...Number} num A positive or negative number
+ * @param {...number} num A positive or negative number
  */
 function sum(num) {
     var i=0, n=arguments.length, t=0;
@@ -408,6 +412,9 @@ function sum(num) {
 <dd>
 <pre class="prettyprint lang-js">
 @param {number} [foo]
+
+or:
+
 @param {number=} foo
 
 </pre>
@@ -423,8 +430,7 @@ function sum(num) {
 </dl></td>
  <td>
   <p>
-  This means that the parameter is optional. 
-  Note that in Javascript, parameters not passed to a function have the value <code>undefined</code>.
+  Indicates that the parameter is optional. When using JSDoc's syntax for optional parameters, you can also indicate the value that will be used if a parameter is omitted.
   </p>
  </td>
 </tr>
@@ -438,7 +444,8 @@ function sum(num) {
 <dt></dt>
 <dd>
 <pre class="prettyprint lang-js">
-/** @callback myCallback
+/**
+ * @callback myCallback
  * @param {number} x - ...
  */
 
@@ -450,21 +457,22 @@ var cb;
 </dl></td>
  <td>
   <p>
-  Document a callback using the <a href="tags-callback.html">@callback</a> tag. 
+  Document a callback using the <a href="tags-callback.html">@callback</a> tag. The syntax is identical to the @typedef tag, except that a callback's type is always "function."
   </p>
  </td>
 </tr>
 
 <tr>
  <td>
-  Complex types
+  Type definitions
  </td>
  <td>
 <dl class="example">
 <dt>Documenting a type with properties &#39;id&#39;, &#39;name&#39;, &#39;age&#39;.</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/** @typedef PropertiesHash
+/**
+ * @typedef PropertiesHash
  * @type {object}
  * @property {string} id - an ID.
  * @property {string} name - your name.
@@ -479,8 +487,7 @@ var props;
 </dl></td>
  <td>
   <p>
-  You can document complex types using the <a href="tags-typedef.html">@typedef</a> tag. 
-  It's handy if you use this type a lot in your code.
+  You can document complex types using the <a href="tags-typedef.html">@typedef</a> tag, then refer to the type definition elsewhere in your documentation.
   </p>
  </td>
 </tr>
@@ -507,19 +514,25 @@ var props;
 <dt>Example</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/** @type {string|Array&lt;string>} */
+/** @type {(string|Array.&lt;string>)} */
 var foo;
-/** @type integer */
+/** @type number */
 var bar = 1;
 
 </pre>
 </dd>
-</dl><dl class="example">
-<dt>Many tags can take a type specification.</dt>
+</dl><p>
+In many cases, you can include a type expression as part of another tag, rather than including a separate @type tag in your JSDoc comment.
+</p>
+
+<dl class="example">
+<dt>Type expressions can accompany many tags.</dt>
 <dd>
 <pre class="prettyprint lang-js">
-/** @type {number}
- *  @const */
+/**
+ * @type {number}
+ * @const
+ */
 var FOO = 1;
 
 // same as:
@@ -529,13 +542,7 @@ var FOO = 1;
 
 </pre>
 </dd>
-</dl><p>
-Often the type of an object can be specified in other tags identifying the doclet, and so the @type tag is not needed.
-See the example above.
-</p>
-
-
-<h3>See Also</h3>
+</dl><h3>See Also</h3>
 
 <ul>
     <li><a href="tags-typedef.html">@typedef</a></li>
@@ -550,7 +557,7 @@ See the example above.
     
     <footer>
         <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /><br>
-        Copyright &#169; 2012 The <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.<br />
+        Copyright &#169; 2011-2013 The <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.<br />
         This site is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
 	</footer>
 

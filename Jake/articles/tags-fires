@@ -3,6 +3,12 @@
     "out":         "tags-fires.html",
     "description": "Describe the events this method may fire."
 }-->
+<h3>Synonyms</h3>
+
+<ul>
+    <li>@emits</li>
+</ul>
+
 <h3>Syntax</h3>
 
 <code>@fires &lt;className>#[event:]&lt;eventName></code>

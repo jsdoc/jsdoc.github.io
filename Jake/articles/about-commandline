@@ -77,7 +77,7 @@ Alternatively, the command-line options may be<a href="about-configuring-jsdoc.h
       Prints information about all the command-line options and quits.
     </dd>
   </dt>
-  <dt><code>--version</code></dt>
+  <dt><code>-v</code>, <code>--version</code></dt>
     <dd>
       Displays JSDoc's version number and quits.
     </dd>

@@ -372,6 +372,8 @@ exports.handlers = {
 <ul>
     <li>sourcefiles: An array of paths to source files that were parsed.
     </li>
+    <li>doclets: An array of doclet objects. See the <a href="#event-newDoclet">newDoclet event</a> for details about the properties that each doclet can contain. <strong>Note</strong>: This property is available in JSDoc 3.2.1 and later. 
+    </li>
 </ul>
 
 <h4 name="event-processingComplete" id="event-processingComplete">
@@ -383,7 +385,7 @@ exports.handlers = {
 </p>
 
 <p>
-    <strong>Note</strong>: This event is fired in JSDoc 3.3 and later.
+    <strong>Note</strong>: This event is fired in JSDoc 3.2.1 and later.
 </p>
 
 <p>

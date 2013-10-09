@@ -275,7 +275,7 @@ var props;
 {{#example}}Example
 /** @type {(string|Array.<string>)} */
 var foo;
-/** @type number */
+/** @type {number} */
 var bar = 1;
 {{/example}}
 

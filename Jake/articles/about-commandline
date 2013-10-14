@@ -23,7 +23,7 @@ Alternatively, the command-line options may be<a href="about-configuring-jsdoc.h
   <dt><code>-t</code>, <code>--template &lt;value&gt;</code></dt>
     <dd>
       The name of the template to use for JSDoc's output.
-      The default is the "default" template (JSDoc has another template that comes with it, "haruki").
+      The default is "templates/default", JSDoc's standard template.
     </dd>
   <dt><code>-c</code>, <code>--configure &lt;value&gt;</code></dt>
     <dd>

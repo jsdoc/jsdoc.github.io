@@ -157,7 +157,7 @@ To do this, use the longnames of the relevant options in an "opts" section of co
     ...
     // You must remove the comments before adding these options to your .json file
     "opts": {
-        "template": "default",            // same as -t default
+        "template": "templates/default",  // same as -t templates/default
         "encoding": "utf8",               // same as -e utf8
         "destination": "./out/",          // same as -d ./out/
         "recurse": true,                  // same as -r
@@ -270,7 +270,7 @@ Example with all configuration options
             "monospaceLinks": false
         },
         "opts": {
-            "template": "default",            // same as -t default
+            "template": "templates/default",  // same as -t templates/default
             "encoding": "utf8",               // same as -e utf8
             "destination": "./out/",          // same as -d ./out/
             "recurse": true,                  // same as -r

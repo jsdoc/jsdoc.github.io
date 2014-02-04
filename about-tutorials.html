@@ -176,13 +176,22 @@
 	<article>
 	<h1>Tutorials mechanism</h1>
 
-
-<h3>
-	Tutorials
-</h3>
+<p><strong>Table of Contents</strong></p>
+<ul>
+<li><a href="#configuration">Configuration</a>
+  <ul>
+    <li><a href="#multi-tutorial-configuration">Multi-tutorial configuration</a></li>
+  </ul>
+</li>
+<li><a href="#identifiers">Identifiers</a></li>
+<li><a href="#tutorial-tag">@tutorial tag</a></li>
+<li><a href="#tutorial-content">Tutorial content</a></li>
+<li><a href="#backwards-compatibility">Backwards compatibility</a></li>
+<li><a href="#see-also">See Also</a></li>
+</ul>
 
 <p>
-	Tutorials mechanism allows you to include not only short code-related technical API documentation, but also longer, more explaining, full-page tutorials. It's a bit similar to phpDocumentor's one.
+	JSDoc's tutorials mechanism allows you to include not only short code-related technical API documentation, but also longer, more explaining, full-page tutorials. It's a bit similar to phpDocumentor's one.
 </p>
 
 <p>
@@ -193,17 +202,17 @@
 	By default each tutorial is top-level. Top-level tutorials are listed in navigation menu.
 </p>
 
-<h3>
+<h2 id="configuration" name="configuration">
 	Configuration
-</h3>
+</h2>
 
 <p>
-	Each tutorial file can have additional .js/.json file (with same name, just different extension) which will hold additional tutorial configuration. Two fields are supported:
+	Each tutorial file can have additional .json file (with same name, just different extension) which will hold additional tutorial configuration. Two fields are supported:
 </p>
 
 <ul>
 	<li>
-		<code>title</code> overrides display name for tutorial with the one specified in it's value (default title for tutorial is it's filename).
+		<code>title</code> overrides the display name for tutorial with the one specified in its value (default title for tutorial is its filename).
 	</li>
 
 	<li>
@@ -212,20 +221,96 @@
 </ul>
 
 <p>
-	When tutorial has <code>children</code> property set, it's children will be listed in it's <em>ToC</em> as sub-articles instead of top-level navigation menu.
+	When tutorial has <code>children</code> property set, its children will be listed in its <em>ToC</em> as sub-articles instead of top-level navigation menu.
 </p>
-
-<h3>
-	Identifiers
-</h3>
 
 <p>
-	Tutorial is identified by it's filename (eg. <code>test.html</code> is named <code>test</code>). No matter to what you will change tutorial's title, it's identifier will be just <code>test</code>. Title is for displaying, name is for identifying. This allows you to link to tutorial without depending on it's variable display name.
+For example, I could have 3 tutorials defined in <code>myTutorial.md</code>, <code>childTutorial.html</code> and <code>childTutorial2.md</code>. If I wanted myTutorial to have title "My Tutorial" and for childTutorial and childTutorial2 to be its children, I'd create a file <code>myTutorial.json</code> like so:
 </p>
 
-<h3>
-	@tutorial tag
+<dl class="example">
+<dt>myTutorial.json</dt>
+<dd>
+<pre class="prettyprint lang-js">
+{
+    "title": "My Tutorial",
+    "children": ["childTutorial", "childTutorial2"]
+}
+
+</pre>
+</dd>
+</dl><p>
+If I also wanted to set childTutorial's title to something other than "childTutorial", I would define its title in a separate file <code>childTutorial.json</code>. That is, I need one configuration file per tutorial.
+</p>
+
+<h3 id="multi-tutorial-configuration" name="multi-tutorial-configuration">
+Multi-tutorial configuration
 </h3>
+<p>
+ As of JSDoc 3.2, it is possible to specify multiple tutorials' configuration in one file.
+ The file should have extension .json (the file name doesn't matter when doing this), and each key should be the tutorial's ID, with the value being the configuration for that tutorial.
+ Our example above can be rewritten like so:
+</p>
+
+<dl class="example">
+<dt>Defining multiple configurations in one file</dt>
+<dd>
+<pre class="prettyprint lang-js">
+{
+    "myTutorial": {
+         "title": "My Tutorial",
+         "children": ["childTutorial", "childTutorial2"]
+    },
+    "childTutorial": {
+         "title": "The sub-tutorial"
+    },
+    "childTutorial2": {
+         "title": "The second sub-tutorial"
+    }
+}
+
+</pre>
+</dd>
+</dl><p>
+ In the example above we give custom titles to each tutorial, and set childTutorial and childTutorial2 to be children of myTutorial.
+</p>
+
+<p>
+ We can even specify the configuration for the children directly in myTutorial's 'children' property by making this an object with the tutorial configurations instead of an array with the tutorial IDs:
+</p>
+
+<dl class="example">
+<dt>Defining multiple configurations in one file</dt>
+<dd>
+<pre class="prettyprint lang-js">
+{
+    "myTutorial": {
+        "title": "My Tutorial",
+        "children": {
+            // can put tutorial configuration here if we like
+            "childTutorial": {
+                "title": "The sub-tutorial"
+            },
+            "childTutorial2": {
+                "title": "The second sub-tutorial"
+            }
+        }
+    }
+}
+
+</pre>
+</dd>
+</dl><h2 id="identifiers" name="identifiers">
+	Identifiers
+</h2>
+
+<p>
+	A tutorial is identified by its filename (eg. <code>test.html</code> is named <code>test</code>). No matter to what you will change tutorial's title, its identifier will be just <code>test</code>. Title is for displaying, name is for identifying. This allows you to link to tutorial without depending on its variable display name.
+</p>
+
+<h2 id="tutorial-tag" name="tutorial-tag">
+	@tutorial tag
+</h2>
 
 <p>
 	Doclets can have assigned tutorials (similar to <code>@link</code> and <code>@see</code> tags) through @tutorial tag:
@@ -259,9 +344,9 @@
 
 </pre>
 </dd>
-</dl><h3>
+</dl><h2 id="tutorial-content" name="tutorial-content">
 	Tutorial content
-</h3>
+</h2>
 
 <p>
 	Tutorial content is processed with <code>resolveLinks()</code>, which means you can use both <code>{@link}</code> and <code>{@tutorial}</code> tags within tutorial text! They will be processed just like doclets descriptions.
@@ -275,13 +360,20 @@
 
 </pre>
 </dd>
-</dl><h3>
+</dl><h2 id="backwards-compatibility" name="backwards-compatibility">
 	Backward compatibility
-</h3>
+</h2>
 
 <p>
-	It is purely additional feature - if one won't specify <code>-u</code> option it won't affect documentation building. Also template <code>publish()</code> method is not a problem, since tutorials are passed as last argument, so if template function is not prepared for tutorials it just won't process them.
+	Tutorials are a purely additional feature to JSDoc - if one doesn't specify <code>-u</code> <a href="about-commandline.html">on the command line</a> or doesn't set <code>opts.tutorials</code> <a href="about-configuring-jsdoc.html#configuration-file-command-line">in the configuration file</a>, it won't affect documentation building. Also, if a template's <code>publish()</code> method doesn't have a tutorials argument it doesn't matter, since tutorials are passed as last (optional) argument to that method.
 </p>
+
+<h2 id="see-also" name="see-also">
+See Also
+</h2>
+<ul>
+<li><a href="tags-tutorial.html">@tutorial tag</a></li>
+</ul>
 
     </article>
     

@@ -15,7 +15,7 @@
 
 <p>
 The @member tag identifies any member that does not have a more specialized kind, such as "class",
-"function", or "constant". A member can optionally have a type as well as a name. 
+"function", or "constant". A member can optionally have a type as well as a name.
 </p>
 
 <h3>Examples</h3>
@@ -31,7 +31,7 @@ function Data() {
 <p>Here is an example of using @var, a synonym of @member, to document a (virtual) variable 'foo'.
 </p>
 
-{{#example}}Using @member to document a virtual member
+{{#example}}Using @var to document a virtual member
 /**
  * A variable in the global namespace called 'foo'.
  * @var {number} foo
@@ -40,7 +40,7 @@ function Data() {
 
 <p>The above example is equivalent to the following:</p>
 
-{{#example}} 
+{{#example}}The same result with above samples
 /**
  * A variable in the global namespace called 'foo'.
  * @type {number}

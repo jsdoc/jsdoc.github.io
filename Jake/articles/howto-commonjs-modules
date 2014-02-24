@@ -92,6 +92,53 @@ define('my/shirt', function () {
 });
 {{/example}}
 
+<h3>Document an IIFE which exposes local functions (Revealing Module Pattern)</h3>
+
+<p>The <a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript">Revealing Module Pattern</a> requires that you mark each method as a memberOf the module.</p>
+
+{{#example}}The getColor method is documented as a member of the "shirt" module.
+/** A module representing a shirt.
+ * @module shirt 
+ */
+var shirt = (function() {
+  
+    var color = 'black';
+
+    /** Gets the color of the shirt. 
+     * @memberOf module:shirt#
+     */
+    function getColor() {
+      return color;
+    }
+
+    return {
+        getColor: getColor
+    }
+
+})();
+define('shirt', function () {
+   /** 
+    * A module representing a shirt.
+    * @exports my/shirt
+    * @version 1.0
+    */
+    var shirt = {
+    
+        /** A property of the module. */
+        color: "black",
+        
+        /** @constructor */
+        Turtleneck: function(size) {
+            /** A property of the class. */
+            this.size = size;
+        }
+    };
+
+    return shirt;
+});
+{{/example}}
+
+
 
 <h3>Document a Module as a Constructor</h3>
 

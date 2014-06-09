@@ -1,0 +1,9 @@
+{
+  "name": "jsdoc3.github.com",
+  "homepage": "http://usejsdoc.org",
+  "description": "Documentation website for JSDoc 3.",
+  "dependencies": {
+    "html5shiv": "~3.7.2"
+  },
+  "private": true
+}

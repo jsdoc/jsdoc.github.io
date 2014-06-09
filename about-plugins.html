@@ -1,377 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="JSDoc 3 Plugin Reference."><title>Use JSDoc: JSDoc 3 Plugin Reference</title>
-	
-	<link rel="stylesheet" href="lib/prettify.css" />
-	<script src="lib/prettify.js"></script>
-	
-	<script type="text/javascript">
-	    /* Make HTML 5 elements stylable in IE */
-        document.createElement('header');
-        document.createElement('nav');
-        document.createElement('article');
-        document.createElement('footer');
-        document.createElement('hgroup');
-	</script>
-	
-	<style>
-		body 
-		{
-			font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			padding: 0;
-			margin: 0;
-		}
-		
-		a, a:visited, a:active 
-		{
-			color: #605C89;
-		}
-		
-		/* Make HTML 5 elements display block-level for consistent styling */
-		header, nav, article, footer, address 
-		{
-			display: block;
-		}
-		
-		header
-		{
-			background-color: #EBEBEB;
-			color: #006FBB;
-			margin: 0;
-			margin-bottom: 32px;
-			padding: 18px;
-			font-size: 2.4em;
-			font-weight: bold;
-			border-bottom: 1px #C6C6C6 solid;
-		}
-		
-		header a, header a:visited 
-		{
-		    color: #006FBB;
-			text-decoration: none;
-		}
-		
-		article 
-		{
-			margin: 18px;
-		}
-		
-		footer
-		{
-			margin: 16px;
-			margin-top: 32px;
-			font-style: italic;
-			font-size: 0.8em;
-		}
-		
-		h1, h2, h3, h4, h5, h6
-		{
-			color: #B93A38;
-		}
-		
-		h1
-		{
-			font-size: 1.428em;
-			text-indent: 0;
-		}
-
-		h2
-		{
-			font-size: 1.285em;
-			text-indent: 1%;
-		}
-
-		h3
-		{
-			font-size: 1.142em;
-			text-indent: 2%;
-		}
-
-		h4
-		{
-			font-size: 1em;
-			text-indent: 3%;
-		}
-
-		h5
-		{
-			font-size: 0.857em;
-			text-indent: 4%;
-		}
-
-		h6
-		{
-			font-size: 0.714em;
-			text-indent: 5%;
-		}
-		
-		p
-		{
-			text-indent: 2%;
-		}
-		
-		dl
-		{
-			margin-left: 2%;
-			padding-left: 0;
-		}
-		
-		dt
-		{
-			margin-left: 16px;
-			padding-left: 4px;
-			margin-top: 8px;
-		}
-		
-		dt a, dt a:visited 
-		{
-			color: #3E00B6;
-		}
-		
-		dd
-		{
-			margin-left: 16px;
-			padding-left: 4px;
-		}
-		
-		ol, ul
-		{
-			margin-left: 2%;
-		}
-		
-		code 
-		{
-			font: 1em Consolas, "Lucida Console", Monaco, monospace;
-			background-color: #DEDEDE;
-		}
-		
-		pre
-		{
-			display: block;
-			border: 1px solid #999;
-			margin: 12px;
-			padding: 8px;
-			white-space: pre-wrap;
-			background-color: #DEDEDE;
-		}
-		
-		.example dt 
-		{
-			font-weight: bold;
-		}
-
-	</style>
+  <meta charset="utf-8">
+  <meta name="description" content="How to create and use JSDoc plugins.">
+  <title>Use JSDoc: About JSDoc plugins</title>
+  <link rel="stylesheet" href="styles/usejsdoc.css">
+  <link rel="stylesheet" href="styles/prettify.css">
+  <link rel="stylesheet" href="styles/css3-github-ribbon.css">
+  <script src="scripts/prettify.js"></script>
+  <!--[if lt IE 9]>
+            <script src="scripts/html5shiv.min.js"></script>
+            <script src="scripts/html5shiv-printshiv.min.js"></script>
+        <![endif]-->
 </head>
 
 <body>
-	<header>
-	    <a href="./index.html">@use JSDoc</a>
-	</header>
-	
-	<nav>
-	</nav>
-	
-	<article>
-	<h1>JSDoc 3 Plugin Reference</h1>
-
-
-<p>
-    <b>Table of Contents</b>
-</p>
-<ol id="Toc">
-  <li><a href="#adding-a-plugin">Creating and Enabling a Plugin
-    </a></li>
-  <li><a href="#authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins
-    </a>
+  <header>
+    <a href="./index.html">@use JSDoc</a>
+  </header>
+  <article>
+    <h1>About JSDoc plugins</h1>
+    <h2>Table of Contents</h2>
+    <ul>
+      <li>
+        <a href="#creating-and-enabling-a-plugin">Creating and Enabling a Plugin</a>
+      </li>
+      <li>
+        <a href="#authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins</a>
+        <ul>
+          <li>
+            <a href="#event-handlers">Event Handlers</a>
+          </li>
+          <li>
+            <a href="#tag-definitions">Tag Definitions</a>
+          </li>
+          <li>
+            <a href="#node-visitors">Node Visitors</a>
+          </li>
+          <li>
+            <a href="#throwing-errors">Throwing Errors</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h2 id="creating-and-enabling-a-plugin">Creating and Enabling a Plugin</h2>
+    <p>There are two steps required to create and enable a new JSDoc plugin:</p>
     <ol>
-      <li><a href="#event-handlers">Event Handlers
-        </a>
-        <ol>
-          <li><a href="#event-parseBegin">Event: parseBegin
-            </a></li>
-          <li><a href="#event-fileBegin">Event: fileBegin
-            </a></li>
-          <li><a href="#event-beforeParse">Event: beforeParse
-            </a></li>
-          <li><a href="#event-jsdocCommentFound">Event: jsdocCommentFound
-            </a></li>
-          <li><a href="#event-symbolFound">Event: symbolFound
-            </a></li>
-          <li><a href="#event-newDoclet">Event: newDoclet
-            </a></li>
-          <li><a href="#event-fileComplete">Event: fileComplete
-            </a></li>
-          <li><a href="#event-parseComplete">Event: parseComplete
-            </a></li>
-          <li><a href="#event-processingComplete">Event: processingComplete
-            </a></li>
-        </ol>
-      </li>
-      <li><a href="#tag-definitions">Tag Definitions
-        </a>
-        <ol>
-          <li><a href="#the-dictionary">The Dictionary
-            </a></li>
-        </ol>
-      </li>
-      <li><a href="#node-visitors">Node Visitors
-        </a>
-        <ol>
-          <li><a href="#making-things-happen">Making things happen
-            </a></li>
-          <li><a href="#example">Example
-            </a></li>
-        </ol>
-      </li>
-      <li><a href="#throwing-errors">Throwing Errors
-        </a>
-      </li>
+      <li>Create a JavaScript module to contain your plugin code.</li>
+      <li>Include that module in the &quot;plugins&quot; array of <code>conf.json</code>. You can specify an absolute or relative path. If you use a relative path, JSDoc
+        searches for the plugin in the current working directory and the JSDoc directory, in that order.</li>
     </ol>
-  </li>
-  <li><a href="#packaging-jsdoc-3-plugins">Packaging JSDoc 3 Plugins
-    </a></li>
-</ol>
-
-<h2 name="adding-a-plugin" id="adding-a-plugin">
-    Creating and Enabling a Plugin
-</h2>
-
-<p>
-    There are two steps required to create and enable a new JSDoc plugin:
-</p>
-
-<ol>
-    <li>Create a JavaScript module to contain your plugin code.
-    </li>
-
-    <li>Include that module in the "plugins" array of <code>conf.json</code>. You can specify an absolute or relative path. If you use a relative path, JSDoc searches for the plugin in the current working directory and the JSDoc directory, in that order.
-    </li>
-</ol>
-
-<p>
-    For example, if your plugin source code was saved in the "plugins/shout.js" file in the current working directory, you would include it by adding a reference to it in conf.json like so:
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-...
+    <p>For example, if your plugin source code was saved in the &quot;plugins/shout.js&quot; file in the current working directory, you would include it by adding a
+      reference to it in conf.json like so:</p>
+    <figure>
+      <figcaption>Example</figcaption><pre class="prettyprint"><code>...
 "plugins": [
     "plugins/shout"
 ]
 ...
-
-</pre>
-</dd>
-</dl><h2 name="authoring-jsdoc-3-plugins" id="authoring-jsdoc-3-plugins">
-    Authoring JSDoc 3 Plugins
-</h2>
-
-<p>
-    JSDoc 3's plugin system offers extensive control over the parsing process. A plugin can affect the parse results by doing any of the following:
-</p>
-
-<ul>
-    <li>Defining event handlers
-    </li>
-
-    <li>Defining tags
-    </li>
-
-    <li>Defining a parse tree node processor
-    </li>
-</ul>
-
-<h3 name="event-handlers" id="event-handlers">
-    Event Handlers
-</h3>
-
-<p>
-    At the highest level, a plugin may register handlers for specific named-events that occur in the documentation generation process. JSDoc will pass the handler an event object containing pertinent information. Your plugin module should export a <em>handlers</em> object that contains your handler, like so:
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-exports.handlers = {
+</code></pre>
+    </figure>
+    <h2 id="authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins</h2>
+    <p>JSDoc 3&#39;s plugin system offers extensive control over the parsing process. A plugin can affect the parse results by doing any of the following:</p>
+    <ul>
+      <li>Defining event handlers</li>
+      <li>Defining tags</li>
+      <li>Defining a parse tree node processor</li>
+    </ul>
+    <h3 id="event-handlers">Event Handlers</h3>
+    <p>At the highest level, a plugin may register handlers for specific named-events that occur in the documentation generation process. JSDoc will pass the handler
+      an event object containing pertinent information. Your plugin module should export a <em>handlers</em> object that contains your handler, like so:</p>
+    <figure>
+      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.handlers = {
     newDoclet: function(e) {
         //Do something when we see a new doclet
     }
 }
-
-</pre>
-</dd>
-</dl><h4 name="event-parseBegin" id="event-parseBegin">
-    Event: parseBegin
-</h4>
-
-<p>
-    The <code>parseBegin</code> event is fired before JSDoc starts loading and parsing the source files. Your plugin can control which files JSDoc will parse by modifying the event's contents.
-</p>
-
-<p>
-    <strong>Note</strong>: This event is fired in JSDoc 3.2 and later.
-</p>
-
-<p>
-    The event object will contain the following properties:
-</p>
-
-<ul>
-    <li>sourcefiles: An array of paths to source files that will be parsed.
-    </li>
-</ul>
-
-<h4 name="event-fileBegin" id="event-fileBegin">
-    Event: fileBegin
-</h4>
-
-<p>
-    This is triggered when the parser has started on a new file. You might use this to do any per-file initialization your plugin needs to do.
-</p>
-
-<p>
-    The event object will contain the following properties:
-</p>
-
-<ul>
-    <li>filename: the name of the file
-    </li>
-</ul>
-
-<h4 name="event-beforeParse" id="event-beforeParse">
-    Event: beforeParse
-</h4>
-
-<p>
-    This is triggered before parsing has begun. You can use this method to modify the source code that will be parsed. For instance, you might add some virtual doclets so they get added to the documentation.
-</p>
-
-<p>
-    The event object will contain the following properties:
-</p>
-
-<ul>
-    <li>filename: the name of the file
-    </li>
-
-    <li>source: the contents of the file
-    </li>
-</ul>
-
-<p>
-    Below is an example that adds a virtual doclet for a function to the source so that it will get parsed and added to the documentation. This might be done to document methods that will be present for end-user use, but might not be in the source code being documented, like methods provided by a third-party superclass:
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-exports.handlers = {
+</code></pre>
+    </figure>
+    <h4 id="event-parsebegin">Event: parseBegin</h4>
+    <p>The <code>parseBegin</code> event is fired before JSDoc starts loading and parsing the source files. Your plugin can control which files JSDoc will parse by modifying
+      the event&#39;s contents.</p>
+    <p><strong>Note</strong>: This event is fired in JSDoc 3.2 and later.</p>
+    <p>The event object will contain the following properties:</p>
+    <ul>
+      <li>sourcefiles: An array of paths to source files that will be parsed.</li>
+    </ul>
+    <h4 id="event-filebegin">Event: fileBegin</h4>
+    <p>This is triggered when the parser has started on a new file. You might use this to do any per-file initialization your plugin needs to do.</p>
+    <p>The event object will contain the following properties:</p>
+    <ul>
+      <li>filename: the name of the file</li>
+    </ul>
+    <h4 id="event-beforeparse">Event: beforeParse</h4>
+    <p>This is triggered before parsing has begun. You can use this method to modify the source code that will be parsed. For instance, you might add some virtual doclets
+      so they get added to the documentation.</p>
+    <p>The event object will contain the following properties:</p>
+    <ul>
+      <li>filename: the name of the file</li>
+      <li>source: the contents of the file</li>
+    </ul>
+    <p>Below is an example that adds a virtual doclet for a function to the source so that it will get parsed and added to the documentation. This might be done to
+      document methods that will be present for end-user use, but might not be in the source code being documented, like methods provided by a third-party superclass:</p>
+    <figure>
+      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.handlers = {
     beforeParse: function(e) {
         var extraDoc = ["",
             "/**",
@@ -383,138 +116,59 @@ exports.handlers = {
         e.source += extraDoc.join("\n");
     }
 }
-
-</pre>
-</dd>
-</dl><h4 name="event-jsdocCommentFound" id="event-jsdocCommentFound">
-    Event: jsdocCommentFound
-</h4>
-
-<p>
-    This is fired whenever a JSDoc comment is found. It may or may not be associated with any code. You might use this to modify the contents of a comment before it is processed.
-</p>
-
-<p>
-    The event object will contain the following properties:
-</p>
-
-<ul>
-    <li>filename: the name of the file
-    </li>
-
-    <li>comment: the text of the comment
-    </li>
-
-    <li>lineno: the line number the comment was found on
-    </li>
-</ul>
-
-<h4 name="event-symbolFound" id="event-symbolFound">
-    Event: symbolFound
-</h4>
-
-<p>
-    This is fired when the parser comes across a symbol in the code it thinks is important. This usually means things that one might want to document -- variables, functions, object literals, object property definitions, assignments, etc., but the symbols the parser finds can be modified by a plugin (see "Node Visitors" below).
-</p>
-
-<p>
-    The event object will contain the following properties:
-</p>
-
-<ul>
-    <li>filename: the name of the file
-    </li>
-
-    <li>comment: the comment associated with the symbol, if any
-    </li>
-
-    <li>id: the unique id of the symbol
-    </li>
-
-    <li>lineno: the line number the symbols was found on
-    </li>
-
-    <li>range: an array containing the first and last characters of the code associated with the symbol
-    </li>
-
-    <li>astnode: the node of the parse tree
-    </li>
-
-    <li>code: information about the code. This usually contains "name", "type", and "node" properties and might also have "value", "paramnames", or "funcscope" properties depending on the symbol.
-    </li>
-</ul>
-
-<h4 name="event-newDoclet" id="event-newDoclet">
-    Event: newDoclet
-</h4>
-
-<p>
-    This is the highest level event and is fired when a new doclet has been created. This means that a JSDoc comment or a symbol has been processed, and the actual doclet that will be passed to the template has been created.
-</p>
-
-<p>
-    The event object will contain the following properties:
-</p>
-
-<ul>
-    <li>doclet: the new doclet that was created
-    </li>
-</ul>
-
-<p>
-    The properties of the doclet can vary depending on the comment or symbol used to create it. Additionally, tag definitions (See "Tag Definitions" below) can modify the doclet. Some common properties you're likely to see include:
-</p>
-
-<ul>
-    <li>comment: the text of the comment (may be empty if symbol is undocumented)
-    </li>
-
-    <li>meta: some information about the doclet, like filename, line number, etc.
-    </li>
-
-    <li>description
-    </li>
-
-    <li>kind
-    </li>
-
-    <li>name
-    </li>
-
-    <li>longname: the fully qualified name, including memberof info
-    </li>
-
-    <li>memberof: the function/class/namespace that this is a member of
-    </li>
-
-    <li>scope: (global|static|instance|inner)
-    </li>
-
-    <li>undocumented: true if the symbol didn't have a JSDoc comment
-    </li>
-
-    <li>defaultvalue: the specified default value for a property/variable
-    </li>
-
-    <li>type: the specified type of parameter/property/function return (e.g. Boolean)
-    </li>
-
-    <li>params: an object containing the list of parameters to a function
-    </li>
-
-    <li>tags: an object containing the set of tags not handled by the parser (note: this is only available if <code>allowUnknownTags</code> is set to true in the conf.json file for JSDoc 3)
-    </li>
-</ul>
-
-<p>
-    Below is an example of a newDoclet handler that shouts the descriptions:
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-exports.handlers = {
+</code></pre>
+    </figure>
+    <h4 id="event-jsdoccommentfound">Event: jsdocCommentFound</h4>
+    <p>This is fired whenever a JSDoc comment is found. It may or may not be associated with any code. You might use this to modify the contents of a comment before
+      it is processed.</p>
+    <p>The event object will contain the following properties:</p>
+    <ul>
+      <li>filename: the name of the file</li>
+      <li>comment: the text of the comment</li>
+      <li>lineno: the line number the comment was found on</li>
+    </ul>
+    <h4 id="event-symbolfound">Event: symbolFound</h4>
+    <p>This is fired when the parser comes across a symbol in the code it thinks is important. This usually means things that one might want to document -- variables,
+      functions, object literals, object property definitions, assignments, etc., but the symbols the parser finds can be modified by a plugin (see <a href="#node-visitors">Node Visitors</a> below).</p>
+    <p>The event object will contain the following properties:</p>
+    <ul>
+      <li>filename: the name of the file</li>
+      <li>comment: the comment associated with the symbol, if any</li>
+      <li>id: the unique id of the symbol</li>
+      <li>lineno: the line number the symbols was found on</li>
+      <li>range: an array containing the first and last characters of the code associated with the symbol</li>
+      <li>astnode: the node of the parse tree</li>
+      <li>code: information about the code. This usually contains &quot;name&quot;, &quot;type&quot;, and &quot;node&quot; properties and might also have &quot;value&quot;,
+        &quot;paramnames&quot;, or &quot;funcscope&quot; properties depending on the symbol.</li>
+    </ul>
+    <h4 id="event-newdoclet">Event: newDoclet</h4>
+    <p>This is the highest level event and is fired when a new doclet has been created. This means that a JSDoc comment or a symbol has been processed, and the actual
+      doclet that will be passed to the template has been created.</p>
+    <p>The event object will contain the following properties:</p>
+    <ul>
+      <li>doclet: the new doclet that was created</li>
+    </ul>
+    <p>The properties of the doclet can vary depending on the comment or symbol used to create it. Additionally, tag definitions (See &quot;Tag Definitions&quot; below)
+      can modify the doclet. Some common properties you&#39;re likely to see include:</p>
+    <ul>
+      <li>comment: the text of the comment (may be empty if symbol is undocumented)</li>
+      <li>meta: some information about the doclet, like filename, line number, etc.</li>
+      <li>description</li>
+      <li>kind</li>
+      <li>name</li>
+      <li>longname: the fully qualified name, including memberof info</li>
+      <li>memberof: the function/class/namespace that this is a member of</li>
+      <li>scope: (global|static|instance|inner)</li>
+      <li>undocumented: true if the symbol didn&#39;t have a JSDoc comment</li>
+      <li>defaultvalue: the specified default value for a property/variable</li>
+      <li>type: the specified type of parameter/property/function return (e.g. Boolean)</li>
+      <li>params: an object containing the list of parameters to a function</li>
+      <li>tags: an object containing the set of tags not handled by the parser (note: this is only available if <code>allowUnknownTags</code> is set to true in the conf.json
+        file for JSDoc 3)</li>
+    </ul>
+    <p>Below is an example of a newDoclet handler that shouts the descriptions:</p>
+    <figure>
+      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.handlers = {
     newDoclet: function(e) {
         // e.doclet will refer to the newly created doclet
         // you can read and modify properties of that doclet if you wish
@@ -523,233 +177,109 @@ exports.handlers = {
         }
     }
 };
-
-</pre>
-</dd>
-</dl><h4 name="event-fileComplete" id="event-fileComplete">
-    Event: fileComplete
-</h4>
-
-<p>
-    This is fired when the parser is done with a file. You might use this to perform some cleanup for your plugin.
-</p>
-
-<p>
-    The event object will contain the following properties:
-</p>
-
-<ul>
-    <li>filename: the name of the file
-    </li>
-
-    <li>source: the contents of the file
-    </li>
-</ul>
-
-<h4 name="event-parseComplete" id="event-parseComplete">
-    Event: parseComplete
-</h4>
-
-<p>
-    The <code>parseComplete</code> event is fired after JSDoc has parsed all of the specified source files.
-</p>
-
-<p>
-    <strong>Note</strong>: This event is fired in JSDoc 3.2 and later.
-</p>
-
-<p>
-    The event object will contain the following properties:
-</p>
-
-<ul>
-    <li>sourcefiles: An array of paths to source files that were parsed.
-    </li>
-    <li>doclets: An array of doclet objects. See the <a href="#event-newDoclet">newDoclet event</a> for details about the properties that each doclet can contain. <strong>Note</strong>: This property is available in JSDoc 3.2.1 and later. 
-    </li>
-</ul>
-
-<h4 name="event-processingComplete" id="event-processingComplete">
-    Event: processingComplete
-</h4>
-
-<p>
-    The <code>processingComplete</code> event is fired after JSDoc updates the parse results to reflect inherited and borrowed symbols.
-</p>
-
-<p>
-    <strong>Note</strong>: This event is fired in JSDoc 3.2.1 and later.
-</p>
-
-<p>
-    The event object will contain the following properties:
-</p>
-
-<ul>
-    <li>doclets: An array of doclet objects. See the <a href="#event-newDoclet">newDoclet event</a> for details about the properties that each doclet can contain.
-    </li>
-</ul>
-
-<h3 name="tag-definitions" id="tag-definitions">
-    Tag Definitions
-</h3>
-
-<p>
-    Adding tags to the tag dictionary is a mid-level way to affect documentation generation. Before a newDoclet event is triggered, JSDoc comment blocks are parsed to determine the description and any JSDoc tags that may be present. When a tag is found, if it has been defined in the tag dictionary, it is given a chance to modify the doclet.
-</p>
-
-<p>
-    Plugins can define tags by exporting a <em>defineTags</em> function. That function will be passed a dictionary that can be used to define tags, like so:
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-exports.defineTags = function(dictionary) {
+</code></pre>
+    </figure>
+    <h4 id="event-filecomplete">Event: fileComplete</h4>
+    <p>This is fired when the parser is done with a file. You might use this to perform some cleanup for your plugin.</p>
+    <p>The event object will contain the following properties:</p>
+    <ul>
+      <li>filename: the name of the file</li>
+      <li>source: the contents of the file</li>
+    </ul>
+    <h4 id="event-parsecomplete">Event: parseComplete</h4>
+    <p>The <code>parseComplete</code> event is fired after JSDoc has parsed all of the specified source files.</p>
+    <p><strong>Note</strong>: This event is fired in JSDoc 3.2 and later.</p>
+    <p>The event object will contain the following properties:</p>
+    <ul>
+      <li>sourcefiles: An array of paths to source files that were parsed.</li>
+      <li>doclets: An array of doclet objects. See the <a href="#event-newdoclet">newDoclet event</a> for details about the properties that each doclet can contain. <strong>Note</strong>:
+        This property is available in JSDoc 3.2.1 and later.</li>
+    </ul>
+    <h4 id="event-processingcomplete">Event: processingComplete</h4>
+    <p>The <code>processingComplete</code> event is fired after JSDoc updates the parse results to reflect inherited and borrowed symbols.</p>
+    <p><strong>Note</strong>: This event is fired in JSDoc 3.2.1 and later.</p>
+    <p>The event object will contain the following properties:</p>
+    <ul>
+      <li>doclets: An array of doclet objects. See the <a href="#event-newdoclet">newDoclet event</a> for details about the properties that each doclet can contain.</li>
+    </ul>
+    <h3 id="tag-definitions">Tag Definitions</h3>
+    <p>Adding tags to the tag dictionary is a mid-level way to affect documentation generation. Before a newDoclet event is triggered, JSDoc comment blocks are parsed
+      to determine the description and any JSDoc tags that may be present. When a tag is found, if it has been defined in the tag dictionary, it is given a chance
+      to modify the doclet.</p>
+    <p>Plugins can define tags by exporting a <em>defineTags</em> function. That function will be passed a dictionary that can be used to define tags, like so:</p>
+    <figure>
+      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.defineTags = function(dictionary) {
     //define tags here
 }
-
-</pre>
-</dd>
-</dl><h4 name="the-dictionary" id="the-dictionary">
-    The Dictionary
-</h4>
-
-<p>
-    The dictionary provides the following methods:
-</p>
-
-<ol>
-    <li>
-        <p>
-            defineTag(title, opts) Used to define tags. The first parameter is the name of the tag (e.g. "param" or "overview"). the second is an object containing options for the tag. The options can be the following:
-        </p>
-
+</code></pre>
+    </figure>
+    <h4 id="the-dictionary">The Dictionary</h4>
+    <p>The dictionary provides the following methods:</p>
+    <ul>
+      <li>defineTag(title, opts) Used to define tags. The first parameter is the name of the tag (e.g. &quot;param&quot; or &quot;overview&quot;). the second is an object
+        containing options for the tag. The options can be the following:
         <ul>
-            <li>mustHaveValue (Boolean): whether or not the tag must have a value (e.g "@name TheName")
-            </li>
-
-            <li>mustNotHaveValue (Boolean): whether or not the tag must not have a value
-            </li>
-
-            <li>canHaveType (Boolean): Whether or not the tag can have a type (e.g. "@param <strong>{String}</strong> name the description of name")
-            </li>
-
-            <li>canHaveName (Boolean): Whether or not the tag can have a name (e.g. "@param {String} <strong>name</strong> the description of name")
-            </li>
-
-            <li>isNamespace (Boolean): Whether or not the tag marks a doclet as representing a namespace. The "@module" tag, for instance, sets this to true.
-            </li>
-
-            <li>onTagged (Function): A callback function executed when the tag is found. The function is passed two parameters: the doclet and the tag. Here's an example:
-                <dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-dictionary.defineTag('instance', { 
+          <li>mustHaveValue (Boolean): whether or not the tag must have a value (e.g &quot;@name TheName&quot;)</li>
+          <li>mustNotHaveValue (Boolean): whether or not the tag must not have a value</li>
+          <li>canHaveType (Boolean): Whether or not the tag can have a type (e.g. &quot;@param <strong>{String}</strong> name the description of name&quot;)</li>
+          <li>canHaveName (Boolean): Whether or not the tag can have a name (e.g. &quot;@param {String} <strong>name</strong> the description of name&quot;)</li>
+          <li>isNamespace (Boolean): Whether or not the tag marks a doclet as representing a namespace. The &quot;@module&quot; tag, for instance, sets this to true.</li>
+          <li>onTagged (Function): A callback function executed when the tag is found. The function is passed two parameters: the doclet and the tag.</li>
+        </ul>
+      </li>
+      <li>lookUp(title) Used to lookup a tag. Returns either the tag or false if it&#39;s not defined</li>
+      <li>isNamespace(kind) Used to determine if a particular doclet type represents a namespace</li>
+      <li>normalise(title) Used to find the canonical name of a tag. The name passed in might be that name or a synonym</li>
+    </ul>
+    <p>A tag&#39;s onTagged callback can modify the contents of the doclet or tag.</p>
+    <figure>
+      <figcaption>Defining an onTagged callback</figcaption><pre class="prettyprint lang-js"><code>dictionary.defineTag('instance', {
     onTagged: function(doclet, tag) {
         doclet.scope = "instance";
     }
-}); 
-                
-</pre>
-</dd>
-</dl></li>
-        </ul>
-		
-		<p>
-		The defineTag method returns a Tag. The Tag object has a method "synonym" that can be used to declare synonyms to the tag. For example:
-		</p>
-
-		<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
-.synonym('throws');
-        
-</pre>
-</dd>
-</dl></li>
-	
-	<li>lookUp(title) Used to lookup a tag. Returns either the tag or false if it's not defined
-	</li>
-
-	<li>isNamespace(kind) Used to determine if a particular doclet type represents a namespace
-	</li>
-
-	<li>normalise(title) Used to find the canonical name of a tag. The name passed in might be that name or a synonym
-	</li>
-</ol>
-
-<h3 name="node-visitors" id="node-visitors">
-    Node Visitors
-</h3>
-
-<p>
-    At the lowest level, plugin authors can process each node in the parse tree by defining a node visitor that will visit each node, creating an opportunity to do things like modify comments and trigger parser events for any arbitrary piece of code.
-</p>
-
-<p>
-    Plugins can define a node visitor by exporting a <code>nodeVisitor</code> object that contains a <code>visitNode</code> function, like so:
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-exports.nodeVisitor = {
+});
+</code></pre>
+    </figure>
+    <p>The defineTag method returns a Tag object, which has a &quot;synonym&quot; method that can be used to declare a synonym for the tag.</p>
+    <figure>
+      <figcaption>Defining a tag synonym</figcaption><pre class="prettyprint lang-js"><code>dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
+    .synonym('throws');
+</code></pre>
+    </figure>
+    <h3 id="node-visitors">Node Visitors</h3>
+    <p>At the lowest level, plugin authors can process each node in the parse tree by defining a node visitor that will visit each node, creating an opportunity to
+      do things like modify comments and trigger parser events for any arbitrary piece of code.</p>
+    <p>Plugins can define a node visitor by exporting a <code>nodeVisitor</code> object that contains a <code>visitNode</code> function, like so:</p>
+    <figure>
+      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.nodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
         //do all sorts of crazy things here
     }
 }
-
-</pre>
-</dd>
-</dl><p>
-    The function is called on each node with the following parameters:
-</p>
-
-<ul>
-    <li>node: the node of the parse tree
-    </li>
-
-    <li>e: the event. If the node is one that the parser handles, this will already be populated with the same things described in the <em>symbolFound</em> event above. Otherwise, it will be an empty object on which to set various properties.
-    </li>
-
-    <li>parser: the parser
-    </li>
-
-    <li>currentSourceName: the name of the file being parsed
-    </li>
-</ul>
-
-<h4 name="making-things-happen" id="making-things-happen">
-    Making things happen
-</h4>
-
-<p>
-    The primary reasons to implement a node visitor are to be able to document things that aren't normally documented (like function calls that create classes) or to auto generate documentation for code that isn't documented. For instance, a plugin might look for calls to a "_trigger" method since it knows that means an event is fired and then generate documentation for the event.
-</p>
-
-<p>
-    To make things happen, the <code>visitNode</code> function should modify properties of the event parameter. In general the goal is to construct a comment and then get an event to fire. After the parser lets all of the node visitors have a look at the node, it looks to see if the event object has a <code>comment</code> property and an <code>event</code> property. If it has both, the event named in the event property is fired. The event is usually "symbolFound" or "jsdocCommentFound", but theoretically, a plugin could define its own events and handle them.
-</p>
-
-<h4 name="example" id="example">
-    Example
-</h4>
-
-<p>
-    Below is an example of what a plugin for documenting jQuery UI widgets might do. jQuery UI uses a factory function call to create widget classes. The plugin looks for that function call and creates a symbol with documentation. It also looks for any "this._trigger" function calls and automatically creates documentation for the events that are triggered:
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-exports.nodeVisitor = {
+</code></pre>
+    </figure>
+    <p>The function is called on each node with the following parameters:</p>
+    <ul>
+      <li>node: the node of the parse tree</li>
+      <li>e: the event. If the node is one that the parser handles, this will already be populated with the same things described in the <em>symbolFound</em> event above.
+        Otherwise, it will be an empty object on which to set various properties.</li>
+      <li>parser: the parser</li>
+      <li>currentSourceName: the name of the file being parsed</li>
+    </ul>
+    <h4 id="making-things-happen">Making things happen</h4>
+    <p>The primary reasons to implement a node visitor are to be able to document things that aren&#39;t normally documented (like function calls that create classes)
+      or to auto generate documentation for code that isn&#39;t documented. For instance, a plugin might look for calls to a &quot;_trigger&quot; method since it
+      knows that means an event is fired and then generate documentation for the event.</p>
+    <p>To make things happen, the <code>visitNode</code> function should modify properties of the event parameter. In general the goal is to construct a comment and then
+      get an event to fire. After the parser lets all of the node visitors have a look at the node, it looks to see if the event object has a <code>comment</code> property
+      and an <code>event</code> property. If it has both, the event named in the event property is fired. The event is usually &quot;symbolFound&quot; or &quot;jsdocCommentFound&quot;,
+      but theoretically, a plugin could define its own events and handle them.</p>
+    <h4 id="example-of-a-node-visitor">Example of a node visitor</h4>
+    <p>Below is an example of what a plugin for documenting jQuery UI widgets might do. jQuery UI uses a factory function call to create widget classes. The plugin
+      looks for that function call and creates a symbol with documentation. It also looks for any &quot;this._trigger&quot; function calls and automatically creates
+      documentation for the events that are triggered:</p>
+    <figure>
+      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.nodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
         if (node.type === Token.OBJECTLIT &amp;&amp; node.parent &amp;&amp; node.parent.type === Token.CALL &amp;&amp; isInWidgetFactory(node, 1)) {
             var widgetName = node.parent.arguments.get(0).toSource();
@@ -767,7 +297,7 @@ exports.nodeVisitor = {
             e.finishers = [parser.addDocletRef];
 
             addCommentTag(e, "param", "{Object=} options A set of configuration options");
-        } 
+        }
         else if(isTriggerCall(node)) {
             var nameNode = node.arguments.get(0);
                 eventName = String((nameNode.type == Token.STRING) ? nameNode.value : nameNode.toSource()),
@@ -789,10 +319,11 @@ exports.nodeVisitor = {
             e.comment = comment;
             e.lineno = node.getLineno();
             e.filename = currentSourceName;
-            e.event = "jsdocCommentFound";                
+            e.event = "jsdocCommentFound";
         }
     }
 };
+
 function isTriggerCall(node) {
     if(node.type != Token.CALL) { return false; }
     var target = node.getTarget(),
@@ -817,95 +348,32 @@ function isInWidgetFactory(node, depth) {
     }
     return false;
 }
-
-</pre>
-</dd>
-</dl><p>
-    You'll notice a "finishers" property set. The finishers property should contain an array of functions to be called after the event is fired and all the handlers have processed it. The parser provides an <code>addDocletRef</code> function that adds the doclet to the map (keyed off of the id property) of doclets it knows about.
-</p>
-
-<p>
-    Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting a <code>stopPropagation</code> property on the event object (e.stopPropagation = true). A plugin can stop the event from firing setting a <code>preventDefault</code> property.
-</p>
-
-<h3 name="throwing-errors" id="throwing-errors">
-    Throwing Errors
-</h3>
-<p>
-    If you wish your plugin to throw an error, do it using the <code>handle</code> function in the <code>jsdoc/util/error</code> module.
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-require('jsdoc/util/error').handle( new Error('I do not like green eggs and ham!') );
-
-</pre>
-</dd>
-</dl><p>
-    By default, this will throw the error, halting the execution of JSDoc. However, if the user enabled JSDoc's <code>--lenient</code> switch, JSDoc will simply log the error to the console and continue.
-</p>
-
-<h2 name="packaging-jsdoc-3-plugins" id="packaging-jsdoc-3-plugins">
-    Packaging JSDoc 3 Plugins
-</h2>
-
-<p>
-    The JSDoc 3 Jakefile has an <code>install</code> task that can be used to install a plugin into the JSDoc directory. So running the following will install the plugin:
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-$&gt;jake install[path/to/YourPluginFolder]
-
-</pre>
-</dd>
-</dl><p>
-    <strong>Note</strong>: On some operating systems, including OS X, you may need to quote the target name and parameters:
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-$&gt;jake 'install[path/to/YourPluginFolder]'
-
-</pre>
-</dd>
-</dl><p>
-    The task is passed a directory that should look something like the following:
-</p>
-
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-YourPluginFolder
- |- plugins
- |   |- YourPlugin.js
- |   \- test
- |       |- fixtures
- |       |   \- YourFixtures.js
- |       \- specs
- |           \- YourTests.js
- \- templates
-     \- YourTemplate
-         \- publish.js
-
-</pre>
-</dd>
-</dl>
-    </article>
-    
-    <footer>
-        <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /><br>
-        Copyright &#169; 2011-2013 The <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.<br />
-        This site is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
-	</footer>
-
-	<script>prettyPrint()</script>
+</code></pre>
+    </figure>
+    <p>You&#39;ll notice a &quot;finishers&quot; property set. The finishers property should contain an array of functions to be called after the event is fired and
+      all the handlers have processed it. The parser provides an <code>addDocletRef</code> function that adds the doclet to the map (keyed off of the id property)
+      of doclets it knows about.</p>
+    <p>Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting
+      a <code>stopPropagation</code> property on the event object (e.stopPropagation = true). A plugin can stop the event from firing setting a <code>preventDefault</code> property.</p>
+    <h3 id="throwing-errors">Throwing Errors</h3>
+    <p>If you wish your plugin to throw an error, do it using the <code>handle</code> function in the <code>jsdoc/util/error</code> module.</p>
+    <figure>
+      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>require('jsdoc/util/error').handle( new Error('I do not like green eggs and ham!') );
+</code></pre>
+    </figure>
+    <p>By default, this will throw the error, halting the execution of JSDoc. However, if the user enabled JSDoc&#39;s <code>--lenient</code> switch, JSDoc will simply
+      log the error to the console and continue.</p>
+  </article>
+  <footer>
+    <img alt="Creative Commons License" class="license-badge" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
+    <br>Copyright &#169; 2011-2014 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
+    <br>This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+  </footer>
+  <script type="text/javascript">
+    prettyPrint();
+  </script>
 </body>
+
 </html>

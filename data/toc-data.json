@@ -1,0 +1,51 @@
+{
+    "gettingStarted": [
+        {
+            "filename": "about-getting-started.html"
+        },
+        {
+            "filename": "about-namepaths.html"
+        },
+        {
+            "filename": "about-tutorials.html"
+        },
+        {
+            "filename": "about-including-readme.html"
+        },
+        {
+            "filename": "about-commandline.html"
+        },
+        {
+            "filename": "about-configuring-jsdoc.html"
+        },
+        {
+            "filename": "about-inline-tags.html"
+        },
+        {
+            "filename": "about-plugins.html"
+        },
+        {
+            "filename": "plugins-markdown.html"
+        },
+        {
+            "filename": "about-license-jsdoc3.html"
+        }
+    ],
+    "examples": [
+        {
+            "filename": "howto-commonjs-modules.html"
+        }
+    ],
+    "contribute": [
+        {
+            "link": "https://github.com/jsdoc3/jsdoc",
+            "text": "JSDoc project on GitHub",
+            "description": "Contribute to JSDoc."
+        },
+        {
+            "link": "https://github.com/jsdoc3/jsdoc3.github.com",
+            "text": "Use JSDoc project on GitHub",
+            "description": "Contribute to the JSDoc documentation."
+        }
+    ]
+}

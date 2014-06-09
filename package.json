@@ -1,0 +1,30 @@
+{
+  "name": "jsdoc3.github.com",
+  "version": "0.0.0",
+  "description": "Documentation website for JSDoc 3.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "fs-extra": "^0.9.1",
+    "gulp": "~3.7.0",
+    "metalsmith": "~0.8.0",
+    "metalsmith-beautify": "0.0.7",
+    "metalsmith-headings": "https://github.com/hegemonic/metalsmith-headings/tarball/tag-name",
+    "metalsmith-markdown": "~0.2.1",
+    "swig": "~1.3.2",
+    "swig-extras": "~0.0.1",
+    "underscore": "~1.6.0"
+  },
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jsdoc3/jsdoc3.github.com.git"
+  },
+  "license": "CC BY-SA 3.0",
+  "bugs": {
+    "url": "https://github.com/jsdoc3/jsdoc3.github.com/issues"
+  },
+  "homepage": "https://github.com/jsdoc3/jsdoc3.github.com"
+}

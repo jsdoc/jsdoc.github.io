@@ -1,329 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="About command-line arguments to JSDoc."><title>Use JSDoc: Command-line arguments to JSDoc</title>
-	
-	<link rel="stylesheet" href="lib/prettify.css" />
-	<script src="lib/prettify.js"></script>
-	
-	<script type="text/javascript">
-	    /* Make HTML 5 elements stylable in IE */
-        document.createElement('header');
-        document.createElement('nav');
-        document.createElement('article');
-        document.createElement('footer');
-        document.createElement('hgroup');
-	</script>
-	
-	<style>
-		body 
-		{
-			font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			padding: 0;
-			margin: 0;
-		}
-		
-		a, a:visited, a:active 
-		{
-			color: #605C89;
-		}
-		
-		/* Make HTML 5 elements display block-level for consistent styling */
-		header, nav, article, footer, address 
-		{
-			display: block;
-		}
-		
-		header
-		{
-			background-color: #EBEBEB;
-			color: #006FBB;
-			margin: 0;
-			margin-bottom: 32px;
-			padding: 18px;
-			font-size: 2.4em;
-			font-weight: bold;
-			border-bottom: 1px #C6C6C6 solid;
-		}
-		
-		header a, header a:visited 
-		{
-		    color: #006FBB;
-			text-decoration: none;
-		}
-		
-		article 
-		{
-			margin: 18px;
-		}
-		
-		footer
-		{
-			margin: 16px;
-			margin-top: 32px;
-			font-style: italic;
-			font-size: 0.8em;
-		}
-		
-		h1, h2, h3, h4, h5, h6
-		{
-			color: #B93A38;
-		}
-		
-		h1
-		{
-			font-size: 1.428em;
-			text-indent: 0;
-		}
-
-		h2
-		{
-			font-size: 1.285em;
-			text-indent: 1%;
-		}
-
-		h3
-		{
-			font-size: 1.142em;
-			text-indent: 2%;
-		}
-
-		h4
-		{
-			font-size: 1em;
-			text-indent: 3%;
-		}
-
-		h5
-		{
-			font-size: 0.857em;
-			text-indent: 4%;
-		}
-
-		h6
-		{
-			font-size: 0.714em;
-			text-indent: 5%;
-		}
-		
-		p
-		{
-			text-indent: 2%;
-		}
-		
-		dl
-		{
-			margin-left: 2%;
-			padding-left: 0;
-		}
-		
-		dt
-		{
-			margin-left: 16px;
-			padding-left: 4px;
-			margin-top: 8px;
-		}
-		
-		dt a, dt a:visited 
-		{
-			color: #3E00B6;
-		}
-		
-		dd
-		{
-			margin-left: 16px;
-			padding-left: 4px;
-		}
-		
-		ol, ul
-		{
-			margin-left: 2%;
-		}
-		
-		code 
-		{
-			font: 1em Consolas, "Lucida Console", Monaco, monospace;
-			background-color: #DEDEDE;
-		}
-		
-		pre
-		{
-			display: block;
-			border: 1px solid #999;
-			margin: 12px;
-			padding: 8px;
-			white-space: pre-wrap;
-			background-color: #DEDEDE;
-		}
-		
-		.example dt 
-		{
-			font-weight: bold;
-		}
-
-	</style>
+  <meta charset="utf-8">
+  <meta name="description" content="About command-line arguments to JSDoc.">
+  <title>Use JSDoc: Command-line arguments to JSDoc</title>
+  <link rel="stylesheet" href="styles/usejsdoc.css">
+  <link rel="stylesheet" href="styles/prettify.css">
+  <link rel="stylesheet" href="styles/css3-github-ribbon.css">
+  <script src="scripts/prettify.js"></script>
+  <!--[if lt IE 9]>
+            <script src="scripts/html5shiv.min.js"></script>
+            <script src="scripts/html5shiv-printshiv.min.js"></script>
+        <![endif]-->
 </head>
 
 <body>
-	<header>
-	    <a href="./index.html">@use JSDoc</a>
-	</header>
-	
-	<nav>
-	</nav>
-	
-	<article>
-	<h1>Command-line arguments to JSDoc</h1>
-
-<p>
-At its most basic level, JSDoc is used like so:
-</p>
-
-<dl class="example">
-<dt></dt>
-<dd>
-<pre class="prettyprint lang-js">
-/path/to/jsdoc yourSourceCodeFile.js anotherSourceCodeFile.js ...
-
-</pre>
-</dd>
-</dl><p>
-where <code>...</code> are paths to other files to generate documentation for.</p>
-
-<p>Additionally, one may provide the path to a <a href="http://daringfireball.net/projects/markdown/">markdown file</a> (ending in ".md") or a file named "README", and this will be added to the documentation on the front page. See <a href="about-including-readme.html">these instructions</a>.</p>
-
-<p>JSDoc supports a number of command-line options, many of which have both long and short forms.
-Alternatively, the command-line options may be<a href="about-configuring-jsdoc.html#TODO"> specified in a configuration file</a> given to JSDoc. The command-line options are:</p>
-
-<dl>
-  <dt><code>-t</code>, <code>--template &lt;value&gt;</code></dt>
-    <dd>
-      The name of the template to use for JSDoc's output.
-      The default is "templates/default", JSDoc's standard template.
-    </dd>
-  <dt><code>-c</code>, <code>--configure &lt;value&gt;</code></dt>
-    <dd>
-      The path to a configuration file to use to further tailor JSDoc's output (see the <a href="#configuration-file">Configuration File</a> section).
-      The default is <code>conf.json</code> in the <code>jsdoc</code> executable's directory, or <code>conf.json.EXAMPLE</code> in the same directory if <code>conf.json</code> was not found.
-    </dd>
-  <dt><code>-e</code>, <code>--encoding &lt;value&gt;</code></dt>
-    <dd>
-      Assume this encoding when reading all source files. Default: utf8.
-    </dd>
-  <dt><code>-d</code>, <code>--destination &lt;value&gt;</code></dt>
-    <dd>
-      The path to the output folder where all the generated documentation will be placed.
-      Use "console" to dump data to the console. Default: <code>./out/</code>.
-    </dd>
-  <dt><code>-r</code>, <code>--recurse</code></dt>
-    <dd>
-      If one of the paths given to <code>jsdoc</code> is a directory, use this flag to recurse into subdirectories when scanning for source code files.
-    </dd>
-  <dt><code>-u</code>, <code>--tutorials &lt;value&gt;</code></dt>
-    <dd>
-      Directory in which JSDoc should search for tutorials. If it is not included, no tutorials pages will be generated.
-      See the <a href="about-tutorials.html">tutorials instructions</a> for how to add tutorials to your project.
-    </dd>
-  <dt><code>-p</code>, <code>--private</code></dt>
-    <dd>
-      By default, symbols marked with the <a href="tags-private.html">@private</a> tag are not included in the output documentation.
-      If this flag is provided, then they will be.
-    </dd>
-  <dt><code>-l</code>, <code>--lenient</code></dt>
-    <dd>
-      By default, if JSDoc encounters an error while parsing and generating documentation, it will halt and display the error to the user.
-      If the lenient flag is provided it will continue to generate output even if this occurs.
-    </dd>
-  <dt><code>-q</code>, <code>--query &lt;value&gt;</code></dt>
-    <dd>
-      A query string to parse and store in env.opts.query. Example: "foo=bar&amp;baz=true". TODO: where is this used?
-    </dd>
-</dl>
-
-<p>The following flags will cause JSDoc to do something else rather than generating documentation:</p>
-
-<dl>
-  <dt><code>-X</code>, <code>--explain</code></dt>
-    <dd>
-     This dumps information about all the doclets found in the files to the console and quits.
-    </dd>
-  </dt>
-  <dt><code>-h</code>, <code>--help</code></dt>
-    <dd>
-      Prints information about all the command-line options and quits.
-    </dd>
-  </dt>
-  <dt><code>-v</code>, <code>--version</code></dt>
-    <dd>
-      Displays JSDoc's version number and quits.
-    </dd>
-  </dt>
-  <dt><code>-T</code>, <code>--test</code></dt>
-    <dd>
-      Runs all JSDoc tests, printing the results to the console, and quits.
-    </dd>
-  </dt>
-</dl>
-
-<p>The following options affect JSDoc's behaviour when it is running tests (i.e. the <code>-T</code> or <code>--test</code> option was given):</p>
-
-<dl>
-  <dt><code>--verbose</code></dt>
-    <dd>
-      Display verbose output for tests (write the test names and descriptions to the console).
-    </dd>
-  </dt>
-  <dt><code>--match &lt;value&gt;</code></dt>
-    <dd>
-      Only run tests containing <code>&lt;value&gt;</code>.
-    </dd>
-  </dt>
-  <dt><code>--nocolor</code></dt>
-    <dd>
-      Do not use color in console output from tests.
-    </dd>
-  </dt>
-</dl>
-
-<h2>Examples</h2>
-<dl class="example">
-<dt>Example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/path/to/jsdoc src -r -t haruki -c /path/to/my/conf.json -d docs
-
-</pre>
-</dd>
-</dl><p>The above will generate documentation for all relevant files found in the <code>src</code> directory, using <code>/path/to/my/conf.json</code> as its configuration file.
-The output documentation will use the Haruki template and be in folder <code>docs</code> (relative to the current directory).</p>
-
-<dl class="example">
-<dt>Another example</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/path/to/jsdoc -T --match 'tag' --verbose
-
-</pre>
-</dd>
-</dl><p>The above will run all of JSDoc's tests that have 'tag' in the title (e.g. '@since tag', '@exports tag'), writing all the test names and descriptions to the console.</p>
-
-<h2 id="see-also" name="see-also">See Also</h2>
-
-<ul>
-<li><a href="about-configuring-jsdoc.html#configuration-file-command-line">Specifying command-line options for JSDoc in the configuration file</a></li>
-<li><a href="about-testing-jsdoc3.html">Running JSDoc's tests</a></li>
-</ul>
-
-
-    </article>
-    
-    <footer>
-        <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /><br>
-        Copyright &#169; 2011-2013 The <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.<br />
-        This site is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
-	</footer>
-
-	<script>prettyPrint()</script>
+  <header>
+    <a href="./index.html">@use JSDoc</a>
+  </header>
+  <article>
+    <h1>Command-line arguments to JSDoc</h1>
+    <h2>Table of Contents</h2>
+    <ul>
+      <li>
+        <a href="#examples">Examples</a>
+      </li>
+      <li>
+        <a href="#related-links">Related Links</a>
+      </li>
+    </ul>
+    <p>At its most basic level, JSDoc is used like so:</p>
+    <pre class="prettyprint"><code>/path/to/jsdoc yourSourceCodeFile.js anotherSourceCodeFile.js ...
+</code></pre>
+    <p>where <code>...</code> are paths to other files to generate documentation for.</p>
+    <p>Additionally, one may provide the path to a <a href="http://daringfireball.net/projects/markdown/">Markdown file</a> (ending in &quot;.md&quot;) or a file named
+      &quot;README&quot;, and this will be added to the documentation on the front page. See <a href="about-including-readme.html">these
+instructions</a>.</p>
+    <p>JSDoc supports a number of command-line options, many of which have both long and short forms. Alternatively, the command-line options may be <a href="about-configuring-jsdoc.html">specified in a configuration file</a>
+      given to JSDoc. The command-line options are:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>-c &lt;value&gt;</code>, <code>--configure &lt;value&gt;</code>
+          </td>
+          <td>The path to a JSDoc <a href="about-configuring-jsdoc.html">configuration file</a>. Defaults to <code>conf.json</code> or <code>conf.json.EXAMPLE</code> in the
+            directory where JSDoc is installed.</td>
+        </tr>
+        <tr>
+          <td><code>-d &lt;value&gt;</code>, <code>--destination &lt;value&gt;</code>
+          </td>
+          <td>The path to the output folder for the generated documentation. For JSDoc&#39;s built-in Haruki template, use <code>console</code> to dump data to the console.
+            Defaults to <code>./out</code>.</td>
+        </tr>
+        <tr>
+          <td><code>-e &lt;value&gt;</code>, <code>--encoding &lt;value&gt;</code>
+          </td>
+          <td>Assume this encoding when reading all source files. Defaults to <code>utf8</code>.</td>
+        </tr>
+        <tr>
+          <td><code>-h</code>, <code>--help</code>
+          </td>
+          <td>Display information about JSDoc&#39;s command-line options, then exit.</td>
+        </tr>
+        <tr>
+          <td><code>-l</code>, <code>--lenient</code>
+          </td>
+          <td>Try to generate documentation even if an error occurs (for example, if a tag is missing a required value). By default, if an error occurs, JSDoc exits
+            immediately.</td>
+        </tr>
+        <tr>
+          <td><code>--match &lt;value&gt;</code>
+          </td>
+          <td>Only run tests whose names contain <code>value</code>.</td>
+        </tr>
+        <tr>
+          <td><code>--nocolor</code>
+          </td>
+          <td>When running tests, do not use color in the console output. On Windows, this option is enabled by default.</td>
+        </tr>
+        <tr>
+          <td><code>-p</code>, <code>--private</code>
+          </td>
+          <td>Include symbols marked with the <a href="tags-private.html"><code>@private</code> tag</a> in the generated documentation. By default, private symbols are
+            not included.</td>
+        </tr>
+        <tr>
+          <td><code>-q &lt;value&gt;</code>, <code>--query &lt;value&gt;</code>
+          </td>
+          <td>A query string to parse and store in the global variable <code>env.opts.query</code>. Example: <code>foo=bar&amp;baz=true</code>.</td>
+        </tr>
+        <tr>
+          <td><code>-r</code>, <code>--recurse</code>
+          </td>
+          <td>Recurse into subdirectories when scanning for source files.</td>
+        </tr>
+        <tr>
+          <td><code>-t &lt;value&gt;</code>, <code>--template &lt;value&gt;</code>
+          </td>
+          <td>The path to the template to use for generating output. Defaults to <code>templates/default</code>, JSDoc&#39;s built-in default template.</td>
+        </tr>
+        <tr>
+          <td><code>-T</code>, <code>--test</code>
+          </td>
+          <td>Run JSDoc&#39;s test suite, and print the results to the console.</td>
+        </tr>
+        <tr>
+          <td><code>-u &lt;value&gt;</code>, <code>--tutorials &lt;value&gt;</code>
+          </td>
+          <td>Directory in which JSDoc should search for tutorials. If omitted, no tutorial pages will be generated. See the <a href="about-tutorials.html">tutorial instructions</a> for
+            more information.</td>
+        </tr>
+        <tr>
+          <td><code>-v</code>, <code>--version</code>
+          </td>
+          <td>Displays JSDoc&#39;s version number, then exits.</td>
+        </tr>
+        <tr>
+          <td><code>--verbose</code>
+          </td>
+          <td>When running tests, write the test names and descriptions to the console.</td>
+        </tr>
+        <tr>
+          <td><code>-X</code>, <code>--explain</code>
+          </td>
+          <td>Dump all doclets to the console in JSON format, then exit.</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="examples">Examples</h2>
+    <p>Generate documentation for files in the <code>./src</code> directory, using the configuration file
+      <code>/path/to/my/conf.json</code>, and save the output in the <code>./docs</code> directory:</p>
+    <figure><pre class="prettyprint"><code>/path/to/jsdoc src -r -c /path/to/my/conf.json -d docs
+</code></pre>
+    </figure>
+    <p>Run all JSDoc tests whose names include the word <code>tag</code>, and log information about each test:</p>
+    <figure><pre class="prettyprint"><code>/path/to/jsdoc -T --match tag --verbose
+</code></pre>
+    </figure>
+    <h2 id="related-links">Related Links</h2>
+    <p>
+      <a href="about-configuring-jsdoc.html">Configuring JSDoc with conf.json</a>
+    </p>
+  </article>
+  <footer>
+    <img alt="Creative Commons License" class="license-badge" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
+    <br>Copyright &#169; 2011-2014 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
+    <br>This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+  </footer>
+  <script type="text/javascript">
+    prettyPrint();
+  </script>
 </body>
+
 </html>

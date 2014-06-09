@@ -1,286 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="Document the parameter to a function."><title>Use JSDoc: @param</title>
-	
-	<link rel="stylesheet" href="lib/prettify.css" />
-	<script src="lib/prettify.js"></script>
-	
-	<script type="text/javascript">
-	    /* Make HTML 5 elements stylable in IE */
-        document.createElement('header');
-        document.createElement('nav');
-        document.createElement('article');
-        document.createElement('footer');
-        document.createElement('hgroup');
-	</script>
-	
-	<style>
-		body 
-		{
-			font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			padding: 0;
-			margin: 0;
-		}
-		
-		a, a:visited, a:active 
-		{
-			color: #605C89;
-		}
-		
-		/* Make HTML 5 elements display block-level for consistent styling */
-		header, nav, article, footer, address 
-		{
-			display: block;
-		}
-		
-		header
-		{
-			background-color: #EBEBEB;
-			color: #006FBB;
-			margin: 0;
-			margin-bottom: 32px;
-			padding: 18px;
-			font-size: 2.4em;
-			font-weight: bold;
-			border-bottom: 1px #C6C6C6 solid;
-		}
-		
-		header a, header a:visited 
-		{
-		    color: #006FBB;
-			text-decoration: none;
-		}
-		
-		article 
-		{
-			margin: 18px;
-		}
-		
-		footer
-		{
-			margin: 16px;
-			margin-top: 32px;
-			font-style: italic;
-			font-size: 0.8em;
-		}
-		
-		h1, h2, h3, h4, h5, h6
-		{
-			color: #B93A38;
-		}
-		
-		h1
-		{
-			font-size: 1.428em;
-			text-indent: 0;
-		}
-
-		h2
-		{
-			font-size: 1.285em;
-			text-indent: 1%;
-		}
-
-		h3
-		{
-			font-size: 1.142em;
-			text-indent: 2%;
-		}
-
-		h4
-		{
-			font-size: 1em;
-			text-indent: 3%;
-		}
-
-		h5
-		{
-			font-size: 0.857em;
-			text-indent: 4%;
-		}
-
-		h6
-		{
-			font-size: 0.714em;
-			text-indent: 5%;
-		}
-		
-		p
-		{
-			text-indent: 2%;
-		}
-		
-		dl
-		{
-			margin-left: 2%;
-			padding-left: 0;
-		}
-		
-		dt
-		{
-			margin-left: 16px;
-			padding-left: 4px;
-			margin-top: 8px;
-		}
-		
-		dt a, dt a:visited 
-		{
-			color: #3E00B6;
-		}
-		
-		dd
-		{
-			margin-left: 16px;
-			padding-left: 4px;
-		}
-		
-		ol, ul
-		{
-			margin-left: 2%;
-		}
-		
-		code 
-		{
-			font: 1em Consolas, "Lucida Console", Monaco, monospace;
-			background-color: #DEDEDE;
-		}
-		
-		pre
-		{
-			display: block;
-			border: 1px solid #999;
-			margin: 12px;
-			padding: 8px;
-			white-space: pre-wrap;
-			background-color: #DEDEDE;
-		}
-		
-		.example dt 
-		{
-			font-weight: bold;
-		}
-
-	</style>
+  <meta charset="utf-8">
+  <meta name="description" content="Document the parameter to a function.">
+  <title>Use JSDoc: @param</title>
+  <link rel="stylesheet" href="styles/usejsdoc.css">
+  <link rel="stylesheet" href="styles/prettify.css">
+  <link rel="stylesheet" href="styles/css3-github-ribbon.css">
+  <script src="scripts/prettify.js"></script>
+  <!--[if lt IE 9]>
+            <script src="scripts/html5shiv.min.js"></script>
+            <script src="scripts/html5shiv-printshiv.min.js"></script>
+        <![endif]-->
 </head>
 
 <body>
-	<header>
-	    <a href="./index.html">@use JSDoc</a>
-	</header>
-	
-	<nav>
-	</nav>
-	
-	<article>
-	<h1>@param</h1>
-
-
-<h3>Synonyms</h3>
-
-<ul>
-    <li>@arg</li>
-    <li>@argument</li>
-</ul>
-
-<h3>Overview</h3>
-
-<p>
-The @param tag (or @arg or @argument) documents a function parameter.
-</p>
-
-<p>
-The @param tag requires you to specify the name of the parameter you are documenting. You can also
-include the parameter's type, enclosed in curly brackets, and a description of the parameter.
-</p>
-
-<p>
-The parameter type can be a built-in JavaScript type, such as <code>string</code> or
-<code>Object</code>, or a <a href="about-namepaths.html">JSDoc namepath</a> to another symbol in
-your code. If you have written documentation for the symbol at that namepath, JSDoc will
-automatically link to the documentation for that symbol. You can also use a type expression to
-indicate, for example, that a parameter is not nullable or can accept any type; see the
-<a href="tags-type.html">@type documentation</a> for details.
-</p>
-
-<p>
-If you provide a description, you can make the JSDoc comment more readable by inserting a hyphen
-before the description. Be sure to include a space before and after the hyphen.
-</p>
-
-<h3>Examples</h3>
-
-<p>
-The following examples show how to include names, types, and descriptions in a @param tag.
-</p>
-
-<dl class="example">
-<dt>Name only</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+  <header>
+    <a href="./index.html">@use JSDoc</a>
+  </header>
+  <article>
+    <h1>@param</h1>
+    <h2>Table of Contents</h2>
+    <ul>
+      <li>
+        <a href="#synonyms">Synonyms</a>
+      </li>
+      <li>
+        <a href="#overview">Overview</a>
+      </li>
+      <li>
+        <a href="#examples">Examples</a>
+      </li>
+      <li>
+        <a href="#related-links">Related Links</a>
+      </li>
+    </ul>
+    <h2 id="synonyms">Synonyms</h2>
+    <ul>
+      <li>
+        @arg
+      </li>
+      <li>
+        @argument
+      </li>
+    </ul>
+    <h2 id="overview">Overview</h2>
+    <p>The @param tag (or @arg or @argument) documents a function parameter.</p>
+    <p>The @param tag requires you to specify the name of the parameter you are documenting. You can also include the parameter&#39;s type, enclosed in curly brackets,
+      and a description of the parameter.</p>
+    <p>The parameter type can be a built-in JavaScript type, such as <code>string</code> or <code>Object</code>, or a
+      <a href="about-namepaths.html">JSDoc namepath</a> to another symbol in your code. If you have written documentation for the symbol at that namepath, JSDoc will
+      automatically link to the documentation for that symbol. You can also use a type expression to indicate, for example, that a parameter is not nullable or can
+      accept any type; see the [@type documentation][tags-type] for details.</p>
+    <p>If you provide a description, you can make the JSDoc comment more readable by inserting a hyphen before the description. Be sure to include a space before and
+      after the hyphen.</p>
+    <h2 id="examples">Examples</h2>
+    <p>The following examples show how to include names, types, and descriptions in a @param tag.</p>
+    <figure>
+      <figcaption>Name only</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param somebody
  */
 function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
-
-</pre>
-</dd>
-</dl><dl class="example">
-<dt>Name and type</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+</code></pre>
+    </figure>
+    <figure>
+      <figcaption>Name and type</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {string} somebody
  */
 function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
-
-</pre>
-</dd>
-</dl><dl class="example">
-<dt>Name, type, and description</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+</code></pre>
+    </figure>
+    <figure>
+      <figcaption>Name, type, and description</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {string} somebody Somebody's name.
  */
 function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
-
-</pre>
-</dd>
-</dl><p>
-You can add a hyphen before the description to make it more readable. Be sure to include a space
-before and after the hyphen.
-</p>
-
-<dl class="example">
-<dt>Name, type, and description, with a hyphen before the description</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+</code></pre>
+    </figure>
+    <p>You can add a hyphen before the description to make it more readable. Be sure to include a space before and after the hyphen.</p>
+    <figure>
+      <figcaption>Name, type, and description, with a hyphen before the description</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {string} somebody - Somebody's name.
  */
 function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
-
-</pre>
-</dd>
-</dl><p>
-The following examples show how to indicate that a parameter is optional and has a default value.
-</p>
-
-<dl class="example">
-<dt>An optional parameter (using JSDoc syntax)</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+</code></pre>
+    </figure>
+    <p>The following examples show how to indicate that a parameter is optional and has a default value.</p>
+    <figure>
+      <figcaption>An optional parameter (using JSDoc syntax)</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {string} [somebody] - Somebody's name.
  */
 function sayHello(somebody) {
@@ -289,14 +105,10 @@ function sayHello(somebody) {
     }
     alert('Hello ' + somebody);
 }
-
-</pre>
-</dd>
-</dl><dl class="example">
-<dt>An optional parameter (using Google Closure Compiler syntax)</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+</code></pre>
+    </figure>
+    <figure>
+      <figcaption>An optional parameter (using Google Closure Compiler syntax)</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {string=} somebody - Somebody's name.
  */
 function sayHello(somebody) {
@@ -305,15 +117,10 @@ function sayHello(somebody) {
     }
     alert('Hello ' + somebody);
 }
-
-
-</pre>
-</dd>
-</dl><dl class="example">
-<dt>An optional parameter and default value</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+</code></pre>
+    </figure>
+    <figure>
+      <figcaption>An optional parameter and default value</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {string} [somebody=John Doe] - Somebody's name.
  */
 function sayHello(somebody) {
@@ -322,21 +129,13 @@ function sayHello(somebody) {
     }
     alert('Hello ' + somebody);
 }
-
-</pre>
-</dd>
-</dl><p>
-The following examples show how to use type expressions to indicate that a parameter can accept
-multiple types (or any type), and that a parameter can be provided more than once. See the
-<a href="tags-type.html">@type documentation</a> for details about the type expressions that JSDoc
-supports.
-</p>
-
-<dl class="example">
-<dt>Allows one type OR another type (type union)</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+</code></pre>
+    </figure>
+    <p>The following examples show how to use type expressions to indicate that a parameter can accept multiple types (or any type), and that a parameter can be provided
+      more than once. See the
+      <a href="tags-type.html">@type documentation</a> for details about the type expressions that JSDoc supports.</p>
+    <figure>
+      <figcaption>Allows one type OR another type (type union)</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {(string|string[])} [somebody=John Doe] - Somebody's name, or an array of names.
  */
 function sayHello(somebody) {
@@ -347,27 +146,19 @@ function sayHello(somebody) {
     }
     alert('Hello ' + somebody);
 }
-
-</pre>
-</dd>
-</dl><dl class="example">
-<dt>Allows any type</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+</code></pre>
+    </figure>
+    <figure>
+      <figcaption>Allows any type</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {*} somebody - Whatever you want.
  */
 function sayHello(somebody) {
     console.log('Hello ' + JSON.stringify(somebody));
 }
-
-</pre>
-</dd>
-</dl><dl class="example">
-<dt>Allows a parameter to be repeated</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+</code></pre>
+    </figure>
+    <figure>
+      <figcaption>Allows a parameter to be repeated</figcaption><pre class="prettyprint lang-js"><code>/**
  * Returns the sum of all numbers passed to the function.
  * @param {...number} num - A positive or negative number.
  */
@@ -378,19 +169,12 @@ function sum(num) {
     }
     return t;
 }
-
-</pre>
-</dd>
-</dl><p>
-If a parameter accepts a callback function, you can use the <a href="tags-callback.html">@callback
-tag</a> to define a callback type, then include the callback type in the @param tag.
-</p>
-
-<dl class="example">
-<dt>Parameters that accept a callback</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/**
+</code></pre>
+    </figure>
+    <p>If a parameter accepts a callback function, you can use the <a href="tags-callback.html">@callback tag</a> to define a callback type, then include the callback
+      type in the @param tag.</p>
+    <figure>
+      <figcaption>Parameters that accept a callback</figcaption><pre class="prettyprint lang-js"><code>/**
  * This callback type is called `requestCallback` and is displayed as a global symbol.
  *
  * @callback requestCallback
@@ -405,26 +189,34 @@ tag</a> to define a callback type, then include the callback type in the @param 
 function doSomethingAsynchronously(cb) {
     // code
 };
-
-</pre>
-</dd>
-</dl><h3>See Also</h3>
-
-<ul>
-    <li><a href="tags-callback.html">@callback</a></li>
-    <li><a href="tags-returns.html">@returns</a></li>
-    <li><a href="tags-type.html">@type</a></li>
-    <li><a href="tags-typedef.html">@typedef</a></li>
-</ul>
-
-    </article>
-    
-    <footer>
-        <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /><br>
-        Copyright &#169; 2011-2013 The <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.<br />
-        This site is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
-	</footer>
-
-	<script>prettyPrint()</script>
+</code></pre>
+    </figure>
+    <h2 id="related-links">Related Links</h2>
+    <ul>
+      <li>
+        <a href="tags-callback.html">@callback</a>
+      </li>
+      <li>
+        <a href="tags-returns.html">@returns</a>
+      </li>
+      <li>
+        <a href="tags-type.html">@type</a>
+      </li>
+      <li>
+        <a href="tags-typedef.html">@typedef</a>
+      </li>
+    </ul>
+  </article>
+  <footer>
+    <img alt="Creative Commons License" class="license-badge" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
+    <br>Copyright &#169; 2011-2014 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
+    <br>This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+  </footer>
+  <script type="text/javascript">
+    prettyPrint();
+  </script>
 </body>
+
 </html>

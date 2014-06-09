@@ -1,220 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="Document a static member."><title>Use JSDoc: @static</title>
-	
-	<link rel="stylesheet" href="lib/prettify.css" />
-	<script src="lib/prettify.js"></script>
-	
-	<script type="text/javascript">
-	    /* Make HTML 5 elements stylable in IE */
-        document.createElement('header');
-        document.createElement('nav');
-        document.createElement('article');
-        document.createElement('footer');
-        document.createElement('hgroup');
-	</script>
-	
-	<style>
-		body 
-		{
-			font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			padding: 0;
-			margin: 0;
-		}
-		
-		a, a:visited, a:active 
-		{
-			color: #605C89;
-		}
-		
-		/* Make HTML 5 elements display block-level for consistent styling */
-		header, nav, article, footer, address 
-		{
-			display: block;
-		}
-		
-		header
-		{
-			background-color: #EBEBEB;
-			color: #006FBB;
-			margin: 0;
-			margin-bottom: 32px;
-			padding: 18px;
-			font-size: 2.4em;
-			font-weight: bold;
-			border-bottom: 1px #C6C6C6 solid;
-		}
-		
-		header a, header a:visited 
-		{
-		    color: #006FBB;
-			text-decoration: none;
-		}
-		
-		article 
-		{
-			margin: 18px;
-		}
-		
-		footer
-		{
-			margin: 16px;
-			margin-top: 32px;
-			font-style: italic;
-			font-size: 0.8em;
-		}
-		
-		h1, h2, h3, h4, h5, h6
-		{
-			color: #B93A38;
-		}
-		
-		h1
-		{
-			font-size: 1.428em;
-			text-indent: 0;
-		}
-
-		h2
-		{
-			font-size: 1.285em;
-			text-indent: 1%;
-		}
-
-		h3
-		{
-			font-size: 1.142em;
-			text-indent: 2%;
-		}
-
-		h4
-		{
-			font-size: 1em;
-			text-indent: 3%;
-		}
-
-		h5
-		{
-			font-size: 0.857em;
-			text-indent: 4%;
-		}
-
-		h6
-		{
-			font-size: 0.714em;
-			text-indent: 5%;
-		}
-		
-		p
-		{
-			text-indent: 2%;
-		}
-		
-		dl
-		{
-			margin-left: 2%;
-			padding-left: 0;
-		}
-		
-		dt
-		{
-			margin-left: 16px;
-			padding-left: 4px;
-			margin-top: 8px;
-		}
-		
-		dt a, dt a:visited 
-		{
-			color: #3E00B6;
-		}
-		
-		dd
-		{
-			margin-left: 16px;
-			padding-left: 4px;
-		}
-		
-		ol, ul
-		{
-			margin-left: 2%;
-		}
-		
-		code 
-		{
-			font: 1em Consolas, "Lucida Console", Monaco, monospace;
-			background-color: #DEDEDE;
-		}
-		
-		pre
-		{
-			display: block;
-			border: 1px solid #999;
-			margin: 12px;
-			padding: 8px;
-			white-space: pre-wrap;
-			background-color: #DEDEDE;
-		}
-		
-		.example dt 
-		{
-			font-weight: bold;
-		}
-
-	</style>
+  <meta charset="utf-8">
+  <meta name="description" content="Document a static member.">
+  <title>Use JSDoc: @static</title>
+  <link rel="stylesheet" href="styles/usejsdoc.css">
+  <link rel="stylesheet" href="styles/prettify.css">
+  <link rel="stylesheet" href="styles/css3-github-ribbon.css">
+  <script src="scripts/prettify.js"></script>
+  <!--[if lt IE 9]>
+            <script src="scripts/html5shiv.min.js"></script>
+            <script src="scripts/html5shiv-printshiv.min.js"></script>
+        <![endif]-->
 </head>
 
 <body>
-	<header>
-	    <a href="./index.html">@use JSDoc</a>
-	</header>
-	
-	<nav>
-	</nav>
-	
-	<article>
-	<h1>@static</h1>
-
-<h3>Overview</h3>
-<p>
-The @static tag indicates that a symbol is contained within a parent and can be accessed without
-instantiating the parent.
-</p>
-
-<p>
-Using the @static tag will override a symbol's default scope, with one exception: Symbols in global
-scope will remain global.
-</p>
-
-<h3>Examples</h3>
-
-<p>
-The following example has the same effect as writing "@function MyNamespace.myFunction" and omitting
-the @memberof and @static tags:
-</p>
-
-<dl class="example">
-<dt>Using @static in a virtual comment</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/** @namespace MyNamespace */
+  <header>
+    <a href="./index.html">@use JSDoc</a>
+  </header>
+  <article>
+    <h1>@static</h1>
+    <h2>Table of Contents</h2>
+    <ul>
+      <li>
+        <a href="#overview">Overview</a>
+      </li>
+      <li>
+        <a href="#examples">Examples</a>
+      </li>
+      <li>
+        <a href="#related-links">Related Links</a>
+      </li>
+    </ul>
+    <h2 id="overview">Overview</h2>
+    <p>The @static tag indicates that a symbol is contained within a parent and can be accessed without instantiating the parent.</p>
+    <p>Using the @static tag will override a symbol&#39;s default scope, with one exception: Symbols in global scope will remain global.</p>
+    <h2 id="examples">Examples</h2>
+    <p>The following example has the same effect as writing &quot;@function MyNamespace.myFunction&quot; and omitting the @memberof and @static tags:</p>
+    <figure>
+      <figcaption>Using @static in a virtual comment</figcaption><pre class="prettyprint lang-js"><code>/** @namespace MyNamespace */
 
 /**
  * @function myFunction
  * @memberof MyNamespace
  * @static
  */
-
-</pre>
-</dd>
-</dl>The following example forces a module's inner member to be documented as a static member:
-
-<dl class="example">
-<dt>Using @static to override the default scope</dt>
-<dd>
-<pre class="prettyprint lang-js">
-/** @module Rollerskate */
+</code></pre>
+    </figure>
+    <p>The following example forces a module&#39;s inner member to be documented as a static member:</p>
+    <figure>
+      <figcaption>Using @static to override the default scope</figcaption><pre class="prettyprint lang-js"><code>/** @module Rollerskate */
 
 /**
  * The 'wheel' variable is documented as Rollerskate.wheel
@@ -222,25 +58,31 @@ the @memberof and @static tags:
  * @static
  */
 var wheel = 1;
-
-</pre>
-</dd>
-</dl><h3>See Also</h3>
-
-<ul>
-    <li><a href="tags-inner.html">@inner</a>, which marks a symbol as an inner member (Parent~Child).</li>
-    <li><a href="tags-instance.html">@instance</a>, which marks a symbol as an instance member (Parent#Child).</li>
-    <li><a href="tags-global.html">@global</a>, which marks a symbol as global (Child).</li>
-</ul>
-
-    </article>
-    
-    <footer>
-        <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /><br>
-        Copyright &#169; 2011-2013 The <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.<br />
-        This site is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
-	</footer>
-
-	<script>prettyPrint()</script>
+</code></pre>
+    </figure>
+    <h2 id="related-links">Related Links</h2>
+    <ul>
+      <li>
+        <a href="tags-global.html">@global</a>
+      </li>
+      <li>
+        <a href="tags-inner.html">@inner</a>
+      </li>
+      <li>
+        <a href="tags-instance.html">@instance</a>
+      </li>
+    </ul>
+  </article>
+  <footer>
+    <img alt="Creative Commons License" class="license-badge" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
+    <br>Copyright &#169; 2011-2014 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
+    <br>This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+  </footer>
+  <script type="text/javascript">
+    prettyPrint();
+  </script>
 </body>
+
 </html>

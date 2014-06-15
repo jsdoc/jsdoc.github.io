@@ -85,6 +85,11 @@ gulp.task('html', function() {
             source: path.join(__dirname, 'bower_components/html5shiv/dist/html5shiv.min.js'),
             destination: path.join(__dirname, 'scripts/html5shiv.min.js')
         }))
+        .use(plugins.copyStaticFile({
+            source: path.join(__dirname,
+                'bower_components/html5shiv/dist/html5shiv-printshiv.min.js'),
+            destination: path.join(__dirname, 'scripts/html5shiv-printshiv.min.js')
+        }))
         /*eslint camelcase: 0 */
         .use(beautify({
             css: false,

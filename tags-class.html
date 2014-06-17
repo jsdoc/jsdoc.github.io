@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Document a mixin object.">
-  <title>Use JSDoc: @mixin</title>
+  <meta name="description" content="This function is intended to be called with the &quot;new&quot; keyword.">
+  <title>Use JSDoc: @class</title>
   <link rel="stylesheet" href="styles/usejsdoc.css">
   <link rel="stylesheet" href="styles/prettify.css">
   <link rel="stylesheet" href="styles/css3-github-ribbon.css">
@@ -20,9 +20,12 @@
     <a href="./index.html">@use JSDoc</a>
   </header>
   <article>
-    <h1>@mixin</h1>
+    <h1>@class</h1>
     <h2>Table of Contents</h2>
     <ul>
+      <li>
+        <a href="#synonyms">Synonyms</a>
+      </li>
       <li>
         <a href="#syntax">Syntax</a>
       </li>
@@ -36,53 +39,31 @@
         <a href="#related-links">Related Links</a>
       </li>
     </ul>
+    <h2 id="synonyms">Synonyms</h2>
+    <p>
+      @constructor
+    </p>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@mixin [&lt;MixinName&gt;]</code>
+    <p><code>@class [&lt;type&gt; &lt;name&gt;]</code>
     </p>
     <h2 id="overview">Overview</h2>
-    <p>A mixin provides functionality that is intended to be added to other objects. If desired, you can use the @mixin tag to indicate that an object is a mixin. You
-      can then add the @mixes tag to objects that use the mixin.</p>
+    <p>The @class tag marks a function as being a constructor, meant to be called with the new keyword to return an instance.</p>
     <h2 id="examples">Examples</h2>
     <figure>
-      <figcaption>Using @mixin</figcaption><pre class="prettyprint lang-js"><code>/**
- * This provides methods used for event handling. It's not meant to
- * be used directly.
- *
- * @mixin
+      <figcaption>A function that constructs Person instances.</figcaption><pre class="prettyprint lang-js"><code>/**
+ * Creates a new Person.
+ * @class
  */
-var Eventful = {
-    /**
-     * Register a handler function to be called whenever this event is fired.
-     * @param {string} eventName - Name of the event.
-     * @param {function(Object)} handler - The handler to call.
-     */
-    on: function(eventName, handler) {
-        // code...
-    },
+function Person() {
+}
 
-    /**
-     * Fire an event, causing all handlers for that event name to run.
-     * @param {string} eventName - Name of the event.
-     * @param {Object} eventData - The data provided to each handler.
-     */
-    fire: function(eventName, eventData) {
-        // code...
-    }
-};
+var p = new Person();
 </code></pre>
     </figure>
     <h2 id="related-links">Related Links</h2>
-    <ul>
-      <li>
-        <a href="tags-borrows.html">@borrows</a>
-      </li>
-      <li>
-        <a href="tags-class.html">@class</a>
-      </li>
-      <li>
-        <a href="tags-mixes.html">@mixes</a>
-      </li>
-    </ul>
+    <p>
+      <a href="tags-constructs.html">@constructs</a>
+    </p>
   </article>
   <footer>
     <img alt="Creative Commons License" class="license-badge" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />

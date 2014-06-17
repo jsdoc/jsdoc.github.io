@@ -2,7 +2,7 @@
 tag: classdesc
 description: Use the following text to describe the entire class.
 related:
-    - tags-constructor.html
+    - tags-class.html
     - tags-description.html
 ---
 
@@ -14,7 +14,7 @@ related:
 ## Overview
 
 The @classdesc tag is used to provide a description for a class, separate from the constructor
-function's description. Use the @classdesc tag in combination with the [@constructor (or @class)
+function's description. Use the @classdesc tag in combination with the [@class (or @constructor)
 tag][class-tag].
 
 The functionality of the @classdesc tag in JSDoc 3 duplicates that of the @class in previous
@@ -22,7 +22,7 @@ versions. As of version 3, the syntax and functionality of the @class tag now ex
 @constructor tag, and the @classdesc tag more explicitly communicates its purpose: to document a
 class's description.
 
-[class-tag]: tags-constructor.html
+[class-tag]: tags-class.html
 
 
 ## Examples

@@ -1,20 +1,20 @@
 ---
-tag: constructor
+tag: class
 description: This function is intended to be called with the "new" keyword.
 synonyms:
-    - class
+    - constructor
 related:
     - tags-constructs.html
 ---
 
 ## Syntax
 
-`@constructor [<type> <name>]`
+`@class [<type> <name>]`
 
 
 ## Overview
 
-The @constructor tag marks an function as being a constructor, meant to be called with the new
+The @class tag marks a function as being a constructor, meant to be called with the new
 keyword to return an instance.
 
 
@@ -25,9 +25,9 @@ keyword to return an instance.
 ```js
 /**
  * Creates a new Person.
- * @constructor
+ * @class
  */
-Person = function() {
+function Person() {
 }
 
 var p = new Person();

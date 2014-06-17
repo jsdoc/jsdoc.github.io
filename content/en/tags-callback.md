@@ -2,7 +2,7 @@
 tag: callback
 description: Document a callback function.
 related:
-    - tags-method.html
+    - tags-function.html
     - tags-typedef.html
 ---
 

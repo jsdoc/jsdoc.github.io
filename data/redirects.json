@@ -1,1 +1,4 @@
-{}
+{
+    "tags-constructor.html": "tags-class.html",
+    "tags-method.html": "tags-function.html"
+}

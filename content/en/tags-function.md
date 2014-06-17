@@ -1,14 +1,14 @@
 ---
-tag: method
-description: Describe a method or function.
+tag: function
+description: Describe a function or method.
 synonyms:
     - func
-    - function
+    - method
 ---
 
 ## Syntax
 
-`@method [<FunctionName>]`
+`@function [<FunctionName>]`
 
 
 ## Overview

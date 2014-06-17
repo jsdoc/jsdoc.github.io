@@ -3,7 +3,7 @@ tag: mixes
 description: This object mixes in all the members from another object.
 related:
     - tags-borrows.html
-    - tags-constructor.html
+    - tags-class.html
     - tags-mixin.html
 ---
 

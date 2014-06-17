@@ -5,7 +5,7 @@ synonyms:
     - extends
 related:
     - tags-borrows.html
-    - tags-constructor.html
+    - tags-class.html
     - tags-mixes.html
     - tags-mixin.html
 ---

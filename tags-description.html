@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Describe a symbol.">
-  <title>Use JSDoc: @desc</title>
+  <title>Use JSDoc: @description</title>
   <link rel="stylesheet" href="styles/usejsdoc.css">
   <link rel="stylesheet" href="styles/prettify.css">
   <link rel="stylesheet" href="styles/css3-github-ribbon.css">
@@ -20,7 +20,7 @@
     <a href="./index.html">@use JSDoc</a>
   </header>
   <article>
-    <h1>@desc</h1>
+    <h1>@description</h1>
     <h2>Table of Contents</h2>
     <ul>
       <li>
@@ -41,19 +41,19 @@
     </ul>
     <h2 id="synonyms">Synonyms</h2>
     <p>
-      @description
+      @desc
     </p>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@desc &lt;some description&gt;</code>
+    <p><code>@description &lt;some description&gt;</code>
     </p>
     <h2 id="overview">Overview</h2>
-    <p>The @desc tag allows you to provide a general description of the symbol you are documenting. The description may include HTML markup. It may also include Markdown
-      formatting if the
+    <p>The @description tag allows you to provide a general description of the symbol you are documenting. The description may include HTML markup. It may also include
+      Markdown formatting if the
       <a href="plugins-markdown.html">Markdown plugin</a> is enabled.</p>
     <h2 id="examples">Examples</h2>
-    <p>If you describe a symbol at the very beginning of a JSDoc comment, before using any block tags, you may omit the @desc tag.</p>
+    <p>If you describe a symbol at the very beginning of a JSDoc comment, before using any block tags, you may omit the @description tag.</p>
     <figure>
-      <figcaption>Describing a symbol without the @desc tag</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Describing a symbol without the @description tag</figcaption><pre class="prettyprint lang-js"><code>/**
  * Add two numbers.
  * @param {number} a
  * @param {number} b
@@ -64,13 +64,13 @@ function add(a, b) {
 }
 </code></pre>
     </figure>
-    <p>By using the @desc tag, you can place the description anywhere in the JSDoc comment.</p>
+    <p>By using the @description tag, you can place the description anywhere in the JSDoc comment.</p>
     <figure>
-      <figcaption>Describing a symbol with the @desc tag</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Describing a symbol with the @description tag</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {number} a
  * @param {number} b
  * @returns {number}
- * @desc Add two numbers.
+ * @description Add two numbers.
  */
 function add(a, b) {
     return a + b;

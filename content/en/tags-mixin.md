@@ -3,7 +3,7 @@ tag: mixin
 description: Document a mixin object.
 related:
     - tags-borrows.html
-    - tags-constructor.html
+    - tags-class.html
     - tags-mixes.html
 ---
 

@@ -4,10 +4,10 @@
   "description": "Documentation website for JSDoc 3.",
   "main": "gulpfile.js",
   "dependencies": {
-    "fs-extra": "^0.9.1",
-    "gulp": "~3.7.0",
+    "fs-extra": "~0.9.1",
+    "gulp": "~3.8.0",
     "metalsmith": "~0.8.0",
-    "metalsmith-beautify": "0.0.7",
+    "metalsmith-beautify": "~0.0.7",
     "metalsmith-headings": "https://github.com/hegemonic/metalsmith-headings/tarball/tag-name",
     "metalsmith-markdown": "~0.2.1",
     "swig": "~1.3.2",

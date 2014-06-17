@@ -21,6 +21,16 @@ var TOC_HEADINGS = ['h2, h3'];
 // location of Swig views
 var VIEW_PATH = path.join(__dirname, 'views');
 
+var swigOptions = {
+    basepath: VIEW_PATH,
+    locals: require('./lib/locals')
+};
+var swigViews = {
+    index: 'index.swig',
+    page: 'page.swig',
+    redirect: 'redirect.swig'
+};
+
 // for debugging, because `console` isn't available during a Metalsmith run
 global.log = function log() {
     console.warn.apply(null, arguments);
@@ -59,12 +69,17 @@ gulp.task('html', function() {
             target: OUTPUT_PATH,
             extensions: CLEANUP_EXTENSIONS
         }))
+        .use(plugins.metadata({
+            destination: OUTPUT_PATH,
+            redirects: require(path.resolve(__dirname, 'data/redirects.json'))
+        }))
         .use(markdown({
             gfm: true,
             renderer: markedFactory(),
             smartypants: false,
             tables: true
         }))
+        .use(plugins.configureSwig(swigViews, swigOptions))
         .use(headings({
             // use a single jQuery selector so we get all the headings in order
             selectors: [TOC_HEADINGS.join(', ')]
@@ -74,13 +89,8 @@ gulp.task('html', function() {
         .use(plugins.addJsdocTags())
         .use(plugins.adjustMetadata())
         .use(plugins.addIndexData())
-        .use(plugins.swig({
-            index: 'index.swig',
-            page: 'page.swig'
-        }, {
-            basepath: VIEW_PATH,
-            locals: require('./lib/locals')
-        }))
+        .use(plugins.swig(swigOptions))
+        .use(plugins.buildRedirects())
         .use(plugins.copyStaticFile({
             source: path.join(__dirname, 'bower_components/html5shiv/dist/html5shiv.min.js'),
             destination: path.join(__dirname, 'scripts/html5shiv.min.js')

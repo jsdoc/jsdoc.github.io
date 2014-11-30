@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="[todo] Remove this from the final output.">
+  <meta name="description" content="Omit a symbol from the documentation.">
   <title>Use JSDoc: @ignore</title>
   <link rel="stylesheet" href="styles/usejsdoc.css">
   <link rel="stylesheet" href="styles/prettify.css">
@@ -32,10 +32,42 @@
       </li>
     </ul>
     <h2 id="overview">Overview</h2>
-    <p>TODO</p>
+    <p>The <code>@ignore</code> tag indicates that a symbol in your code should never appear in the documentation. This tag takes precedence over all others.</p>
+    <p>For most JSDoc templates, including the default template, the <code>@ignore</code> tag has the following effects:</p>
+    <ul>
+      <li>If you use the <code>@ignore</code> tag with the <code>@class</code> or <code>@module</code> tag, the entire class or module will be omitted from the documentation.</li>
+      <li>If you use the <code>@ignore</code> tag with the <code>@namespace</code> tag, you must also add the <code>@ignore</code> tag to any child classes and namespaces.
+        Otherwise, your documentation will show the child classes and namespaces, but with incomplete names.</li>
+    </ul>
     <h2 id="examples">Examples</h2>
+    <p>In the following example, <code>Jacket</code> and <code>Jacket#color</code> will not appear in the documentation.</p>
     <figure>
-      <figcaption>Example goes here</figcaption><pre class="prettyprint lang-js"><code>// todo
+      <figcaption>Class with <code>@ignore</code> tag</figcaption><pre class="prettyprint lang-js"><code>/**
+ * @class
+ * @ignore
+ */
+function Jacket() {
+    /** The jacket's color. */
+    this.color = null;
+}
+</code></pre>
+    </figure>
+    <p>In the following example, the <code>Clothes</code> namespace contains a <code>Jacket</code> class. The <code>@ignore</code> tag must be added to both <code>Clothes</code>      and <code>Clothes.Jacket</code>. <code>Clothes</code>, <code>Clothes.Jacket</code>, and <code>Clothes.Jacket#color</code> will not appear in the documentation.</p>
+    <figure>
+      <figcaption>Namespace with child class</figcaption><pre class="prettyprint lang-js"><code>/**
+ * @namespace
+ * @ignore
+ */
+var Clothes = {
+    /**
+     * @class
+     * @ignore
+     */
+    Jacket: function() {
+        /** The jacket's color. */
+        this.color = null;
+    }
+};
 </code></pre>
     </figure>
   </article>

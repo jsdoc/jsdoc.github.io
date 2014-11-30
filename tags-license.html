@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="[todo] Document the software license that applies to this code.">
+  <meta name="description" content="Identify the license that applies to this code.">
   <title>Use JSDoc: @license</title>
   <link rel="stylesheet" href="styles/usejsdoc.css">
   <link rel="stylesheet" href="styles/prettify.css">
@@ -25,17 +25,29 @@
     <h2>Table of Contents</h2>
     <ul>
       <li>
+        <a href="#syntax">Syntax</a>
+      </li>
+      <li>
         <a href="#overview">Overview</a>
       </li>
       <li>
         <a href="#examples">Examples</a>
       </li>
     </ul>
+    <h2 id="syntax">Syntax</h2>
+    <p><code>@license &lt;identifier&gt;</code>
+    </p>
     <h2 id="overview">Overview</h2>
-    <p>TODO</p>
+    <p>The <code>@license</code> tag identifies the software license that applies to any portion of your code.</p>
+    <p>You can use any text to identify the license you are using. If your code uses a standard open-source license, consider using the appropriate identifier from
+      the <a href="https://spdx.org/licenses/">Software Package Data Exchange (SPDX) License List</a>.</p>
     <h2 id="examples">Examples</h2>
     <figure>
-      <figcaption>Example goes here</figcaption><pre class="prettyprint lang-js"><code>// todo
+      <figcaption>A module that is distributed under the Apache License 2.0</figcaption><pre class="prettyprint lang-js"><code>/**
+ * Utility functions for the foo package.
+ * @module foo/util
+ * @license Apache-2.0
+ */
 </code></pre>
     </figure>
   </article>

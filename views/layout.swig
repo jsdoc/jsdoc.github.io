@@ -40,6 +40,7 @@
 {% endmacro %}
 
 <!DOCTYPE html>
+<!-- THIS IS A GENERATED FILE. DO NOT EDIT. -->
 <html lang="en">
 <head>
     {% block meta %}

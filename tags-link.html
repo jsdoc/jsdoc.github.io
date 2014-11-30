@@ -65,8 +65,8 @@
     <h2 id="overview">Overview</h2>
     <p>The @link, @linkcode and @linkplain tags allow links to other documented objects or external URLs to be created within doclets (i.e., within the content of other
       tags).</p>
-    <p>You need to use a symbol&#39;s full name to have it linked (e.g. <code>{@link MyNamespace.MyClass#property}</code>
-      rather than <code>MyClass#property</code>). Also, remember that <a href="tags-module.html">@module</a>s,
+    <p>You need to use a symbol&#39;s full name to have it linked (e.g. <code>{@link MyNamespace.MyClass#property}</code> rather than <code>MyClass#property</code>).
+      Also, remember that <a href="tags-module.html">@module</a>s,
       <a href="tags-external.html">@external</a>s and <a href="tags-event.html">@event</a>s are prefixed by the tag name (e.g. &quot;module:myModule&quot;).
     </p>
     <p>The {@link ...} tag creates a (HTML) link in the generated output to the specified symbol or URL. A link caption different to the link itself may be provided
@@ -77,13 +77,11 @@
       <code>&lt;a href=&quot;#&quot;&gt;&lt;code&gt;MY_CONSTANT&lt;/code&gt;&lt;/a&gt;</code> rather than <code>&lt;a href=&quot;#&quot;&gt;MY_CONSTANT&lt;/a&gt;</code>.</p>
     <p>To achieve this one can use @linkcode. It is exactly the same as @link, but renders the link caption in monospace. For example, &quot;{@linkcode fooBar}&quot;
       turns into <code>&lt;a href=&quot;#&quot;&gt;&lt;code&gt;fooBar&lt;/code&gt;&lt;/a&gt;</code>.</p>
-    <p>The @linkplain tag is opposite to @linkcode; it ensures that the link text is kept as-is, i.e. <em>not</em>
-      turned into monospace.</p>
+    <p>The @linkplain tag is opposite to @linkcode; it ensures that the link text is kept as-is, i.e. <em>not</em> turned into monospace.</p>
     <p>If you want <em>all</em> @links to be rendered in monospace by default, you can set the
-      <code>templates.monospaceLinks</code> option to true in your <code>conf.json</code>. If you want @links to be rendered in normal text if they are links to external
-      URLs (http, ftp) and in monospace otherwise, set the
-      <code>templates.cleverLinks</code> option to true in your <code>conf.json</code>. By default, all @links are rendered in normal font. See the <a href="about-configuring-jsdoc.html">configuring JSDoc</a> page
-      for more information on setting these.</p>
+      <code>templates.monospaceLinks</code> option to true in your <code>conf.json</code>. If you want @links to be rendered in normal text if they are links to
+      external URLs (http, ftp) and in monospace otherwise, set the
+      <code>templates.cleverLinks</code> option to true in your <code>conf.json</code>. By default, all @links are rendered in normal font. See the <a href="about-configuring-jsdoc.html">configuring JSDoc</a>      page for more information on setting these.</p>
     <h2 id="examples">Examples</h2>
     <figure>
       <figcaption>Linking modules, externals and events.</figcaption><pre class="prettyprint lang-js"><code>/** A module. Refer to it using {@link module:foo/bar}.
@@ -182,9 +180,9 @@ var FOO = 1;
   </article>
   <footer>
     <img alt="Creative Commons License" class="license-badge" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
-    <br>Copyright &#169; 2011-2014 the
+    <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br>This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
         Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">

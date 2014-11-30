@@ -81,8 +81,7 @@
     </ul>
     <p>These options and others will be further explained on this page. A full example is provided at the end.
     </p>
-    <p>Further settings may be added to the file as requested by various plugins or templates (for example, the <a href="plugins-markdown.html">Markdown plugin</a> can
-      be configured by including a &quot;markdown&quot; key).</p>
+    <p>Further settings may be added to the file as requested by various plugins or templates (for example, the <a href="plugins-markdown.html">Markdown plugin</a>      can be configured by including a &quot;markdown&quot; key).</p>
     <h2 id="specifying-input-files">Specifying input files</h2>
     <p>The &quot;source&quot; set of options, in combination with paths given to JSDoc on the command-line, determine what files JSDoc generates documentation for.
       (Remove the comments before adding this example to your own .json file.)</p>
@@ -98,15 +97,16 @@
       <li><code>source.include</code>: an optional array of paths that JSDoc should generate documentation for. The paths given to JSDoc on the command line are combined
         with these to form the set of files JSDoc will scan. Recall that if a path is a directory, the <code>-r</code> option may be used to recurse into it.</li>
       <li><code>source.exclude</code>: an optional array of paths that JSDoc should ignore.</li>
-      <li><code>source.includePattern</code>: an optional string, interpreted as a regular expression. If present, all files <em>must</em> match this in order to be scanned
-        by JSDoc. By default this is set to &quot;.+&#92;.js(doc)?$&quot;, meaning that only files that end in <code>.js</code> or <code>.jsdoc</code> will be scanned.</li>
+      <li><code>source.includePattern</code>: an optional string, interpreted as a regular expression. If present, all files <em>must</em> match this in order to be
+        scanned by JSDoc. By default this is set to &quot;.+&#92;.js(doc)?$&quot;, meaning that only files that end in <code>.js</code> or <code>.jsdoc</code> will
+        be scanned.</li>
       <li><code>source.excludePattern</code>: an optional string, interpreted as a regular expression. If present, any file matching this will be ignored. By default
         this is set so that files beginning with an underscore (or anything under a directory beginning with an underscore) is ignored.</li>
     </ul>
     <p>The order that these options are used in is:</p>
     <ol>
-      <li>Start with all paths given on the command line and in <code>source.include</code> for files (recall that using the <code>-r</code> command-line option will search
-        within subdirectories).</li>
+      <li>Start with all paths given on the command line and in <code>source.include</code> for files (recall that using the <code>-r</code> command-line option will
+        search within subdirectories).</li>
       <li>For each file found in Step 1, if the regular expression <code>source.includePattern</code> is present, the file <em>must</em> match it or it is ignored.</li>
       <li>For each file left from Step 2, if the regular expression <code>source.excludePattern</code> is present, any file matching this is ignored.</li>
       <li>For each file left from Step 3, if the path is in <code>source.exclude</code> it is ignored.</li>
@@ -153,8 +153,8 @@
         <ul>
           <li><code>myProject/c.js</code> (from the command line)</li>
           <li><code>myProject/a.js</code> (from <code>source.include</code>)</li>
-          <li><code>myProject/lib/a.js</code>, <code>myProject/lib/ignore.js</code>, <code>myProject/lib/d.txt</code> (from <code>source.include</code>
-            and using the <code>-r</code> option)</li>
+          <li><code>myProject/lib/a.js</code>, <code>myProject/lib/ignore.js</code>, <code>myProject/lib/d.txt</code> (from <code>source.include</code> and using the
+            <code>-r</code> option)</li>
           <li><code>myProject/_private/a.js</code> (from <code>source.include</code>)</li>
         </ul>
       </li>
@@ -164,8 +164,8 @@
       <li>Apply <code>source.exclude</code>, which will remove <code>myProject/lib/ignore.js</code>.</li>
     </ol>
     <h2 id="incorporating-command-line-options-into-the-configuration-file">Incorporating command-line options into the configuration file</h2>
-    <p>It is possible to put many of JSDoc&#39;s <a href="about-commandline.html">command-line options</a> into the configuration file instead of specifying them on the
-      command-line. To do this, use the longnames of the relevant options in an &quot;opts&quot; section of conf.json with the value being the option&#39;s value.</p>
+    <p>It is possible to put many of JSDoc&#39;s <a href="about-commandline.html">command-line options</a> into the configuration file instead of specifying them on
+      the command-line. To do this, use the longnames of the relevant options in an &quot;opts&quot; section of conf.json with the value being the option&#39;s value.</p>
     <figure>
       <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>// You must remove the comments before adding these options to your .json file
 "opts": {
@@ -190,8 +190,8 @@
 }
 </code></pre>
     </figure>
-    <p>Hence between <code>source.include</code> and <code>opts</code> it&#39;s possible to put <em>all</em> of jsdoc&#39;s arguments in a configuration file so that the
-      command-line reduces to:</p>
+    <p>Hence between <code>source.include</code> and <code>opts</code> it&#39;s possible to put <em>all</em> of jsdoc&#39;s arguments in a configuration file so that
+      the command-line reduces to:</p>
     <pre class="prettyprint"><code>jsdoc -c /path/to/conf.json
 </code></pre>
     <p>In the case of options being provided on the command line <em>and</em> in conf.json, the command line takes precedence.
@@ -209,7 +209,8 @@
     <p>The Markdown plugin can be configured by including a &quot;markdown&quot; object into conf.json; see
       <a href="plugins-markdown.html">Configuring the Markdown Plugin</a> for further information.</p>
     <h2 id="output-style-configuration">Output style configuration</h2>
-    <p>The options in <code>templates</code> affect how JSDoc&#39;s output looks (although custom templates may not be affected by these, depending on how they are coded).</p>
+    <p>The options in <code>templates</code> affect how JSDoc&#39;s output looks (although custom templates may not be affected by these, depending on how they are
+      coded).</p>
     <figure><pre class="prettyprint lang-js"><code>"templates": {
     "cleverLinks": false,
     "monospaceLinks": false
@@ -217,12 +218,11 @@
 </code></pre>
     </figure>
     <p>If <code>templates.monospaceLinks</code> is true, all link texts from the <a href="tags-link.html">@link</a> tag will be rendered in monospace.</p>
-    <p>If <code>templates.cleverLinks</code> is true, {@link asdf} will be rendered in normal font if &quot;asdf&quot; is a URL, and monospace otherwise. For example, <code>{@link http://github.com}</code> will
-      render in plain-text but
+    <p>If <code>templates.cleverLinks</code> is true, {@link asdf} will be rendered in normal font if &quot;asdf&quot; is a URL, and monospace otherwise. For example,
+      <code>{@link http://github.com}</code> will render in plain-text but
       <code>{@link MyNamespace.myFunction}</code> will be in monospace.</p>
     <p>If <code>templates.cleverLinks</code> is true, it is used and <code>templates.monospaceLinks</code> is ignored.</p>
-    <p>Also, there are {@linkcode ...} and {@linkplain ...} if one wishes to force the link to be rendered in monospace or normal font respectively (see <a href="tags-link.html">@link, @linkcode and @linkplain</a> for
-      further information).</p>
+    <p>Also, there are {@linkcode ...} and {@linkplain ...} if one wishes to force the link to be rendered in monospace or normal font respectively (see <a href="tags-link.html">@link, @linkcode and @linkplain</a>      for further information).</p>
     <h3 id="miscellaneous">Miscellaneous</h3>
     <p>The <code>tags.allowUnknownTags</code> property determines whether tags unrecognised by JSDoc are permitted. If this is false and JSDoc encounters a tag it does
       not recognise (e.g. <code>@foobar</code>), it will throw an error. Otherwise, it will just ignore the tag.</p>
@@ -288,9 +288,9 @@
   </article>
   <footer>
     <img alt="Creative Commons License" class="license-badge" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
-    <br>Copyright &#169; 2011-2014 the
+    <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br>This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
         Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">

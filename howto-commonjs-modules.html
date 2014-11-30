@@ -50,8 +50,7 @@
       In addition, JSDoc supports <a href="http://nodejs.org/api/modules.html">Node.js modules</a>, which extend the CommonJS standard. This allows you to easily
       document your own JavaScript modules and the members they export.</p>
     <h2 id="document-a-simple-commonjs-module">Document a Simple CommonJS Module</h2>
-    <p>Add a single <code>@module &lt;module identifier&gt;</code> tag at the top of the file that defines your module and any documented members of the <code>exports</code> object
-      in that file will automatically be included in the documentation for that module.</p>
+    <p>Add a single <code>@module &lt;module identifier&gt;</code> tag at the top of the file that defines your module and any documented members of the <code>exports</code>      object in that file will automatically be included in the documentation for that module.</p>
     <figure>
       <figcaption>The putOn and unbutton methods are documented as members of the &quot;my/shirt&quot; module.</figcaption><pre class="prettyprint lang-js"><code>/** @module my/shirt */
 
@@ -95,10 +94,10 @@ this.Book = function(title) {
 </code></pre>
     </figure>
     <h2 id="document-a-function-that-returns-an-amd-module">Document a Function that returns an AMD Module</h2>
-    <p>Modules can also be written using the <a href="https://github.com/amdjs/amdjs-api/blob/master/AMD.md">Asynchronous Module Definition (AMD) API</a>, which is implemented
-      by libraries such as <a href="http://requirejs.org/">RequireJS</a>. The AMD format provides a <code>define</code> method that allows you to write a function to
-      return a module object. Use the <a href="tags-exports.html">@exports</a> tag to document that all the members of an object literal should be documented as members
-      of a module.</p>
+    <p>Modules can also be written using the <a href="https://github.com/amdjs/amdjs-api/blob/master/AMD.md">Asynchronous Module Definition (AMD) API</a>, which is
+      implemented by libraries such as <a href="http://requirejs.org/">RequireJS</a>. The AMD format provides a <code>define</code> method that allows you to write
+      a function to return a module object. Use the <a href="tags-exports.html">@exports</a> tag to document that all the members of an object literal should be
+      documented as members of a module.</p>
     <figure>
       <figcaption>The color property and the Turtleneck class are documented as members of the &quot;my/shirt&quot; module.</figcaption><pre class="prettyprint lang-js"><code>define('my/shirt', function () {
    /**
@@ -167,8 +166,8 @@ module.exports = Jacket;
 </code></pre>
     </figure>
     <h2 id="document-multiple-amd-modules-defined-in-a-single-file">Document Multiple AMD Modules Defined in a Single File</h2>
-    <p>If you have multiple calls to <code>define</code> in a single file use the <a href="tags-exports.html">@exports</a> tag to document each function that returns module
-      code. Name the exported objects &quot;exports&quot; and JSDoc 3 will automatically document any of their members as members of their module.</p>
+    <p>If you have multiple calls to <code>define</code> in a single file use the <a href="tags-exports.html">@exports</a> tag to document each function that returns
+      module code. Name the exported objects &quot;exports&quot; and JSDoc 3 will automatically document any of their members as members of their module.</p>
     <figure>
       <figcaption>The getStyleProperty and isInHead methods are documented as members of the &quot;html/utils&quot; module. The Tag class is documented as a member of the &quot;tag&quot;
         module.</figcaption><pre class="prettyprint lang-js"><code>// one module
@@ -207,9 +206,9 @@ define('tag',
   </article>
   <footer>
     <img alt="Creative Commons License" class="license-badge" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
-    <br>Copyright &#169; 2011-2014 the
+    <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br>This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
         Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">

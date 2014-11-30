@@ -41,8 +41,8 @@ MyConstructor.staticMember
 MyConstructor~innerMember // note that JSDoc 2 uses a dash
 </code></pre>
     </figure>
-    <p>The example below shows: an <em>instance</em> method named &quot;say,&quot; an <em>inner</em> function also named &quot;say,&quot; and a <em>static</em> method also
-      named &quot;say.&quot; These are three distinct methods that all exist independently of one another.</p>
+    <p>The example below shows: an <em>instance</em> method named &quot;say,&quot; an <em>inner</em> function also named &quot;say,&quot; and a <em>static</em> method
+      also named &quot;say.&quot; These are three distinct methods that all exist independently of one another.</p>
     <figure>
       <figcaption>Use a documentation tag to describe your code.</figcaption><pre class="prettyprint lang-js"><code>/** @constructor */
 Person = function() {
@@ -72,8 +72,8 @@ Person~say  // the inner method named "say."
 </code></pre>
     </figure>
     <p>You might wonder why there is a syntax to refer to an inner method when that method isn&#39;t directly accessible from outside the function it is defined in.
-      While that is true, and thus the &quot;~&quot; syntax is rarely used, it <em>is</em> possible to return a reference to an inner method from another method inside
-      that container, so it is possible that some object elsewhere in your code might borrow an inner method.</p>
+      While that is true, and thus the &quot;~&quot; syntax is rarely used, it <em>is</em> possible to return a reference to an inner method from another method
+      inside that container, so it is possible that some object elsewhere in your code might borrow an inner method.</p>
     <p>Note that if a constructor has an instance member that is also a constructor, you can simply chain the namepaths together to form a longer namepath:</p>
     <figure>
       <figcaption>Use a documentation tag to describe your code.</figcaption><pre class="prettyprint lang-js"><code>/** @constructor */
@@ -108,8 +108,7 @@ i.consider();
  */
 </code></pre>
     </figure>
-    <p>There are some special cases with namepaths: <a href="tags-module.html">@module</a> names are prefixed by &quot;module:&quot;, <a href="tags-external.html">@external</a> names
-      are prefixed by &quot;external:&quot;, and <a href="tags-event.html">@event</a> names are prefixed by &quot;event:&quot;.</p>
+    <p>There are some special cases with namepaths: <a href="tags-module.html">@module</a> names are prefixed by &quot;module:&quot;, <a href="tags-external.html">@external</a>      names are prefixed by &quot;external:&quot;, and <a href="tags-event.html">@event</a> names are prefixed by &quot;event:&quot;.</p>
     <figure>
       <figcaption>Namepaths of objects with special characters in the name.</figcaption><pre class="prettyprint lang-js"><code>/** @namespace */
 var chat = {
@@ -153,9 +152,9 @@ var chat = {
   </article>
   <footer>
     <img alt="Creative Commons License" class="license-badge" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
-    <br>Copyright &#169; 2011-2014 the
+    <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br>This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
         Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">

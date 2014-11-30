@@ -80,8 +80,8 @@
 </code></pre>
     </figure>
     <h4 id="event-parsebegin">Event: parseBegin</h4>
-    <p>The <code>parseBegin</code> event is fired before JSDoc starts loading and parsing the source files. Your plugin can control which files JSDoc will parse by modifying
-      the event&#39;s contents.</p>
+    <p>The <code>parseBegin</code> event is fired before JSDoc starts loading and parsing the source files. Your plugin can control which files JSDoc will parse by
+      modifying the event&#39;s contents.</p>
     <p><strong>Note</strong>: This event is fired in JSDoc 3.2 and later.</p>
     <p>The event object will contain the following properties:</p>
     <ul>
@@ -129,7 +129,7 @@
     </ul>
     <h4 id="event-symbolfound">Event: symbolFound</h4>
     <p>This is fired when the parser comes across a symbol in the code it thinks is important. This usually means things that one might want to document -- variables,
-      functions, object literals, object property definitions, assignments, etc., but the symbols the parser finds can be modified by a plugin (see <a href="#node-visitors">Node Visitors</a> below).</p>
+      functions, object literals, object property definitions, assignments, etc., but the symbols the parser finds can be modified by a plugin (see <a href="#node-visitors">Node Visitors</a>      below).</p>
     <p>The event object will contain the following properties:</p>
     <ul>
       <li>filename: the name of the file</li>
@@ -192,8 +192,8 @@
     <p>The event object will contain the following properties:</p>
     <ul>
       <li>sourcefiles: An array of paths to source files that were parsed.</li>
-      <li>doclets: An array of doclet objects. See the <a href="#event-newdoclet">newDoclet event</a> for details about the properties that each doclet can contain. <strong>Note</strong>:
-        This property is available in JSDoc 3.2.1 and later.</li>
+      <li>doclets: An array of doclet objects. See the <a href="#event-newdoclet">newDoclet event</a> for details about the properties that each doclet can contain.
+        <strong>Note</strong>: This property is available in JSDoc 3.2.1 and later.</li>
     </ul>
     <h4 id="event-processingcomplete">Event: processingComplete</h4>
     <p>The <code>processingComplete</code> event is fired after JSDoc updates the parse results to reflect inherited and borrowed symbols.</p>
@@ -270,10 +270,9 @@
     <p>The primary reasons to implement a node visitor are to be able to document things that aren&#39;t normally documented (like function calls that create classes)
       or to auto generate documentation for code that isn&#39;t documented. For instance, a plugin might look for calls to a &quot;_trigger&quot; method since it
       knows that means an event is fired and then generate documentation for the event.</p>
-    <p>To make things happen, the <code>visitNode</code> function should modify properties of the event parameter. In general the goal is to construct a comment and then
-      get an event to fire. After the parser lets all of the node visitors have a look at the node, it looks to see if the event object has a <code>comment</code> property
-      and an <code>event</code> property. If it has both, the event named in the event property is fired. The event is usually &quot;symbolFound&quot; or &quot;jsdocCommentFound&quot;,
-      but theoretically, a plugin could define its own events and handle them.</p>
+    <p>To make things happen, the <code>visitNode</code> function should modify properties of the event parameter. In general the goal is to construct a comment and
+      then get an event to fire. After the parser lets all of the node visitors have a look at the node, it looks to see if the event object has a <code>comment</code>      property and an <code>event</code> property. If it has both, the event named in the event property is fired. The event is usually &quot;symbolFound&quot; or
+      &quot;jsdocCommentFound&quot;, but theoretically, a plugin could define its own events and handle them.</p>
     <h4 id="example-of-a-node-visitor">Example of a node visitor</h4>
     <p>Below is an example of what a plugin for documenting jQuery UI widgets might do. jQuery UI uses a factory function call to create widget classes. The plugin
       looks for that function call and creates a symbol with documentation. It also looks for any &quot;this._trigger&quot; function calls and automatically creates
@@ -354,7 +353,7 @@ function isInWidgetFactory(node, depth) {
       all the handlers have processed it. The parser provides an <code>addDocletRef</code> function that adds the doclet to the map (keyed off of the id property)
       of doclets it knows about.</p>
     <p>Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting
-      a <code>stopPropagation</code> property on the event object (e.stopPropagation = true). A plugin can stop the event from firing setting a <code>preventDefault</code> property.</p>
+      a <code>stopPropagation</code> property on the event object (e.stopPropagation = true). A plugin can stop the event from firing setting a <code>preventDefault</code>      property.</p>
     <h3 id="throwing-errors">Throwing Errors</h3>
     <p>If you wish your plugin to throw an error, do it using the <code>handle</code> function in the <code>jsdoc/util/error</code> module.</p>
     <figure>
@@ -366,9 +365,9 @@ function isInWidgetFactory(node, depth) {
   </article>
   <footer>
     <img alt="Creative Commons License" class="license-badge" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
-    <br>Copyright &#169; 2011-2014 the
+    <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br>This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
         Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">

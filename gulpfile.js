@@ -71,7 +71,7 @@ gulp.task('html', function() {
         }))
         .use(plugins.metadata({
             destination: OUTPUT_PATH,
-            redirects: require(path.resolve(__dirname, 'data/redirects.json'))
+            tocData: require('./data/toc-data.json')
         }))
         .use(markdown({
             gfm: true,
@@ -86,11 +86,10 @@ gulp.task('html', function() {
         }))
         .use(plugins.buildHeadingTree(TOC_HEADINGS))
         .use(plugins.addTemplateName())
-        .use(plugins.addJsdocTags())
+        .use(plugins.addJsdocTagMetadata())
         .use(plugins.adjustMetadata())
-        .use(plugins.addIndexData())
         .use(plugins.swig(swigOptions))
-        .use(plugins.buildRedirects())
+        .use(plugins.buildRedirects(require('./data/redirects.json')))
         .use(plugins.copyStaticFile({
             source: path.join(__dirname, 'bower_components/html5shiv/dist/html5shiv.min.js'),
             destination: path.join(__dirname, 'scripts/html5shiv.min.js')

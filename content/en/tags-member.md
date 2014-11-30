@@ -30,7 +30,7 @@ function Data() {
 
 Here is an example of using @var, a synonym of @member, to document a (virtual) variable 'foo'.
 
-{% example "Using @member to document a virtual member" %}
+{% example "Using @var to document a virtual member" %}
 
 ```js
 /**

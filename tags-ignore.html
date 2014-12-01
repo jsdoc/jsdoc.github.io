@@ -33,7 +33,8 @@
     </ul>
     <h2 id="overview">Overview</h2>
     <p>The <code>@ignore</code> tag indicates that a symbol in your code should never appear in the documentation. This tag takes precedence over all others.</p>
-    <p>For most JSDoc templates, including the default template, the <code>@ignore</code> tag has the following effects:</p>
+    <p>For most JSDoc templates, including the default template, the <code>@ignore</code> tag has the following effects:
+    </p>
     <ul>
       <li>If you use the <code>@ignore</code> tag with the <code>@class</code> or <code>@module</code> tag, the entire class or module will be omitted from the documentation.</li>
       <li>If you use the <code>@ignore</code> tag with the <code>@namespace</code> tag, you must also add the <code>@ignore</code> tag to any child classes and namespaces.
@@ -52,7 +53,8 @@ function Jacket() {
 }
 </code></pre>
     </figure>
-    <p>In the following example, the <code>Clothes</code> namespace contains a <code>Jacket</code> class. The <code>@ignore</code> tag must be added to both <code>Clothes</code>      and <code>Clothes.Jacket</code>. <code>Clothes</code>, <code>Clothes.Jacket</code>, and <code>Clothes.Jacket#color</code> will not appear in the documentation.</p>
+    <p>In the following example, the <code>Clothes</code> namespace contains a <code>Jacket</code> class. The <code>@ignore</code> tag must be added to both <code>Clothes</code>      and <code>Clothes.Jacket</code>. <code>Clothes</code>, <code>Clothes.Jacket</code>, and
+      <code>Clothes.Jacket#color</code> will not appear in the documentation.</p>
     <figure>
       <figcaption>Namespace with child class</figcaption><pre class="prettyprint lang-js"><code>/**
  * @namespace

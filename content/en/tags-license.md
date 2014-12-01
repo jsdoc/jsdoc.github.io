@@ -12,7 +12,11 @@ description: Identify the license that applies to this code.
 
 The `@license` tag identifies the software license that applies to any portion of your code.
 
-You can use any text to identify the license you are using. If your code uses a standard open-source license, consider using the appropriate identifier from the [Software Package Data Exchange (SPDX) License List](https://spdx.org/licenses/).
+You can use any text to identify the license you are using. If your code uses a standard open-source
+license, consider using the appropriate identifier from the [Software Package Data Exchange (SPDX)
+License List][spdx].
+
+[spdx]: https://spdx.org/licenses/
 
 
 ## Examples

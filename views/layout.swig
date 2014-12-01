@@ -105,8 +105,9 @@
     </article>
 
     <footer>
-        <img alt="Creative Commons License" class="license-badge"
-            src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" />
+        <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
+        <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg"
+            width="80" height="15" /></a>
         <br>
         Copyright &#169; 2011-2014 the
         <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the

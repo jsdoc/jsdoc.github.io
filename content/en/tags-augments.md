@@ -23,7 +23,7 @@ While current versions of JavaScript don't allow classes or subclasses in the sa
 class-based languages like Java do, many programmers choose to think of their code structure in
 these terms. For this purpose JSDoc provides the @class and @extends tags. If you wish to express a
 similar relationship between two symbols, but don't wish to promote the classical analogy, you can
-use the @contructor and @augments tags instead.
+use the @constructor and @augments tags instead.
 
 
 ## Examples

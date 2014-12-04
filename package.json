@@ -6,10 +6,12 @@
   "dependencies": {
     "fs-extra": "~0.9.1",
     "gulp": "~3.8.0",
+    "gulp-connect": "~2.2.0",
     "metalsmith": "~0.8.0",
     "metalsmith-beautify": "~0.0.7",
     "metalsmith-headings": "https://github.com/hegemonic/metalsmith-headings/tarball/tag-name",
     "metalsmith-markdown": "~0.2.1",
+    "minimist": "~1.1.0",
     "swig": "~1.3.2",
     "swig-extras": "~0.0.1",
     "underscore": "~1.6.0"

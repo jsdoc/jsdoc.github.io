@@ -34,6 +34,11 @@
     "examples": [
         {
             "filename": "howto-commonjs-modules.html"
+        },
+        {
+            "link": "https://github.com/shri/JSDoc-Style-Guide",
+            "text": "Unofficial JSDoc Style Guide",
+            "description": "An unofficial JSDoc Style Guide with examples."
         }
     ],
     "contribute": [

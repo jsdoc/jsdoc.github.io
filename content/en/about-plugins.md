@@ -8,9 +8,9 @@ description: How to create and use JSDoc plugins.
 There are two steps required to create and enable a new JSDoc plugin:
 
 1. Create a JavaScript module to contain your plugin code.
-2. Include that module in the "plugins" array of `conf.json`. You can specify an absolute or relative path. If you use a relative path, JSDoc searches for the plugin in the current working directory and the JSDoc directory, in that order.
+2. Include that module in the `plugins` array of `conf.json`. You can specify an absolute or relative path. If you use a relative path, JSDoc searches for the plugin in the current working directory and the JSDoc directory, in that order.
 
-For example, if your plugin source code was saved in the "plugins/shout.js" file in the current working directory, you would include it by adding a reference to it in conf.json like so:
+For example, if your plugin source code was saved in the `plugins/shout.js` file in the current working directory, you would include it by adding a reference to it in `conf.json` like so:
 
 {% example "Example" %}
 
@@ -30,20 +30,20 @@ JSDoc 3's plugin system offers extensive control over the parsing process. A plu
 
 + Defining event handlers
 + Defining tags
-+ Defining a parse tree node processor
++ Defining a visitor for abstract syntax tree nodes
 
 ### Event Handlers
 
-At the highest level, a plugin may register handlers for specific named-events that occur in the documentation generation process. JSDoc will pass the handler an event object containing pertinent information. Your plugin module should export a _handlers_ object that contains your handler, like so:
+At the highest level, a plugin may register handlers for specific named-events that occur in the documentation generation process. JSDoc will pass the handler an event object containing pertinent information. Your plugin module should export a `handlers` object that contains your handler, like so:
 
 {% example "Example" %}
 
 ```js
 exports.handlers = {
     newDoclet: function(e) {
-        //Do something when we see a new doclet
+        // Do something when we see a new doclet
     }
-}
+};
 ```
 {% endexample %}
 
@@ -54,98 +54,99 @@ The `parseBegin` event is fired before JSDoc starts loading and parsing the sour
 
 **Note**: This event is fired in JSDoc 3.2 and later.
 
-The event object will contain the following properties:
+The event object contains the following properties:
 
-+ sourcefiles: An array of paths to source files that will be parsed.
++ `sourcefiles`: An array of paths to source files that will be parsed.
 
 #### Event: fileBegin
 
-This is triggered when the parser has started on a new file. You might use this to do any per-file initialization your plugin needs to do.
+The `fileBegin` event is fired when the parser is about to parse a file. Your plugin can use this event to trigger per-file initialization if necessary.
 
-The event object will contain the following properties:
+The event object contains the following properties:
 
-+ filename: the name of the file
++ `filename`: The name of the file.
 
 #### Event: beforeParse
 
-This is triggered before parsing has begun. You can use this method to modify the source code that will be parsed. For instance, you might add some virtual doclets so they get added to the documentation.
+The `beforeParse` event is fired before parsing has begun. Plugins can use this method to modify the source code that will be parsed. For instance, your plugin could add a JSDoc comment, or it could remove preprocessing tags that are not valid JavaScript.
 
-The event object will contain the following properties:
+The event object contains the following properties:
 
-+ filename: the name of the file
-+ source: the contents of the file
++ `filename`: The name of the file.
++ `source`: The contents of the file.
 
-Below is an example that adds a virtual doclet for a function to the source so that it will get parsed and added to the documentation. This might be done to document methods that will be present for end-user use, but might not be in the source code being documented, like methods provided by a third-party superclass:
+Below is an example that adds a virtual doclet for a function to the source so that it will get parsed and added to the documentation. This might be done to document methods that will be available to users, but might not appear in the source code being documented, such as methods provided by an external superclass:
 
 {% example "Example" %}
 
 ```js
 exports.handlers = {
     beforeParse: function(e) {
-        var extraDoc = ["",
-            "/**",
-            "Here's a description of this function",
-            "@name superFunc",
-            "@memberof ui.mywidget",
-            "@function",
-            "*/", ""];
-        e.source += extraDoc.join("\n");
+        var extraDoc = [
+            '/**',
+            ' * Function provided by a superclass.',
+            ' * @name superFunc',
+            ' * @memberof ui.mywidget',
+            ' * @function',
+            ' */'
+        ];
+        e.source += extraDoc.join('\n');
     }
-}
+};
 ```
 {% endexample %}
 
 #### Event: jsdocCommentFound
 
-This is fired whenever a JSDoc comment is found. It may or may not be associated with any code. You might use this to modify the contents of a comment before it is processed.
+The `jsdocCommentFound` event is fired whenever a JSDoc comment is found. The comment may or may not be associated with any code. You might use this to modify the contents of a comment before it is processed.
 
-The event object will contain the following properties:
+The event object contains the following properties:
 
-+ filename: the name of the file
-+ comment: the text of the comment
-+ lineno: the line number the comment was found on
++ `filename`: The name of the file.
++ `comment`: The text of the JSDoc comment.
++ `lineno`: The line number on which the comment was found.
 
 #### Event: symbolFound
 
-This is fired when the parser comes across a symbol in the code it thinks is important. This usually means things that one might want to document -- variables, functions, object literals, object property definitions, assignments, etc., but the symbols the parser finds can be modified by a plugin (see [Node Visitors][node-visitors] below).
+The `symbolFound` event is fired when the parser comes across a symbol in the code that may need to be documented. For example, the parser fires a `symbolFound` event for each variable, function, and object literal in a source file.
 
-The event object will contain the following properties:
+The event object contains the following properties:
 
-+ filename: the name of the file
-+ comment: the comment associated with the symbol, if any
-+ id: the unique id of the symbol
-+ lineno: the line number the symbols was found on
-+ range: an array containing the first and last characters of the code associated with the symbol
-+ astnode: the node of the parse tree
-+ code: information about the code. This usually contains "name", "type", and "node" properties and might also have "value", "paramnames", or "funcscope" properties depending on the symbol.
++ `filename`: The name of the file.
++ `comment`: The text of the comment associated with the symbol, if any.
++ `id`: The unique ID of the symbol.
++ `lineno`: The line number on which the symbol was found.
++ `range`: An array containing the numeric index of the first and last characters in the source file that are associated with the symbol.
++ `astnode`: The symbol's node from the abstract syntax tree.
++ `code`: Object with detailed information about the code. This object usually contains `name`, `type`, and `node` properties. The object might also have `value`, `paramnames`, or `funcscope` properties depending on the symbol.
 
 [node-visitors]: #node-visitors
 
 #### Event: newDoclet
 
-This is the highest level event and is fired when a new doclet has been created. This means that a JSDoc comment or a symbol has been processed, and the actual doclet that will be passed to the template has been created.
+The `newDoclet` event is the highest-level event. It is fired when a new doclet has been created. This means that a JSDoc comment or a symbol has been processed, and the actual doclet that will be passed to the template has been created.
 
-The event object will contain the following properties:
+The event object contains the following properties:
 
-+ doclet: the new doclet that was created
++ `doclet`: The new doclet that was created.
 
-The properties of the doclet can vary depending on the comment or symbol used to create it. Additionally, tag definitions (See "Tag Definitions" below) can modify the doclet. Some common properties you're likely to see include:
+The doclet's properties can vary depending on the comment or symbol that the doclet represents. Some common properties you're likely to see include:
 
-+ comment: the text of the comment (may be empty if symbol is undocumented)
-+ meta: some information about the doclet, like filename, line number, etc.
-+ description
-+ kind
-+ name
-+ longname: the fully qualified name, including memberof info
-+ memberof: the function/class/namespace that this is a member of
-+ scope: (global|static|instance|inner)
-+ undocumented: true if the symbol didn't have a JSDoc comment
-+ defaultvalue: the specified default value for a property/variable
-+ type: the specified type of parameter/property/function return (e.g. Boolean)
-+ params: an object containing the list of parameters to a function
-+ tags: an object containing the set of tags not handled by the parser (note: this is only available if `allowUnknownTags` is set to true in the conf.json file for JSDoc 3)
++ `comment`: The text of the JSDoc comment, or an empty string if the symbol is undocumented.
++ `meta`: Object that describes how the doclet relates to the source file (for example, the location within the source file).
++ `description`: A description of the symbol being documented.
++ `kind`: The kind of symbol being documented (for example, `class` or `function`).
++ `name`: The short name for the symbol (for example, `myMethod`).
++ `longname`: The fully qualified name, including memberof info (for example, `MyClass#myMethod`).
++ `memberof`: The module, namespace, or class that this symbol belongs to (for example, `MyClass`), or an empty string if the symbol does not have a parent.
++ `scope`: The scope of the symbol within its parent (for example, `global`, `static`, `instance`, or `inner`).
++ `undocumented`: Set to `true` if the symbol did not have a JSDoc comment.
++ `defaultvalue`: The default value for a symbol.
++ `type`: Object containing details about the symbol's type.
++ `params`: Object containing the list of parameters to a function.
++ `tags`: Object containing a list of tags that JSDoc did not recognize. Only available if `allowUnknownTags` is set to `true` in JSDoc's configuration file.
 
-Below is an example of a newDoclet handler that shouts the descriptions:
+Below is an example of a `newDoclet` handler that shouts the descriptions:
 
 {% example "Example" %}
 
@@ -164,12 +165,12 @@ exports.handlers = {
 
 #### Event: fileComplete
 
-This is fired when the parser is done with a file. You might use this to perform some cleanup for your plugin.
+The `fileComplete` event is fired when the parser has finished parsing a file. Your plugin could use this event to trigger per-file cleanup.
 
-The event object will contain the following properties:
+The event object contains the following properties:
 
-+ filename: the name of the file
-+ source: the contents of the file
++ `filename`: The name of the file.
++ `source`: The contents of the file.
 
 #### Event: parseComplete
 
@@ -177,10 +178,10 @@ The `parseComplete` event is fired after JSDoc has parsed all of the specified s
 
 **Note**: This event is fired in JSDoc 3.2 and later.
 
-The event object will contain the following properties:
+The event object contains the following properties:
 
-+ sourcefiles: An array of paths to source files that were parsed.
-+ doclets: An array of doclet objects. See the [newDoclet event][newdoclet-event] for details about the properties that each doclet can contain. **Note**: This property is available in JSDoc 3.2.1 and later.
++ `sourcefiles`: An array of paths to source files that were parsed.
++ `doclets`: An array of doclet objects. See the [newDoclet event][newdoclet-event] for details about the properties that each doclet can contain. **Note**: This property is available in JSDoc 3.2.1 and later.
 
 [newdoclet-event]: #event-newdoclet
 
@@ -190,7 +191,7 @@ The `processingComplete` event is fired after JSDoc updates the parse results to
 
 **Note**: This event is fired in JSDoc 3.2.1 and later.
 
-The event object will contain the following properties:
+The event object contains the following properties:
 
 + doclets: An array of doclet objects. See the [newDoclet event][newdoclet-event] for details about the properties that each doclet can contain.
 
@@ -198,16 +199,16 @@ The event object will contain the following properties:
 
 ### Tag Definitions
 
-Adding tags to the tag dictionary is a mid-level way to affect documentation generation. Before a newDoclet event is triggered, JSDoc comment blocks are parsed to determine the description and any JSDoc tags that may be present. When a tag is found, if it has been defined in the tag dictionary, it is given a chance to modify the doclet.
+Adding tags to the tag dictionary is a mid-level way to affect documentation generation. Before a `newDoclet` event is triggered, JSDoc comment blocks are parsed to determine the description and any JSDoc tags that may be present. When a tag is found, if it has been defined in the tag dictionary, it is given a chance to modify the doclet.
 
-Plugins can define tags by exporting a _defineTags_ function. That function will be passed a dictionary that can be used to define tags, like so:
+Plugins can define tags by exporting a `defineTags` function. That function will be passed a dictionary that can be used to define tags, like so:
 
 {% example "Example" %}
 
 ```js
 exports.defineTags = function(dictionary) {
-    //define tags here
-}
+    // define tags here
+};
 ```
 {% endexample %}
 
@@ -215,18 +216,18 @@ exports.defineTags = function(dictionary) {
 
 The dictionary provides the following methods:
 
-+ defineTag(title, opts) Used to define tags. The first parameter is the name of the tag (e.g. "param" or "overview"). the second is an object containing options for the tag. The options can be the following:
-    + mustHaveValue (Boolean): whether or not the tag must have a value (e.g "@name TheName")
-    + mustNotHaveValue (Boolean): whether or not the tag must not have a value
-    + canHaveType (Boolean): Whether or not the tag can have a type (e.g. "@param **{String}** name the description of name")
-    + canHaveName (Boolean): Whether or not the tag can have a name (e.g. "@param {String} **name** the description of name")
-    + isNamespace (Boolean): Whether or not the tag marks a doclet as representing a namespace. The "@module" tag, for instance, sets this to true.
-    + onTagged (Function): A callback function executed when the tag is found. The function is passed two parameters: the doclet and the tag.
-+ lookUp(title) Used to lookup a tag. Returns either the tag or false if it's not defined
-+ isNamespace(kind) Used to determine if a particular doclet type represents a namespace
-+ normalise(title) Used to find the canonical name of a tag. The name passed in might be that name or a synonym
++ `defineTag(title, opts)`: Used to define tags. The first parameter is the name of the tag (for example, `param` or `overview`). The second is an object containing options for the tag. You can include any of the following options; the default value for each option is `false`:
+    + `mustHaveValue (boolean)`: Set to `true` if the tag must have a value (such as `TheName` in `@name TheName`).
+    + `mustNotHaveValue (boolean)`: Set to `true` if the tag must not have a value.
+    + `canHaveType (boolean)`: Set to `true` if the tag text can include a type expression (such as `{string}` in `@param {string} name - Description`).
+    + `canHaveName (boolean)`: Set to `true` if the tag text can include a name (such as `name` in `@param {string} name - Description`).
+    + `isNamespace (boolean)`: Set to `true` if the tag should be applied to the doclet's longname as a namespace. For example, the `@module` tag sets this option to `true`, and using the tag `@module myModuleName` results in the longname `module:myModuleName`.
+    + `onTagged (function)`: A callback function executed when the tag is found. The function is passed two parameters: the doclet and the tag object.
++ `lookUp(tagName)`: Retrieve a tag object by name. Returns the tag object, including its options, or `false` if the tag is not defined.
++ `isNamespace(tagName)`: Returns `true` if the tag is applied to a doclet's longname as a namespace.
++ `normalise(tagName)`: Returns the canonical name of a tag. For example, the `@const` tag is a synonym for `@constant`; as a result, if you call `normalise('const')`, it returns the string `constant`.
 
-A tag's onTagged callback can modify the contents of the doclet or tag.
+A tag's `onTagged` callback can modify the contents of the doclet or tag.
 
 {% example "Defining an onTagged callback" %}
 
@@ -239,19 +240,19 @@ dictionary.defineTag('instance', {
 ```
 {% endexample %}
 
-The defineTag method returns a Tag object, which has a "synonym" method that can be used to declare a synonym for the tag.
+The `defineTag` method returns a `Tag` object, which has a `synonym` method that can be used to declare a synonym for the tag.
 
 {% example "Defining a tag synonym" %}
 
 ```js
-dictionary.defineTag('exception', { &lt;options for exception tag&gt; })
+dictionary.defineTag('exception', { /* options for exception tag */ })
     .synonym('throws');
 ```
 {% endexample %}
 
 ### Node Visitors
 
-At the lowest level, plugin authors can process each node in the parse tree by defining a node visitor that will visit each node, creating an opportunity to do things like modify comments and trigger parser events for any arbitrary piece of code.
+At the lowest level, plugin authors can process each node in the abstract syntax tree (AST) by defining a node visitor that will visit each node, creating an opportunity to do things like modify comments and trigger parser events for any arbitrary piece of code.
 
 Plugins can define a node visitor by exporting a `nodeVisitor` object that contains a `visitNode` function, like so:
 
@@ -260,35 +261,35 @@ Plugins can define a node visitor by exporting a `nodeVisitor` object that conta
 ```js
 exports.nodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
-        //do all sorts of crazy things here
+        // do all sorts of crazy things here
     }
-}
+};
 ```
 {% endexample %}
 
 The function is called on each node with the following parameters:
 
-+ node: the node of the parse tree
-+ e: the event. If the node is one that the parser handles, this will already be populated with the same things described in the _symbolFound_ event above. Otherwise, it will be an empty object on which to set various properties.
-+ parser: the parser
-+ currentSourceName: the name of the file being parsed
++ `node`: The AST node.
++ `e`: The event. If the node is one that the parser handles, the event object will already be populated with the same things described in the `symbolFound` event above. Otherwise, it will be an empty object on which to set various properties.
++ `parser`: The JSDoc parser instance.
++ `currentSourceName`: The name of the file being parsed.
 
 #### Making things happen
 
-The primary reasons to implement a node visitor are to be able to document things that aren't normally documented (like function calls that create classes) or to auto generate documentation for code that isn't documented. For instance, a plugin might look for calls to a "_trigger" method since it knows that means an event is fired and then generate documentation for the event.
+The primary reasons to implement a node visitor are to be able to document things that aren't normally documented (like function calls that create classes) or to auto generate documentation for code that isn't documented. For instance, a plugin might look for calls to a `_trigger` method since it knows that means an event is fired and then generate documentation for the event.
 
-To make things happen, the `visitNode` function should modify properties of the event parameter. In general the goal is to construct a comment and then get an event to fire. After the parser lets all of the node visitors have a look at the node, it looks to see if the event object has a `comment` property and an `event` property. If it has both, the event named in the event property is fired. The event is usually "symbolFound" or "jsdocCommentFound", but theoretically, a plugin could define its own events and handle them.
+To make things happen, the `visitNode` function should modify properties of the event parameter. In general the goal is to construct a comment and then get an event to fire. After the parser lets all of the node visitors have a look at the node, it looks to see if the event object has a `comment` property and an `event` property. If it has both, the event named in the event property is fired. The event is usually `symbolFound` or `jsdocCommentFound`, but theoretically, a plugin could define its own events and handle them.
 
 #### Example of a node visitor
 
-Below is an example of what a plugin for documenting jQuery UI widgets might do. jQuery UI uses a factory function call to create widget classes. The plugin looks for that function call and creates a symbol with documentation. It also looks for any "this._trigger" function calls and automatically creates documentation for the events that are triggered:
+Below is an example of what a plugin for documenting jQuery UI widgets might do. jQuery UI uses a factory function call to create widget classes. The plugin looks for that function call and creates a symbol with documentation. It also looks for any `this._trigger` function calls and automatically creates documentation for the events that are triggered:
 
 {% example "Example" %}
 
 ```js
 exports.nodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
-        if (node.type === Token.OBJECTLIT &amp;&amp; node.parent &amp;&amp; node.parent.type === Token.CALL &amp;&amp; isInWidgetFactory(node, 1)) {
+        if (node.type === Token.OBJECTLIT && node.parent && node.parent.type === Token.CALL && isInWidgetFactory(node, 1)) {
             var widgetName = node.parent.arguments.get(0).toSource();
             e.id = 'astnode' + node.hashCode(); // the id of the object literal node
             e.comment = String(node.parent.jsDoc||'');
@@ -305,7 +306,7 @@ exports.nodeVisitor = {
 
             addCommentTag(e, "param", "{Object=} options A set of configuration options");
         }
-        else if(isTriggerCall(node)) {
+        else if (isTriggerCall(node)) {
             var nameNode = node.arguments.get(0);
                 eventName = String((nameNode.type == Token.STRING) ? nameNode.value : nameNode.toSource()),
                 func = {},
@@ -316,7 +317,7 @@ exports.nodeVisitor = {
                 func.id = 'astnode'+node.enclosingFunction.hashCode();
                 func.doclet = parser.refs[func.id];
             }
-            if(func.doclet) {
+            if (func.doclet) {
                 func.doclet.addTag("fires", eventName);
                 if (func.doclet.memberof) {
                     eventKey = func.doclet.memberof + "#event:" + eventName;
@@ -334,20 +335,20 @@ exports.nodeVisitor = {
 function isTriggerCall(node) {
     if(node.type != Token.CALL) { return false; }
     var target = node.getTarget(),
-        left = target &amp;&amp; target.left &amp;&amp; String(target.left.toSource()),
-        right = target &amp;&amp; target.right &amp;&amp; String(target.right.toSource());
-    return (left === "this" &amp;&amp; right === "_trigger");
+        left = target && target.left && String(target.left.toSource()),
+        right = target && target.right && String(target.right.toSource());
+    return (left === "this" && right === "_trigger");
 }
 
 function isInWidgetFactory(node, depth) {
     var parent = node.parent,
         d = 0;
-    while(parent &amp;&amp; (!depth || d &lt; depth)) {
+    while (parent && (!depth || d &lt; depth)) {
         if (parent.type === Token.CALL) {
             var target = parent.getTarget(),
-                left = target &amp;&amp; target.left &amp;&amp; String(target.left.toSource()),
-                right = target &amp;&amp; target.right &amp;&amp; String(target.right.toSource());
-            return ((left === "$" || left === "jQuery") &amp;&amp; right === "widget");
+                left = target && target.left && String(target.left.toSource()),
+                right = target && target.right && String(target.right.toSource());
+            return ((left === "$" || left === "jQuery") && right === "widget");
         } else {
             parent = parent.parent;
             d++;
@@ -358,9 +359,9 @@ function isInWidgetFactory(node, depth) {
 ```
 {% endexample %}
 
-You'll notice a "finishers" property set. The finishers property should contain an array of functions to be called after the event is fired and all the handlers have processed it. The parser provides an `addDocletRef` function that adds the doclet to the map (keyed off of the id property) of doclets it knows about.
+You'll notice a `finishers` property set. The finishers property should contain an array of functions to be called after the event is fired and all the handlers have processed it. The parser provides an `addDocletRef` function that adds the doclet to the map (keyed off of the id property) of doclets it knows about.
 
-Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting a `stopPropagation` property on the event object (e.stopPropagation = true). A plugin can stop the event from firing setting a `preventDefault` property.
+Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting a `stopPropagation` property on the event object (`e.stopPropagation = true`). A plugin can stop the event from firing by setting a `preventDefault` property.
 
 ### Throwing Errors
 

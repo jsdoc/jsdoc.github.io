@@ -80,6 +80,8 @@
 };
 </code></pre>
     </figure>
+    <p>On Node.js, JSDoc fires events in the same order as the underlying code. On Mozilla Rhino, JSDoc fires all of the <code>jsdocCommentFound</code> events at once
+      as soon as it starts parsing a file; all other events are fired in the same order as the underlying code.</p>
     <h4 id="event-parsebegin">Event: parseBegin</h4>
     <p>The <code>parseBegin</code> event is fired before JSDoc starts loading and parsing the source files. Your plugin can control which files JSDoc will parse by
       modifying the event&#39;s contents.</p>
@@ -122,7 +124,7 @@
     </figure>
     <h4 id="event-jsdoccommentfound">Event: jsdocCommentFound</h4>
     <p>The <code>jsdocCommentFound</code> event is fired whenever a JSDoc comment is found. The comment may or may not be associated with any code. You might use this
-      to modify the contents of a comment before it is processed.</p>
+      event to modify the contents of a comment before it is processed.</p>
     <p>The event object contains the following properties:</p>
     <ul>
       <li><code>filename</code>: The name of the file.</li>

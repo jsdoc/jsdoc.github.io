@@ -47,6 +47,8 @@ exports.handlers = {
 ```
 {% endexample %}
 
+On Node.js, JSDoc fires events in the same order as the underlying code. On Mozilla Rhino, JSDoc fires all of the `jsdocCommentFound` events at once as soon as it starts parsing a file; all other events are fired in the same order as the underlying code.
+
 
 #### Event: parseBegin
 
@@ -98,7 +100,7 @@ exports.handlers = {
 
 #### Event: jsdocCommentFound
 
-The `jsdocCommentFound` event is fired whenever a JSDoc comment is found. The comment may or may not be associated with any code. You might use this to modify the contents of a comment before it is processed.
+The `jsdocCommentFound` event is fired whenever a JSDoc comment is found. The comment may or may not be associated with any code. You might use this event to modify the contents of a comment before it is processed.
 
 The event object contains the following properties:
 

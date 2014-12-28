@@ -34,6 +34,9 @@
     "examples": [
         {
             "filename": "howto-commonjs-modules.html"
+        },
+        {
+            "filename": "howto-amd-modules.html"
         }
     ],
     "contribute": [

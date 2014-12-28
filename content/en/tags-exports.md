@@ -4,6 +4,7 @@ description: Identify the member that is exported by a JavaScript module.
 related:
     - tags-module.html
     - howto-commonjs-modules.html
+    - howto-amd-modules.html
 ---
 
 ## Syntax

@@ -2,8 +2,9 @@
 tag: module
 description: Document a JavaScript module.
 related:
-    - howto-commonjs-modules.html
     - tags-exports.html
+    - howto-commonjs-modules.html
+    - howto-amd-modules.html
 ---
 
 ## Syntax

@@ -59,6 +59,11 @@ instructions</a>.</p>
             Defaults to <code>./out</code>.</td>
         </tr>
         <tr>
+          <td><code>--debug</code>
+          </td>
+          <td>Log information that can help debug issues in JSDoc itself. On Rhino, launches the debugger when passed as the first option.</td>
+        </tr>
+        <tr>
           <td><code>-e &lt;value&gt;</code>, <code>--encoding &lt;value&gt;</code>
           </td>
           <td>Assume this encoding when reading all source files. Defaults to <code>utf8</code>.</td>
@@ -67,12 +72,6 @@ instructions</a>.</p>
           <td><code>-h</code>, <code>--help</code>
           </td>
           <td>Display information about JSDoc&#39;s command-line options, then exit.</td>
-        </tr>
-        <tr>
-          <td><code>-l</code>, <code>--lenient</code>
-          </td>
-          <td>Try to generate documentation even if an error occurs (for example, if a tag is missing a required value). By default, if an error occurs, JSDoc exits
-            immediately.</td>
         </tr>
         <tr>
           <td><code>--match &lt;value&gt;</code>
@@ -91,6 +90,17 @@ instructions</a>.</p>
             not included.</td>
         </tr>
         <tr>
+          <td><code>-P</code>, <code>--package</code>
+          </td>
+          <td>The <code>package.json</code> file that contains the project name, version, and other details. Defaults to the first <code>package.json</code> file found
+            in the source paths.</td>
+        </tr>
+        <tr>
+          <td><code>--pedantic</code>
+          </td>
+          <td>Treat errors as fatal errors, and treat warnings as errors. Defaults to <code>false</code>.</td>
+        </tr>
+        <tr>
           <td><code>-q &lt;value&gt;</code>, <code>--query &lt;value&gt;</code>
           </td>
           <td>A query string to parse and store in the global variable <code>env.opts.query</code>. Example: <code>foo=bar&amp;baz=true</code>.</td>
@@ -99,6 +109,11 @@ instructions</a>.</p>
           <td><code>-r</code>, <code>--recurse</code>
           </td>
           <td>Recurse into subdirectories when scanning for source files.</td>
+        </tr>
+        <tr>
+          <td><code>-R</code>, <code>--readme</code>
+          </td>
+          <td>The <code>README.md</code> file to include in the generated documentation. Defaults to the first <code>README.md</code> file found in the source paths.</td>
         </tr>
         <tr>
           <td><code>-t &lt;value&gt;</code>, <code>--template &lt;value&gt;</code>
@@ -123,7 +138,7 @@ instructions</a>.</p>
         <tr>
           <td><code>--verbose</code>
           </td>
-          <td>When running tests, write the test names and descriptions to the console.</td>
+          <td>Log detailed information to the console as JSDoc runs. Defaults to <code>false</code>.</td>
         </tr>
         <tr>
           <td><code>-X</code>, <code>--explain</code>

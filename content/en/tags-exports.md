@@ -11,6 +11,9 @@ related:
 
 `@exports <moduleName>`
 
+In JSDoc 3.3.0 and later, `<moduleName>` may include the `module:` prefix. In previous versions, you
+must omit this prefix.
+
 
 ## Overview
 

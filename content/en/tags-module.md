@@ -9,9 +9,12 @@ related:
 
 ## Syntax
 
-`@module [[{<type>}] <ModuleName>]`
+`@module [[{<type>}] <moduleName>]`
 
-Note: If you provide a type, you _must_ also provide a name.`
+In JSDoc 3.3.0 and later, `<moduleName>` may include the `module:` prefix. In previous versions, you
+must omit this prefix.
+
+Note: If you provide a type, you _must_ also provide a name.
 
 
 ## Overview

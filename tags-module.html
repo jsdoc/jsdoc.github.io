@@ -38,9 +38,10 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@module [[{&lt;type&gt;}] &lt;ModuleName&gt;]</code>
+    <p><code>@module [[{&lt;type&gt;}] &lt;moduleName&gt;]</code>
     </p>
-    <p>Note: If you provide a type, you <em>must</em> also provide a name.`</p>
+    <p>In JSDoc 3.3.0 and later, <code>&lt;moduleName&gt;</code> may include the <code>module:</code> prefix. In previous versions, you must omit this prefix.</p>
+    <p>Note: If you provide a type, you <em>must</em> also provide a name.</p>
     <h2 id="overview">Overview</h2>
     <p>The @module tag marks the current file as being its own module. All symbols in the file are assumed to be members of the module unless documented otherwise.</p>
     <p>Link to a module (e.g. within a <a href="tags-link.html">@link</a> or <a href="tags-see.html">@see</a> tag) using &quot;module:moduleName&quot;. For example,

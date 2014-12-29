@@ -1,6 +1,6 @@
 ---
 tag: augments
-description: This object adds onto a parent object.
+description: Indicate that a symbol inherits from, ands adds to, a parent symbol.
 synonyms:
     - extends
 related:
@@ -17,22 +17,21 @@ related:
 
 ## Overview
 
-The @augments or @extends tag marks a symbol as augmenting another symbol.
+The `@augments` or` @extends` tag indicates that a symbol inherits from, and potentially adds to, a
+parent symbol. You can use this tag to document both class-based and prototype-based inheritance.
 
-While current versions of JavaScript don't allow classes or subclasses in the same way that
-class-based languages like Java do, many programmers choose to think of their code structure in
-these terms. For this purpose JSDoc provides the @class and @extends tags. If you wish to express a
-similar relationship between two symbols, but don't wish to promote the classical analogy, you can
-use the @constructor and @augments tags instead.
+In JSDoc 3.3.0 and later, if a symbol inherits from multiple parents, and both parents have
+identically named members, JSDoc uses the documentation from the last parent that is listed in the
+JSDoc comment.
 
 
 ## Examples
 
-In the example below I wish to document the fact that Ducks are a specialised form of Animal:
-meaning that Duck instances are like Animal instances which have been augmented with additional
-properties.
+In the following example, the `Duck` class is defined as a subclass of `Animal`. `Duck` instances
+have the same properties as `Animal` instances, as well as a `speak` method that is unique to `Duck`
+instances.
 
-{% example "Documenting a class/subclass type of relationship." %}
+{% example "Documenting a class/subclass relationship" %}
 
 ```js
 /**
@@ -47,8 +46,7 @@ function Animal() {
  * @constructor
  * @augments Animal
  */
-function Duck() {
-}
+function Duck() {}
 Duck.prototype = new Animal();
 
 /** What do ducks say? */
@@ -56,14 +54,63 @@ Duck.prototype.speak = function() {
     if (this.alive) {
         alert('Quack!');
     }
-}
+};
 
 var d = new Duck();
 d.speak(); // Quack!
-d.alive = false; // dead duck?
-d.speak();
+d.alive = false;
+d.speak(); // (nothing)
 ```
 {% endexample %}
 
-A related pattern can be documented with the @mixin and @mixes tags. Or, if the augmented symbol is
-only reusing one or two members of another symbol, you may find the @borrows tag more convenient.
+In the following example, the `Duck` class inherits from both the `Flyable` and `Bird` classes, both
+of which define a `takeOff` method. Because the documentation for `Duck` lists `@augments Bird`
+last, JSDoc automatically documents `Duck#takeOff` using the comment from `Bird#takeOff`.
+
+{% example "Multiple inheritance with duplicated method names" %}
+
+```js
+/**
+ * Abstract class for things that can fly.
+ * @class
+ */
+function Flyable() {
+    this.canFly = true;
+}
+
+/** Take off. */
+Flyable.prototype.takeOff = function() {
+    // ...
+};
+
+/**
+ * Abstract class representing a bird.
+ * @class
+ */
+function Bird(canFly) {
+    this.canFly = canFly;
+}
+
+/** Spread your wings and fly, if possible. */
+Bird.prototype.takeOff = function() {
+    if (this.canFly) {
+        this._spreadWings()
+            ._run()
+            ._flapWings();
+    }
+};
+
+/**
+ * Class representing a duck.
+ * @class
+ * @augments Flyable
+ * @augments Bird
+ */
+function Duck() {}
+
+// Described in the docs as "Spread your wings and fly, if possible."
+Duck.prototype.takeOff = function() {
+    // ...
+};
+```
+{% endexample %}

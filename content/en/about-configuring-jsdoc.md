@@ -41,11 +41,9 @@ This means:
 + Any file starting with an underscore or in a directory starting with an underscore will be
 _ignored_ (`source.excludePattern`);
 + No plugins are loaded (`plugins`);
-+ @link tags are rendered as-is (i.e. in plain text as opposed to monospace)
-(`templates.cleverLinks`, `templates.monospaceLinks`).
++ `@link` tags are rendered in plain text (`templates.cleverLinks`, `templates.monospaceLinks`).
 
-These options and others will be further explained on this page. A full example is provided at the
-end.
+These options and others will be further explained on this page.
 
 Further settings may be added to the file as requested by various plugins or templates (for example,
 the [Markdown plugin][markdown] can be configured by including a "markdown" key).
@@ -162,29 +160,15 @@ value being the option's value.
 
 [options]: about-commandline.html
 
-{% example "Example" %}
+{% example "Command-line options set in the configuration file" %}
 
 ```js
-// You must remove the comments before adding these options to your .json file
 "opts": {
     "template": "templates/default",  // same as -t templates/default
     "encoding": "utf8",               // same as -e utf8
     "destination": "./out/",          // same as -d ./out/
     "recurse": true,                  // same as -r
     "tutorials": "path/to/tutorials", // same as -u path/to/tutorials
-    "query": "value",                 // same as -q value
-    "private": true,                  // same as -p
-    "lenient": true,                  // same as -l
-    // these can also be included, though you probably wouldn't bother
-    // putting these in conf.json rather than the command line as they cause
-    // JSDoc not to produce documentation.
-    "version": true,                  // same as --version or -v
-    "explain": true,                  // same as -X
-    "test": true,                     // same as -T
-    "help": true,                     // same as --help or -h
-    "verbose": true,                  // same as --verbose, only relevant to tests.
-    "match": "value",                 // same as --match value, only relevant to tests.
-    "nocolor": true                   // same as --nocolor, only relevant to tests
 }
 ```
 {% endexample %}
@@ -204,14 +188,15 @@ precedence.
 
 To enable plugins, add their paths (relative to the JSDoc folder) into the `plugins` array.
 
-For example, the following will include the Markdown plugin and verbose output plugin:
+For example, the following will include the Markdown plugin, which converts Markdown-formatted text
+to HTML, and the "summarize" plugin, which autogenerates a summary for each doclet:
 
 {% example %}
 
 ```
 "plugins": [
     "plugins/markdown",
-    "plugins/verboseOutput"
+    "plugins/summarize"
 ]
 ```
 {% endexample %}
@@ -254,7 +239,7 @@ Also, there are {@linkcode ...} and {@linkplain ...} if one wishes to force the 
 in monospace or normal font respectively (see [@link, @linkcode and @linkplain][link-tag] for
 further information).
 
-[link-tag]: tags-link.html
+[link-tag]: tags-inline-link.html
 
 ### Miscellaneous
 
@@ -269,53 +254,6 @@ By default, it is true.
 ```
 "tags": {
     "allowUnknownTags": true
-}
-```
-{% endexample %}
-
-## Example with all configuration options
-
-Here is an example conf.json showing all possible configuration options native to the base JSDoc,
-along with their default values.
-
-{% example "A conf.json showcasing all the configuration options to base JSDoc" %}
-
-```js
-// You must remove the comments before adding these options to your .json file
-{
-"tags": {
-    "allowUnknownTags": true
-},
-"source": {
-    "include": [],
-    "exclude": [],
-    "includePattern": ".+\\.js(doc)?$",
-    "excludePattern": "(^|\\/|\\\\)_"
-},
-"plugins": [],
-"templates": {
-    "cleverLinks": false,
-    "monospaceLinks": false
-},
-"opts": {
-    "template": "templates/default",  // same as -t templates/default
-    "encoding": "utf8",               // same as -e utf8
-    "destination": "./out/",          // same as -d ./out/
-    "recurse": true,                  // same as -r
-    "tutorials": "path/to/tutorials", // same as -u path/to/tutorials, default "" (no tutorials)
-    "query": "value",                 // same as -q value, default "" (no query)
-    "private": true,                  // same as -p
-    "lenient": true,                  // same as -l
-    // these can also be included, though you probably wouldn't bother
-    // putting these in conf.json rather than the command line as they cause
-    // JSDoc not to produce documentation.
-    "version": true,                  // same as --version or -v
-    "explain": true,                  // same as -X
-    "test": true,                     // same as -T
-    "help": true,                     // same as --help or -h
-    "verbose": true,                  // same as --verbose, only relevant to tests.
-    "match": "value",                 // same as --match value, only relevant to tests.
-    "nocolor": true                   // same as --nocolor, only relevant to tests
 }
 ```
 {% endexample %}

@@ -80,7 +80,7 @@ gulp.task('html', function(cb) {
         }))
         .use(plugins.metadata({
             destination: OUTPUT_PATH,
-            tocData: require('./data/toc-data.json')
+            tocData: require('./data/toc.json')
         }))
         .use(markdown({
             gfm: true,

@@ -33,8 +33,8 @@ For example, the identifier for `/path/to/tutorials/overview.md` is `overview`.
 In tutorial files, you can use the [`{@link}`][link-tag] and [`{@tutorial}`][tutorial-tag] inline
 tags to link to other parts of the documentation. JSDoc will automatically resolve the links.
 
-[link-tag]: tags-link.html
-[tutorial-tag]: tags-tutorial.html
+[link-tag]: tags-inline-link.html
+[tutorial-tag]: tags-inline-tutorial.html
 
 
 ## Configuring titles, order, and hierarchy

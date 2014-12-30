@@ -42,7 +42,7 @@ jsdoc -r src/     # module name 'test'
 ```
 {% endexample %}
 
-[link-tag]: tags-link.html
+[link-tag]: tags-inline-link.html
 [see-tag]: tags-see.html
 
 

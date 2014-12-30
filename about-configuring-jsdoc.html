@@ -45,9 +45,6 @@
         </ul>
       </li>
       <li>
-        <a href="#example-with-all-configuration-options">Example with all configuration options</a>
-      </li>
-      <li>
         <a href="#related-links">Related Links</a>
       </li>
     </ul>
@@ -77,11 +74,9 @@
       <li>Any file starting with an underscore or in a directory starting with an underscore will be
         <em>ignored</em> (<code>source.excludePattern</code>);</li>
       <li>No plugins are loaded (<code>plugins</code>);</li>
-      <li>@link tags are rendered as-is (i.e. in plain text as opposed to monospace) (
-        <code>templates.cleverLinks</code>, <code>templates.monospaceLinks</code>).</li>
+      <li><code>@link</code> tags are rendered in plain text (<code>templates.cleverLinks</code>, <code>templates.monospaceLinks</code>).</li>
     </ul>
-    <p>These options and others will be further explained on this page. A full example is provided at the end.
-    </p>
+    <p>These options and others will be further explained on this page.</p>
     <p>Further settings may be added to the file as requested by various plugins or templates (for example, the <a href="plugins-markdown.html">Markdown plugin</a>      can be configured by including a &quot;markdown&quot; key).</p>
     <h2 id="specifying-input-files">Specifying input files</h2>
     <p>The &quot;source&quot; set of options, in combination with paths given to JSDoc on the command-line, determine what files JSDoc generates documentation for.
@@ -168,26 +163,12 @@
     <p>It is possible to put many of JSDoc&#39;s <a href="about-commandline.html">command-line options</a> into the configuration file instead of specifying them on
       the command-line. To do this, use the longnames of the relevant options in an &quot;opts&quot; section of conf.json with the value being the option&#39;s value.</p>
     <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>// You must remove the comments before adding these options to your .json file
-"opts": {
+      <figcaption>Command-line options set in the configuration file</figcaption><pre class="prettyprint lang-js"><code>"opts": {
     "template": "templates/default",  // same as -t templates/default
     "encoding": "utf8",               // same as -e utf8
     "destination": "./out/",          // same as -d ./out/
     "recurse": true,                  // same as -r
     "tutorials": "path/to/tutorials", // same as -u path/to/tutorials
-    "query": "value",                 // same as -q value
-    "private": true,                  // same as -p
-    "lenient": true,                  // same as -l
-    // these can also be included, though you probably wouldn't bother
-    // putting these in conf.json rather than the command line as they cause
-    // JSDoc not to produce documentation.
-    "version": true,                  // same as --version or -v
-    "explain": true,                  // same as -X
-    "test": true,                     // same as -T
-    "help": true,                     // same as --help or -h
-    "verbose": true,                  // same as --verbose, only relevant to tests.
-    "match": "value",                 // same as --match value, only relevant to tests.
-    "nocolor": true                   // same as --nocolor, only relevant to tests
 }
 </code></pre>
     </figure>
@@ -199,10 +180,11 @@
     </p>
     <h2 id="plugins">Plugins</h2>
     <p>To enable plugins, add their paths (relative to the JSDoc folder) into the <code>plugins</code> array.</p>
-    <p>For example, the following will include the Markdown plugin and verbose output plugin:</p>
+    <p>For example, the following will include the Markdown plugin, which converts Markdown-formatted text to HTML, and the &quot;summarize&quot; plugin, which autogenerates
+      a summary for each doclet:</p>
     <figure><pre class="prettyprint"><code>"plugins": [
     "plugins/markdown",
-    "plugins/verboseOutput"
+    "plugins/summarize"
 ]
 </code></pre>
     </figure>
@@ -218,59 +200,18 @@
 }
 </code></pre>
     </figure>
-    <p>If <code>templates.monospaceLinks</code> is true, all link texts from the <a href="tags-link.html">@link</a> tag will be rendered in monospace.</p>
+    <p>If <code>templates.monospaceLinks</code> is true, all link texts from the <a href="tags-inline-link.html">@link</a> tag will be rendered in monospace.</p>
     <p>If <code>templates.cleverLinks</code> is true, {@link asdf} will be rendered in normal font if &quot;asdf&quot; is a URL, and monospace otherwise. For example,
       <code>{@link http://github.com}</code> will render in plain-text but
       <code>{@link MyNamespace.myFunction}</code> will be in monospace.</p>
     <p>If <code>templates.cleverLinks</code> is true, it is used and <code>templates.monospaceLinks</code> is ignored.</p>
-    <p>Also, there are {@linkcode ...} and {@linkplain ...} if one wishes to force the link to be rendered in monospace or normal font respectively (see <a href="tags-link.html">@link, @linkcode and @linkplain</a>      for further information).</p>
+    <p>Also, there are {@linkcode ...} and {@linkplain ...} if one wishes to force the link to be rendered in monospace or normal font respectively (see <a href="tags-inline-link.html">@link, @linkcode and @linkplain</a>      for further information).</p>
     <h3 id="miscellaneous">Miscellaneous</h3>
     <p>The <code>tags.allowUnknownTags</code> property determines whether tags unrecognised by JSDoc are permitted. If this is false and JSDoc encounters a tag it does
       not recognise (e.g. <code>@foobar</code>), it will throw an error. Otherwise, it will just ignore the tag.</p>
     <p>By default, it is true.</p>
     <figure><pre class="prettyprint"><code>"tags": {
     "allowUnknownTags": true
-}
-</code></pre>
-    </figure>
-    <h2 id="example-with-all-configuration-options">Example with all configuration options</h2>
-    <p>Here is an example conf.json showing all possible configuration options native to the base JSDoc, along with their default values.</p>
-    <figure>
-      <figcaption>A conf.json showcasing all the configuration options to base JSDoc</figcaption><pre class="prettyprint lang-js"><code>// You must remove the comments before adding these options to your .json file
-{
-"tags": {
-    "allowUnknownTags": true
-},
-"source": {
-    "include": [],
-    "exclude": [],
-    "includePattern": ".+\\.js(doc)?$",
-    "excludePattern": "(^|\\/|\\\\)_"
-},
-"plugins": [],
-"templates": {
-    "cleverLinks": false,
-    "monospaceLinks": false
-},
-"opts": {
-    "template": "templates/default",  // same as -t templates/default
-    "encoding": "utf8",               // same as -e utf8
-    "destination": "./out/",          // same as -d ./out/
-    "recurse": true,                  // same as -r
-    "tutorials": "path/to/tutorials", // same as -u path/to/tutorials, default "" (no tutorials)
-    "query": "value",                 // same as -q value, default "" (no query)
-    "private": true,                  // same as -p
-    "lenient": true,                  // same as -l
-    // these can also be included, though you probably wouldn't bother
-    // putting these in conf.json rather than the command line as they cause
-    // JSDoc not to produce documentation.
-    "version": true,                  // same as --version or -v
-    "explain": true,                  // same as -X
-    "test": true,                     // same as -T
-    "help": true,                     // same as --help or -h
-    "verbose": true,                  // same as --verbose, only relevant to tests.
-    "match": "value",                 // same as --match value, only relevant to tests.
-    "nocolor": true                   // same as --nocolor, only relevant to tests
 }
 </code></pre>
     </figure>

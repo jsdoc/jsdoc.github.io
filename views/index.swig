@@ -33,15 +33,21 @@
         {{ tocItems(metadata.tocData.examples) }}
     </dl>
 
+    <h2 id="block-tags">Block Tags</h2>
+    <dl>
+        {% set tags = getBlockTags(metadata) %}
+        {{ tocItems(tags) }}
+    </dl>
+
+    <h2 id="inline-tags">Inline Tags</h2>
+    <dl>
+        {% set tags = getInlineTags(metadata) %}
+        {{ tocItems(tags) }}
+    </dl>
+
     <h2>Contribute</h2>
     <dl>
         {{ tocItems(metadata.tocData.contribute) }}
-    </dl>
-
-    <h2 id="tag-dictionary">Tag Dictionary</h2>
-    <dl>
-        {% set tags = getTagObjects(files, metadata) %}
-        {{ tocItems(tags) }}
     </dl>
 
     <p>

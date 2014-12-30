@@ -24,7 +24,7 @@
             {% case 'filename' %}
                 <a href="{{ item }}">{{ titleForFilename(files, item) }}</a>
             {% case 'synonym' %}
-                @{{ item }}
+                <code>{{ item }}</code>
         {% endswitch %}
 
         {% if singleItem %}

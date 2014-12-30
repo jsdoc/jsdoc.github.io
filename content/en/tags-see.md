@@ -2,8 +2,7 @@
 tag: see
 description: Refer to some other documentation for more information.
 related:
-    - tags-link.html
-    - tags-tutorial.html
+    - tags-inline-link.html
 ---
 
 ## Syntax

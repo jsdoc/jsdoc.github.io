@@ -38,36 +38,19 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p>As a block tag:</p>
-    <p><code>@tutorial &lt;tutorialID&gt;</code>
-    </p>
-    <p>As an inline tag:</p>
-    <p><code>{@tutorial &lt;tutorialID&gt;}</code>
-    </p>
+    <pre class="prettyprint"><code>@tutorial <tutorialID>
+</code></pre>
     <h2 id="overview">Overview</h2>
-    <p>The @tutorial tag can be used both as a block and inline tag. It inserts a link to a tutorial file that is provided as part of the documentation. See the
-      <a
-      href="about-tutorials.html">tutorials overview</a> for instructions on creating tutorials.</p>
-    <p>You can use the @tutorial tag more than once in a single JSDoc comment.</p>
+    <p>The <code>@tutorial</code> tag inserts a link to a tutorial file that is provided as part of the documentation. See the <a href="about-tutorials.html">tutorials overview</a>      for instructions on creating tutorials.</p>
+    <p>You can use the <code>@tutorial</code> tag more than once in a single JSDoc comment.</p>
     <h2 id="examples">Examples</h2>
-    <p>In the following example, the documentation for MyClass will link to the tutorials that have the identifiers tutorial-1 and tutorial-2:</p>
+    <p>In the following example, the documentation for <code>MyClass</code> will link to the tutorials that have the identifiers <code>tutorial-1</code> and <code>tutorial-2</code>:</p>
     <figure>
-      <figcaption>Using the @tutorial block tag</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Using the @tutorial tag</figcaption><pre class="prettyprint lang-js"><code>/**
  * Description
  * @class
  * @tutorial tutorial-1
  * @tutorial tutorial-2
- */
-function MyClass() {}
-</code></pre>
-    </figure>
-    <p>The following example inserts inline links to tutorial-1 and tutorial-2 within the description of MyClass:
-    </p>
-    <figure>
-      <figcaption>Using the @tutorial inline tag</figcaption><pre class="prettyprint lang-js"><code>/**
- * Description.
- * Check out {@tutorial tutorial-1} and {@tutorial tutorial-2}.
- * @class
  */
 function MyClass() {}
 </code></pre>
@@ -78,7 +61,7 @@ function MyClass() {}
         <a href="about-tutorials.html">Tutorials</a>
       </li>
       <li>
-        <a href="tags-link.html">@link</a>
+        <a href="tags-inline-tutorial.html">{@tutorial}</a>
       </li>
       <li>
         <a href="tags-see.html">@see</a>

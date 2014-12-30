@@ -42,7 +42,8 @@
     </p>
     <h2 id="overview">Overview</h2>
     <p>The @event tag allows you to document an event that can be fired. A typical event is represented by an object with a defined set of properties.</p>
-    <p>Once you have used the @event tag to define a specific type of event, you can use the @fires tag to indicate that a method can fire that event.</p>
+    <p>Once you have used the @event tag to define a specific type of event, you can use the @fires tag to indicate that a method can fire that event. You can also
+      use the @listens tag to indicate that a symbol listens for the event.</p>
     <p>JSDoc automatically prepends the namespace <code>event:</code> to each event&#39;s name. In general, you must include this namespace when you link to the event
       in another doclet. (The @fires tag is a notable exception; it allows you to omit the namespace.)</p>
     <p><strong>Note</strong>: JSDoc 3 uses @event doclets to document the content of an event. In contrast, JSDoc Toolkit 2 used @event doclets to identify a function
@@ -89,63 +90,15 @@ Hurl.prototype.snowball = function() {
  */
 </code></pre>
     </figure>
-    <p>The following example shows how to document events in the context of AMD modules.</p>
-    <figure>
-      <figcaption>Documenting events in AMD modules</figcaption><pre class="prettyprint lang-js"><code>define('playground/monitor', [], function () {
-    /**
-     * Keeps an eye out for snowball-throwers.
-     *
-     * @module playground/monitor
-     */
-    var exports = {
-        /**
-         * Report the throwing of a snowball.
-         *
-         * @method
-         * @param {module:hurler#event:snowball} e - A snowball event.
-         * @listens module:hurler#snowball
-         */
-        reportThrowage: function (e) {
-            this.log('snowball thrown: velocity ' + e.velocity);
-        }
-    };
-
-    return exports;
-});
-
-define('hurler', [], function () {
-    /**
-     * Event reporting that a snowball has been hurled.
-     *
-     * @event module:hurler#snowball
-     * @property {number} velocity - The snowball's velocity, in meters per second.
-     */
-
-    /**
-     * Snowball-hurling module.
-     *
-     * @module hurler
-     */
-    var exports = {
-        /**
-         * Attack an innocent (or guilty) person with a snowball.
-         *
-         * @method
-         * @fires module:hurler#snowball
-         */
-        attack: function () {
-            this.emit('snowball', { velocity: 10 });
-        }
-    };
-
-    return exports;
-});
-</code></pre>
-    </figure>
     <h2 id="related-links">Related Links</h2>
-    <p>
-      <a href="tags-fires.html">@fires</a>
-    </p>
+    <ul>
+      <li>
+        <a href="tags-fires.html">@fires</a>
+      </li>
+      <li>
+        <a href="tags-listens.html">@listens</a>
+      </li>
+    </ul>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">

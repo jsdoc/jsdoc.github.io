@@ -5,6 +5,7 @@ synonyms:
     - emits
 related:
     - tags-event.html
+    - tags-listens.html
 ---
 
 ## Syntax

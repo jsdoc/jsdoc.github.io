@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Document an external class/namespace/module.">
+  <meta name="description" content="Identifies an external class, namespace, or module.">
   <title>Use JSDoc: @external</title>
   <link rel="stylesheet" href="styles/usejsdoc.css">
   <link rel="stylesheet" href="styles/prettify.css">
@@ -45,19 +45,26 @@
     <p><code>@external &lt;NameOfExternal&gt;</code>
     </p>
     <h2 id="overview">Overview</h2>
-    <p>The @external tag is used for documenting a class or namespace or module that is external to the project. It is then known within JSDoc so you can <a href="tags-augments.html">@extend</a>      it, be a
-      <a href="tags-memberof.html">@memberof</a> it and so on as you would any other class/namespace/module.</p>
-    <p>When you refer to an external object, prefix &quot;external:&quot; to it - for example, &quot;{@link external:Foo}&quot; or &quot;@augments external:Foo&quot;.</p>
+    <p>The <code>@external</code> tag identifies a class, namespace, or module that is defined outside of the current package. By using this tag, you can document your
+      package&#39;s extensions to the external symbol, or you can provide information about the external symbol to your package&#39;s users. You can also refer to
+      the external symbol&#39;s namepath in any other JSDoc tag.</p>
+    <p>The namepath for an external symbol always uses the prefix <code>external:</code> (for example,
+      <code>{@link external:Foo}</code> or <code>@augments external:Foo</code>). However, you can omit this prefix from the
+      <code>@external</code> tag.</p>
+    <p><strong>Note</strong>: You should only add the <code>@external</code> tag to the highest-level symbol that is defined outside of your project. See &quot;<a href="#nested-external-symbol">Documenting a nested external symbol</a>&quot;
+      for an example.
+    </p>
     <h2 id="examples">Examples</h2>
+    <p>The following example shows how to document the built-in <code>String</code> object as an external, along with the new instance method <code>external:String#rot13</code>:</p>
     <figure>
-      <figcaption>Documenting methods added to built-in classes.</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Documenting methods added to built-in classes</figcaption><pre class="prettyprint lang-js"><code>/**
  * The built in string object.
  * @external String
- * @see {@link https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String String}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
  */
 
 /**
- * Adds a new method to the built-in string.
+ * Create a ROT13-encoded version of the string. Added by the `foo` package.
  * @function external:String#rot13
  * @example
  * var greeting = new String('hello world');
@@ -65,12 +72,13 @@
  */
 </code></pre>
     </figure>
-    <p>Suppose we added function <code>rot13</code> to the String class. The above adds documentation for the String class as an external, allowing <code>rot13</code>      to be properly documented as an instance member of String.</p>
+    <p>The following example documents a new <code>starfairy</code> function added to the external namespace
+      <code>&quot;jQuery.fn&quot;</code>:</p>
     <figure>
-      <figcaption>Documenting external namespaces.</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Documenting external namespaces</figcaption><pre class="prettyprint lang-js"><code>/**
  * The jQuery plugin namespace.
  * @external "jQuery.fn"
- * @see {@link http://docs.jquery.com/Plugins/Authoring The jQuery Plugin Guide}
+ * @see {@link http://learn.jquery.com/plugins/|jQuery Plugins}
  */
 
 /**
@@ -79,22 +87,41 @@
  */
 </code></pre>
     </figure>
-    <p>The above creates <code>jQuery.fn</code> as an external namespace, allowing us to document our <code>starfairy</code> function as a member of it.</p>
+    <p>In the following example, the class <code>EncryptedRequest</code> is documented as a subclass of the built-in class <code>XMLHttpRequest</code>:</p>
     <figure>
       <figcaption>Extending an external.</figcaption><pre class="prettyprint lang-js"><code>/**
- * Namespace provided by the browser.
+ * The built-in class for sending HTTP requests.
  * @external XMLHttpRequest
- * @see https://developer.mozilla.org/en/xmlhttprequest
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
  */
 
 /**
- * Extends the built in XMLHttpRequest to send data encoded with a secret key.
- * @class EncryptedRequest
+ * Extends the built-in `XMLHttpRequest` class to send data encoded with a secret key.
+ * @class EncodedRequest
  * @extends external:XMLHttpRequest
  */
 </code></pre>
     </figure>
-    <p>One can even <a href="tags-augments.html">@extend</a> an external. <code>EncryptedRequest</code> is a class that extends (external) <code>XMLHttpRequest</code>.</p>
+    <p>
+      <a name="nested-external-symbol"></a>
+      You should only add the <code>@external</code> tag to the highest-level symbol that is defined outside of your project. In the following example, the documentation
+      refers to the external class
+      <code>security.TLS</code>. As a result, the <code>@external</code> tag is used to document the external namespace
+      <code>external:security</code>, but <em>not</em> the external class <code>external:security.TLS</code>.</p>
+    <figure>
+      <figcaption>Documenting a nested external symbol</figcaption><pre class="prettyprint lang-js"><code>/**
+ * External namespace for security-related classes.
+ * @external security
+ * @see http://example.org/docs/security
+ */
+
+/**
+ * External class that provides Transport Layer Security (TLS) encryption.
+ * @class TLS
+ * @memberof external:security
+ */
+</code></pre>
+    </figure>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">

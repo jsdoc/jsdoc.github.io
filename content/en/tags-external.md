@@ -1,6 +1,6 @@
 ---
 tag: external
-description: Document an external class/namespace/module.
+description: Identifies an external class, namespace, or module.
 synonyms:
     - host
 ---
@@ -12,30 +12,39 @@ synonyms:
 
 ## Overview
 
-The @external tag is used for documenting a class or namespace or module that is external to the
-project. It is then known within JSDoc so you can [@extend][augments-tag] it, be a
-[@memberof][memberof-tag] it and so on as you would any other class/namespace/module.
+The `@external` tag identifies a class, namespace, or module that is defined outside of the current
+package. By using this tag, you can document your package's extensions to the external symbol, or
+you can provide information about the external symbol to your package's users. You can also refer to
+the external symbol's namepath in any other JSDoc tag.
 
-When you refer to an external object, prefix "external:" to it - for example, "{@link external:Foo}"
-or "@augments external:Foo".
+The namepath for an external symbol always uses the prefix `external:` (for example,
+`{@link external:Foo}` or `@augments external:Foo`). However, you can omit this prefix from the
+`@external` tag.
+
+**Note**: You should only add the `@external` tag to the highest-level symbol that is defined
+outside of your project. See "[Documenting a nested external symbol][nested-external]" for an
+example.
 
 [augments-tag]: tags-augments.html
 [memberof-tag]: tags-memberof.html
-
+[nested-external]: #nested-external-symbol
 
 ## Examples
 
-{% example "Documenting methods added to built-in classes." %}
+The following example shows how to document the built-in `String` object as an external, along with
+the new instance method `external:String#rot13`:
+
+{% example "Documenting methods added to built-in classes" %}
 
 ```js
 /**
  * The built in string object.
  * @external String
- * @see {@link https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String String}
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
  */
 
 /**
- * Adds a new method to the built-in string.
+ * Create a ROT13-encoded version of the string. Added by the `foo` package.
  * @function external:String#rot13
  * @example
  * var greeting = new String('hello world');
@@ -44,16 +53,16 @@ or "@augments external:Foo".
 ```
 {% endexample %}
 
-Suppose we added function `rot13` to the String class. The above adds documentation for the String
-class as an external, allowing `rot13` to be properly documented as an instance member of String.
+The following example documents a new `starfairy` function added to the external namespace
+`"jQuery.fn"`:
 
-{% example "Documenting external namespaces." %}
+{% example "Documenting external namespaces" %}
 
 ```js
 /**
  * The jQuery plugin namespace.
  * @external "jQuery.fn"
- * @see {@link http://docs.jquery.com/Plugins/Authoring The jQuery Plugin Guide}
+ * @see {@link http://learn.jquery.com/plugins/|jQuery Plugins}
  */
 
 /**
@@ -63,27 +72,47 @@ class as an external, allowing `rot13` to be properly documented as an instance 
 ```
 {% endexample %}
 
-The above creates `jQuery.fn` as an external namespace, allowing us to document our `starfairy`
-function as a member of it.
+In the following example, the class `EncryptedRequest` is documented as a subclass of the built-in
+class `XMLHttpRequest`:
 
 {% example "Extending an external." %}
 
 ```js
 /**
- * Namespace provided by the browser.
+ * The built-in class for sending HTTP requests.
  * @external XMLHttpRequest
- * @see https://developer.mozilla.org/en/xmlhttprequest
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
  */
 
 /**
- * Extends the built in XMLHttpRequest to send data encoded with a secret key.
- * @class EncryptedRequest
+ * Extends the built-in `XMLHttpRequest` class to send data encoded with a secret key.
+ * @class EncodedRequest
  * @extends external:XMLHttpRequest
  */
 ```
 {% endexample %}
 
-One can even [@extend][augments-tag] an external. `EncryptedRequest` is a class that extends
-(external) `XMLHttpRequest`.
-
 [augments-tag]: tags-augments.html
+
+<a name="nested-external-symbol"></a>
+You should only add the `@external` tag to the highest-level symbol that is defined outside of your
+project. In the following example, the documentation refers to the external class
+`security.TLS`. As a result, the `@external` tag is used to document the external namespace
+`external:security`, but _not_ the external class `external:security.TLS`.
+
+{% example "Documenting a nested external symbol" %}
+
+```js
+/**
+ * External namespace for security-related classes.
+ * @external security
+ * @see http://example.org/docs/security
+ */
+
+/**
+ * External class that provides Transport Layer Security (TLS) encryption.
+ * @class TLS
+ * @memberof external:security
+ */
+```
+{% endexample %}

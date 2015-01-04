@@ -250,7 +250,7 @@ module.exports = function ColorMixer() {
 ### String, number, or boolean assigned to 'module.exports'
 
 For value types (strings, numbers, and booleans) assigned to `module.exports`, you must document the
-exported value's type by using the [`@type` tag](type-tag) in the same JSDoc comment as the
+exported value's type by using the [`@type` tag][type-tag] in the same JSDoc comment as the
 `@module` tag:
 
 {% example "String assigned to module.exports" %}

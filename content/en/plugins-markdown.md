@@ -98,7 +98,7 @@ The `githubRepoName` and `githubRepoOwner` indicate which GitHub repo should be 
 ```
 {% endexample %}
 
-[gfm]: https://help.github.com/articles/github-flavored-markdown
+[gfm]: https://help.github.com/articles/github-flavored-markdown/
 
 ### Why two parsers?
 

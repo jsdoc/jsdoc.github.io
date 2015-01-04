@@ -48,6 +48,12 @@ instructions</a>.</p>
       </thead>
       <tbody>
         <tr>
+          <td><code>-a &lt;value&gt;</code>, <code>--access &lt;value&gt;</code>
+          </td>
+          <td>Only display symbols with the given <code>access</code> property: <code>private</code>, <code>protected</code>, <code>public</code>, or <code>undefined</code>,
+            or <code>all</code> for all access levels. By default, all except <code>private</code> symbols are shown.</td>
+        </tr>
+        <tr>
           <td><code>-c &lt;value&gt;</code>, <code>--configure &lt;value&gt;</code>
           </td>
           <td>The path to a JSDoc <a href="about-configuring-jsdoc.html">configuration file</a>. Defaults to <code>conf.json</code> or <code>conf.json.EXAMPLE</code>            in the directory where JSDoc is installed.</td>
@@ -108,7 +114,7 @@ instructions</a>.</p>
         <tr>
           <td><code>-r</code>, <code>--recurse</code>
           </td>
-          <td>Recurse into subdirectories when scanning for source files.</td>
+          <td>Recurse into subdirectories when scanning for source files and tutorials.</td>
         </tr>
         <tr>
           <td><code>-R</code>, <code>--readme</code>

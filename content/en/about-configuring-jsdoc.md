@@ -71,7 +71,8 @@ your own .json file.)
 + `source.include`: an optional array of paths that JSDoc should generate documentation for. The
 paths given to JSDoc on the command line are combined with these to form the set of files JSDoc will
 scan. Recall that if a path is a directory, the `-r` option may be used to recurse into it.
-+ `source.exclude`: an optional array of paths that JSDoc should ignore.
++ `source.exclude`: an optional array of paths that JSDoc should ignore. In JSDoc 3.3.0 and later,
+this array may include subdirectories of the paths in `source.include`.
 + `source.includePattern`: an optional string, interpreted as a regular expression. If present, all
 files _must_ match this in order to be scanned by JSDoc. By default this is set to
 ".+&#92;.js(doc)?$", meaning that only files that end in `.js` or `.jsdoc` will be scanned.

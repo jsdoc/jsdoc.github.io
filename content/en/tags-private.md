@@ -16,9 +16,11 @@ With the JSDoc tag dictionary (enabled by default):
 
 `@private`
 
-With the [Closure Compiler] tag dictionary:
+With the [Closure Compiler][closure] tag dictionary:
 
 `@private [{typeExpression}]`
+
+[closure]: https://developers.google.com/closure/compiler/docs/js-for-compiler#tags
 
 
 ## Overview

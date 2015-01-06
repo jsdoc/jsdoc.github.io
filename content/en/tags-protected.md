@@ -16,9 +16,11 @@ With the JSDoc tag dictionary (enabled by default):
 
 `@protected`
 
-With the [Closure Compiler] tag dictionary:
+With the [Closure Compiler][closure] tag dictionary:
 
 `@protected [{typeExpression}]`
+
+[closure]: https://developers.google.com/closure/compiler/docs/js-for-compiler#tags
 
 
 ## Overview

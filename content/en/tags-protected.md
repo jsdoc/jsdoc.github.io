@@ -1,6 +1,6 @@
 ---
 tag: protected
-description: This member is meant to be protected.
+description: This symbol is meant to be protected.
 related:
     - tags-access.html
     - tags-global.html
@@ -10,16 +10,35 @@ related:
     - tags-static.html
 ---
 
+## Syntax
+
+With the JSDoc tag dictionary (enabled by default):
+
+`@protected`
+
+With the [Closure Compiler] tag dictionary:
+
+`@protected [{typeExpression}]`
+
+
 ## Overview
 
-This tag marks a doclet as protected.
+The `@protected` tag marks a symbol as protected. Typically, this tag indicates that a symbol is
+only available, or should only be used, within the current module.
 
-Note that "@protected" is equivalent to "@access protected". See [@access][access-tag] for details.
+By default, symbols marked with the `@protected` tag will appear in your documentation. In JSDoc
+3.3.0 and later, you can use the [`-a/--access` command-line option][access-option] to change this
+behavior.
 
-[access-tag]: tags-access.html
+The `@protected` tag is equivalent to `@access protected`.
+
+[access-option]: about-commandline.html
 
 
 ## Examples
+
+In the following example, the instance member `Thingy#_bar` appears in the generated documentation,
+but with an annotation indicating that it is protected:
 
 {% example "Using the @protected tag" %}
 

@@ -25,6 +25,9 @@
     <h2>Table of Contents</h2>
     <ul>
       <li>
+        <a href="#syntax">Syntax</a>
+      </li>
+      <li>
         <a href="#overview">Overview</a>
       </li>
       <li>
@@ -34,12 +37,19 @@
         <a href="#related-links">Related Links</a>
       </li>
     </ul>
+    <h2 id="syntax">Syntax</h2>
+    <p>With the JSDoc tag dictionary (enabled by default):</p>
+    <p><code>@private</code>
+    </p>
+    <p>With the [Closure Compiler] tag dictionary:</p>
+    <p><code>@private [{typeExpression}]</code>
+    </p>
     <h2 id="overview">Overview</h2>
-    <p>The @private tag marks a symbol as private, or not meant for general use. Private members are not shown in the generated output unless JSDoc is run with the
-      <code>-p</code> or <code>--private</code> switch.</p>
-    <p>The @private tag is not inherited by child members. For example, if the @private tag is added to a namespace, members of the namespace can still appear in the
-      generated output; because the namespace is private, the members&#39; namepath will not include the namespace.</p>
-    <p>The @private tag is equivalent to &quot;@access private&quot;. See <a href="tags-access.html">@access</a> for details about the @access tag.</p>
+    <p>The <code>@private</code> tag marks a symbol as private, or not meant for general use. Private members are not shown in the generated output unless JSDoc is
+      run with the <code>-p/--private</code> command-line option. In JSDoc 3.3.0 and later, you can also use the <a href="about-commandline.html"><code>-a/--access</code> command-line option</a>      to change this behavior.</p>
+    <p>The <code>@private</code> tag is not inherited by child members. For example, if the <code>@private</code> tag is added to a namespace, members of the namespace
+      can still appear in the generated output; because the namespace is private, the members&#39; namepath will not include the namespace.</p>
+    <p>The <code>@private</code> tag is equivalent to <code>@access private</code>.</p>
     <h2 id="examples">Examples</h2>
     <p>In the following example, <code>Documents</code> and <code>Documents.Newspaper</code> appear in the generated documentation, but not <code>Documents.Diary</code>.</p>
     <figure>
@@ -63,6 +73,9 @@ var Documents = {
         <a href="tags-access.html">@access</a>
       </li>
       <li>
+        <a href="tags-global.html">@global</a>
+      </li>
+      <li>
         <a href="tags-instance.html">@instance</a>
       </li>
       <li>
@@ -73,9 +86,6 @@ var Documents = {
       </li>
       <li>
         <a href="tags-static.html">@static</a>
-      </li>
-      <li>
-        <a href="tags-global.html">@global</a>
       </li>
     </ul>
   </article>

@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="This member is meant to be protected.">
+  <meta name="description" content="This symbol is meant to be protected.">
   <title>Use JSDoc: @protected</title>
   <link rel="stylesheet" href="styles/usejsdoc.css">
   <link rel="stylesheet" href="styles/prettify.css">
@@ -25,6 +25,9 @@
     <h2>Table of Contents</h2>
     <ul>
       <li>
+        <a href="#syntax">Syntax</a>
+      </li>
+      <li>
         <a href="#overview">Overview</a>
       </li>
       <li>
@@ -34,10 +37,21 @@
         <a href="#related-links">Related Links</a>
       </li>
     </ul>
+    <h2 id="syntax">Syntax</h2>
+    <p>With the JSDoc tag dictionary (enabled by default):</p>
+    <p><code>@protected</code>
+    </p>
+    <p>With the [Closure Compiler] tag dictionary:</p>
+    <p><code>@protected [{typeExpression}]</code>
+    </p>
     <h2 id="overview">Overview</h2>
-    <p>This tag marks a doclet as protected.</p>
-    <p>Note that &quot;@protected&quot; is equivalent to &quot;@access protected&quot;. See <a href="tags-access.html">@access</a> for details.</p>
+    <p>The <code>@protected</code> tag marks a symbol as protected. Typically, this tag indicates that a symbol is only available, or should only be used, within the
+      current module.</p>
+    <p>By default, symbols marked with the <code>@protected</code> tag will appear in your documentation. In JSDoc 3.3.0 and later, you can use the <a href="about-commandline.html"><code>-a/--access</code> command-line option</a>      to change this behavior.
+    </p>
+    <p>The <code>@protected</code> tag is equivalent to <code>@access protected</code>.</p>
     <h2 id="examples">Examples</h2>
+    <p>In the following example, the instance member <code>Thingy#_bar</code> appears in the generated documentation, but with an annotation indicating that it is protected:</p>
     <figure>
       <figcaption>Using the @protected tag</figcaption><pre class="prettyprint lang-js"><code>/** @constructor */
 function Thingy() {

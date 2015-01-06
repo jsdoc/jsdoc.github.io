@@ -20,7 +20,8 @@ file, this is what JSDoc will use:
 ```js
 {
     "tags": {
-        "allowUnknownTags": true
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc","closure"]
     },
     "source": {
         "includePattern": ".+\\.js(doc)?$",
@@ -37,6 +38,9 @@ file, this is what JSDoc will use:
 
 This means:
 
++ JSDoc allows you to use unrecognized tags (`tags.allowUnknownTags`);
++ Both standard JSDoc tags and [Closure Compiler tags][closure-tags] are enabled
+(`tags.dictionaries`);
 + Only files ending in ".js" and ".jsdoc" will be processed (`source.includePattern`);
 + Any file starting with an underscore or in a directory starting with an underscore will be
 _ignored_ (`source.excludePattern`);
@@ -48,7 +52,9 @@ These options and others will be further explained on this page.
 Further settings may be added to the file as requested by various plugins or templates (for example,
 the [Markdown plugin][markdown] can be configured by including a "markdown" key).
 
+[closure-tags]: https://developers.google.com/closure/compiler/docs/js-for-compiler#tags
 [markdown]: plugins-markdown.html
+
 
 ## Specifying input files
 
@@ -152,6 +158,7 @@ The reasoning is as follows:
 3. Apply `source.excludePattern`, which will remove `myProject/_private/a.js`.
 4. Apply `source.exclude`, which will remove `myProject/lib/ignore.js`.
 
+
 ## Incorporating command-line options into the configuration file
 
 It is possible to put many of JSDoc's [command-line options][options] into the configuration file
@@ -242,19 +249,41 @@ further information).
 
 [link-tag]: tags-inline-link.html
 
-### Miscellaneous
 
-The `tags.allowUnknownTags` property determines whether tags unrecognised by JSDoc are permitted. If
-this is false and JSDoc encounters a tag it does not recognise (e.g. `@foobar`), it will throw an
-error. Otherwise, it will just ignore the tag.
+## Tags and tag dictionaries
 
-By default, it is true.
+The options in `tags` control which JSDoc tags are allowed and how each tag is interpreted.
+
 
 {% example %}
 
-```
+```js
 "tags": {
-    "allowUnknownTags": true
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc","closure"]
 }
 ```
 {% endexample %}
+
+The `tags.allowUnknownTags` property affects how JSDoc handles unrecognized tags. If you set this
+option to `false`, and JSDoc finds a tag that it does not recognize (for example, `@foo`), JSDoc
+logs a warning. By default, this option is set to `true`.
+
+The `tags.dictionaries` property controls which tags JSDoc recognizes, as well as how JSDoc
+interprets the tags that it recognizes. In JSDoc 3.3.0 and later, there are two built-in tag
+dictionaries:
+
++ `jsdoc`: Core JSDoc tags.
++ `closure`: [Closure Compiler tags][closure-tags].
+
+By default, both dictionaries are enabled. Also, by default, the `jsdoc` dictionary is listed first;
+as a result, if the `jsdoc` dictionary handles a tag differently than the `closure` dictionary, the
+`jsdoc` version of the tag takes precedence.
+
+If you are using JSDoc with a Closure Compiler project, and you want to avoid using tags that
+Closure Compiler does not recognize, change the `tags.dictionaries` setting to `["closure"]`. You
+can also change this setting to `["closure","jsdoc"]` if you want to allow core JSDoc tags, but you
+want to ensure that Closure Compiler-specific tags are interpreted as Closure Compiler would
+interpret them.
+
+[closure-tags]: https://developers.google.com/closure/compiler/docs/js-for-compiler#tags

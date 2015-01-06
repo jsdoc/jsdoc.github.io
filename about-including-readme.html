@@ -4,8 +4,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="A guide to including a readme file in your documentation.">
-  <title>Use JSDoc: Including a Readme File With JSDoc 3</title>
+  <meta name="description" content="How to include a README file in your documentation.">
+  <title>Use JSDoc: Including a README File</title>
   <link rel="stylesheet" href="styles/usejsdoc.css">
   <link rel="stylesheet" href="styles/prettify.css">
   <link rel="stylesheet" href="styles/css3-github-ribbon.css">
@@ -21,15 +21,26 @@
     <a href="./index.html">@use JSDoc</a>
   </header>
   <article>
-    <h1>Including a Readme File With JSDoc 3</h1>
-    <p>To include a readme file in your documentation, you simply specify the location of your readme file on the command line along with the location of your source
-      files. The readme file will be incorporated into the index.html of your documentation in the default template. The file must be written in markdown and given
-      a .md extension.</p>
+    <h1>Including a README File</h1>
+    <p>There are two ways to incorporate a <code>README</code> file into your documentation:</p>
+    <ol>
+      <li>In the source paths to your JavaScript files, include the path to a Markdown file named
+        <code>README.md</code>. JSDoc will use the first <code>README.md</code> file that it finds in your source paths.</li>
+      <li>Run JSDoc with the <code>-R/--readme</code> command-line option, specifying the path to your <code>README</code> file. This option is available in JSDoc 3.3.0
+        and later. The <code>README</code> file may have any name and extension, but it must be in Markdown format.</li>
+    </ol>
+    <p>The <code>-R/--readme</code> command-line option takes precedence over your source paths. If you use the
+      <code>-R/--readme</code> command-line option, JSDoc will ignore any <code>README.md</code> files in your source paths.</p>
+    <p>If you are using JSDoc&#39;s default template, the <code>README</code> file&#39;s contents will be rendered in HTML in the generated documentation&#39;s <code>index.html</code>      file.</p>
+    <h2 id="examples">Examples</h2>
     <figure>
-      <figcaption>Including a readme file in your documentation</figcaption><pre class="prettyprint"><code>jsdoc C:\path\to\my\JS\project\sourceFiles C:\path\to\my\JS\project\README.md
+      <figcaption>Including a README file in your source paths</figcaption><pre class="prettyprint"><code>jsdoc path/to/js path/to/readme/README.md
 </code></pre>
     </figure>
-    <p>If your file is successfully incorporated into the default template, it&#39;s content will be rendered in beautiful HTML just before the files list.</p>
+    <figure>
+      <figcaption>Using the -R/--readme option</figcaption><pre class="prettyprint"><code>jsdoc --readme path/to/readme/README path/to/js
+</code></pre>
+    </figure>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">

@@ -7,12 +7,6 @@
             "filename": "about-namepaths.html"
         },
         {
-            "filename": "about-tutorials.html"
-        },
-        {
-            "filename": "about-including-readme.html"
-        },
-        {
             "filename": "about-commandline.html"
         },
         {
@@ -26,6 +20,15 @@
         },
         {
             "filename": "plugins-markdown.html"
+        },
+        {
+            "filename": "about-tutorials.html"
+        },
+        {
+            "filename": "about-including-package.html"
+        },
+        {
+            "filename": "about-including-readme.html"
         },
         {
             "filename": "about-license-jsdoc3.html"

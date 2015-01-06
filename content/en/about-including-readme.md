@@ -1,15 +1,35 @@
 ---
-title: Including a Readme File With JSDoc 3
-description: A guide to including a readme file in your documentation.
+title: Including a README File
+description: How to include a README file in your documentation.
 ---
 
-To include a readme file in your documentation, you simply specify the location of your readme file on the command line along with the location of your source files. The readme file will be incorporated into the index.html of your documentation in the default template. The file must be written in markdown and given a .md extension.
+There are two ways to incorporate a `README` file into your documentation:
 
-{% example "Including a readme file in your documentation" %}
+1. In the source paths to your JavaScript files, include the path to a Markdown file named
+`README.md`. JSDoc will use the first `README.md` file that it finds in your source paths.
+2. Run JSDoc with the `-R/--readme` command-line option, specifying the path to your `README` file.
+This option is available in JSDoc 3.3.0 and later. The `README` file may have any name and
+extension, but it must be in Markdown format.
+
+The `-R/--readme` command-line option takes precedence over your source paths. If you use the
+`-R/--readme` command-line option, JSDoc will ignore any `README.md` files in your source paths.
+
+If you are using JSDoc's default template, the `README` file's contents will be rendered in HTML
+in the generated documentation's `index.html` file.
+
+
+## Examples
+
+{% example "Including a README file in your source paths" %}
 
 ```
-jsdoc C:\path\to\my\JS\project\sourceFiles C:\path\to\my\JS\project\README.md
+jsdoc path/to/js path/to/readme/README.md
 ```
 {% endexample %}
 
-If your file is successfully incorporated into the default template, it's content will be rendered in beautiful HTML just before the files list.
+{% example "Using the -R/--readme option" %}
+
+```
+jsdoc --readme path/to/readme/README path/to/js
+```
+{% endexample %}

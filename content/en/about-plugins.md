@@ -219,11 +219,12 @@ exports.defineTags = function(dictionary) {
 The dictionary provides the following methods:
 
 + `defineTag(title, opts)`: Used to define tags. The first parameter is the name of the tag (for example, `param` or `overview`). The second is an object containing options for the tag. You can include any of the following options; the default value for each option is `false`:
-    + `mustHaveValue (boolean)`: Set to `true` if the tag must have a value (such as `TheName` in `@name TheName`).
-    + `mustNotHaveValue (boolean)`: Set to `true` if the tag must not have a value.
     + `canHaveType (boolean)`: Set to `true` if the tag text can include a type expression (such as `{string}` in `@param {string} name - Description`).
     + `canHaveName (boolean)`: Set to `true` if the tag text can include a name (such as `name` in `@param {string} name - Description`).
     + `isNamespace (boolean)`: Set to `true` if the tag should be applied to the doclet's longname as a namespace. For example, the `@module` tag sets this option to `true`, and using the tag `@module myModuleName` results in the longname `module:myModuleName`.
+    + `mustHaveValue (boolean)`: Set to `true` if the tag must have a value (such as `TheName` in `@name TheName`).
+    + `mustNotHaveDescription (boolean)`: Set to `true` if the tag may have a value but must not have a description (such as `TheDescription` in `@tag {typeExpr} TheDescription`).
+    + `mustNotHaveValue (boolean)`: Set to `true` if the tag must not have a value.
     + `onTagged (function)`: A callback function executed when the tag is found. The function is passed two parameters: the doclet and the tag object.
 + `lookUp(tagName)`: Retrieve a tag object by name. Returns the tag object, including its options, or `false` if the tag is not defined.
 + `isNamespace(tagName)`: Returns `true` if the tag is applied to a doclet's longname as a namespace.

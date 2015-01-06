@@ -221,12 +221,13 @@
       <li><code>defineTag(title, opts)</code>: Used to define tags. The first parameter is the name of the tag (for example, <code>param</code> or <code>overview</code>).
         The second is an object containing options for the tag. You can include any of the following options; the default value for each option is <code>false</code>:
         <ul>
-          <li><code>mustHaveValue (boolean)</code>: Set to <code>true</code> if the tag must have a value (such as <code>TheName</code> in <code>@name TheName</code>).</li>
-          <li><code>mustNotHaveValue (boolean)</code>: Set to <code>true</code> if the tag must not have a value.</li>
           <li><code>canHaveType (boolean)</code>: Set to <code>true</code> if the tag text can include a type expression (such as <code>{string}</code> in <code>@param {string} name - Description</code>).</li>
           <li><code>canHaveName (boolean)</code>: Set to <code>true</code> if the tag text can include a name (such as <code>name</code> in <code>@param {string} name - Description</code>).</li>
           <li><code>isNamespace (boolean)</code>: Set to <code>true</code> if the tag should be applied to the doclet&#39;s longname as a namespace. For example, the
             <code>@module</code> tag sets this option to <code>true</code>, and using the tag <code>@module myModuleName</code> results in the longname <code>module:myModuleName</code>.</li>
+          <li><code>mustHaveValue (boolean)</code>: Set to <code>true</code> if the tag must have a value (such as <code>TheName</code> in <code>@name TheName</code>).</li>
+          <li><code>mustNotHaveDescription (boolean)</code>: Set to <code>true</code> if the tag may have a value but must not have a description (such as <code>TheDescription</code>            in <code>@tag {typeExpr} TheDescription</code>).</li>
+          <li><code>mustNotHaveValue (boolean)</code>: Set to <code>true</code> if the tag must not have a value.</li>
           <li><code>onTagged (function)</code>: A callback function executed when the tag is found. The function is passed two parameters: the doclet and the tag object.</li>
         </ul>
       </li>

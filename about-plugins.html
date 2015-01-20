@@ -40,7 +40,7 @@
             <a href="#node-visitors">Node Visitors</a>
           </li>
           <li>
-            <a href="#throwing-errors">Throwing Errors</a>
+            <a href="#reporting-errors">Reporting Errors</a>
           </li>
         </ul>
       </li>
@@ -357,14 +357,31 @@ function isInWidgetFactory(node, depth) {
       of doclets it knows about.</p>
     <p>Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting
       a <code>stopPropagation</code> property on the event object (<code>e.stopPropagation = true</code>). A plugin can stop the event from firing by setting a <code>preventDefault</code>      property.</p>
-    <h3 id="throwing-errors">Throwing Errors</h3>
-    <p>If you wish your plugin to throw an error, do it using the <code>handle</code> function in the <code>jsdoc/util/error</code> module.</p>
+    <h3 id="reporting-errors">Reporting Errors</h3>
+    <p>If your plugin needs to report an error, use one of the following methods in the <code>jsdoc/util/logger</code> module:
+    </p>
+    <ul>
+      <li><code>logger.warn</code>: Warn the user about a possible problem.</li>
+      <li><code>logger.error</code>: Report an error from which the plugin can recover.</li>
+      <li><code>logger.fatal</code>: Report an error that should cause JSDoc to stop running.</li>
+    </ul>
+    <p>Using these methods creates a better user experience than simply throwing an error.</p>
+    <p><strong>Note</strong>: Do not use the <code>jsdoc/util/error</code> module to report errors. This module is deprecated and will be removed in a future version
+      of JSDoc.</p>
     <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>require('jsdoc/util/error').handle( new Error('I do not like green eggs and ham!') );
+      <figcaption>Reporting a non-fatal error</figcaption><pre class="prettyprint lang-js"><code>var logger = require('jsdoc/util/logger');
+
+exports.handlers = {
+    newDoclet: function(e) {
+        // ...
+
+        if (somethingBadHappened) {
+            logger.error('Oh, no, something bad happened!');
+        }
+    }
+}
 </code></pre>
     </figure>
-    <p>By default, this will throw the error, halting the execution of JSDoc. However, if the user enabled JSDoc&#39;s <code>--lenient</code> switch, JSDoc will simply
-      log the error to the console and continue.</p>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">

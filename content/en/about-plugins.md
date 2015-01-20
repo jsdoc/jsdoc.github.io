@@ -366,15 +366,33 @@ You'll notice a `finishers` property set. The finishers property should contain 
 
 Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting a `stopPropagation` property on the event object (`e.stopPropagation = true`). A plugin can stop the event from firing by setting a `preventDefault` property.
 
-### Throwing Errors
+### Reporting Errors
 
-If you wish your plugin to throw an error, do it using the `handle` function in the `jsdoc/util/error` module.
+If your plugin needs to report an error, use one of the following methods in the `jsdoc/util/logger`
+module:
 
-{% example "Example" %}
++ `logger.warn`: Warn the user about a possible problem.
++ `logger.error`: Report an error from which the plugin can recover.
++ `logger.fatal`: Report an error that should cause JSDoc to stop running.
+
+Using these methods creates a better user experience than simply throwing an error.
+
+**Note**: Do not use the `jsdoc/util/error` module to report errors. This module is deprecated and
+will be removed in a future version of JSDoc.
+
+{% example "Reporting a non-fatal error" %}
 
 ```js
-require('jsdoc/util/error').handle( new Error('I do not like green eggs and ham!') );
+var logger = require('jsdoc/util/logger');
+
+exports.handlers = {
+    newDoclet: function(e) {
+        // Your code here.
+
+        if (somethingBadHappened) {
+            logger.error('Oh, no, something bad happened!');
+        }
+    }
+}
 ```
 {% endexample %}
-
-By default, this will throw the error, halting the execution of JSDoc. However, if the user enabled JSDoc's `--lenient` switch, JSDoc will simply log the error to the console and continue.

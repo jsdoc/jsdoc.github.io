@@ -13,16 +13,16 @@ related:
 
 ## Overview
 
-The @param tag (or @arg or @argument) documents a function parameter.
+The `@param` tag provides the name, type, and description of a function parameter.
 
-The @param tag requires you to specify the name of the parameter you are documenting. You can also
+The `@param` tag requires you to specify the name of the parameter you are documenting. You can also
 include the parameter's type, enclosed in curly brackets, and a description of the parameter.
 
 The parameter type can be a built-in JavaScript type, such as `string` or `Object`, or a
 [JSDoc namepath][namepath] to another symbol in your code. If you have written documentation for the
 symbol at that namepath, JSDoc will automatically link to the documentation for that symbol. You can
 also use a type expression to indicate, for example, that a parameter is not nullable or can accept
-any type; see the [@type documentation][tags-type] for details.
+any type; see the [`@type` tag documentation][tags-type] for details.
 
 If you provide a description, you can make the JSDoc comment more readable by inserting a hyphen
 before the description. Be sure to include a space before and after the hyphen.
@@ -33,7 +33,8 @@ before the description. Be sure to include a space before and after the hyphen.
 
 ## Examples
 
-The following examples show how to include names, types, and descriptions in a @param tag.
+### Names, types, and descriptions
+The following examples show how to include names, types, and descriptions in a `@param` tag.
 
 {% example "Name only" %}
 
@@ -86,6 +87,45 @@ function sayHello(somebody) {
 ```
 {% endexample %}
 
+### Parameters with properties
+If a parameter is expected to have a specific property, you can document that property by providing
+an additional `@param` tag. For example, if an `employee` parameter is expected to have `name` and
+`department` properties, you can document it as follows:
+
+{% example "Documenting a parameter's properties" %}
+
+```js
+/**
+ * Assign the project to an employee.
+ * @param {Object} employee - The employee who is responsible for the project.
+ * @param {string} employee.name - The name of the employee.
+ * @param {string} employee.department - The employee's department.
+ */
+Project.prototype.assign = function(employee) {
+    // ...
+};
+```
+{% endexample %}
+
+You can also combine this syntax with JSDoc's syntax for array parameters. For example, if multiple
+employees can be assigned to a project:
+
+{% example "Documenting properties of values in an array" %}
+
+```js
+/**
+ * Assign the project to a list of employees.
+ * @param {Object[]} employees - The employees who are responsible for the project.
+ * @param {string} employees[].name - The name of an employee.
+ * @param {string} employees[].department - The employee's department.
+ */
+Project.prototype.assign = function(employees) {
+    // ...
+};
+```
+{% endexample %}
+
+### Optional parameters and default values
 The following examples show how to indicate that a parameter is optional and has a default value.
 
 {% example "An optional parameter (using JSDoc syntax)" %}
@@ -133,9 +173,10 @@ function sayHello(somebody) {
 ```
 {% endexample %}
 
+### Multiple types and repeatable parameters
 The following examples show how to use type expressions to indicate that a parameter can accept
 multiple types (or any type), and that a parameter can be provided more than once. See the
-[@type documentation][type-tag] for details about the type expressions that JSDoc supports.
+[`@type` tag documentation][type-tag] for details about the type expressions that JSDoc supports.
 
 {% example "Allows one type OR another type (type union)" %}
 
@@ -183,8 +224,9 @@ function sum(num) {
 ```
 {% endexample %}
 
-If a parameter accepts a callback function, you can use the [@callback tag][callback-tag] to define
-a callback type, then include the callback type in the @param tag.
+### Callback functions
+If a parameter accepts a callback function, you can use the [`@callback` tag][callback-tag] to
+define a callback type, then include the callback type in the `@param` tag.
 
 {% example "Parameters that accept a callback" %}
 

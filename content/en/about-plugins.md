@@ -280,6 +280,7 @@ namespace.
 + `normalise(tagName)`: Returns the canonical name of a tag. For example, the `@const` tag is a
 synonym for `@constant`; as a result, if you call `normalise('const')`, it returns the string
 `constant`.
++ `normalize(tagName)`: Synonym for `normalise`. Available in JSDoc 3.3.0 and later.
 
 A tag's `onTagged` callback can modify the contents of the doclet or tag.
 

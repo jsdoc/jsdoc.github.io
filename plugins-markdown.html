@@ -25,131 +25,85 @@
     <h2>Table of Contents</h2>
     <ul>
       <li>
-        <a href="#how-to-use-the-markdown-plugin">How to use the Markdown plugin</a>
+        <a href="#overview">Overview</a>
       </li>
       <li>
-        <a href="#configuring-the-markdown-plugin">Configuring the Markdown plugin</a>
+        <a href="#enabling-the-markdown-plugin">Enabling the Markdown plugin</a>
       </li>
       <li>
-        <a href="#choosing-a-parser">Choosing a parser</a>
-        <ul>
-          <li>
-            <a href="#dominic-evilstreak-baggott-s-markdown-js">Dominic &quot;evilstreak&quot; Baggott&#39;s markdown-js</a>
-          </li>
-          <li>
-            <a href="#github-flavored-markdown">GitHub Flavored Markdown</a>
-          </li>
-          <li>
-            <a href="#why-two-parsers-">Why two parsers?</a>
-          </li>
-        </ul>
+        <a href="#converting-markdown-in-additional-jsdoc-tags">Converting Markdown in additional JSDoc tags</a>
       </li>
       <li>
-        <a href="#extended-tag-support">Extended tag support</a>
+        <a href="#excluding-the-default-tags-from-markdown-processing">Excluding the default tags from Markdown processing</a>
       </li>
     </ul>
-    <h2 id="how-to-use-the-markdown-plugin">How to use the Markdown plugin</h2>
-    <p>For most users, all you need to do is add the plugin to your JSDoc configuration (<code>conf.json</code>) as you would any other, by adding a reference to it
-      in the &quot;plugins&quot; entry of the configuration JSON:</p>
+    <h2 id="overview">Overview</h2>
+    <p>JSDoc includes a Markdown plugin that automatically converts Markdown-formatted text to HTML. You can use this plugin with any JSDoc template. In JSDoc 3.2.2
+      and later, the Markdown plugin uses the
+      <a href="https://github.com/chjj/marked">marked Markdown parser</a>.</p>
+    <p><strong>Note</strong>: When you enable the Markdown plugin, be sure to include a leading asterisk on each line of your JSDoc comments. If you omit the leading
+      asterisks, JSDoc&#39;s parser may remove asterisks that are used for Markdown formatting.</p>
+    <p>
+      <a name="default-tags"></a>
+      By default, JSDoc looks for Markdown-formatted text in the following JSDoc tags:</p>
+    <ul>
+      <li><a href="tags-author.html"><code>@author</code></a>
+      </li>
+      <li><a href="tags-classdesc.html"><code>@classdesc</code></a>
+      </li>
+      <li><a href="tags-description.html"><code>@description</code></a> (including untagged descriptions at the start of a JSDoc comment)
+      </li>
+      <li><a href="tags-param.html"><code>@param</code></a>
+      </li>
+      <li><a href="tags-property.html"><code>@property</code></a>
+      </li>
+      <li><a href="tags-returns.html"><code>@returns</code></a>
+      </li>
+      <li><a href="tags-see.html"><code>@see</code></a>
+      </li>
+      <li><a href="tags-throws.html"><code>@throws</code></a>
+      </li>
+    </ul>
+    <h2 id="enabling-the-markdown-plugin">Enabling the Markdown plugin</h2>
+    <p>To enable the Markdown plugin, add the string <code>plugins/markdown</code> to the <code>plugins</code> property in your
+      <a href="about-configuring-jsdoc.html">JSDoc configuration file</a>:</p>
     <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint"><code>...
-"plugins": [ "plugins/markdown" ]
-...
-</code></pre>
-    </figure>
-    <p>This will cause Markdown in <code>@description</code> tags (including implicit descriptions without tags),
-      <code>@classdesc</code> tags, <code>@param</code> tags, <code>@property</code> tags, and <code>@returns</code> tags to be parsed.</p>
-    <p>Also, be sure to use leading asterisks in your doc comments! If you omit the leading asterisks, JSDoc&#39;s code parser may remove other asterisks that are used
-      for Markdown formatting.</p>
-    <h2 id="configuring-the-markdown-plugin">Configuring the Markdown plugin</h2>
-    <p>The plugin also offers several configuration options for advanced users who want GitHub integration, extended tag support, etc. All configuration for the Markdown
-      plugin should be added to a
-      <code>markdown</code> property in your JSDoc configuration:</p>
-    <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint"><code>...
-"plugins": [ "plugins/markdown" ],
-
-"markdown": {
-    "opt1": "value",
-    "opt2": [ "foo", "bar", "baz" ]
+      <figcaption>Configuration file that enables the Markdown plugin</figcaption><pre class="prettyprint lang-json"><code>{
+    "plugins": ["plugins/markdown"]
 }
-...
 </code></pre>
     </figure>
-    <h2 id="choosing-a-parser">Choosing a parser</h2>
-    <p>The plugin currently supports two Markdown parsers. You can select which parser to use by adding a
-      <code>parser</code> property to your Markdown configuration:</p>
+    <h2 id="converting-markdown-in-additional-jsdoc-tags">Converting Markdown in additional JSDoc tags</h2>
+    <p>By default, the Markdown plugin only processes <a href="#default-tags">specific JSDoc tags</a> for Markdown text. You can handle Markdown text in other tags
+      by adding a <code>markdown.tags</code> property to your JSDoc configuration file. The <code>markdown.tags</code> property contains an array of the additional
+      doclet properties that can contain Markdown text. (In most cases, the name of the doclet property is the same as the tag name. However, some tags are stored
+      differently; for example, the <code>@param</code> tag is stored in a doclet&#39;s <code>params</code> property. If you&#39;re not sure how a tag&#39;s text
+      is stored in a doclet, run JSDoc with the <code>-X/--explain</code> tag, which prints each doclet to the console.)</p>
+    <p>For example, if the <code>foo</code> and <code>bar</code> tags accept values that are stored in a doclet&#39;s <code>foo</code> and <code>bar</code> properties,
+      you could enable Markdown processing of these tags by adding the following settings to your JSDoc configuration file:</p>
     <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint"><code>...
-"plugins": [ "plugins/markdown" ],
-
-"markdown": {
-    "parser": "gfm"
+      <figcaption>Converting Markdown in &#39;foo&#39; and &#39;bar&#39; tags</figcaption><pre class="prettyprint lang-json"><code>{
+    "plugins": ["plugins/markdown"],
+    "markdown": {
+        "tags": ["foo", "bar"]
+    }
 }
-...
 </code></pre>
     </figure>
-    <h3 id="dominic-evilstreak-baggott-s-markdown-js">Dominic &quot;evilstreak&quot; Baggott&#39;s markdown-js</h3>
-    <p>The default parser is Dominic Baggott&#39;s excellent <a href="https://github.com/evilstreak/markdown-js">markdown-js</a>. It can be explicitly selected by setting
-      the <code>parser</code> to <code>evilstreak</code> and has one additional (and optional) configuration option,
-      <code>dialect</code>, which can be used to select which of markdown-js&#39; built-in dialects to use. If omitted, markdown-js&#39; default dialect will be
-      used.</p>
+    <h2 id="excluding-the-default-tags-from-markdown-processing">Excluding the default tags from Markdown processing</h2>
+    <p>To prevent the Markdown plugin from processing any of the <a href="#default-tags">default JSDoc tags</a>, add a
+      <code>markdown.excludeTags</code> property to your JSDoc configuration file. The <code>markdown.excludeTags</code> property contains an array of the default
+      tags that should not be processed for Markdown text.</p>
+    <p>For example, to exclude the <code>author</code> tag from Markdown processing:</p>
     <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint"><code>...
-"plugins": [ "plugins/markdown" ],
-
-"markdown": {
-    "parser": "evilstreak",
-    "dialect": "Maruku"
+      <figcaption>Excluding the &#39;author&#39; tag from Markdown processing</figcaption><pre class="prettyprint lang-json"><code>{
+    "plugins": ["plugins/markdown"],
+    "markdown": {
+        "excludeTags": ["author"]
+    }
 }
-...
 </code></pre>
     </figure>
-    <h3 id="github-flavored-markdown">GitHub Flavored Markdown</h3>
-    <p>The alternative parser is the modified Showdown parser supplied by GitHub for their <a href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored
-Markdown (GFM)</a>. GFM provides several enhancements to standard Markdown syntax (see its documentation) intended to be useful to developers. It <em>also</em> has
-      the ability to quickly link to GitHub repositories, files, and issues. It can be selected by setting the <code>parser</code> to <code>gfm</code> and supports
-      three additional (and optional) configuration options.</p>
-    <p>The <code>hardwrap</code> option controls the hard wrapping of line ends. Unlike standard Markdown, GFM considers a single newline to indicate a &quot;hard break&quot;
-      in the paragraph, but this doesn&#39;t work well with the line length limitations commonly used with comment documentation, so is disabled by default. If you
-      want to turn hard wrapping back on, set <code>hardwrap</code> to <code>true</code> (or any non-falsy value).
-    </p>
-    <p>The <code>githubRepoName</code> and <code>githubRepoOwner</code> indicate which GitHub repo should be used for GitHub links which do not fully specify a repo.
-      These options have no effect unless used together and if they are omitted, several of GFM&#39;s default link types will be unavailable. Conversely, if you
-      supply both <code>github*</code> options but do not explicitly select <code>gfm</code> as your parser, it will be automatically selected for you.</p>
-    <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint"><code>...
-"plugins": [ "plugins/markdown" ],
-
-"markdown": {
-    "parser": "gfm",
-    "hardwrap": true
-}
-...
-</code></pre>
-    </figure>
-    <h3 id="why-two-parsers-">Why two parsers?</h3>
-    <p>The &quot;evilstreak&quot; parser is flexible, extensible, currently-maintained, and was the only parser available in earlier versions of the Markdown plugin,
-      but doesn&#39;t support the useful GFM extensions. The &quot;gfm&quot; parser is based on the no-longer-maintained Showdown parser, but it supports GFM extensions.
-    </p>
-    <p>In the future, if GFM support is made available for the &quot;evilstreak&quot; parser, this plugin will drop the &quot;gfm&quot; parser in favor of that support.</p>
-    <h2 id="extended-tag-support">Extended tag support</h2>
-    <p>While the Markdown plugin already supports JSDoc&#39;s default tags, if you&#39;re using other plugins, you may well have extra tags available. You can tell
-      the Markdown plugin to handle those extra tags as well using the <code>tags</code> property, which is an array of the tags* it should check in addition to
-      the default set.</p>
-    <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint"><code>...
-"plugins": [ "plugins/markdown" ],
-
-"markdown": {
-    "tags": [ "foo", "bars", "bazzes" ]
-}
-...
-</code></pre>
-    </figure>
-    <p>Because the Markdown plugin works with JSDoc&#39;s internal representation rather than with the source comments, the names you need to enter in the <code>tags</code>      property aren&#39;t necessarily the same as the actual tag names. For example, in the default set of tags, <code>@param</code> is stored under <code>params</code>.
-      If you are having trouble getting the Markdown plugin to work with your extra tags, either take a peek at the output of JSDoc&#39;s <code>--explain</code>      command-line parameter (which displays the internal state which plugins work with) or ask the plugin author which &quot;doclet properties&quot; their plugin
-      uses. The Markdown plugin supports strings, arrays, and objects/subdoclets.</p>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">

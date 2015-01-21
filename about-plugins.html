@@ -39,29 +39,28 @@
           <li>
             <a href="#node-visitors">Node Visitors</a>
           </li>
-          <li>
-            <a href="#reporting-errors">Reporting Errors</a>
-          </li>
         </ul>
+      </li>
+      <li>
+        <a href="#reporting-errors">Reporting Errors</a>
       </li>
     </ul>
     <h2 id="creating-and-enabling-a-plugin">Creating and Enabling a Plugin</h2>
     <p>There are two steps required to create and enable a new JSDoc plugin:</p>
     <ol>
       <li>Create a JavaScript module to contain your plugin code.</li>
-      <li>Include that module in the <code>plugins</code> array of <code>conf.json</code>. You can specify an absolute or relative path. If you use a relative path,
-        JSDoc searches for the plugin in the current working directory and the JSDoc directory, in that order.</li>
+      <li>Include that module in the <code>plugins</code> array of <a href="about-configuring-jsdoc.html">JSDoc&#39;s configuration file</a>. You can specify an absolute
+        or relative path. If you use a relative path, JSDoc searches for the plugin in the directory where the configuration file is located; the current working
+        directory; and the JSDoc directory, in that order.</li>
     </ol>
-    <p>For example, if your plugin source code was saved in the <code>plugins/shout.js</code> file in the current working directory, you would include it by adding
-      a reference to it in <code>conf.json</code> like so:</p>
+    <p>For example, if your plugin is defined in the <code>plugins/shout.js</code> file in the current working directory, you would add the string <code>plugins/shout</code>      to the <code>plugins</code> array in your JSDoc configuration file:</p>
     <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint"><code>...
-"plugins": [
-    "plugins/shout"
-]
-...
+      <figcaption>Adding a plugin to JSDoc&#39;s configuration file</figcaption><pre class="prettyprint lang-json"><code>{
+    "plugins": ["plugins/shout"]
+}
 </code></pre>
     </figure>
+    <p>JSDoc executes plugins in the order that they are listed in the configuration file.</p>
     <h2 id="authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins</h2>
     <p>JSDoc 3&#39;s plugin system offers extensive control over the parsing process. A plugin can affect the parse results by doing any of the following:</p>
     <ul>
@@ -70,11 +69,10 @@
       <li>Defining a visitor for abstract syntax tree nodes</li>
     </ul>
     <h3 id="event-handlers">Event Handlers</h3>
-    <p>At the highest level, a plugin may register handlers for specific named-events that occur in the documentation generation process. JSDoc will pass the handler
-      an event object containing pertinent information. Your plugin module should export a <code>handlers</code> object that contains your handler, like so:
-    </p>
+    <p>At the highest level, a plugin may register handlers for specific named events that JSDoc fires. JSDoc will pass an event object to the handler. Your plugin
+      module should export a <code>handlers</code> object that contains your handler, like so:</p>
     <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.handlers = {
+      <figcaption>Event-handler plugin for &#39;newDoclet&#39; events</figcaption><pre class="prettyprint lang-js"><code>exports.handlers = {
     newDoclet: function(e) {
         // Do something when we see a new doclet
     }
@@ -83,6 +81,8 @@
     </figure>
     <p>On Node.js, JSDoc fires events in the same order as the underlying code. On Mozilla Rhino, JSDoc fires all of the <code>jsdocCommentFound</code> events at once
       as soon as it starts parsing a file; all other events are fired in the same order as the underlying code.</p>
+    <p>An event-handler plugin can stop later plugins from running by setting a <code>stopPropagation</code> property on the event object (<code>e.stopPropagation = true</code>).
+      A plugin can stop the event from firing by setting a <code>preventDefault</code> property (<code>e.preventDefault = true</code>).</p>
     <h4 id="event-parsebegin">Event: parseBegin</h4>
     <p>The <code>parseBegin</code> event is fired before JSDoc starts loading and parsing the source files. Your plugin can control which files JSDoc will parse by
       modifying the event&#39;s contents.</p>
@@ -263,11 +263,12 @@
 </code></pre>
     </figure>
     <h3 id="node-visitors">Node Visitors</h3>
-    <p>At the lowest level, plugin authors can process each node in the abstract syntax tree (AST) by defining a node visitor that will visit each node, creating an
-      opportunity to do things like modify comments and trigger parser events for any arbitrary piece of code.</p>
-    <p>Plugins can define a node visitor by exporting a <code>nodeVisitor</code> object that contains a <code>visitNode</code> function, like so:</p>
+    <p>At the lowest level, plugin authors can process each node in the abstract syntax tree (AST) by defining a node visitor that will visit each node. By using a
+      node-visitor plugin, you can modify comments and trigger parser events for any arbitrary piece of code.</p>
+    <p>Plugins can define a node visitor by exporting an <code>astNodeVisitor</code> object that contains a
+      <code>visitNode</code> function, like so:</p>
     <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.nodeVisitor = {
+      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.astNodeVisitor = {
     visitNode: function(node, e, parser, currentSourceName) {
         // do all sorts of crazy things here
     }
@@ -276,101 +277,23 @@
     </figure>
     <p>The function is called on each node with the following parameters:</p>
     <ul>
-      <li><code>node</code>: The AST node.</li>
+      <li><code>node</code>: The AST node. AST nodes are JavaScript objects that use the format defined by the Mozilla Parser API. You can use <a href="http://esprima.org/demo/parse.html">Esprima&#39;s parser demo</a>        to see the AST that will be created for your source code.</li>
       <li><code>e</code>: The event. If the node is one that the parser handles, the event object will already be populated with the same things described in the <code>symbolFound</code>        event above. Otherwise, it will be an empty object on which to set various properties.</li>
       <li><code>parser</code>: The JSDoc parser instance.</li>
       <li><code>currentSourceName</code>: The name of the file being parsed.</li>
     </ul>
+    <p>If you run JSDoc on Mozilla Rhino, you can also export a <code>nodeVisitor</code> object that contains a
+      <code>visitNode</code> function. The <code>visitNode</code> function receives the same parameters as for <code>astNodeVisitor</code> objects, but the <code>node</code>      parameter is a Rhino AST node, which is a Java object, rather than an Esprima-style JavaScript object. Rhino node visitors are deprecated as of JSDoc 3.3.0,
+      and support will be removed in a future version of JSDoc.</p>
     <h4 id="making-things-happen">Making things happen</h4>
     <p>The primary reasons to implement a node visitor are to be able to document things that aren&#39;t normally documented (like function calls that create classes)
       or to auto generate documentation for code that isn&#39;t documented. For instance, a plugin might look for calls to a <code>_trigger</code> method since it
       knows that means an event is fired and then generate documentation for the event.</p>
     <p>To make things happen, the <code>visitNode</code> function should modify properties of the event parameter. In general the goal is to construct a comment and
       then get an event to fire. After the parser lets all of the node visitors have a look at the node, it looks to see if the event object has a <code>comment</code>      property and an <code>event</code> property. If it has both, the event named in the event property is fired. The event is usually <code>symbolFound</code>      or <code>jsdocCommentFound</code>, but theoretically, a plugin could define its own events and handle them.</p>
-    <h4 id="example-of-a-node-visitor">Example of a node visitor</h4>
-    <p>Below is an example of what a plugin for documenting jQuery UI widgets might do. jQuery UI uses a factory function call to create widget classes. The plugin
-      looks for that function call and creates a symbol with documentation. It also looks for any <code>this._trigger</code> function calls and automatically creates
-      documentation for the events that are triggered:</p>
-    <figure>
-      <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.nodeVisitor = {
-    visitNode: function(node, e, parser, currentSourceName) {
-        if (node.type === Token.OBJECTLIT && node.parent && node.parent.type === Token.CALL &&
-                isInWidgetFactory(node, 1)) {
-            var widgetName = node.parent.arguments.get(0).toSource();
-            e.id = 'astnode' + node.hashCode(); // the id of the object literal node
-            e.comment = String(node.parent.jsDoc||'');
-            e.lineno = node.parent.getLineno();
-            e.filename = currentSourceName;
-            e.astnode = node;
-            e.code = {
-                name: "" + widgetName.substring(1, widgetName.length() - 1),
-                type: "class",
-                node: node
-            };
-            e.event = "symbolFound";
-            e.finishers = [parser.addDocletRef];
-
-            addCommentTag(e, "param", "{Object=} options A set of configuration options");
-        }
-        else if (isTriggerCall(node)) {
-            var nameNode = node.arguments.get(0);
-                eventName = String((nameNode.type == Token.STRING) ? nameNode.value : nameNode.toSource()),
-                func = {},
-                comment = "@event\n",
-                eventKey = "";
-
-            if (node.enclosingFunction) {
-                func.id = 'astnode'+node.enclosingFunction.hashCode();
-                func.doclet = parser.refs[func.id];
-            }
-            if (func.doclet) {
-                func.doclet.addTag("fires", eventName);
-                if (func.doclet.memberof) {
-                    eventKey = func.doclet.memberof + "#event:" + eventName;
-                    comment += "@name " + func.doclet.memberof + "#" + eventName;
-                }
-            }
-            e.comment = comment;
-            e.lineno = node.getLineno();
-            e.filename = currentSourceName;
-            e.event = "jsdocCommentFound";
-        }
-    }
-};
-
-function isTriggerCall(node) {
-    if(node.type != Token.CALL) { return false; }
-    var target = node.getTarget(),
-        left = target && target.left && String(target.left.toSource()),
-        right = target && target.right && String(target.right.toSource());
-    return (left === "this" && right === "_trigger");
-}
-
-function isInWidgetFactory(node, depth) {
-    var parent = node.parent,
-        d = 0;
-    while (parent && (!depth || d &lt; depth)) {
-        if (parent.type === Token.CALL) {
-            var target = parent.getTarget(),
-                left = target && target.left && String(target.left.toSource()),
-                right = target && target.right && String(target.right.toSource());
-            return ((left === "$" || left === "jQuery") && right === "widget");
-        } else {
-            parent = parent.parent;
-            d++;
-        }
-    }
-    return false;
-}
-</code></pre>
-    </figure>
-    <p>You&#39;ll notice a <code>finishers</code> property set. The finishers property should contain an array of functions to be called after the event is fired and
-      all the handlers have processed it. The parser provides an <code>addDocletRef</code> function that adds the doclet to the map (keyed off of the id property)
-      of doclets it knows about.</p>
-    <p>Lastly, the visitors are executed in the order the plugins are listed in the conf.json file. A plugin can stop later plugins from visiting a node by setting
-      a <code>stopPropagation</code> property on the event object (<code>e.stopPropagation = true</code>). A plugin can stop the event from firing by setting a
-      <code>preventDefault</code> property.</p>
-    <h3 id="reporting-errors">Reporting Errors</h3>
+    <p>As with event-handler plugins, a node-visitor plugin can stop later plugins from running by setting a <code>stopPropagation</code> property on the event object
+      (<code>e.stopPropagation = true</code>). A plugin can stop the event from firing by setting a <code>preventDefault</code> property (<code>e.preventDefault = true</code>).</p>
+    <h2 id="reporting-errors">Reporting Errors</h2>
     <p>If your plugin needs to report an error, use one of the following methods in the <code>jsdoc/util/logger</code> module:
     </p>
     <ul>

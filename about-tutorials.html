@@ -63,7 +63,9 @@
     </ul>
     <p>JSDoc also searches for JSON files that contain information about the titles, ordering, and hierarchy of your tutorials, as discussed in the following section.</p>
     <p>JSDoc assigns an identifier to each tutorial. The identifier is the filename without its extension. For example, the identifier for <code>/path/to/tutorials/overview.md</code>      is <code>overview</code>.</p>
-    <p>In tutorial files, you can use the <a href="tags-inline-link.html"><code>{@link}</code></a> and <a href="tags-inline-tutorial.html"><code>{@tutorial}</code></a>      inline tags to link to other parts of the documentation. JSDoc will automatically resolve the links.</p>
+    <p>In tutorial files, you can use the <a href="tags-inline-link.html"><code>{@link}</code></a> and
+      <a href="tags-inline-tutorial.html"><code>{@tutorial}</code></a> inline tags to link to other parts of the documentation. JSDoc will automatically resolve
+      the links.</p>
     <h2 id="configuring-titles-order-and-hierarchy">Configuring titles, order, and hierarchy</h2>
     <p>By default, JSDoc uses the filename as the tutorial&#39;s title, and all tutorials are at the same level. You can use a JSON file to provide a title for each
       tutorial and indicates how the tutorials should be sorted and grouped in the documentation.</p>
@@ -121,8 +123,8 @@
     <h2 id="linking-to-tutorials-from-api-documentation">Linking to tutorials from API documentation</h2>
     <p>There are multiple ways to link to a tutorial from your API documentation:</p>
     <h3 id="-tutorial-block-tag">@tutorial block tag</h3>
-    <p>If you include a <a href="tags-inline-tutorial.html"><code>@tutorial</code> block tag</a> in a JSDoc comment, the generated documentation will include a link
-      to the tutorial you specify.</p>
+    <p>If you include a <a href="tags-tutorial.html"><code>@tutorial</code> block tag</a> in a JSDoc comment, the generated documentation will include a link to the
+      tutorial you specify.</p>
     <figure>
       <figcaption>Using the <code>@tutorial</code> block tag</figcaption><pre class="prettyprint lang-js"><code>/**
  * Class representing a socket connection.

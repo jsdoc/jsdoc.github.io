@@ -293,6 +293,7 @@ var mixer = module.exports = {
 {% endexample %}
 
 [alias-tag]: tags-alias.html
+[exports-tag]: tags-exports.html
 
 
 ## Properties added to 'this'

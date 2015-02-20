@@ -30,11 +30,12 @@ hierarchy of your tutorials, as discussed in the following section.
 JSDoc assigns an identifier to each tutorial. The identifier is the filename without its extension.
 For example, the identifier for `/path/to/tutorials/overview.md` is `overview`.
 
-In tutorial files, you can use the [`{@link}`][link-tag] and [`{@tutorial}`][tutorial-tag] inline
-tags to link to other parts of the documentation. JSDoc will automatically resolve the links.
+In tutorial files, you can use the [`{@link}`][link-inline-tag] and
+[`{@tutorial}`][tutorial-inline-tag] inline tags to link to other parts of the documentation. JSDoc
+will automatically resolve the links.
 
-[link-tag]: tags-inline-link.html
-[tutorial-tag]: tags-inline-tutorial.html
+[link-inline-tag]: tags-inline-link.html
+[tutorial-inline-tag]: tags-inline-tutorial.html
 
 
 ## Configuring titles, order, and hierarchy
@@ -106,7 +107,7 @@ There are multiple ways to link to a tutorial from your API documentation:
 
 ### @tutorial block tag
 
-If you include a [`@tutorial` block tag][tutorial-tag] in a JSDoc comment, the generated documentation
+If you include a [`@tutorial` block tag][tutorial-block-tag] in a JSDoc comment, the generated documentation
 will include a link to the tutorial you specify.
 
 {% example "Using the `@tutorial` block tag" %}
@@ -125,7 +126,7 @@ function Socket() {}
 
 ### {@tutorial} inline tag
 
-You can also use the [`{@tutorial}` inline tag][tutorial-tag] to link to a tutorial within the text
+You can also use the [`{@tutorial}` inline tag][tutorial-inline-tag] to link to a tutorial within the text
 of another tag. By default, JSDoc will use the tutorial's title as the link text.
 
 {% example "Using the `{@tutorial}` inline tag" %}
@@ -140,3 +141,6 @@ of another tag. By default, JSDoc will use the tutorial's title as the link text
 function Socket() {}
 ```
 {% endexample %}
+
+[tutorial-block-tag]: tags-tutorial.html
+[tutorial-inline-tag]: tags-inline-tutorial.html

@@ -17,11 +17,24 @@ related:
 
 ## Overview
 
-The @access tag specifies the access level of a member. Note that "@access private" is the same as "@private", "@access protected" is the same as "@protected", and "@access public" is the same as "@public" which is the same as not including the tag at all. Private members will not show in the output documentation unless JSDoc is given the `--private` option.
+The `@access` tag specifies the access level of a member. You can use the `@access` tag as a
+synonym for other tags:
 
-Note that a doclet's _access level_ is different from its _scope_. For example, if "Parent" has an inner variable "child" that is documented as @public, "child" will still be treated as an inner variable with the namepath "Parent~child".
-To change a doclet's scope, see the [@instance][instance-tag], [@static][static-tag], and [@global][global-tag] tags.
++ `@access private` is the same as `@private`.
++ `@access protected` is the same as `@protected`.
++ `@access public` is the same as `@public`.
 
+Private members are not shown in the generated output unless JSDoc is run with the `-p/--private`
+command-line option. In JSDoc 3.3.0 and later, you can also use the [`-a/--access` command-line
+option][access-option] to change this behavior.
+
+Note that a doclet's _access level_ is different from its _scope_. For example, if `Parent` has an
+inner variable named `child` that is documented as `@public`, the `child` variable will still be
+treated as an inner variable with the namepath `Parent~child`. In other words, the `child` variable
+will have an inner scope, even though the variable is public. To change a doclet's scope, use the
+[`@instance`][instance-tag], [`@static`][static-tag], and [`@global`][global-tag] tags.
+
+[access-option]: about-commandline.html
 [global-tag]: tags-global.html
 [instance-tag]: tags-instance.html
 [static-tag]: tags-static.html
@@ -29,7 +42,7 @@ To change a doclet's scope, see the [@instance][instance-tag], [@static][static-
 
 ## Examples
 
-{% example "@access is a synonym for @private, @protected, @public." %}
+{% example "Using @access as a synonym for other tags" %}
 
 ```js
 /** @constructor */

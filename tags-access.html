@@ -41,15 +41,21 @@
     <p><code>@access &lt;private|protected|public&gt;</code>
     </p>
     <h2 id="overview">Overview</h2>
-    <p>The @access tag specifies the access level of a member. Note that &quot;@access private&quot; is the same as &quot;@private&quot;, &quot;@access protected&quot;
-      is the same as &quot;@protected&quot;, and &quot;@access public&quot; is the same as &quot;@public&quot; which is the same as not including the tag at all.
-      Private members will not show in the output documentation unless JSDoc is given the <code>--private</code> option.</p>
-    <p>Note that a doclet&#39;s <em>access level</em> is different from its <em>scope</em>. For example, if &quot;Parent&quot; has an inner variable &quot;child&quot;
-      that is documented as @public, &quot;child&quot; will still be treated as an inner variable with the namepath &quot;Parent~child&quot;. To change a doclet&#39;s
-      scope, see the <a href="tags-instance.html">@instance</a>, <a href="tags-static.html">@static</a>, and <a href="tags-global.html">@global</a> tags.</p>
+    <p>The <code>@access</code> tag specifies the access level of a member. You can use the <code>@access</code> tag as a synonym for other tags:</p>
+    <ul>
+      <li><code>@access private</code> is the same as <code>@private</code>.</li>
+      <li><code>@access protected</code> is the same as <code>@protected</code>.</li>
+      <li><code>@access public</code> is the same as <code>@public</code>.</li>
+    </ul>
+    <p>Private members are not shown in the generated output unless JSDoc is run with the <code>-p/--private</code> command-line option. In JSDoc 3.3.0 and later, you
+      can also use the <a href="about-commandline.html"><code>-a/--access</code> command-line
+option</a> to change this behavior.</p>
+    <p>Note that a doclet&#39;s <em>access level</em> is different from its <em>scope</em>. For example, if <code>Parent</code> has an inner variable named <code>child</code>      that is documented as <code>@public</code>, the <code>child</code> variable will still be treated as an inner variable with the namepath <code>Parent~child</code>.
+      In other words, the <code>child</code> variable will have an inner scope, even though the variable is public. To change a doclet&#39;s scope, use the
+      <a href="tags-instance.html"><code>@instance</code></a>, <a href="tags-static.html"><code>@static</code></a>, and <a href="tags-global.html"><code>@global</code></a>      tags.</p>
     <h2 id="examples">Examples</h2>
     <figure>
-      <figcaption>@access is a synonym for @private, @protected, @public.</figcaption><pre class="prettyprint lang-js"><code>/** @constructor */
+      <figcaption>Using @access as a synonym for other tags</figcaption><pre class="prettyprint lang-js"><code>/** @constructor */
 function Thingy() {
 
     /** @access private */

@@ -221,8 +221,9 @@ The Markdown plugin can be configured by including a "markdown" object into conf
 
 ## Output style configuration
 
-The options in `templates` affect how JSDoc's output looks (although custom templates may not be
-affected by these, depending on how they are coded).
+The options in `templates` affect the appearance and content of generated documentation. Custom
+templates may not implement all of these options. See [Configuring JSDoc's Default
+Template][default-template] for additional options that the default template supports.
 
 {% example %}
 
@@ -247,6 +248,7 @@ Also, there are {@linkcode ...} and {@linkplain ...} if one wishes to force the 
 in monospace or normal font respectively (see [@link, @linkcode and @linkplain][link-tag] for
 further information).
 
+[default-template]: about-configuring-default-template.html
 [link-tag]: tags-inline-link.html
 
 

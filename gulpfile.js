@@ -1,5 +1,8 @@
 'use strict';
 
+// for Metalsmith
+require('harmonize')();
+
 var beautify = require('metalsmith-beautify');
 var connect = require('gulp-connect');
 var gulp = require('gulp');

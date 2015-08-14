@@ -22,7 +22,7 @@ The parameter type can be a built-in JavaScript type, such as `string` or `Objec
 [JSDoc namepath][namepath] to another symbol in your code. If you have written documentation for the
 symbol at that namepath, JSDoc will automatically link to the documentation for that symbol. You can
 also use a type expression to indicate, for example, that a parameter is not nullable or can accept
-any type; see the [`@type` tag documentation][tags-type] for details.
+any type; see the [`@type` tag documentation][type-tag] for details.
 
 If you provide a description, you can make the JSDoc comment more readable by inserting a hyphen
 before the description. Be sure to include a space before and after the hyphen.

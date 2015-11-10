@@ -39,6 +39,12 @@
     ],
     "examples": [
         {
+            "filename": "howto-es2015-classes.html"
+        },
+        {
+            "filename": "howto-es2015-modules.html"
+        },
+        {
             "filename": "howto-commonjs-modules.html"
         },
         {

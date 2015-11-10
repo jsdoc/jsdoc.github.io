@@ -3,6 +3,8 @@ title: CommonJS Modules
 description: How to add JSDoc comments to CommonJS and Node.js modules.
 related:
     - about-namepaths.html
+    - tags-exports.html
+    - tags-module.html
 ---
 
 ## Overview

@@ -3,6 +3,8 @@ title: AMD Modules
 description: How to add JSDoc comments to AMD and RequireJS modules.
 related:
     - about-namepaths.html
+    - tags-exports.html
+    - tags-module.html
 ---
 
 ## Overview

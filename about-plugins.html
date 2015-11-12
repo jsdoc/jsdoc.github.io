@@ -79,8 +79,7 @@
 };
 </code></pre>
     </figure>
-    <p>On Node.js, JSDoc fires events in the same order as the underlying code. On Mozilla Rhino, JSDoc fires all of the <code>jsdocCommentFound</code> events at once
-      as soon as it starts parsing a file; all other events are fired in the same order as the underlying code.</p>
+    <p>JSDoc fires events in the same order as the underlying code.</p>
     <p>An event-handler plugin can stop later plugins from running by setting a <code>stopPropagation</code> property on the event object (<code>e.stopPropagation = true</code>).
       A plugin can stop the event from firing by setting a <code>preventDefault</code> property (<code>e.preventDefault = true</code>).</p>
     <h4 id="event-parsebegin">Event: parseBegin</h4>
@@ -282,9 +281,6 @@
       <li><code>parser</code>: The JSDoc parser instance.</li>
       <li><code>currentSourceName</code>: The name of the file being parsed.</li>
     </ul>
-    <p>If you run JSDoc on Mozilla Rhino, you can also export a <code>nodeVisitor</code> object that contains a
-      <code>visitNode</code> function. The <code>visitNode</code> function receives the same parameters as for <code>astNodeVisitor</code> objects, but the <code>node</code>      parameter is a Rhino AST node, which is a Java object, rather than an Esprima-style JavaScript object. Rhino node visitors are deprecated as of JSDoc 3.3.0,
-      and support will be removed in a future version of JSDoc.</p>
     <h4 id="making-things-happen">Making things happen</h4>
     <p>The primary reasons to implement a node visitor are to be able to document things that aren&#39;t normally documented (like function calls that create classes)
       or to auto generate documentation for code that isn&#39;t documented. For instance, a plugin might look for calls to a <code>_trigger</code> method since it

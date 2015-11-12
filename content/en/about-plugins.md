@@ -57,9 +57,7 @@ exports.handlers = {
 ```
 {% endexample %}
 
-On Node.js, JSDoc fires events in the same order as the underlying code. On Mozilla Rhino, JSDoc
-fires all of the `jsdocCommentFound` events at once as soon as it starts parsing a file; all other
-events are fired in the same order as the underlying code.
+JSDoc fires events in the same order as the underlying code.
 
 An event-handler plugin can stop later plugins from running by setting a `stopPropagation` property
 on the event object (`e.stopPropagation = true`). A plugin can stop the event from firing by setting
@@ -343,12 +341,6 @@ populated with the same things described in the `symbolFound` event above. Other
 empty object on which to set various properties.
 + `parser`: The JSDoc parser instance.
 + `currentSourceName`: The name of the file being parsed.
-
-If you run JSDoc on Mozilla Rhino, you can also export a `nodeVisitor` object that contains a
-`visitNode` function. The `visitNode` function receives the same parameters as for `astNodeVisitor`
-objects, but the `node` parameter is a Rhino AST node, which is a Java object, rather than an
-Esprima-style JavaScript object. Rhino node visitors are deprecated as of JSDoc 3.3.0, and support
-will be removed in a future version of JSDoc.
 
 [esprima-parser]: http://esprima.org/demo/parse.html
 

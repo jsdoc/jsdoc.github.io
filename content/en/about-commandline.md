@@ -24,7 +24,7 @@ Option|Description
 `-a <value>`, `--access <value>`|Only display symbols with the given `access` property: `private`, `protected`, `public`, or `undefined`, or `all` for all access levels. By default, all except `private` symbols are shown.
 `-c <value>`, `--configure <value>`|The path to a JSDoc [configuration file][config-file]. Defaults to `conf.json` or `conf.json.EXAMPLE` in the directory where JSDoc is installed.
 `-d <value>`, `--destination <value>`|The path to the output folder for the generated documentation. For JSDoc's built-in Haruki template, use `console` to dump data to the console. Defaults to `./out`.
-`--debug`|Log information that can help debug issues in JSDoc itself. On Rhino, launches the debugger when passed as the first option.
+`--debug`|Log information that can help debug issues in JSDoc itself.
 `-e <value>`, `--encoding <value>`|Assume this encoding when reading all source files. Defaults to `utf8`.
 `-h`, `--help`|Display information about JSDoc's command-line options, then exit.
 `--match <value>`|Only run tests whose names contain `value`.

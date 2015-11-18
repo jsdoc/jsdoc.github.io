@@ -34,6 +34,9 @@
         <a href="#showing-the-current-date-in-the-page-footer">Showing the current date in the page footer</a>
       </li>
       <li>
+        <a href="#showing-longnames-in-the-navigation-column">Showing longnames in the navigation column</a>
+      </li>
+      <li>
         <a href="#overriding-the-default-template-s-layout-file">Overriding the default template&#39;s layout file</a>
       </li>
       <li>
@@ -83,6 +86,10 @@
     <p>By default, JSDoc&#39;s default template always shows the current date in the footer of the generated documentation. In JSDoc 3.3.0 and later, you can omit the
       current date by setting the option
       <code>templates.default.includeDate</code> to <code>false</code>.</p>
+    <h2 id="showing-longnames-in-the-navigation-column">Showing longnames in the navigation column</h2>
+    <p>By default, JSDoc&#39;s default template shows a shortened version of each symbol&#39;s name in the navigation column. For example, the symbol <code>my.namespace.MyClass</code>      would be displayed simply as
+      <code>MyClass</code>. To show the complete longname instead, set the option
+      <code>templates.default.useLongnameInNav</code> to <code>true</code>. This option is available in JSDoc 3.4.0 and later.</p>
     <h2 id="overriding-the-default-template-s-layout-file">Overriding the default template&#39;s layout file</h2>
     <p>The default template uses a file named <code>layout.tmpl</code> to specify the header and footer for each page in the generated documentation. In particular,
       this file defines which CSS and JavaScript files are loaded for each page. In JSDoc 3.3.0 and later, you can specify your own <code>layout.tmpl</code> file

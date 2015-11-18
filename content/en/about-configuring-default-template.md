@@ -73,6 +73,14 @@ documentation. In JSDoc 3.3.0 and later, you can omit the current date by settin
 `templates.default.includeDate` to `false`.
 
 
+## Showing longnames in the navigation column
+
+By default, JSDoc's default template shows a shortened version of each symbol's name in the
+navigation column. For example, the symbol `my.namespace.MyClass` would be displayed simply as
+`MyClass`. To show the complete longname instead, set the option
+`templates.default.useLongnameInNav` to `true`. This option is available in JSDoc 3.4.0 and later.
+
+
 ## Overriding the default template's layout file
 
 The default template uses a file named `layout.tmpl` to specify the header and footer for each

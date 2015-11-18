@@ -36,6 +36,12 @@
       <li>
         <a href="#excluding-the-default-tags-from-markdown-processing">Excluding the default tags from Markdown processing</a>
       </li>
+      <li>
+        <a href="#hard-wrapping-text-at-line-breaks">Hard-wrapping text at line breaks</a>
+      </li>
+      <li>
+        <a href="#adding-id-attributes-to-headings">Adding ID attributes to headings</a>
+      </li>
     </ul>
     <h2 id="overview">Overview</h2>
     <p>JSDoc includes a Markdown plugin that automatically converts Markdown-formatted text to HTML. You can use this plugin with any JSDoc template. In JSDoc 3.2.2
@@ -104,6 +110,14 @@
 }
 </code></pre>
     </figure>
+    <h2 id="hard-wrapping-text-at-line-breaks">Hard-wrapping text at line breaks</h2>
+    <p>By default, the Markdown plugin does not hard-wrap text at line breaks. This is because it&#39;s normal for a JSDoc comment to be wrapped across multiple lines.
+      If you prefer to hard-wrap text at line breaks, set your JSDoc configuration file&#39;s <code>markdown.hardwrap</code> property to <code>true</code>. This
+      property is available in JSDoc 3.4.0 and later.</p>
+    <h2 id="adding-id-attributes-to-headings">Adding ID attributes to headings</h2>
+    <p>By default, the Markdown plugin does not add an <code>id</code> attribute to each HTML heading. To automatically add <code>id</code> attributes based on the
+      heading&#39;s text, set your JSDoc configuration file&#39;s
+      <code>markdown.idInHeadings</code> property to <code>true</code>. This property is available in JSDoc 3.4.0 and later.</p>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">

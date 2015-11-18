@@ -103,3 +103,18 @@ For example, to exclude the `author` tag from Markdown processing:
 }
 ```
 {% endexample %}
+
+
+## Hard-wrapping text at line breaks
+
+By default, the Markdown plugin does not hard-wrap text at line breaks. This is because it's normal
+for a JSDoc comment to be wrapped across multiple lines. If you prefer to hard-wrap text at line
+breaks, set your JSDoc configuration file's `markdown.hardwrap` property to `true`. This property is
+available in JSDoc 3.4.0 and later.
+
+
+## Adding ID attributes to headings
+
+By default, the Markdown plugin does not add an `id` attribute to each HTML heading. To
+automatically add `id` attributes based on the heading's text, set your JSDoc configuration file's
+`markdown.idInHeadings` property to `true`. This property is available in JSDoc 3.4.0 and later.

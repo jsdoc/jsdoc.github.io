@@ -24,7 +24,7 @@ address to a `mailto:` link.
 
 ```js
 /**
- * @author Jane Smith <jsmith@example.com>
+ * @author Jane Smith &lt;jsmith@example.com>
  */
 function MyClass() {}
 ```

@@ -45,10 +45,11 @@ level. You can use a JSON file to provide a title for each tutorial and indicate
 should be sorted and grouped in the documentation.
 
 The JSON file must use the extension `.json`. In the JSON file, you can use the tutorial identifiers
-to provide two properties for each tutorial:
+to provide three properties for each tutorial:
 
 + `title`: The title to display in the documentation.
 + `children`: The children of the tutorial.
++ `order`: Defines the order of the tutorial menu. A lower number denotes a higher spot in the menu.
 
 In JSDoc 3.2.0 and later, you can use the following formats for the JSON file:
 
@@ -62,10 +63,12 @@ level as `tutorial1` and has no children:
             "title": "Tutorial One",
             "children": {
                 "childA": {
-                    "title": "Child A"
+                    "title": "Child A",
+                    "order": 2
                 },
                 "childB": {
-                    "title": "Child B"
+                    "title": "Child B",
+                    "order": 1
                 }
             }
         },
@@ -89,10 +92,12 @@ at the same level as `tutorial1` and has no children:
             "title": "Tutorial Two"
         },
         "childA": {
-            "title": "Child A"
+            "title": "Child A",
+            "order": 2
         },
         "childB": {
-            "title": "Child B"
+            "title": "Child B",
+            "order": 1
         }
     }
     ```

@@ -56,7 +56,7 @@
         "dictionaries": ["jsdoc","closure"]
     },
     "source": {
-        "includePattern": ".+\\.js(doc)?$",
+        "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
     "plugins": [],
@@ -72,7 +72,7 @@
       <li>JSDoc allows you to use unrecognized tags (<code>tags.allowUnknownTags</code>);</li>
       <li>Both standard JSDoc tags and <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler#tags">Closure Compiler tags</a> are enabled (
         <code>tags.dictionaries</code>);</li>
-      <li>Only files ending in &quot;.js&quot; and &quot;.jsdoc&quot; will be processed (<code>source.includePattern</code>);</li>
+      <li>Only files ending in &quot;.js&quot;, &quot;.jsdoc&quot;, and &quot;.jsx&quot; will be processed (<code>source.includePattern</code>);</li>
       <li>Any file starting with an underscore or in a directory starting with an underscore will be
         <em>ignored</em> (<code>source.excludePattern</code>);</li>
       <li>No plugins are loaded (<code>plugins</code>);</li>
@@ -81,8 +81,7 @@
     <p>These options and others will be further explained on this page.</p>
     <p>Further settings may be added to the file as requested by various plugins or templates (for example, the <a href="plugins-markdown.html">Markdown plugin</a>      can be configured by including a &quot;markdown&quot; key).</p>
     <h2 id="specifying-input-files">Specifying input files</h2>
-    <p>The &quot;source&quot; set of options, in combination with paths given to JSDoc on the command-line, determine what files JSDoc generates documentation for.
-      (Remove the comments before adding this example to your own .json file.)</p>
+    <p>The &quot;source&quot; set of options, in combination with paths given to JSDoc on the command-line, determine what files JSDoc generates documentation for.</p>
     <figure><pre class="prettyprint lang-js"><code>"source": {
     "include": [ /* array of paths to files to generate documentation for */ ],
     "exclude": [ /* array of paths to exclude */ ],

@@ -24,7 +24,7 @@ file, this is what JSDoc will use:
         "dictionaries": ["jsdoc","closure"]
     },
     "source": {
-        "includePattern": ".+\\.js(doc)?$",
+        "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
     "plugins": [],
@@ -41,7 +41,7 @@ This means:
 + JSDoc allows you to use unrecognized tags (`tags.allowUnknownTags`);
 + Both standard JSDoc tags and [Closure Compiler tags][closure-tags] are enabled
 (`tags.dictionaries`);
-+ Only files ending in ".js" and ".jsdoc" will be processed (`source.includePattern`);
++ Only files ending in ".js", ".jsdoc", and ".jsx" will be processed (`source.includePattern`);
 + Any file starting with an underscore or in a directory starting with an underscore will be
 _ignored_ (`source.excludePattern`);
 + No plugins are loaded (`plugins`);
@@ -59,8 +59,7 @@ the [Markdown plugin][markdown] can be configured by including a "markdown" key)
 ## Specifying input files
 
 The "source" set of options, in combination with paths given to JSDoc on the command-line, determine
-what files JSDoc generates documentation for. (Remove the comments before adding this example to
-your own .json file.)
+what files JSDoc generates documentation for.
 
 {% example %}
 

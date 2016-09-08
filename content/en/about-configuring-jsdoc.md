@@ -268,7 +268,8 @@ The options in `tags` control which JSDoc tags are allowed and how each tag is i
 
 The `tags.allowUnknownTags` property affects how JSDoc handles unrecognized tags. If you set this
 option to `false`, and JSDoc finds a tag that it does not recognize (for example, `@foo`), JSDoc
-logs a warning. By default, this option is set to `true`.
+logs a warning. By default, this option is set to `true`. In JSDoc 3.4.1 and later, you can also
+set this property to an array of tag names that JSDoc should allow (for example, `["foo","bar"]`).
 
 The `tags.dictionaries` property controls which tags JSDoc recognizes, as well as how JSDoc
 interprets the tags that it recognizes. In JSDoc 3.3.0 and later, there are two built-in tag

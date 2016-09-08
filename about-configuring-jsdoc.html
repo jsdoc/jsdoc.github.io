@@ -218,7 +218,8 @@ Template</a> for additional options that the default template supports.</p>
 </code></pre>
     </figure>
     <p>The <code>tags.allowUnknownTags</code> property affects how JSDoc handles unrecognized tags. If you set this option to <code>false</code>, and JSDoc finds a
-      tag that it does not recognize (for example, <code>@foo</code>), JSDoc logs a warning. By default, this option is set to <code>true</code>.</p>
+      tag that it does not recognize (for example, <code>@foo</code>), JSDoc logs a warning. By default, this option is set to <code>true</code>. In JSDoc 3.4.1
+      and later, you can also set this property to an array of tag names that JSDoc should allow (for example, <code>[&quot;foo&quot;,&quot;bar&quot;]</code>).</p>
     <p>The <code>tags.dictionaries</code> property controls which tags JSDoc recognizes, as well as how JSDoc interprets the tags that it recognizes. In JSDoc 3.3.0
       and later, there are two built-in tag dictionaries:
     </p>

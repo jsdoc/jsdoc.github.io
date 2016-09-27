@@ -45,8 +45,7 @@
       <code>@extends</code>
     </p>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@augments &lt;namepath&gt;</code>
-    </p>
+    <p><code>@augments &lt;namepath&gt;</code></p>
     <h2 id="overview">Overview</h2>
     <p>The <code>@augments</code> or<code>@extends</code> tag indicates that a symbol inherits from, and potentially adds to, a parent symbol. You can use this tag
       to document both class-based and prototype-based inheritance.</p>
@@ -83,8 +82,7 @@ var d = new Duck();
 d.speak(); // Quack!
 d.alive = false;
 d.speak(); // (nothing)
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>In the following example, the <code>Duck</code> class inherits from both the <code>Flyable</code> and <code>Bird</code> classes, both of which define a <code>takeOff</code>      method. Because the documentation for <code>Duck</code> lists <code>@augments Bird</code> last, JSDoc automatically documents <code>Duck#takeOff</code> using
       the comment from <code>Bird#takeOff</code>.</p>
     <figure>
@@ -130,8 +128,7 @@ function Duck() {}
 Duck.prototype.takeOff = function() {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -150,8 +147,7 @@ Duck.prototype.takeOff = function() {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

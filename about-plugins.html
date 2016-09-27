@@ -58,8 +58,7 @@
       <figcaption>Adding a plugin to JSDoc&#39;s configuration file</figcaption><pre class="prettyprint lang-json"><code>{
     "plugins": ["plugins/shout"]
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>JSDoc executes plugins in the order that they are listed in the configuration file.</p>
     <h2 id="authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins</h2>
     <p>JSDoc 3&#39;s plugin system offers extensive control over the parsing process. A plugin can affect the parse results by doing any of the following:</p>
@@ -77,8 +76,7 @@
         // Do something when we see a new doclet
     }
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>JSDoc fires events in the same order as the underlying code.</p>
     <p>An event-handler plugin can stop later plugins from running by setting a <code>stopPropagation</code> property on the event object (<code>e.stopPropagation = true</code>).
       A plugin can stop the event from firing by setting a <code>preventDefault</code> property (<code>e.preventDefault = true</code>).</p>
@@ -120,8 +118,7 @@
         e.source += extraDoc.join('\n');
     }
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h4 id="event-jsdoccommentfound">Event: jsdocCommentFound</h4>
     <p>The <code>jsdocCommentFound</code> event is fired whenever a JSDoc comment is found. The comment may or may not be associated with any code. You might use this
       event to modify the contents of a comment before it is processed.</p>
@@ -182,8 +179,7 @@
         }
     }
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h4 id="event-filecomplete">Event: fileComplete</h4>
     <p>The <code>fileComplete</code> event is fired when the parser has finished parsing a file. Your plugin could use this event to trigger per-file cleanup.</p>
     <p>The event object contains the following properties:</p>
@@ -216,8 +212,7 @@
       <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.defineTags = function(dictionary) {
     // define tags here
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h4 id="the-dictionary">The Dictionary</h4>
     <p>The dictionary provides the following methods:</p>
     <ul>
@@ -253,14 +248,12 @@
         doclet.scope = "instance";
     }
 });
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>The <code>defineTag</code> method returns a <code>Tag</code> object, which has a <code>synonym</code> method that can be used to declare a synonym for the tag.</p>
     <figure>
       <figcaption>Defining a tag synonym</figcaption><pre class="prettyprint lang-js"><code>dictionary.defineTag('exception', { /* options for exception tag */ })
     .synonym('throws');
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h3 id="node-visitors">Node Visitors</h3>
     <p>At the lowest level, plugin authors can process each node in the abstract syntax tree (AST) by defining a node visitor that will visit each node. By using a
       node-visitor plugin, you can modify comments and trigger parser events for any arbitrary piece of code.</p>
@@ -272,8 +265,7 @@
         // do all sorts of crazy things here
     }
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>The function is called on each node with the following parameters:</p>
     <ul>
       <li><code>node</code>: The AST node. AST nodes are JavaScript objects that use the format defined by the Mozilla Parser API. You can use <a href="http://esprima.org/demo/parse.html">Esprima&#39;s parser demo</a>        to see the AST that will be created for your source code.</li>
@@ -312,13 +304,11 @@ exports.handlers = {
         }
     }
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

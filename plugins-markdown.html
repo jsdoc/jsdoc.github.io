@@ -53,22 +53,15 @@
       <a name="default-tags"></a>
       By default, JSDoc looks for Markdown-formatted text in the following JSDoc tags:</p>
     <ul>
-      <li><a href="tags-author.html"><code>@author</code></a>
-      </li>
-      <li><a href="tags-classdesc.html"><code>@classdesc</code></a>
-      </li>
+      <li><a href="tags-author.html"><code>@author</code></a></li>
+      <li><a href="tags-classdesc.html"><code>@classdesc</code></a></li>
       <li><a href="tags-description.html"><code>@description</code></a> (including untagged descriptions at the start of a JSDoc comment)
       </li>
-      <li><a href="tags-param.html"><code>@param</code></a>
-      </li>
-      <li><a href="tags-property.html"><code>@property</code></a>
-      </li>
-      <li><a href="tags-returns.html"><code>@returns</code></a>
-      </li>
-      <li><a href="tags-see.html"><code>@see</code></a>
-      </li>
-      <li><a href="tags-throws.html"><code>@throws</code></a>
-      </li>
+      <li><a href="tags-param.html"><code>@param</code></a></li>
+      <li><a href="tags-property.html"><code>@property</code></a></li>
+      <li><a href="tags-returns.html"><code>@returns</code></a></li>
+      <li><a href="tags-see.html"><code>@see</code></a></li>
+      <li><a href="tags-throws.html"><code>@throws</code></a></li>
     </ul>
     <h2 id="enabling-the-markdown-plugin">Enabling the Markdown plugin</h2>
     <p>To enable the Markdown plugin, add the string <code>plugins/markdown</code> to the <code>plugins</code> array in your
@@ -77,8 +70,7 @@
       <figcaption>Configuration file that enables the Markdown plugin</figcaption><pre class="prettyprint lang-json"><code>{
     "plugins": ["plugins/markdown"]
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="converting-markdown-in-additional-jsdoc-tags">Converting Markdown in additional JSDoc tags</h2>
     <p>By default, the Markdown plugin only processes <a href="#default-tags">specific JSDoc tags</a> for Markdown text. You can handle Markdown text in other tags
       by adding a <code>markdown.tags</code> property to your JSDoc configuration file. The <code>markdown.tags</code> property contains an array of the additional
@@ -94,8 +86,7 @@
         "tags": ["foo", "bar"]
     }
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="excluding-the-default-tags-from-markdown-processing">Excluding the default tags from Markdown processing</h2>
     <p>To prevent the Markdown plugin from processing any of the <a href="#default-tags">default JSDoc tags</a>, add a
       <code>markdown.excludeTags</code> property to your JSDoc configuration file. The <code>markdown.excludeTags</code> property contains an array of the default
@@ -108,8 +99,7 @@
         "excludeTags": ["author"]
     }
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="hard-wrapping-text-at-line-breaks">Hard-wrapping text at line breaks</h2>
     <p>By default, the Markdown plugin does not hard-wrap text at line breaks. This is because it&#39;s normal for a JSDoc comment to be wrapped across multiple lines.
       If you prefer to hard-wrap text at line breaks, set your JSDoc configuration file&#39;s <code>markdown.hardwrap</code> property to <code>true</code>. This
@@ -121,8 +111,7 @@
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

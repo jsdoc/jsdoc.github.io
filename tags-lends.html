@@ -38,8 +38,7 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@lends &lt;namepath&gt;</code>
-    </p>
+    <p><code>@lends &lt;namepath&gt;</code></p>
     <h2 id="overview">Overview</h2>
     <p>The <code>@lends</code> tag allows you to document all the members of an object literal as if they were members of a symbol with the given name. You might want
       to do this if you are passing an object literal into a function that creates a named class from its members.</p>
@@ -59,8 +58,7 @@ var Person = makeClass(
         }
     }
 );
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>Without any comments, JSDoc won&#39;t recognize that this code creates a &quot;Person&quot; class with two methods. To document the methods, we must use a &quot;@lends&quot;
       tag in a doc comment immediately before the object literal. The @lends tag tells JSDoc that all the member names of that object literal are being &quot;lent&quot;
       to a variable named &quot;Person.&quot;</p>
@@ -78,8 +76,7 @@ var Person = makeClass(
         }
     }
 );
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>Now the functions named &quot;initialize&quot; and &quot;say&quot; will be documented, but they appear as static methods of the &quot;Person&quot; class. That
       is possibly what you meant, but in this case we want &quot;initialize&quot; and &quot;say&quot; to belong to the instances of the &quot;Person&quot; class.
       So we change things slightly by lending the methods to the class&#39;s prototype:</p>
@@ -96,8 +93,7 @@ var Person = makeClass(
         }
     }
 );
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>One final step: Our class framework uses the loaned &quot;initialize&quot; function to construct Person instances, but a Person instance does not have its own
       &quot;initialize&quot; method. The solution is to add the @constructs tag to the loaned function. Remember to remove the @class tag as well, or else two classes
       will be documented.</p>
@@ -114,8 +110,7 @@ var Person = makeClass(
         }
     }
 );
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -128,8 +123,7 @@ var Person = makeClass(
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

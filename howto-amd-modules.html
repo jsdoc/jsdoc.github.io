@@ -94,8 +94,7 @@ API</a>, which is implemented by libraries such as <a href="http://requirejs.org
 
     return shirt;
 });
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="function-that-returns-another-function">Function that returns another function</h2>
     <p>If you define your module as a function that exports another function, such as a constructor, you can use a standalone comment with a <a href="tags-module.html"><code>@module</code> tag</a>      to document the module. You can then use an <a href="tags-alias.html"><code>@alias</code> tag</a> to tell JSDoc that the function uses the same longname as
       the module.
@@ -121,8 +120,7 @@ define('my/jacket', function() {
 
     return Jacket;
 });
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="module-declared-in-a-return-statement">Module declared in a return statement</h2>
     <p>If you declare your module object in a function&#39;s <code>return</code> statement, you can use a standalone comment with a <a href="tags-module.html"><code>@module</code> tag</a>      to document the module. You can then add an
       <a href="tags-alias.html"><code>@alias</code> tag</a> to tell JSDoc that the module object has the same longname as the module.</p>
@@ -142,8 +140,7 @@ define('my/shirt', function() {
         size: 'unisize'
     };
 });
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="module-object-passed-to-a-function">Module object passed to a function</h2>
     <p>If the module object is passed into the function that defines your module, you can document the module by adding an <a href="tags-exports.html"><code>@exports</code> tag</a>      to the function parameter. This pattern is supported in JSDoc 3.3.0 and later.</p>
     <figure>
@@ -162,8 +159,7 @@ define('my/shirt', function() {
         // ...
     };
 });
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="multiple-modules-defined-in-one-file">Multiple modules defined in one file</h2>
     <p>If you define more than one AMD module in a single JavaScript file, use the
       <a href="tags-exports.html"><code>@exports</code> tag</a> to document each module object.</p>
@@ -198,8 +194,7 @@ define('tag', function() {
 
     return tag;
 });
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -215,8 +210,7 @@ define('tag', function() {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

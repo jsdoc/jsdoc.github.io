@@ -104,8 +104,7 @@ exports.button = function() {
 exports.unbutton = function() {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>
       <a name="local-vars"></a>
     </p>
@@ -123,8 +122,7 @@ exports.unbutton = function() {
 var wash = exports.wash = function() {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>In this case, JSDoc will <em>not</em> automatically document <code>wash</code> as an exported method, because the JSDoc comment appears immediately before the
       local variable <code>wash</code> rather than <code>exports.wash</code>. One solution is to add an <a href="tags-alias.html"><code>@alias</code> tag</a> that
       defines the correct longname for the method. In this case, the method is a static member of the module <code>my/shirt</code>, so the correct longname is
@@ -142,8 +140,7 @@ var wash = exports.wash = function() {
 var wash = exports.wash = function() {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>Another solution is to move the method&#39;s JSDoc comment so it comes immediately before
       <code>exports.wash</code>. This change allows JSDoc to detect that <code>wash</code> is exported by the module <code>my/shirt</code>:</p>
     <figure>
@@ -157,8 +154,7 @@ var wash =
 exports.wash = function() {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="values-assigned-to-module-exports-">Values assigned to &#39;module.exports&#39;</h2>
     <p>In a Node.js module, you can assign a value directly to <code>module.exports</code>. This section explains how to document different types of values when they
       are assigned to <code>module.exports</code>.</p>
@@ -183,8 +179,7 @@ module.exports = {
         // ..
     }
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>You can also use this pattern if you add properties to <code>module.exports</code> outside of the object literal:
     </p>
     <figure>
@@ -204,8 +199,7 @@ module.exports = {
 module.exports.darken = function(color, percent) {
     // ..
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h3 id="function-assigned-to-module-exports-">Function assigned to &#39;module.exports&#39;</h3>
     <p>If you assign a function to <code>module.exports</code>, JSDoc will automatically set the correct longname for the function:</p>
     <figure>
@@ -218,8 +212,7 @@ module.exports.darken = function(color, percent) {
 module.exports = function(color1, color2) {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>The same pattern works for constructor functions:</p>
     <figure>
       <figcaption>Constructor assigned to &#39;module.exports&#39;</figcaption><pre class="prettyprint lang-js"><code>/**
@@ -231,8 +224,7 @@ module.exports = function(color1, color2) {
 module.exports = function ColorMixer() {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h3 id="string-number-or-boolean-assigned-to-module-exports-">String, number, or boolean assigned to &#39;module.exports&#39;</h3>
     <p>For value types (strings, numbers, and booleans) assigned to <code>module.exports</code>, you must document the exported value&#39;s type by using the <a href="tags-type.html"><code>@type</code> tag</a>      in the same JSDoc comment as the
       <code>@module</code> tag:</p>
@@ -244,8 +236,7 @@ module.exports = function ColorMixer() {
  */
 
 module.exports = 'perniciousness';
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="values-assigned-to-module-exports-and-local-variables">Values assigned to &#39;module.exports&#39; and local variables</h2>
     <p>If your module exports symbols that are not directly assigned to <code>module.exports</code>, you can use the
       <a href="tags-exports.html"><code>@exports</code> tag</a> in place of the <code>@module</code> tag. The <code>@exports</code> tag tells JSDoc that a symbol
@@ -261,8 +252,7 @@ var mixer = module.exports = {
         // ...
     }
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="properties-added-to-this-">Properties added to &#39;this&#39;</h2>
     <p>When a module adds a property to its <code>this</code> object, JSDoc 3 automatically recognizes that the new property is exported by the module:</p>
     <figure>
@@ -273,8 +263,7 @@ this.Book = function(title) {
     /** The title of the book. */
     this.title = title;
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -290,8 +279,7 @@ this.Book = function(title) {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

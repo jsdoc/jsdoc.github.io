@@ -38,8 +38,7 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@namespace [{&lt;type&gt;}] &lt;SomeName&gt;]</code>
-    </p>
+    <p><code>@namespace [{&lt;type&gt;}] &lt;SomeName&gt;]</code></p>
     <h2 id="overview">Overview</h2>
     <p>The @namespace tag indicates that an object creates a namespace for its members. You can also write a virtual JSDoc comment that defines a namespace used by
       your code.</p>
@@ -59,8 +58,7 @@ var MyNamespace = {
     /** documented as MyNamespace.bar */
     bar: 1
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>Using the @namespace tag for virtual comments</figcaption><pre class="prettyprint lang-js"><code>/**
  * A namespace.
@@ -72,8 +70,7 @@ var MyNamespace = {
  * @function myFunction
  * @memberof MyNamespace
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>If a @namespace includes a symbol whose name has unusual characters, you must enclose the symbol&#39;s name in double quotes. If the symbol&#39;s name already
       contains one or more double quotes, escape the double quotes with a leading backslash (\).</p>
     <figure>
@@ -84,8 +81,7 @@ var MyNamespace = {
  * Refer to it as {@link window."!"} (note the double quotes).
  */
 window["!"] = function(msg) { alert(msg); };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <p>
       <a href="tags-module.html">@module</a>
@@ -93,8 +89,7 @@ window["!"] = function(msg) { alert(msg); };
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

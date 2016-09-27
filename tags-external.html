@@ -42,8 +42,7 @@
       <code>@host</code>
     </p>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@external &lt;NameOfExternal&gt;</code>
-    </p>
+    <p><code>@external &lt;NameOfExternal&gt;</code></p>
     <h2 id="overview">Overview</h2>
     <p>The <code>@external</code> tag identifies a class, namespace, or module that is defined outside of the current package. By using this tag, you can document your
       package&#39;s extensions to the external symbol, or you can provide information about the external symbol to your package&#39;s users. You can also refer to
@@ -70,8 +69,7 @@
  * var greeting = new String('hello world');
  * console.log( greeting.rot13() ); // uryyb jbeyq
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>The following example documents a new <code>starfairy</code> function added to the external namespace
       <code>&quot;jQuery.fn&quot;</code>:</p>
     <figure>
@@ -85,8 +83,7 @@
  * A jQuery plugin to make stars fly around your home page.
  * @function external:"jQuery.fn".starfairy
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>In the following example, the class <code>EncryptedRequest</code> is documented as a subclass of the built-in class <code>XMLHttpRequest</code>:</p>
     <figure>
       <figcaption>Extending an external.</figcaption><pre class="prettyprint lang-js"><code>/**
@@ -100,8 +97,7 @@
  * @class EncodedRequest
  * @extends external:XMLHttpRequest
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>
       <a name="nested-external-symbol"></a>
       You should only add the <code>@external</code> tag to the highest-level symbol that is defined outside of your project. In the following example, the documentation
@@ -120,13 +116,11 @@
  * @class TLS
  * @memberof external:security
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

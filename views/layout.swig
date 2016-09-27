@@ -71,11 +71,13 @@
 </head>
 
 <body>
-    <header>
-        <a href="./index.html">@use JSDoc</a>
+    <header role="banner">
+        <div class="container">
+            <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+        </div><!--/.container-->
     </header>
 
-    <article>
+    <article role="main">
     {% if title %}
         <h1>{{ title }}</h1>
     {% endif %}
@@ -104,7 +106,7 @@
 
     </article>
 
-    <footer>
+    <footer role="contentinfo">
         <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
         <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg"
             width="80" height="15" /></a>

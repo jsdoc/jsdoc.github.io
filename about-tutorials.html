@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>Tutorials</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -51,14 +54,11 @@
 </code></pre>
     <p>JSDoc searches the tutorials directory for files with the following extensions:</p>
     <ul>
-      <li><code>.htm</code>
-      </li>
-      <li><code>.html</code>
-      </li>
+      <li><code>.htm</code></li>
+      <li><code>.html</code></li>
       <li><code>.markdown</code> (converted from Markdown to HTML)</li>
       <li><code>.md</code> (converted from Markdown to HTML)</li>
-      <li><code>.xhtml</code>
-      </li>
+      <li><code>.xhtml</code></li>
       <li><code>.xml</code> (treated as HTML)</li>
     </ul>
     <p>JSDoc also searches for JSON files that contain information about the titles, ordering, and hierarchy of your tutorials, as discussed in the following section.</p>
@@ -95,8 +95,7 @@
          "title": "Tutorial Two"
      }
  }
-</code></pre>
-      </li>
+</code></pre></li>
       <li>
         <p>A top-level object whose properties are all tutorial objects, with child tutorials listed by name in an array. For example, if <code>tutorial1</code> has
           two children, <code>childA</code> and <code>childB</code>, and <code>tutorial2</code> is at the same level as <code>tutorial1</code> and has no children:</p>
@@ -115,8 +114,7 @@
          "title": "Child B"
      }
  }
-</code></pre>
-      </li>
+</code></pre></li>
     </ol>
     <p>You can also provide an individual <code>.json</code> file for each tutorial, using the tutorial identifier as the filename. This method is deprecated and should
       not be used for new projects.</p>
@@ -133,8 +131,7 @@
  * @tutorial socket-tutorial
  */
 function Socket() {}
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h3 id="-tutorial-inline-tag">{@tutorial} inline tag</h3>
     <p>You can also use the <a href="tags-inline-tutorial.html"><code>{@tutorial}</code> inline tag</a> to link to a tutorial within the text of another tag. By default,
       JSDoc will use the tutorial&#39;s title as the link text.</p>
@@ -146,13 +143,11 @@ function Socket() {}
  * @class
  */
 function Socket() {}
-</code></pre>
-    </figure>
+</code></pre></figure>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

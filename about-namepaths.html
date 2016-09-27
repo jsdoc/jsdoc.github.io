@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>Using namepaths with JSDoc 3</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -40,8 +43,7 @@ MyConstructor
 MyConstructor#instanceMember
 MyConstructor.staticMember
 MyConstructor~innerMember // note that JSDoc 2 uses a dash
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>The example below shows: an <em>instance</em> method named &quot;say,&quot; an <em>inner</em> function also named &quot;say,&quot; and a <em>static</em> method
       also named &quot;say.&quot; These are three distinct methods that all exist independently of one another.</p>
     <figure>
@@ -63,15 +65,13 @@ var p = new Person();
 p.say();      // I'm an instance.
 Person.say(); // I'm static.
 // there is no way to directly access the inner function from here
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>You would use three different namepath syntaxes to refer to the three different methods:</p>
     <figure>
       <figcaption>Use a documentation tag to describe your code.</figcaption><pre class="prettyprint"><code>Person#say  // the instance method named "say."
 Person.say  // the static method named "say."
 Person~say  // the inner method named "say."
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>You might wonder why there is a syntax to refer to an inner method when that method isn&#39;t directly accessible from outside the function it is defined in.
       While that is true, and thus the &quot;~&quot; syntax is rarely used, it <em>is</em> possible to return a reference to an inner method from another method
       inside that container, so it is possible that some object elsewhere in your code might borrow an inner method.</p>
@@ -90,13 +90,10 @@ Person = function() {
 var p = new Person();
 var i = new p.Idea();
 i.consider();
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>In this case, to refer to the method named &quot;consider,&quot; you would use the following namepath:
-      <code>Person#Idea#consider</code>
-    </p>
-    <p>This chaining can be used with any combination of the connecting symbols: <code># . ~</code>
-    </p>
+      <code>Person#Idea#consider</code></p>
+    <p>This chaining can be used with any combination of the connecting symbols: <code># . ~</code></p>
     <figure>
       <figcaption>Special cases: modules, externals and events.</figcaption><pre class="prettyprint lang-js"><code>/** A module. Its name is module:foo/bar.
  * @module foo/bar
@@ -107,8 +104,7 @@ i.consider();
 /** An event. Its name is module:foo/bar.event:MyEvent.
  * @event module:foo/bar.event:MyEvent
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>There are some special cases with namepaths: <a href="tags-module.html">@module</a> names are prefixed by &quot;module:&quot;, <a href="tags-external.html">@external</a>      names are prefixed by &quot;external:&quot;, and <a href="tags-event.html">@event</a> names are prefixed by &quot;event:&quot;.</p>
     <figure>
       <figcaption>Namepaths of objects with special characters in the name.</figcaption><pre class="prettyprint lang-js"><code>/** @namespace */
@@ -136,8 +132,7 @@ var chat = {
  * Now we define an event in our {@link chat."#channel"} namespace.
  * @event chat."#channel"."op:announce-motd"
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>Above is an example of a namespace with &quot;unusual&quot; characters in its member names (the hash character, dashes, even quotes). To refer to these you just
       need quote the names: chat.&quot;#channel&quot;, chat.&quot;#channel&quot;.&quot;op:announce-motd&quot;, and so on. Internal quotes in names should be escaped
       with backslashes: chat.&quot;#channel&quot;.&quot;say-\&quot;hello\&quot;&quot;.</p>
@@ -151,10 +146,9 @@ var chat = {
       </li>
     </ul>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

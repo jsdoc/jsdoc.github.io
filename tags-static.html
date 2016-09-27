@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>@static</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -47,8 +50,7 @@
  * @memberof MyNamespace
  * @static
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>The following example forces a module&#39;s inner member to be documented as a static member:</p>
     <figure>
       <figcaption>Using @static to override the default scope</figcaption><pre class="prettyprint lang-js"><code>/** @module Rollerskate */
@@ -59,8 +61,7 @@
  * @static
  */
 var wheel = 1;
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -74,10 +75,9 @@ var wheel = 1;
       </li>
     </ul>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

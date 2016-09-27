@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>@returns</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -54,8 +57,7 @@
 function sum(a, b) {
     return a + b;
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>Type and description of the return value</figcaption><pre class="prettyprint lang-js"><code>/**
  * Returns the sum of a and b
@@ -66,8 +68,7 @@ function sum(a, b) {
 function sum(a, b) {
     return a + b;
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>The return value can have different types</figcaption><pre class="prettyprint lang-js"><code>/**
  * Returns the sum of a and b
@@ -82,17 +83,15 @@ function sum(a, b, retArr) {
     }
     return a + b;
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <p>
       <a href="tags-param.html">@param</a>
     </p>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

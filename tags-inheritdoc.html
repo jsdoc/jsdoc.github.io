@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>@inheritdoc</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -68,8 +71,7 @@ function Socket() {}
 Socket.prototype.open = function() {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>You can get the same result by omitting the JSDoc comment from <code>Socket#open</code>:</p>
     <figure>
       <figcaption>Inheriting documentation without the <code>@inheritdoc</code> tag</figcaption><pre class="prettyprint lang-js"><code>/**
@@ -96,17 +98,15 @@ function Socket() {}
 Socket.prototype.open = function() {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <p>
       <a href="tags-override.html">@override</a>
     </p>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

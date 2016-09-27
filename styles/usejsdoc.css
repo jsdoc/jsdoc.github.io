@@ -1,122 +1,150 @@
+/*
+    Variables
+    ===============
+
+    Fonts--
+
+    Primary:               Open Sans (https://fonts.google.com/specimen/Open+Sans)
+    Secondary:             Inconsolata (https://fonts.google.com/specimen/Inconsolata)
+
+    Colors--
+
+    Dark gray (text):       #333333
+    Red (headings):         #B93A38
+    Blue (links):           #006FBB
+    Purple (visted links):  #3E00B6
+    Gray (backgrounds):     #EBEBEB
+    Gray (borders):         #C6C6C6
+
+    Spacing--
+
+    .5em = 8px
+    1em = 16px
+    2em = 32px
+
+*/
+
+@import 'https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:400,600';
+
 body {
-    font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font: 1em 'Open Sans', sans-serif;
     padding: 0;
     margin: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+    overflow-x: hidden; /* the github ribbon is causing some overflow */
 }
 
-a, a:visited, a:active {
-    color: #605C89;
-}
-
-header {
-    background-color: #EBEBEB;
+a {
     color: #006FBB;
-    margin: 0;
-    margin-bottom: 32px;
-    padding: 18px;
-    font-size: 2.4em;
-    font-weight: bold;
-    border-bottom: 1px #C6C6C6 solid;
-}
-
-header a, header a:visited {
-    color: #006FBB;
+    border-bottom: 1px solid rgba(0, 111, 187, .3);
     text-decoration: none;
 }
 
-article {
-    margin: 18px;
+a:visited {
+    color: #3E00B6;
+    border-bottom: 1px solid rgba(62, 0, 182, .3);
 }
 
-footer {
-    margin: 16px;
-    margin-top: 32px;
-    font-style: italic;
-    font-size: 0.8em;
+a:hover, a:focus {
+    border-bottom-color: transparent;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: #B93A38;
+    line-height: 1.4;
 }
 
 h1 {
-    font-size: 1.428em;
-    text-indent: 0;
+    font-size: 2em;
 }
 
 h2 {
-    font-size: 1.285em;
-    text-indent: 1%;
+    font-size: 1.4em;
+    margin: 2em 0 .5em;
 }
 
 h3 {
-    font-size: 1.142em;
-    text-indent: 2%;
+    font-size: 1.2em;
 }
 
 h4 {
     font-size: 1em;
-    text-indent: 3%;
 }
 
 h5 {
     font-size: 0.857em;
-    text-indent: 4%;
 }
 
 h6 {
     font-size: 0.714em;
-    text-indent: 5%;
 }
 
 p {
-    text-indent: 2%;
+    line-height: 1.7;
+    margin: 0 0 1em;
 }
 
-figure pre code {
-    font-size: 0.857em;
+figure {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    margin: 0;
 }
 
 figcaption {
     font-weight: bold;
+    font-size: 1em;
+    margin: 2em 0 1em;
 }
 
 dl {
-    margin-left: 2%;
-    padding-left: 0;
+    line-height: 1.4;
+    font-size: 1em;
 }
 
 dt {
-    margin-left: 16px;
-    padding-left: 4px;
-    margin-top: 8px;
-}
-
-dt a, dt a:visited {
-    color: #3E00B6;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: .25em;
 }
 
 dd {
-    margin-left: 16px;
-    padding-left: 4px;
+    margin: 0 0 1.5em;
+    font-size: .9em;
 }
 
 ol, ul {
-    margin-left: 2%;
+    margin-left: 0;
+    padding-left: 2em;
+}
+
+li {
+    margin-bottom: .5em;
+}
+
+li ul {
+    margin: .5em 0;
+    padding: 0 0 0 2em;
 }
 
 code {
-    font: 0.9em Consolas, "Lucida Console", Monaco, monospace;
-    background-color: #DEDEDE;
+    font: 0.9em Inconsolata, monospace;
+    background-color: #EBEBEB;
+    padding: 2px 5px;
 }
 
-pre {
+pre,
+pre.prettyprint {
     display: block;
-    border: 1px solid #999;
-    margin: 12px;
-    padding: 8px;
+    border: 1px solid #C6C6C6 !important;
+    padding: 1em !important;
+    margin: 1em 0 2em;
     white-space: pre-wrap;
-    background-color: #DEDEDE;
+    overflow-x: auto;
+    background-color: #EBEBEB;
 }
 
 table {
@@ -124,12 +152,60 @@ table {
 }
 
 th, td {
-    border: 1px solid #999;
+    border: 1px solid #C6C6C6;
 }
 
 th {
-    background-color: #DEDEDE;
+    background-color: #EBEBEB;
     color: #B93A38;
+}
+
+/*
+    Landmarks
+*/
+
+header {
+    background-color: #EBEBEB;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #C6C6C6;
+    padding: 1em 2em;
+}
+
+article {
+    margin: 18px auto;
+    max-width: 800px;
+    padding: 0 2em;
+}
+
+footer {
+    padding: 2em;
+    clear: both;
+    margin-top: 4em;
+    font-size: .8em;
+    background: #EBEBEB;
+    border-top: 1px solid #C6C6C6;
+}
+
+/*
+    Classes
+*/
+
+.branding {
+    margin: 0;
+    font-size: 3em;
+    font-family: Inconsolata, monospace;
+}
+
+.branding a {
+    text-decoration: none;
+    border: 0;
+    color: #006FBB;
+    border: 0;
+}
+
+.container {
+    margin: auto;
+    max-width: 800px;
 }
 
 .example dt {

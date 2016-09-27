@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>Configuring JSDoc with conf.json</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -65,8 +68,7 @@
         "monospaceLinks": false
     }
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>This means:</p>
     <ul>
       <li>JSDoc allows you to use unrecognized tags (<code>tags.allowUnknownTags</code>);</li>
@@ -88,8 +90,7 @@
     "includePattern": ".+\\.js(doc)?$",
     "excludePattern": "(^|\\/|\\\\)_"
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <ul>
       <li><code>source.include</code>: an optional array of paths that JSDoc should generate documentation for. The paths given to JSDoc on the command line are combined
         with these to form the set of files JSDoc will scan. Recall that if a path is a directory, the <code>-r</code> option may be used to recurse into it.</li>
@@ -121,8 +122,7 @@
    |- a.js
    |- ignore.js
    |- d.txt
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>And I set the &quot;source&quot; part of my conf.json like so:</p>
     <figure><pre class="prettyprint lang-js"><code>"source": {
     "include": [ "myProject/a.js", "myProject/lib", "myProject/_private" ],
@@ -130,20 +130,15 @@
     "includePattern": ".+\\.js(doc)?$",
     "excludePattern": "(^|\\/|\\\\)_"
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>If I run JSDoc like this from the file containing the <code>myProject</code> folder:</p>
     <figure><pre class="prettyprint"><code>jsdoc myProject/c.js -c /path/to/my/conf.json -r
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>Then JSDoc will make documentation for the files:</p>
     <ul>
-      <li><code>myProject/a.js</code>
-      </li>
-      <li><code>myProject/c.js</code>
-      </li>
-      <li><code>myProject/lib/a.js</code>
-      </li>
+      <li><code>myProject/a.js</code></li>
+      <li><code>myProject/c.js</code></li>
+      <li><code>myProject/lib/a.js</code></li>
     </ul>
     <p>The reasoning is as follows:</p>
     <ol>
@@ -172,8 +167,7 @@
     "recurse": true,                  // same as -r
     "tutorials": "path/to/tutorials", // same as -u path/to/tutorials
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>Hence between <code>source.include</code> and <code>opts</code> it&#39;s possible to put <em>all</em> of jsdoc&#39;s arguments in a configuration file so that
       the command-line reduces to:</p>
     <pre class="prettyprint"><code>jsdoc -c /path/to/conf.json
@@ -188,8 +182,7 @@
     "plugins/markdown",
     "plugins/summarize"
 ]
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>See the <a href="about-plugins.html">plugin reference</a> for further information, and look in <code>jsdoc/plugins</code> for the plugins built-in to JSDoc.</p>
     <p>The Markdown plugin can be configured by including a &quot;markdown&quot; object into conf.json; see
       <a href="plugins-markdown.html">Configuring the Markdown Plugin</a> for further information.</p>
@@ -201,8 +194,7 @@ Template</a> for additional options that the default template supports.</p>
     "cleverLinks": false,
     "monospaceLinks": false
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>If <code>templates.monospaceLinks</code> is true, all link texts from the <a href="tags-inline-link.html">@link</a> tag will be rendered in monospace.</p>
     <p>If <code>templates.cleverLinks</code> is true, {@link asdf} will be rendered in normal font if &quot;asdf&quot; is a URL, and monospace otherwise. For example,
       <code>{@link http://github.com}</code> will render in plain-text but
@@ -215,8 +207,7 @@ Template</a> for additional options that the default template supports.</p>
     "allowUnknownTags": true,
     "dictionaries": ["jsdoc","closure"]
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>The <code>tags.allowUnknownTags</code> property affects how JSDoc handles unrecognized tags. If you set this option to <code>false</code>, and JSDoc finds a
       tag that it does not recognize (for example, <code>@foo</code>), JSDoc logs a warning. By default, this option is set to <code>true</code>. In JSDoc 3.4.1
       and later, you can also set this property to an array of tag names that JSDoc should allow (for example, <code>[&quot;foo&quot;,&quot;bar&quot;]</code>).</p>
@@ -245,10 +236,9 @@ Template</a> for additional options that the default template supports.</p>
       </li>
     </ul>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

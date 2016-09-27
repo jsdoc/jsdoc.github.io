@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>Block and inline tags</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -55,8 +58,7 @@
 Shoe.prototype.setColor = function(color) {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>You can use inline tags within a description, as shown above, or within a block tag, as shown below:</p>
     <figure>
       <figcaption>Inline tag used within a block tag</figcaption><pre class="prettyprint lang-js"><code>/**
@@ -68,8 +70,7 @@ Shoe.prototype.setColor = function(color) {
 Shoe.prototype.setColor = function(color) {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>When you use multiple block tags in a JSDoc comment, they must be separated by line breaks:</p>
     <figure>
       <figcaption>Multiple block tags separated by line breaks</figcaption><pre class="prettyprint lang-js"><code>/**
@@ -81,13 +82,11 @@ Shoe.prototype.setColor = function(color) {
 Shoe.prototype.setLaceType = function(color, type) {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

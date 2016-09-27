@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>@exports</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -38,8 +41,7 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@exports &lt;moduleName&gt;</code>
-    </p>
+    <p><code>@exports &lt;moduleName&gt;</code></p>
     <p>In JSDoc 3.3.0 and later, <code>&lt;moduleName&gt;</code> may include the <code>module:</code> prefix. In previous versions, you must omit this prefix.</p>
     <h2 id="overview">Overview</h2>
     <p>Use the @exports tag when documenting JavaScript modules that export anything other than the &quot;exports&quot; object or the &quot;module.exports&quot; property.</p>
@@ -56,8 +58,7 @@
 exports.sayHello = function() {
     return 'Hello world';
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>Node.js module</figcaption><pre class="prettyprint lang-js"><code>/**
  * A module that shouts hello!
@@ -68,8 +69,7 @@ exports.sayHello = function() {
 module.exports = function() {
     return "HELLO WORLD";
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>AMD module that exports an object literal</figcaption><pre class="prettyprint lang-js"><code>define(function() {
 
@@ -86,8 +86,7 @@ module.exports = function() {
 
     return exports;
 });
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>AMD module that exports a constructor</figcaption><pre class="prettyprint lang-js"><code>define(function() {
     /**
@@ -110,8 +109,7 @@ module.exports = function() {
 
     return exports;
 });
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>If your module exports an object named anything other than &quot;exports&quot; or &quot;module.exports&quot;, use the @exports tag to indicate what is being
       exported.</p>
     <figure>
@@ -130,8 +128,7 @@ module.exports = function() {
 
     return ns;
 });
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -145,10 +142,9 @@ module.exports = function() {
       </li>
     </ul>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

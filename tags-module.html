@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>@module</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -38,8 +41,7 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@module [[{&lt;type&gt;}] &lt;moduleName&gt;]</code>
-    </p>
+    <p><code>@module [[{&lt;type&gt;}] &lt;moduleName&gt;]</code></p>
     <p>In JSDoc 3.3.0 and later, <code>&lt;moduleName&gt;</code> may include the <code>module:</code> prefix. In previous versions, you must omit this prefix.</p>
     <p>Note: If you provide a type, you <em>must</em> also provide a name.</p>
     <h2 id="overview">Overview</h2>
@@ -57,8 +59,7 @@ jsdoc ./test.js   # module name 'test'
 # from src's parent directory:
 jsdoc src/test.js # module name 'src/test'
 jsdoc -r src/     # module name 'test'
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="examples">Examples</h2>
     <p>The following example shows the namepaths that are used for symbols in a module. The first symbol is a module-private, or &quot;inner,&quot; variable--it can
       be only accessed within the module. The second symbol is a static function that is exported by the module.</p>
@@ -70,8 +71,7 @@ var foo = 1;
 
 /** will be module:myModule.bar */
 var bar = function() {};
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>When an exported symbol is defined as a member of <code>module.exports</code>, <code>exports</code>, or <code>this</code>, JSDoc infers that the symbol is a
       static member of the module.</p>
     <p>In the following example, the Book class is documented as a static member, &quot;module:bookshelf.Book&quot;, with one instance member, &quot;module:bookshelf.Book#title&quot;.</p>
@@ -82,8 +82,7 @@ this.Book = function (title) {
     /** The title. */
     this.title = title;
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>In the following example, the two functions have the namepaths &quot;module:color/mixer.blend&quot; and &quot;module:color/mixer.darken&quot;.
     </p>
     <figure>
@@ -94,8 +93,7 @@ module.exports = {
 };
 /** Darkens a color. */
 exports.darken = function (color, shade) {};
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>See <a href="howto-commonjs-modules.html">Documenting JavaScript Modules</a> for further examples.</p>
     <h2 id="related-links">Related Links</h2>
     <ul>
@@ -110,10 +108,9 @@ exports.darken = function (color, shade) {};
       </li>
     </ul>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>@alias</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -38,8 +41,7 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@alias &lt;aliasNamepath&gt;</code>
-    </p>
+    <p><code>@alias &lt;aliasNamepath&gt;</code></p>
     <h2 id="overview">Overview</h2>
     <p>The @alias tag causes JSDoc to treat all references to a member as if the member had a different name. This tag is especially useful if you define a class within
       an inner function; in this case, you can use the @alias tag to tell JSDoc how the class is exposed in your app.</p>
@@ -59,8 +61,7 @@ function foo() {}
  * @alias bar
  */
 function foo() {}
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="examples">Examples</h2>
     <p>Suppose you are using a class framework that expects you to pass in a constructor function when you define a class. You can use the @alias tag to tell JSDoc
       how the class will be exposed in your app.</p>
@@ -82,8 +83,7 @@ function foo() {}
     }
 
 );
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>You can also use the @alias tag with members that are created within an immediately invoked function expression (IIFE). The @alias tag tells JSDoc that these
       members are exposed outside of the IIFE&#39;s scope.
     </p>
@@ -103,8 +103,7 @@ var Apple = {};
 
     ns.Core = core;
 })(Apple);
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>For members that are defined within an object literal, you can use the @alias tag as an alternative to the <a href="tags-lends.html">@lends</a> tag.</p>
     <figure>
       <figcaption>Using @alias for an object literal</figcaption><pre class="prettyprint lang-js"><code>// Documenting objectA with @alias
@@ -146,8 +145,7 @@ var objectB = (function() {
 
     return x;
 })();
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -158,10 +156,9 @@ var objectB = (function() {
       </li>
     </ul>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>Getting Started with JSDoc 3</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -47,8 +50,7 @@
       <figcaption>The simplest documentation is just a description.</figcaption><pre class="prettyprint lang-js"><code>/** This is a description of the foo function. */
 function foo() {
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>Adding a description is simple, just type the description you want in the documentaton comment.</p>
     <p>Special &quot;documentation tags&quot; can be used to give more information. For example, if the function is a constructor, you can indicate this by adding a
       tag.</p>
@@ -59,8 +61,7 @@ function foo() {
  */
 function Book(title, author) {
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>More tags can be used to add more information. See the Tag Dictionary for a complete list of tags that are recognized by JSDoc 3.</p>
     <figure>
       <figcaption>Adding more information with tags</figcaption><pre class="prettyprint lang-js"><code>/**
@@ -71,22 +72,19 @@ function Book(title, author) {
  */
 function Book(title, author) {
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="generating-a-website">Generating A Website</h2>
     <p>Once your code is commented, you can use the JSDoc 3 Tool to generate an HTML website from the source.</p>
     <p>By default, JSDoc will use the &quot;default&quot; template to turn the documentation data into HTML. You can edit this template to suit your own needs, or create
       an entirely new template if that is what you prefer.</p>
     <figure>
       <figcaption>Running the documentation generator on the command line.</figcaption><pre class="prettyprint"><code>./jsdoc book.js
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>This command will create a folder named &quot;out&quot; in the current working directory. Within that you will find the generated HTML pages.</p>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

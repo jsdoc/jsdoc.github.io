@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>@inner</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -46,8 +49,7 @@
  * @memberof MyNamespace
  * @inner
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>Note that in the above we could have used &quot;@function MyNamespace~myFunction&quot; instead of the @memberof and @inner tags.</p>
     <figure>
       <figcaption>Using @inner</figcaption><pre class="prettyprint lang-js"><code>/** @namespace */
@@ -58,8 +60,7 @@ var MyNamespace = {
      */
     foo: 1
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>In the above example, we use @inner to force a member of a namespace to be documented as an inner member (by default, it would be a static member). This means
       that <code>foo</code> now has the longname
       <code>MyNamespace~foo</code> instead of <code>MyNamespace.foo</code>.</p>
@@ -76,10 +77,9 @@ var MyNamespace = {
       </li>
     </ul>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

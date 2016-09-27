@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>@event</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -38,8 +41,7 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@event &lt;className&gt;#[event:]&lt;eventName&gt;</code>
-    </p>
+    <p><code>@event &lt;className&gt;#[event:]&lt;eventName&gt;</code></p>
     <h2 id="overview">Overview</h2>
     <p>The @event tag allows you to document an event that can be fired. A typical event is represented by an object with a defined set of properties.</p>
     <p>Once you have used the @event tag to define a specific type of event, you can use the @fires tag to indicate that a method can fire that event. You can also
@@ -69,8 +71,7 @@ Hurl.prototype.snowball = function() {
         isPacked: this._snowball.isPacked
     });
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>Using a named doclet to document an event</figcaption><pre class="prettyprint lang-js"><code>/**
  * Throw a snowball.
@@ -88,8 +89,7 @@ Hurl.prototype.snowball = function() {
  * @type {object}
  * @property {boolean} isPacked - Indicates whether the snowball is tightly packed.
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -100,10 +100,9 @@ Hurl.prototype.snowball = function() {
       </li>
     </ul>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

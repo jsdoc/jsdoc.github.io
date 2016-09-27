@@ -17,10 +17,13 @@
 </head>
 
 <body>
-  <header>
-    <a href="./index.html">@use JSDoc</a>
+  <header role="banner">
+    <div class="container">
+      <h1 class="branding"><a href="./index.html">@use JSDoc</a></h1>
+    </div>
+    <!--/.container-->
   </header>
-  <article>
+  <article role="main">
     <h1>{@tutorial}</h1>
     <h2>Table of Contents</h2>
     <ul>
@@ -56,8 +59,7 @@
  * {@tutorial destroy Destroying a Widget}.
  */
 function myFunction() {}
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>If all of these tutorials are defined, and the title of the <code>gettingstarted</code> tutorial is &quot;Getting Started,&quot; the example above produces output
       similar to the following:</p>
     <figure>
@@ -65,17 +67,15 @@ function myFunction() {}
 &lt;a href="tutorial-dashboard.html">Configuring the Dashboard&lt;/a>.
 For more information, see &lt;a href="tutorial-create.html">Creating a Widget&lt;/a> and
 &lt;a href="tutorial-destroy.html">Destroying a Widget&lt;/a>.
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <p>
       <a href="tags-tutorial.html">@tutorial</a>
     </p>
   </article>
-  <footer>
+  <footer role="contentinfo">
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2014 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

@@ -20,8 +20,8 @@ a function that creates a named class from its members.
 
 ## Examples
 
-In this example, we want to use a helper function to make a class named "Person," along with
-instance methods named "initialize" and "say." This is similar to how some popular frameworks
+In this example, we want to use a helper function to make a class named `Person`, along with
+instance methods named `initialize` and `say`. This is similar to how some popular frameworks
 handle class creation.
 
 {% example "Example class" %}
@@ -42,10 +42,10 @@ var Person = makeClass(
 ```
 {% endexample %}
 
-Without any comments, JSDoc won't recognize that this code creates a "Person" class with two
-methods. To document the methods, we must use a "@lends" tag in a doc comment immediately before the
-object literal. The @lends tag tells JSDoc that all the member names of that object literal are
-being "lent" to a variable named "Person."
+Without any comments, JSDoc won't recognize that this code creates a `Person` class with two
+methods. To document the methods, we must use a `@lends` tag in a doc comment immediately before the
+object literal. The `@lends` tag tells JSDoc that all the member names of that object literal are
+being "loaned" to a variable named `Person`. We must also add comments to each of the methods.
 
 The following example gets us closer to what we want:
 
@@ -56,9 +56,18 @@ The following example gets us closer to what we want:
 var Person = makeClass(
     /** @lends Person */
     {
+        /**
+         * Create a `Person` instance.
+         * @param {string} name - The person's name.
+         */
         initialize: function(name) {
             this.name = name;
         },
+        /**
+         * Say something.
+         * @param {string} message - The message to say.
+         * @returns {string} The complete message.
+         */
         say: function(message) {
             return this.name + " says: " + message;
         }
@@ -67,9 +76,9 @@ var Person = makeClass(
 ```
 {% endexample %}
 
-Now the functions named "initialize" and "say" will be documented, but they appear as static methods
-of the "Person" class. That is possibly what you meant, but in this case we want "initialize" and
-"say" to belong to the instances of the "Person" class. So we change things slightly by lending the
+Now the functions named `initialize` and `say` will be documented, but they appear as static methods
+of the `Person` class. That is possibly what you meant, but in this case we want `initialize` and
+`say` to belong to the instances of the `Person` class. So we change things slightly by lending the
 methods to the class's prototype:
 
 {% example "Documented as instance methods" %}
@@ -79,9 +88,18 @@ methods to the class's prototype:
 var Person = makeClass(
     /** @lends Person.prototype */
     {
+        /**
+         * Create a `Person` instance.
+         * @param {string} name - The person's name.
+         */
         initialize: function(name) {
             this.name = name;
         },
+        /**
+         * Say something.
+         * @param {string} message - The message to say.
+         * @returns {string} The complete message.
+         */
         say: function(message) {
             return this.name + " says: " + message;
         }
@@ -90,10 +108,10 @@ var Person = makeClass(
 ```
 {% endexample %}
 
-One final step: Our class framework uses the loaned "initialize" function to construct Person
-instances, but a Person instance does not have its own "initialize" method. The solution is to add
-the @constructs tag to the loaned function. Remember to remove the @class tag as well, or else two
-classes will be documented.
+One final step: Our class framework uses the loaned `initialize` function to construct `Person`
+instances, but a `Person` instance does not have its own `initialize` method. The solution is to add
+the `@constructs` tag to the loaned function. Remember to remove the `@class` tag as well, or else
+two classes will be documented.
 
 {% example "Documented with a constructor" %}
 
@@ -101,10 +119,19 @@ classes will be documented.
 var Person = makeClass(
     /** @lends Person.prototype */
     {
-        /** @constructs */
+        /**
+         * Create a `Person` instance.
+         * @constructs
+         * @param {string} name - The person's name.
+         */
         initialize: function(name) {
             this.name = name;
         },
+        /**
+         * Say something.
+         * @param {string} message - The message to say.
+         * @returns {string} The complete message.
+         */
         say: function(message) {
             return this.name + " says: " + message;
         }

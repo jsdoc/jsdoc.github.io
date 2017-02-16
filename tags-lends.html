@@ -44,7 +44,7 @@
     <p>The <code>@lends</code> tag allows you to document all the members of an object literal as if they were members of a symbol with the given name. You might want
       to do this if you are passing an object literal into a function that creates a named class from its members.</p>
     <h2 id="examples">Examples</h2>
-    <p>In this example, we want to use a helper function to make a class named &quot;Person,&quot; along with instance methods named &quot;initialize&quot; and &quot;say.&quot;
+    <p>In this example, we want to use a helper function to make a class named <code>Person</code>, along with instance methods named <code>initialize</code> and <code>say</code>.
       This is similar to how some popular frameworks handle class creation.</p>
     <figure>
       <figcaption>Example class</figcaption><pre class="prettyprint lang-js"><code>// We want to document this as being a class
@@ -61,18 +61,26 @@ var Person = makeClass(
 );
 </code></pre>
     </figure>
-    <p>Without any comments, JSDoc won&#39;t recognize that this code creates a &quot;Person&quot; class with two methods. To document the methods, we must use a &quot;@lends&quot;
-      tag in a doc comment immediately before the object literal. The @lends tag tells JSDoc that all the member names of that object literal are being &quot;lent&quot;
-      to a variable named &quot;Person.&quot;</p>
+    <p>Without any comments, JSDoc won&#39;t recognize that this code creates a <code>Person</code> class with two methods. To document the methods, we must use a <code>@lends</code>      tag in a doc comment immediately before the object literal. The <code>@lends</code> tag tells JSDoc that all the member names of that object literal are being
+      &quot;loaned&quot; to a variable named <code>Person</code>. We must also add comments to each of the methods.</p>
     <p>The following example gets us closer to what we want:</p>
     <figure>
       <figcaption>Documented as static methods</figcaption><pre class="prettyprint lang-js"><code>/** @class */
 var Person = makeClass(
     /** @lends Person */
     {
+        /**
+         * Create a `Person` instance.
+         * @param {string} name - The person's name.
+         */
         initialize: function(name) {
             this.name = name;
         },
+        /**
+         * Say something.
+         * @param {string} message - The message to say.
+         * @returns {string} The complete message.
+         */
         say: function(message) {
             return this.name + " says: " + message;
         }
@@ -80,17 +88,26 @@ var Person = makeClass(
 );
 </code></pre>
     </figure>
-    <p>Now the functions named &quot;initialize&quot; and &quot;say&quot; will be documented, but they appear as static methods of the &quot;Person&quot; class. That
-      is possibly what you meant, but in this case we want &quot;initialize&quot; and &quot;say&quot; to belong to the instances of the &quot;Person&quot; class.
-      So we change things slightly by lending the methods to the class&#39;s prototype:</p>
+    <p>Now the functions named <code>initialize</code> and <code>say</code> will be documented, but they appear as static methods of the <code>Person</code> class.
+      That is possibly what you meant, but in this case we want <code>initialize</code> and
+      <code>say</code> to belong to the instances of the <code>Person</code> class. So we change things slightly by lending the methods to the class&#39;s prototype:</p>
     <figure>
       <figcaption>Documented as instance methods</figcaption><pre class="prettyprint lang-js"><code>/** @class */
 var Person = makeClass(
     /** @lends Person.prototype */
     {
+        /**
+         * Create a `Person` instance.
+         * @param {string} name - The person's name.
+         */
         initialize: function(name) {
             this.name = name;
         },
+        /**
+         * Say something.
+         * @param {string} message - The message to say.
+         * @returns {string} The complete message.
+         */
         say: function(message) {
             return this.name + " says: " + message;
         }
@@ -98,17 +115,26 @@ var Person = makeClass(
 );
 </code></pre>
     </figure>
-    <p>One final step: Our class framework uses the loaned &quot;initialize&quot; function to construct Person instances, but a Person instance does not have its own
-      &quot;initialize&quot; method. The solution is to add the @constructs tag to the loaned function. Remember to remove the @class tag as well, or else two classes
-      will be documented.</p>
+    <p>One final step: Our class framework uses the loaned <code>initialize</code> function to construct <code>Person</code> instances, but a <code>Person</code> instance
+      does not have its own <code>initialize</code> method. The solution is to add the <code>@constructs</code> tag to the loaned function. Remember to remove the
+      <code>@class</code> tag as well, or else two classes will be documented.</p>
     <figure>
       <figcaption>Documented with a constructor</figcaption><pre class="prettyprint lang-js"><code>var Person = makeClass(
     /** @lends Person.prototype */
     {
-        /** @constructs */
+        /**
+         * Create a `Person` instance.
+         * @constructs
+         * @param {string} name - The person's name.
+         */
         initialize: function(name) {
             this.name = name;
         },
+        /**
+         * Say something.
+         * @param {string} message - The message to say.
+         * @returns {string} The complete message.
+         */
         say: function(message) {
             return this.name + " says: " + message;
         }

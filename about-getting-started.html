@@ -25,35 +25,35 @@
     <h2>Table of Contents</h2>
     <ul>
       <li>
-        <a href="#getting-started">Getting Started</a>
+        <a href="#getting-started">Getting started</a>
       </li>
       <li>
-        <a href="#adding-documentation-comments-to-your-code">Adding Documentation Comments to Your Code</a>
+        <a href="#adding-documentation-comments-to-your-code">Adding documentation comments to your code</a>
       </li>
       <li>
-        <a href="#generating-a-website">Generating A Website</a>
+        <a href="#generating-a-website">Generating a website</a>
       </li>
     </ul>
-    <h2 id="getting-started">Getting Started</h2>
-    <p>JSDoc 3 is an API documentation generator for JavaScript, similar to JavaDoc or PHPDoc. You add documentation comments directly to your source code, right along
-      side the code itself. The JSDoc Tool will scan your source code, and generate a complete HTML documentation website for you.</p>
-    <h2 id="adding-documentation-comments-to-your-code">Adding Documentation Comments to Your Code</h2>
-    <p>JSDoc&#39;s purpose is to document the API of your JavaScript application or library. It is assumed that you will want to document things like: namespaces, classes,
-      methods, method parameters, etc.</p>
-    <p>JSDoc comments should generally be placed immediately before the code being documented. It must start with a <code>/**</code> sequence in order to be recognized
-      by the JSDoc parser. Comments beginning with <code>/*</code>, <code>/***</code>, or more than 3 stars will be ignored. This is a feature to allow you to suppress
-      parsing of comment blocks.</p>
+    <h2 id="getting-started">Getting started</h2>
+    <p>JSDoc 3 is an API documentation generator for JavaScript, similar to Javadoc or phpDocumentor. You add documentation comments directly to your source code, right
+      alongside the code itself. The JSDoc tool will scan your source code and generate an HTML documentation website for you.</p>
+    <h2 id="adding-documentation-comments-to-your-code">Adding documentation comments to your code</h2>
+    <p>JSDoc&#39;s purpose is to document the API of your JavaScript application or library. It is assumed that you will want to document things like modules, namespaces,
+      classes, methods, method parameters, and so on.</p>
+    <p>JSDoc comments should generally be placed immediately before the code being documented. Each comment must start with a <code>/**</code> sequence in order to
+      be recognized by the JSDoc parser. Comments beginning with <code>/*</code>, <code>/***</code>, or more than 3 stars will be ignored. This is a feature to allow
+      you to suppress parsing of comment blocks.</p>
     <figure>
-      <figcaption>The simplest documentation is just a description.</figcaption><pre class="prettyprint lang-js"><code>/** This is a description of the foo function. */
+      <figcaption>The simplest documentation is just a description</figcaption><pre class="prettyprint lang-js"><code>/** This is a description of the foo function. */
 function foo() {
 }
 </code></pre>
     </figure>
-    <p>Adding a description is simple, just type the description you want in the documentaton comment.</p>
-    <p>Special &quot;documentation tags&quot; can be used to give more information. For example, if the function is a constructor, you can indicate this by adding a
-      tag.</p>
+    <p>Adding a description is simple—just type the description you want in the documentation comment.</p>
+    <p>Special &quot;JSDoc tags&quot; can be used to give more information. For example, if the function is a constructor for a class, you can indicate this by adding
+      a <code>@constructor</code> tag.</p>
     <figure>
-      <figcaption>Use a documentation tag to describe your code.</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Use a JSDoc tag to describe your code</figcaption><pre class="prettyprint lang-js"><code>/**
  * Represents a book.
  * @constructor
  */
@@ -61,7 +61,8 @@ function Book(title, author) {
 }
 </code></pre>
     </figure>
-    <p>More tags can be used to add more information. See the Tag Dictionary for a complete list of tags that are recognized by JSDoc 3.</p>
+    <p>More tags can be used to add more information. See the <a href="index.html#block-tags">home page</a> for a complete list of tags that are recognized by JSDoc
+      3.</p>
     <figure>
       <figcaption>Adding more information with tags</figcaption><pre class="prettyprint lang-js"><code>/**
  * Represents a book.
@@ -73,15 +74,16 @@ function Book(title, author) {
 }
 </code></pre>
     </figure>
-    <h2 id="generating-a-website">Generating A Website</h2>
-    <p>Once your code is commented, you can use the JSDoc 3 Tool to generate an HTML website from the source.</p>
-    <p>By default, JSDoc will use the &quot;default&quot; template to turn the documentation data into HTML. You can edit this template to suit your own needs, or create
-      an entirely new template if that is what you prefer.</p>
+    <h2 id="generating-a-website">Generating a website</h2>
+    <p>Once your code is commented, you can use the JSDoc 3 tool to generate an HTML website from your source files.</p>
+    <p>By default, JSDoc uses the built-in &quot;default&quot; template to turn the documentation into HTML. You can edit this template to suit your own needs or create
+      an entirely new template if that is what you prefer.
+    </p>
     <figure>
-      <figcaption>Running the documentation generator on the command line.</figcaption><pre class="prettyprint"><code>./jsdoc book.js
+      <figcaption>Running the documentation generator on the command line</figcaption><pre class="prettyprint"><code>jsdoc book.js
 </code></pre>
     </figure>
-    <p>This command will create a folder named &quot;out&quot; in the current working directory. Within that you will find the generated HTML pages.</p>
+    <p>This command will create a directory named <code>out/</code> in the current working directory. Within that directory, you will find the generated HTML pages.</p>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">

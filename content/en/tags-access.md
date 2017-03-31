@@ -69,8 +69,7 @@ function OtherThingy() {
 
     /** @protected */
     this._bar = 1;
-
-    /** @public */
+    
     this.pez = 2;
 
 }

@@ -52,7 +52,7 @@ These options and others will be further explained on this page.
 Further settings may be added to the file as requested by various plugins or templates (for example,
 the [Markdown plugin][markdown] can be configured by including a "markdown" key).
 
-[closure-tags]: https://developers.google.com/closure/compiler/docs/js-for-compiler#tags
+[closure-tags]: https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#jsdoc-tags
 [markdown]: plugins-markdown.html
 
 
@@ -288,4 +288,4 @@ can also change this setting to `["closure","jsdoc"]` if you want to allow core 
 want to ensure that Closure Compiler-specific tags are interpreted as Closure Compiler would
 interpret them.
 
-[closure-tags]: https://developers.google.com/closure/compiler/docs/js-for-compiler#tags
+[closure-tags]: https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#jsdoc-tags

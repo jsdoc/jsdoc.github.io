@@ -20,7 +20,7 @@ With the [Closure Compiler][closure] tag dictionary:
 
 `@private [{typeExpression}]`
 
-[closure]: https://developers.google.com/closure/compiler/docs/js-for-compiler#tags
+[closure]: https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#jsdoc-tags
 
 
 ## Overview

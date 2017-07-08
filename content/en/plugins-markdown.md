@@ -43,7 +43,7 @@ comment)
 To enable the Markdown plugin, add the string `plugins/markdown` to the `plugins` array in your
 [JSDoc configuration file][config-file]:
 
-{% example "Configuration file that enables the Markdown plugin" %}
+{% example "JSON configuration file that enables the Markdown plugin" %}
 
 ```json
 {

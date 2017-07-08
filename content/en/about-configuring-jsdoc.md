@@ -1,5 +1,5 @@
 ---
-title: Configuring JSDoc with conf.json
+title: Configuring JSDoc with a configuration file
 description: How to configure JSDoc using a configuration file.
 related:
     - about-commandline.html
@@ -7,27 +7,67 @@ related:
     - plugins-markdown.html
 ---
 
-## Configuration File
+## Configuration file formats
 
-To customise JSDoc's behaviour one can provide a configuration file in JSON format to JSDoc using
-the `-c` option, e.g. `jsdoc -c /path/to/conf.json`.
+To customize JSDoc's behavior, you can provide a configuration file to JSDoc in one of the following
+formats:
 
-This file (typically named "conf.json") provides options in JSON format. Have a look at
-"conf.json.EXAMPLE" in the JSDoc directory as a basic example. If you do not specify a configuration
-file, this is what JSDoc will use:
++ A JSON file. In JSDoc 3.3.0 and later, this file may include comments.
++ A CommonJS module that exports a single configuration object. This format is supported in JSDoc
+3.5.0 and later.
+
+To run JSDoc with a configuration file, use the [`-c` command-line option][about-commandline] (for
+example, `jsdoc -c /path/to/conf.json` or `jsdoc -c /path/to/conf.js`).
+
+The following examples show a simple configuration file that enables JSDoc's [Markdown
+plugin][markdown]. JSDoc's configuration options are explained in detail in the following sections.
+
+{% example "JSON configuration file" %}
+
+```js
+{
+    "plugins": ["plugins/markdown"]
+}
+```
+
+{% endexample %}
+
+{% example "JavaScript configuration file" %}
+
+```js
+'use strict';
+
+module.exports = {
+    plugins: ['plugins/markdown']
+};
+```
+
+{% endexample %}
+
+For a more comprehensive example of a JSON configuration file, see the file
+[`conf.json.EXAMPLE`][conf-json-example].
+
+[about-commandline]: about-commandline.html
+[conf-json-example]: https://github.com/jsdoc3/jsdoc/blob/master/conf.json.EXAMPLE
+[markdown]: plugins-markdown.html
+
+
+## Default configuration options
+
+If you do not specify a configuration file, JSDoc uses the following configuration options:
 
 {% example %}
 ```js
 {
-    "tags": {
-        "allowUnknownTags": true,
-        "dictionaries": ["jsdoc","closure"]
-    },
+    "plugins": [],
     "source": {
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
-    "plugins": [],
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc","closure"]
+    },
     "templates": {
         "cleverLinks": false,
         "monospaceLinks": false
@@ -38,66 +78,67 @@ file, this is what JSDoc will use:
 
 This means:
 
-+ JSDoc allows you to use unrecognized tags (`tags.allowUnknownTags`);
++ No plugins are loaded (`plugins`).
++ Only files ending in `.js`, `.jsdoc`, and `.jsx` will be processed (`source.includePattern`).
++ Any file starting with an underscore, or in a directory starting with an underscore, will be
+ignored (`source.excludePattern`).
++ JSDoc allows you to use unrecognized tags (`tags.allowUnknownTags`).
 + Both standard JSDoc tags and [Closure Compiler tags][closure-tags] are enabled
-(`tags.dictionaries`);
-+ Only files ending in ".js", ".jsdoc", and ".jsx" will be processed (`source.includePattern`);
-+ Any file starting with an underscore or in a directory starting with an underscore will be
-_ignored_ (`source.excludePattern`);
-+ No plugins are loaded (`plugins`);
-+ `@link` tags are rendered in plain text (`templates.cleverLinks`, `templates.monospaceLinks`).
+(`tags.dictionaries`).
++ [Inline `{@link}` tags][tags-inline-link] are rendered in plain text (`templates.cleverLinks`,
+`templates.monospaceLinks`).
 
-These options and others will be further explained on this page.
-
-Further settings may be added to the file as requested by various plugins or templates (for example,
-the [Markdown plugin][markdown] can be configured by including a "markdown" key).
+These options and others are explained in the following sections.
 
 [closure-tags]: https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#jsdoc-tags
-[markdown]: plugins-markdown.html
+[tags-inline-link]: tags-inline-link.html
 
 
 ## Specifying input files
 
-The "source" set of options, in combination with paths given to JSDoc on the command-line, determine
-what files JSDoc generates documentation for.
+The `source` set of options, in combination with paths given to JSDoc on the command line,
+determines the set of input files that JSDoc uses to generate documentation.
 
 {% example %}
 
 ```js
-"source": {
-    "include": [ /* array of paths to files to generate documentation for */ ],
-    "exclude": [ /* array of paths to exclude */ ],
-    "includePattern": ".+\\.js(doc)?$",
-    "excludePattern": "(^|\\/|\\\\)_"
+{
+    "source": {
+        "include": [ /* array of paths to files to generate documentation for */ ],
+        "exclude": [ /* array of paths to exclude */ ],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    }
 }
 ```
 {% endexample %}
 
-+ `source.include`: an optional array of paths that JSDoc should generate documentation for. The
-paths given to JSDoc on the command line are combined with these to form the set of files JSDoc will
-scan. Recall that if a path is a directory, the `-r` option may be used to recurse into it.
-+ `source.exclude`: an optional array of paths that JSDoc should ignore. In JSDoc 3.3.0 and later,
++ `source.include`: An optional array of paths that contain files for which JSDoc should generate
+documentation. The paths given to JSDoc on the command line are combined with these paths. You can
+use the [`-r` command-line option][about-commandline] to recurse into subdirectories.
++ `source.exclude`: An optional array of paths that JSDoc should ignore. In JSDoc 3.3.0 and later,
 this array may include subdirectories of the paths in `source.include`.
-+ `source.includePattern`: an optional string, interpreted as a regular expression. If present, all
-files _must_ match this in order to be scanned by JSDoc. By default this is set to
-".+&#92;.js(doc)?$", meaning that only files that end in `.js` or `.jsdoc` will be scanned.
-+ `source.excludePattern`: an optional string, interpreted as a regular expression. If present, any
-file matching this will be ignored. By default this is set so that files beginning with an
-underscore (or anything under a directory beginning with an underscore) is ignored.
++ `source.includePattern`: An optional string, interpreted as a regular expression. If present, all
+filenames must match this regular expression to be processed by JSDoc. By default, this option is
+set to ".+&#92;.js(doc|x)?$", meaning that only files with the extensions `.js`, `.jsdoc`, and
+`.jsx` will be processed.
++ `source.excludePattern`: An optional string, interpreted as a regular expression. If present, any
+file matching this regular expression will be ignored. By default, this option is set so that files
+beginning with an underscore (or anything under a directory beginning with an underscore) is
+ignored.
 
-The order that these options are used in is:
+These options are interpreted in the following order:
 
-1. Start with all paths given on the command line and in `source.include` for files (recall that
-using the `-r` command-line option will search within subdirectories).
+1. Start with all paths given on the command line and in `source.include`.
 2. For each file found in Step 1, if the regular expression `source.includePattern` is present, the
-file _must_ match it or it is ignored.
+filename must match it, or it is ignored.
 3. For each file left from Step 2, if the regular expression `source.excludePattern` is present, any
-file matching this is ignored.
-4. For each file left from Step 3, if the path is in `source.exclude` it is ignored.
+filename matching this regular expression is ignored.
+4. For each file left from Step 3, if the file's path is in `source.exclude`, it is ignored.
 
-All remaining files after these four steps are parsed by JSDoc.
+All remaining files after these four steps are processed by JSDoc.
 
-As an example, suppose I have the following file structure:
+As an example, suppose you have the following file structure:
 
 {% example %}
 
@@ -115,153 +156,154 @@ myProject/
 ```
 {% endexample %}
 
-And I set the "source" part of my conf.json like so:
+In addition, suppose your `conf.json` file looks like this example:
 
 {% example %}
 
 ```js
-"source": {
-    "include": [ "myProject/a.js", "myProject/lib", "myProject/_private" ],
-    "exclude": [ "myProject/lib/ignore.js" ],
-    "includePattern": ".+\\.js(doc)?$",
-    "excludePattern": "(^|\\/|\\\\)_"
+{
+    "source": {
+        "include": ["myProject/a.js", "myProject/lib", "myProject/_private"],
+        "exclude": ["myProject/lib/ignore.js"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    }
 }
 ```
 {% endexample %}
 
-If I run JSDoc like this from the file containing the `myProject` folder:
-
-{% example %}
-
-```
-jsdoc myProject/c.js -c /path/to/my/conf.json -r
-```
-{% endexample %}
-
-Then JSDoc will make documentation for the files:
+If you run `jsdoc myProject/c.js -c /path/to/my/conf.json -r` from the file containing the
+`myProject` folder, JSDoc will generate documentation for the following files:
 
 + `myProject/a.js`
 + `myProject/c.js`
 + `myProject/lib/a.js`
 
-The reasoning is as follows:
+Here's why:
 
-1. Based off `source.include` and the paths given on the command line, we start off with files
+1. Given `source.include` and the paths given on the command line, JSDoc starts off with these
+files:
     + `myProject/c.js` (from the command line)
     + `myProject/a.js` (from `source.include`)
     + `myProject/lib/a.js`, `myProject/lib/ignore.js`, `myProject/lib/d.txt` (from `source.include`
     and using the `-r` option)
     + `myProject/_private/a.js` (from `source.include`)
-2. Apply `source.includePattern`, so that we are left with all of the above _except_
-`myProject/lib/d.txt` (as it does not end in ".js" or ".jsdoc").
-3. Apply `source.excludePattern`, which will remove `myProject/_private/a.js`.
-4. Apply `source.exclude`, which will remove `myProject/lib/ignore.js`.
+2. JSDoc applies `source.includePattern`, leaving us with all of the above files _except_
+`myProject/lib/d.txt`, which does not end in `.js`, `.jsdoc`, or `.jsx`.
+3. JSDoc applies `source.excludePattern`, which removes `myProject/_private/a.js`.
+4. JSDoc applies `source.exclude`, which removes `myProject/lib/ignore.js`.
+
+[about-commandline]: about-commandline.html
 
 
 ## Incorporating command-line options into the configuration file
 
-It is possible to put many of JSDoc's [command-line options][options] into the configuration file
-instead of specifying them on the command-line.
-To do this, use the longnames of the relevant options in an "opts" section of conf.json with the
-value being the option's value.
+You can put many of JSDoc's [command-line options][options] into the configuration file instead of
+specifying them on the command line. To do this, add the long names of the relevant options into an
+`opts` section of the configuration file, with the value set to the option's value.
 
 [options]: about-commandline.html
 
-{% example "Command-line options set in the configuration file" %}
+{% example "JSON configuration file with command-line options" %}
 
 ```js
-"opts": {
-    "template": "templates/default",  // same as -t templates/default
-    "encoding": "utf8",               // same as -e utf8
-    "destination": "./out/",          // same as -d ./out/
-    "recurse": true,                  // same as -r
-    "tutorials": "path/to/tutorials", // same as -u path/to/tutorials
+{
+    "opts": {
+        "template": "templates/default",  // same as -t templates/default
+        "encoding": "utf8",               // same as -e utf8
+        "destination": "./out/",          // same as -d ./out/
+        "recurse": true,                  // same as -r
+        "tutorials": "path/to/tutorials", // same as -u path/to/tutorials
+    }
 }
 ```
 {% endexample %}
 
-Hence between `source.include` and `opts` it's possible to put _all_ of jsdoc's arguments in a
-configuration file so that the command-line reduces to:
+By using the `source.include` and `opts` options, you can put almost all of the arguments to JSDoc
+in a configuration file, so that the command line reduces to:
 
 ```
 jsdoc -c /path/to/conf.json
 ```
 
-In the case of options being provided on the command line _and_ in conf.json, the command line takes
-precedence.
+When options are specified on the command line _and_ in the configuration file, the command line
+takes precedence.
 
 
 ## Plugins
 
 To enable plugins, add their paths (relative to the JSDoc folder) into the `plugins` array.
 
-For example, the following will include the Markdown plugin, which converts Markdown-formatted text
-to HTML, and the "summarize" plugin, which autogenerates a summary for each doclet:
+For example, the following JSON configuration file will enable the Markdown plugin, which converts
+Markdown-formatted text to HTML, and the "summarize" plugin, which autogenerates a summary for each
+doclet:
 
-{% example %}
+{% example "JSON configuration file with plugins" %}
 
 ```
-"plugins": [
-    "plugins/markdown",
-    "plugins/summarize"
-]
+{
+    "plugins": [
+        "plugins/markdown",
+        "plugins/summarize"
+    ]
+}
 ```
 {% endexample %}
 
-See the [plugin reference][plugins] for further information, and look in `jsdoc/plugins` for the
-plugins built-in to JSDoc.
+See the [plugin reference][plugins] for further information, and look in [JSDoc's `plugins`
+directory][jsdoc-plugins] for the plugins built into JSDoc.
 
-The Markdown plugin can be configured by including a "markdown" object into conf.json; see
-[Configuring the Markdown Plugin][markdown] for further information.
+You can configure the Markdown plugin by adding a `markdown` object to your configuration file. See
+[Configuring the Markdown Plugin][markdown] for details.
 
-[plugins]: about-plugins.html
+[jsdoc-plugins]: https://github.com/jsdoc3/jsdoc/tree/master/plugins
 [markdown]: plugins-markdown.html
+[plugins]: about-plugins.html
 
 
-## Output style configuration
+## Template configuration
 
-The options in `templates` affect the appearance and content of generated documentation. Custom
+The options in `templates` affect the appearance and content of generated documentation. Third-party
 templates may not implement all of these options. See [Configuring JSDoc's Default
 Template][default-template] for additional options that the default template supports.
 
 {% example %}
 
 ```js
-"templates": {
-    "cleverLinks": false,
-    "monospaceLinks": false
+{
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    }
 }
 ```
 {% endexample %}
 
-If `templates.monospaceLinks` is true, all link texts from the [@link][link-tag] tag will be
-rendered in monospace.
+If `templates.monospaceLinks` is true, all link text from the [inline `{@link}`
+tag][inline-link-tag] will be rendered in monospace.
 
-If `templates.cleverLinks` is true, {@link asdf} will be rendered in normal font if "asdf" is a URL,
-and monospace otherwise. For example, `{@link http://github.com}` will render in plain-text but
-`{@link MyNamespace.myFunction}` will be in monospace.
+If `templates.cleverLinks` is true, `{@link asdf}` will be rendered in normal font if `asdf` is a
+URL, and monospace otherwise. For example, `{@link http://github.com}` will render in plain text,
+but `{@link MyNamespace.myFunction}` will be in monospace.
 
-If `templates.cleverLinks` is true, it is used and `templates.monospaceLinks` is ignored.
-
-Also, there are {@linkcode ...} and {@linkplain ...} if one wishes to force the link to be rendered
-in monospace or normal font respectively (see [@link, @linkcode and @linkplain][link-tag] for
-further information).
+If `templates.cleverLinks` is true, `templates.monospaceLinks` is ignored.
 
 [default-template]: about-configuring-default-template.html
-[link-tag]: tags-inline-link.html
+[inline-link-tag]: tags-inline-link.html
 
 
 ## Tags and tag dictionaries
 
 The options in `tags` control which JSDoc tags are allowed and how each tag is interpreted.
 
-
 {% example %}
 
 ```js
-"tags": {
-    "allowUnknownTags": true,
-    "dictionaries": ["jsdoc","closure"]
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc","closure"]
+    }
 }
 ```
 {% endexample %}

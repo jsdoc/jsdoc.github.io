@@ -90,5 +90,5 @@ use, which allows you to load your own custom CSS and JavaScript files in additi
 of, the standard files.
 
 To use this feature, set the option `templates.default.layoutFile` to the path to your customized
-layout file. Relative paths are resolved against the path to the `config.json` file; the current
+layout file. Relative paths are resolved against the path to the configuration file; the current
 working directory; and the JSDoc directory, in that order.

@@ -12,7 +12,8 @@ specification][es2015-modules]. ES 2015 modules are supported in JSDoc 3.4.0 and
 
 ## Module identifiers
 
-When you document an ES 2015 module, you'll use a [`@module` tag][module-tag] to document the identifier for the module. For example, if users load the module by calling `import * as myShirt
+When you document an ES 2015 module, you'll use a [`@module` tag][module-tag] to document the
+identifier for the module. For example, if users load the module by calling `import * as myShirt
 from 'my/shirt'`, you'll write a JSDoc comment that contains the tag `@module my/shirt`.
 
 If you use the `@module` tag without a value, JSDoc will try to guess the correct module identifier
@@ -74,7 +75,7 @@ export {
      * Get the red, green, and blue values of a color.
      * @function
      * @param {string} color - A color, in hexadecimal format.
-     * @returns {Array.<number>} An array of the red, green, and blue values,
+     * @returns {Array.&lt;number>} An array of the red, green, and blue values,
      * each ranging from 0 to 255.
      */
     rgbify as toRgb

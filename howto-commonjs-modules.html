@@ -173,12 +173,22 @@ exports.wash = function() {
  */
 
 module.exports = {
-    /** Blend two colors together. */
+    /**
+     * Blend two colors together.
+     * @param {string} color1 - The first color, in hexadecimal format.
+     * @param {string} color2 - The second color, in hexadecimal format.
+     * @return {string} The blended color.
+     */
     blend: function(color1, color2) {
         // ...
     },
 
-    /** Darken a color by the given percentage. */
+    /**
+     * Darken a color by the given percentage.
+     * @param {string} color - The color, in hexadecimal format.
+     * @param {number} percent - The percentage, ranging from 0 to 100.
+     * @return {string} The darkened color.
+     */
     darken: function(color, percent) {
         // ..
     }
@@ -194,13 +204,23 @@ module.exports = {
  */
 
 module.exports = {
-    /** Blend two colors together. */
+    /**
+     * Blend two colors together.
+     * @param {string} color1 - The first color, in hexadecimal format.
+     * @param {string} color2 - The second color, in hexadecimal format.
+     * @return {string} The blended color.
+     */
     blend: function(color1, color2) {
         // ...
     }
 };
 
-/** Darken a color by the given percentage. */
+/**
+ * Darken a color by the given percentage.
+ * @param {string} color - The color, in hexadecimal format.
+ * @param {number} percent - The percentage, ranging from 0 to 100.
+ * @return {string} The darkened color.
+ */
 module.exports.darken = function(color, percent) {
     // ..
 };
@@ -214,7 +234,12 @@ module.exports.darken = function(color, percent) {
  * @module color/mixer
  */
 
-/** Blend two colors together. */
+/**
+ * Blend two colors together.
+ * @param {string} color1 - The first color, in hexadecimal format.
+ * @param {string} color2 - The second color, in hexadecimal format.
+ * @return {string} The blended color.
+ */
 module.exports = function(color1, color2) {
     // ...
 };
@@ -256,7 +281,12 @@ module.exports = 'perniciousness';
  * @exports color/mixer
  */
 var mixer = module.exports = {
-    /** Blend two colors together. */
+    /**
+     * Blend two colors together.
+     * @param {string} color1 - The first color, in hexadecimal format.
+     * @param {string} color2 - The second color, in hexadecimal format.
+     * @return {string} The blended color.
+     */
     blend: function(color1, color2) {
         // ...
     }
@@ -266,9 +296,16 @@ var mixer = module.exports = {
     <h2 id="properties-added-to-this-">Properties added to &#39;this&#39;</h2>
     <p>When a module adds a property to its <code>this</code> object, JSDoc 3 automatically recognizes that the new property is exported by the module:</p>
     <figure>
-      <figcaption>Properties added to a module&#39;s &#39;this&#39; object</figcaption><pre class="prettyprint lang-js"><code>/** @module bookshelf */
+      <figcaption>Properties added to a module&#39;s &#39;this&#39; object</figcaption><pre class="prettyprint lang-js"><code>/**
+ * Module for bookshelf-related utilities.
+ * @module bookshelf
+ */
 
-/** @class */
+/**
+ * Create a new Book.
+ * @class
+ * @param {string} title - The title of the book.
+ */
 this.Book = function(title) {
     /** The title of the book. */
     this.title = title;

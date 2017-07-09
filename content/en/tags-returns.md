@@ -5,16 +5,27 @@ synonyms:
     - return
 related:
     - tags-param.html
+    - tags-yields.html
 ---
+
+## Syntax
+
+`@returns [{type}] [description]`
+
 
 ## Overview
 
-The @returns tag documents the value that a function returns.
+The `@returns` tag documents the value that a function returns.
+
+If you are documenting a generator function, use the [`@yields` tag][yields-tag] instead of this
+tag.
+
+[yields-tag]: tags-yields.html
 
 
 ## Examples
 
-{% example "Type of the return value" %}
+{% example "Return value with a type" %}
 
 ```js
 /**
@@ -29,7 +40,7 @@ function sum(a, b) {
 ```
 {% endexample %}
 
-{% example "Type and description of the return value" %}
+{% example "Return value with a type and description" %}
 
 ```js
 /**
@@ -44,7 +55,7 @@ function sum(a, b) {
 ```
 {% endexample %}
 
-{% example "The return value can have different types" %}
+{% example "Return value with multiple types" %}
 
 ```js
 /**
@@ -52,7 +63,7 @@ function sum(a, b) {
  * @param {Number} a
  * @param {Number} b
  * @param {Boolean} retArr If set to true, the function will return an array
- * @returns {Number|Array} Sum of a and b or an array that contains a, b and the sum of a and b.
+ * @returns {(Number|Array)} Sum of a and b or an array that contains a, b and the sum of a and b.
  */
 function sum(a, b, retArr) {
     if (retArr) {

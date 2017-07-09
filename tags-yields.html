@@ -4,8 +4,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Document the return value of a function.">
-  <title>Use JSDoc: @returns</title>
+  <meta name="description" content="Document the value yielded by a generator function.">
+  <title>Use JSDoc: @yields</title>
   <link rel="stylesheet" href="styles/usejsdoc.css">
   <link rel="stylesheet" href="styles/prettify.css">
   <link rel="stylesheet" href="styles/css3-github-ribbon.css">
@@ -21,7 +21,7 @@
     <a href="./index.html">@use JSDoc</a>
   </header>
   <article>
-    <h1>@returns</h1>
+    <h1>@yields</h1>
     <h2>Table of Contents</h2>
     <ul>
       <li>
@@ -42,65 +42,38 @@
     </ul>
     <h2 id="synonyms">Synonyms</h2>
     <p>
-      <code>@return</code>
+      <code>@yield</code>
     </p>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@returns [{type}] [description]</code>
+    <p><code>@yields [{type}] [description]</code>
     </p>
     <h2 id="overview">Overview</h2>
-    <p>The <code>@returns</code> tag documents the value that a function returns.</p>
-    <p>If you are documenting a generator function, use the <a href="tags-yields.html"><code>@yields</code> tag</a> instead of this tag.
+    <p>The <code>@yields</code> tag documents the value that is yielded by a generator function. This tag is available in JSDoc 3.5.0 and later.</p>
+    <p>If you are documenting a regular function, use the <a href="tags-returns.html"><code>@returns</code> tag</a> instead of this tag.
     </p>
     <h2 id="examples">Examples</h2>
     <figure>
-      <figcaption>Return value with a type</figcaption><pre class="prettyprint lang-js"><code>/**
- * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @returns {Number}
+      <figcaption>@yields tag with a type</figcaption><pre class="prettyprint lang-js"><code>/**
+ * Generate the Fibonacci sequence of numbers.
+ *
+ * @yields {number}
  */
-function sum(a, b) {
-    return a + b;
-}
+function* fibonacci() {}
 </code></pre>
     </figure>
     <figure>
-      <figcaption>Return value with a type and description</figcaption><pre class="prettyprint lang-js"><code>/**
- * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @returns {Number} Sum of a and b
+      <figcaption>@yields tag with a type and description</figcaption><pre class="prettyprint lang-js"><code>/**
+ * Generate the Fibonacci sequence of numbers.
+ *
+ * @yields {number} The next number in the Fibonacci sequence.
  */
-function sum(a, b) {
-    return a + b;
-}
-</code></pre>
-    </figure>
-    <figure>
-      <figcaption>Return value with multiple types</figcaption><pre class="prettyprint lang-js"><code>/**
- * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @param {Boolean} retArr If set to true, the function will return an array
- * @returns {(Number|Array)} Sum of a and b or an array that contains a, b and the sum of a and b.
- */
-function sum(a, b, retArr) {
-    if (retArr) {
-        return [a, b, a + b];
-    }
-    return a + b;
-}
+function* fibonacci() {}
 </code></pre>
     </figure>
     <h2 id="related-links">Related Links</h2>
-    <ul>
-      <li>
-        <a href="tags-param.html">@param</a>
-      </li>
-      <li>
-        <a href="tags-yields.html">@yields</a>
-      </li>
-    </ul>
+    <p>
+      <a href="tags-returns.html">@returns</a>
+    </p>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">

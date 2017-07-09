@@ -60,6 +60,7 @@ If you do not specify a configuration file, JSDoc uses the following configurati
 ```js
 {
     "plugins": [],
+    "recurseDepth": 10,
     "source": {
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
@@ -79,6 +80,8 @@ If you do not specify a configuration file, JSDoc uses the following configurati
 This means:
 
 + No plugins are loaded (`plugins`).
++ If recursion is enabled with the [`-r` command-line flag][about-commandline], JSDoc will search
+for files 10 levels deep (`recurseDepth`).
 + Only files ending in `.js`, `.jsdoc`, and `.jsx` will be processed (`source.includePattern`).
 + Any file starting with an underscore, or in a directory starting with an underscore, will be
 ignored (`source.excludePattern`).
@@ -90,8 +93,58 @@ ignored (`source.excludePattern`).
 
 These options and others are explained in the following sections.
 
+[about-commandline]: about-commandline.html
 [closure-tags]: https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#jsdoc-tags
 [tags-inline-link]: tags-inline-link.html
+
+
+## Configuring plugins
+
+To enable plugins, add their paths (relative to the JSDoc folder) into the `plugins` array.
+
+For example, the following JSON configuration file will enable the Markdown plugin, which converts
+Markdown-formatted text to HTML, and the "summarize" plugin, which autogenerates a summary for each
+doclet:
+
+{% example "JSON configuration file with plugins" %}
+
+```
+{
+    "plugins": [
+        "plugins/markdown",
+        "plugins/summarize"
+    ]
+}
+```
+{% endexample %}
+
+See the [plugin reference][plugins] for further information, and look in [JSDoc's `plugins`
+directory][jsdoc-plugins] for the plugins built into JSDoc.
+
+You can configure the Markdown plugin by adding a `markdown` object to your configuration file. See
+[Configuring the Markdown Plugin][markdown] for details.
+
+[jsdoc-plugins]: https://github.com/jsdoc3/jsdoc/tree/master/plugins
+[markdown]: plugins-markdown.html
+[plugins]: about-plugins.html
+
+
+## Specifying recursion depth
+
+The `recurseDepth` option controls how many levels deep JSDoc will recursively search for source
+files and tutorials. This option is used only if you also specify the [`-r` command-line
+flag][about-commandline], which tells JSDoc to recursively search for input files.
+
+{% example %}
+
+```js
+{
+    "recurseDepth": 10
+}
+```
+{% endexample %}
+
+[about-commandline]: about-commandline.html
 
 
 ## Specifying input files
@@ -230,69 +283,7 @@ When options are specified on the command line _and_ in the configuration file, 
 takes precedence.
 
 
-## Plugins
-
-To enable plugins, add their paths (relative to the JSDoc folder) into the `plugins` array.
-
-For example, the following JSON configuration file will enable the Markdown plugin, which converts
-Markdown-formatted text to HTML, and the "summarize" plugin, which autogenerates a summary for each
-doclet:
-
-{% example "JSON configuration file with plugins" %}
-
-```
-{
-    "plugins": [
-        "plugins/markdown",
-        "plugins/summarize"
-    ]
-}
-```
-{% endexample %}
-
-See the [plugin reference][plugins] for further information, and look in [JSDoc's `plugins`
-directory][jsdoc-plugins] for the plugins built into JSDoc.
-
-You can configure the Markdown plugin by adding a `markdown` object to your configuration file. See
-[Configuring the Markdown Plugin][markdown] for details.
-
-[jsdoc-plugins]: https://github.com/jsdoc3/jsdoc/tree/master/plugins
-[markdown]: plugins-markdown.html
-[plugins]: about-plugins.html
-
-
-## Template configuration
-
-The options in `templates` affect the appearance and content of generated documentation. Third-party
-templates may not implement all of these options. See [Configuring JSDoc's Default
-Template][default-template] for additional options that the default template supports.
-
-{% example %}
-
-```js
-{
-    "templates": {
-        "cleverLinks": false,
-        "monospaceLinks": false
-    }
-}
-```
-{% endexample %}
-
-If `templates.monospaceLinks` is true, all link text from the [inline `{@link}`
-tag][inline-link-tag] will be rendered in monospace.
-
-If `templates.cleverLinks` is true, `{@link asdf}` will be rendered in normal font if `asdf` is a
-URL, and monospace otherwise. For example, `{@link http://github.com}` will render in plain text,
-but `{@link MyNamespace.myFunction}` will be in monospace.
-
-If `templates.cleverLinks` is true, `templates.monospaceLinks` is ignored.
-
-[default-template]: about-configuring-default-template.html
-[inline-link-tag]: tags-inline-link.html
-
-
-## Tags and tag dictionaries
+## Configuring tags and tag dictionaries
 
 The options in `tags` control which JSDoc tags are allowed and how each tag is interpreted.
 
@@ -331,3 +322,34 @@ want to ensure that Closure Compiler-specific tags are interpreted as Closure Co
 interpret them.
 
 [closure-tags]: https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#jsdoc-tags
+
+
+## Configuring templates
+
+The options in `templates` affect the appearance and content of generated documentation. Third-party
+templates may not implement all of these options. See [Configuring JSDoc's Default
+Template][default-template] for additional options that the default template supports.
+
+{% example %}
+
+```js
+{
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    }
+}
+```
+{% endexample %}
+
+If `templates.monospaceLinks` is true, all link text from the [inline `{@link}`
+tag][inline-link-tag] will be rendered in monospace.
+
+If `templates.cleverLinks` is true, `{@link asdf}` will be rendered in normal font if `asdf` is a
+URL, and monospace otherwise. For example, `{@link http://github.com}` will render in plain text,
+but `{@link MyNamespace.myFunction}` will be in monospace.
+
+If `templates.cleverLinks` is true, `templates.monospaceLinks` is ignored.
+
+[default-template]: about-configuring-default-template.html
+[inline-link-tag]: tags-inline-link.html

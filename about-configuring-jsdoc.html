@@ -31,19 +31,22 @@
         <a href="#default-configuration-options">Default configuration options</a>
       </li>
       <li>
+        <a href="#configuring-plugins">Configuring plugins</a>
+      </li>
+      <li>
+        <a href="#specifying-recursion-depth">Specifying recursion depth</a>
+      </li>
+      <li>
         <a href="#specifying-input-files">Specifying input files</a>
       </li>
       <li>
         <a href="#incorporating-command-line-options-into-the-configuration-file">Incorporating command-line options into the configuration file</a>
       </li>
       <li>
-        <a href="#plugins">Plugins</a>
+        <a href="#configuring-tags-and-tag-dictionaries">Configuring tags and tag dictionaries</a>
       </li>
       <li>
-        <a href="#template-configuration">Template configuration</a>
-      </li>
-      <li>
-        <a href="#tags-and-tag-dictionaries">Tags and tag dictionaries</a>
+        <a href="#configuring-templates">Configuring templates</a>
       </li>
       <li>
         <a href="#related-links">Related Links</a>
@@ -79,6 +82,7 @@ module.exports = {
     <p>If you do not specify a configuration file, JSDoc uses the following configuration options:</p>
     <figure><pre class="prettyprint lang-js"><code>{
     "plugins": [],
+    "recurseDepth": 10,
     "source": {
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
@@ -97,6 +101,7 @@ module.exports = {
     <p>This means:</p>
     <ul>
       <li>No plugins are loaded (<code>plugins</code>).</li>
+      <li>If recursion is enabled with the <a href="about-commandline.html"><code>-r</code> command-line flag</a>, JSDoc will search for files 10 levels deep (<code>recurseDepth</code>).</li>
       <li>Only files ending in <code>.js</code>, <code>.jsdoc</code>, and <code>.jsx</code> will be processed (<code>source.includePattern</code>).</li>
       <li>Any file starting with an underscore, or in a directory starting with an underscore, will be ignored (<code>source.excludePattern</code>).</li>
       <li>JSDoc allows you to use unrecognized tags (<code>tags.allowUnknownTags</code>).</li>
@@ -106,6 +111,33 @@ module.exports = {
         <code>templates.monospaceLinks</code>).</li>
     </ul>
     <p>These options and others are explained in the following sections.</p>
+    <h2 id="configuring-plugins">Configuring plugins</h2>
+    <p>To enable plugins, add their paths (relative to the JSDoc folder) into the <code>plugins</code> array.</p>
+    <p>For example, the following JSON configuration file will enable the Markdown plugin, which converts Markdown-formatted text to HTML, and the &quot;summarize&quot;
+      plugin, which autogenerates a summary for each doclet:
+    </p>
+    <figure>
+      <figcaption>JSON configuration file with plugins</figcaption><pre class="prettyprint"><code>{
+    "plugins": [
+        "plugins/markdown",
+        "plugins/summarize"
+    ]
+}
+</code></pre>
+    </figure>
+    <p>See the <a href="about-plugins.html">plugin reference</a> for further information, and look in <a href="https://github.com/jsdoc3/jsdoc/tree/master/plugins">JSDoc&#39;s <code>plugins</code>
+directory</a> for the plugins built into JSDoc.</p>
+    <p>You can configure the Markdown plugin by adding a <code>markdown</code> object to your configuration file. See
+      <a href="plugins-markdown.html">Configuring the Markdown Plugin</a> for details.</p>
+    <h2 id="specifying-recursion-depth">Specifying recursion depth</h2>
+    <p>The <code>recurseDepth</code> option controls how many levels deep JSDoc will recursively search for source files and tutorials. This option is used only if
+      you also specify the <a href="about-commandline.html"><code>-r</code> command-line
+flag</a>, which tells JSDoc to recursively search for input files.</p>
+    <figure><pre class="prettyprint lang-js"><code>{
+    "recurseDepth": 10
+}
+</code></pre>
+    </figure>
     <h2 id="specifying-input-files">Specifying input files</h2>
     <p>The <code>source</code> set of options, in combination with paths given to JSDoc on the command line, determines the set of input files that JSDoc uses to generate
       documentation.</p>
@@ -211,42 +243,7 @@ module.exports = {
     <pre class="prettyprint"><code>jsdoc -c /path/to/conf.json
 </code></pre>
     <p>When options are specified on the command line <em>and</em> in the configuration file, the command line takes precedence.</p>
-    <h2 id="plugins">Plugins</h2>
-    <p>To enable plugins, add their paths (relative to the JSDoc folder) into the <code>plugins</code> array.</p>
-    <p>For example, the following JSON configuration file will enable the Markdown plugin, which converts Markdown-formatted text to HTML, and the &quot;summarize&quot;
-      plugin, which autogenerates a summary for each doclet:
-    </p>
-    <figure>
-      <figcaption>JSON configuration file with plugins</figcaption><pre class="prettyprint"><code>{
-    "plugins": [
-        "plugins/markdown",
-        "plugins/summarize"
-    ]
-}
-</code></pre>
-    </figure>
-    <p>See the <a href="about-plugins.html">plugin reference</a> for further information, and look in <a href="https://github.com/jsdoc3/jsdoc/tree/master/plugins">JSDoc&#39;s <code>plugins</code>
-directory</a> for the plugins built into JSDoc.</p>
-    <p>You can configure the Markdown plugin by adding a <code>markdown</code> object to your configuration file. See
-      <a href="plugins-markdown.html">Configuring the Markdown Plugin</a> for details.</p>
-    <h2 id="template-configuration">Template configuration</h2>
-    <p>The options in <code>templates</code> affect the appearance and content of generated documentation. Third-party templates may not implement all of these options.
-      See <a href="about-configuring-default-template.html">Configuring JSDoc&#39;s Default
-Template</a> for additional options that the default template supports.</p>
-    <figure><pre class="prettyprint lang-js"><code>{
-    "templates": {
-        "cleverLinks": false,
-        "monospaceLinks": false
-    }
-}
-</code></pre>
-    </figure>
-    <p>If <code>templates.monospaceLinks</code> is true, all link text from the <a href="tags-inline-link.html">inline <code>{@link}</code>
-tag</a> will be rendered in monospace.</p>
-    <p>If <code>templates.cleverLinks</code> is true, <code>{@link asdf}</code> will be rendered in normal font if <code>asdf</code> is a URL, and monospace otherwise.
-      For example, <code>{@link http://github.com}</code> will render in plain text, but <code>{@link MyNamespace.myFunction}</code> will be in monospace.</p>
-    <p>If <code>templates.cleverLinks</code> is true, <code>templates.monospaceLinks</code> is ignored.</p>
-    <h2 id="tags-and-tag-dictionaries">Tags and tag dictionaries</h2>
+    <h2 id="configuring-tags-and-tag-dictionaries">Configuring tags and tag dictionaries</h2>
     <p>The options in <code>tags</code> control which JSDoc tags are allowed and how each tag is interpreted.</p>
     <figure><pre class="prettyprint lang-js"><code>{
     "tags": {
@@ -271,6 +268,23 @@ tag</a> will be rendered in monospace.</p>
       <code>jsdoc</code> version of the tag takes precedence.</p>
     <p>If you are using JSDoc with a Closure Compiler project, and you want to avoid using tags that Closure Compiler does not recognize, change the <code>tags.dictionaries</code>      setting to <code>[&quot;closure&quot;]</code>. You can also change this setting to <code>[&quot;closure&quot;,&quot;jsdoc&quot;]</code> if you want to allow
       core JSDoc tags, but you want to ensure that Closure Compiler-specific tags are interpreted as Closure Compiler would interpret them.</p>
+    <h2 id="configuring-templates">Configuring templates</h2>
+    <p>The options in <code>templates</code> affect the appearance and content of generated documentation. Third-party templates may not implement all of these options.
+      See <a href="about-configuring-default-template.html">Configuring JSDoc&#39;s Default
+Template</a> for additional options that the default template supports.</p>
+    <figure><pre class="prettyprint lang-js"><code>{
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    }
+}
+</code></pre>
+    </figure>
+    <p>If <code>templates.monospaceLinks</code> is true, all link text from the <a href="tags-inline-link.html">inline <code>{@link}</code>
+tag</a> will be rendered in monospace.</p>
+    <p>If <code>templates.cleverLinks</code> is true, <code>{@link asdf}</code> will be rendered in normal font if <code>asdf</code> is a URL, and monospace otherwise.
+      For example, <code>{@link http://github.com}</code> will render in plain text, but <code>{@link MyNamespace.myFunction}</code> will be in monospace.</p>
+    <p>If <code>templates.cleverLinks</code> is true, <code>templates.monospaceLinks</code> is ignored.</p>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>

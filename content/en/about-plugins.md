@@ -10,7 +10,7 @@ There are two steps required to create and enable a new JSDoc plugin:
 1. Create a JavaScript module to contain your plugin code.
 2. Include that module in the `plugins` array of [JSDoc's configuration file][config-file]. You can
 specify an absolute or relative path. If you use a relative path, JSDoc searches for the plugin in
-the directory where the configuration file is located; the current working directory; and the JSDoc
+the current working directory; the directory where the configuration file is located; and the JSDoc
 directory, in that order.
 
 For example, if your plugin is defined in the `plugins/shout.js` file in the current working

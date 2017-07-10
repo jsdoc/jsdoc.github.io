@@ -65,6 +65,7 @@ If you do not specify a configuration file, JSDoc uses the following configurati
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
+    "sourceType": "module",
     "tags": {
         "allowUnknownTags": true,
         "dictionaries": ["jsdoc","closure"]
@@ -85,6 +86,7 @@ for files 10 levels deep (`recurseDepth`).
 + Only files ending in `.js`, `.jsdoc`, and `.jsx` will be processed (`source.includePattern`).
 + Any file starting with an underscore, or in a directory starting with an underscore, will be
 ignored (`source.excludePattern`).
++ JSDoc supports code that uses [ES2015 modules][es2015-modules] (`sourceType`).
 + JSDoc allows you to use unrecognized tags (`tags.allowUnknownTags`).
 + Both standard JSDoc tags and [Closure Compiler tags][closure-tags] are enabled
 (`tags.dictionaries`).
@@ -95,6 +97,7 @@ These options and others are explained in the following sections.
 
 [about-commandline]: about-commandline.html
 [closure-tags]: https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#jsdoc-tags
+[es2015-modules]: howto-es2015-modules.html
 [tags-inline-link]: tags-inline-link.html
 
 
@@ -132,8 +135,9 @@ You can configure the Markdown plugin by adding a `markdown` object to your conf
 ## Specifying recursion depth
 
 The `recurseDepth` option controls how many levels deep JSDoc will recursively search for source
-files and tutorials. This option is used only if you also specify the [`-r` command-line
-flag][about-commandline], which tells JSDoc to recursively search for input files.
+files and tutorials. This option is available in JSDoc 3.5.0 and later. This option is used only if
+you also specify the [`-r` command-line flag][about-commandline], which tells JSDoc to recursively
+search for input files.
 
 {% example %}
 
@@ -247,6 +251,25 @@ files:
 4. JSDoc applies `source.exclude`, which removes `myProject/lib/ignore.js`.
 
 [about-commandline]: about-commandline.html
+
+
+## Specifying the source type
+
+The `sourceType` option affects how JSDoc parses your JavaScript files. This option is available in
+JSDoc 3.5.0 and later. This option accepts the following values:
+
++ `module` (default): Use this value for most types of JavaScript files.
++ `script`: Use this value if JSDoc logs errors such as `Delete of an unqualified identifier in
+strict mode` when it parses your code.
+
+{% example %}
+
+```js
+{
+    "sourceType": "module"
+}
+```
+{% endexample %}
 
 
 ## Incorporating command-line options into the configuration file

@@ -40,6 +40,9 @@
         <a href="#specifying-input-files">Specifying input files</a>
       </li>
       <li>
+        <a href="#specifying-the-source-type">Specifying the source type</a>
+      </li>
+      <li>
         <a href="#incorporating-command-line-options-into-the-configuration-file">Incorporating command-line options into the configuration file</a>
       </li>
       <li>
@@ -87,6 +90,7 @@ module.exports = {
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
+    "sourceType": "module",
     "tags": {
         "allowUnknownTags": true,
         "dictionaries": ["jsdoc","closure"]
@@ -104,6 +108,7 @@ module.exports = {
       <li>If recursion is enabled with the <a href="about-commandline.html"><code>-r</code> command-line flag</a>, JSDoc will search for files 10 levels deep (<code>recurseDepth</code>).</li>
       <li>Only files ending in <code>.js</code>, <code>.jsdoc</code>, and <code>.jsx</code> will be processed (<code>source.includePattern</code>).</li>
       <li>Any file starting with an underscore, or in a directory starting with an underscore, will be ignored (<code>source.excludePattern</code>).</li>
+      <li>JSDoc supports code that uses <a href="howto-es2015-modules.html">ES2015 modules</a> (<code>sourceType</code>).</li>
       <li>JSDoc allows you to use unrecognized tags (<code>tags.allowUnknownTags</code>).</li>
       <li>Both standard JSDoc tags and <a href="https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#jsdoc-tags">Closure Compiler tags</a>        are enabled (
         <code>tags.dictionaries</code>).</li>
@@ -130,9 +135,9 @@ directory</a> for the plugins built into JSDoc.</p>
     <p>You can configure the Markdown plugin by adding a <code>markdown</code> object to your configuration file. See
       <a href="plugins-markdown.html">Configuring the Markdown Plugin</a> for details.</p>
     <h2 id="specifying-recursion-depth">Specifying recursion depth</h2>
-    <p>The <code>recurseDepth</code> option controls how many levels deep JSDoc will recursively search for source files and tutorials. This option is used only if
-      you also specify the <a href="about-commandline.html"><code>-r</code> command-line
-flag</a>, which tells JSDoc to recursively search for input files.</p>
+    <p>The <code>recurseDepth</code> option controls how many levels deep JSDoc will recursively search for source files and tutorials. This option is available in
+      JSDoc 3.5.0 and later. This option is used only if you also specify the <a href="about-commandline.html"><code>-r</code> command-line flag</a>, which tells
+      JSDoc to recursively search for input files.</p>
     <figure><pre class="prettyprint lang-js"><code>{
     "recurseDepth": 10
 }
@@ -222,6 +227,19 @@ flag</a>, which tells JSDoc to recursively search for input files.</p>
       <li>JSDoc applies <code>source.excludePattern</code>, which removes <code>myProject/_private/a.js</code>.</li>
       <li>JSDoc applies <code>source.exclude</code>, which removes <code>myProject/lib/ignore.js</code>.</li>
     </ol>
+    <h2 id="specifying-the-source-type">Specifying the source type</h2>
+    <p>The <code>sourceType</code> option affects how JSDoc parses your JavaScript files. This option is available in JSDoc 3.5.0 and later. This option accepts the
+      following values:</p>
+    <ul>
+      <li><code>module</code> (default): Use this value for most types of JavaScript files.</li>
+      <li><code>script</code>: Use this value if JSDoc logs errors such as <code>Delete of an unqualified identifier in
+strict mode</code> when it parses your code.</li>
+    </ul>
+    <figure><pre class="prettyprint lang-js"><code>{
+    "sourceType": "module"
+}
+</code></pre>
+    </figure>
     <h2 id="incorporating-command-line-options-into-the-configuration-file">Incorporating command-line options into the configuration file</h2>
     <p>You can put many of JSDoc&#39;s <a href="about-commandline.html">command-line options</a> into the configuration file instead of specifying them on the command
       line. To do this, add the long names of the relevant options into an

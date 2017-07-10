@@ -4,8 +4,8 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="This symbol is meant to be protected.">
-  <title>Use JSDoc: @protected</title>
+  <meta name="description" content="This symbol is meant to be package-private.">
+  <title>Use JSDoc: @package</title>
   <link rel="stylesheet" href="styles/usejsdoc.css">
   <link rel="stylesheet" href="styles/prettify.css">
   <link rel="stylesheet" href="styles/css3-github-ribbon.css">
@@ -21,7 +21,7 @@
     <a href="./index.html">@use JSDoc</a>
   </header>
   <article>
-    <h1>@protected</h1>
+    <h1>@package</h1>
     <h2>Table of Contents</h2>
     <ul>
       <li>
@@ -39,23 +39,23 @@
     </ul>
     <h2 id="syntax">Syntax</h2>
     <p>With the JSDoc tag dictionary (enabled by default):</p>
-    <p><code>@protected</code>
+    <p><code>@package</code>
     </p>
     <p>With the <a href="https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#jsdoc-tags">Closure Compiler</a> tag dictionary:</p>
-    <p><code>@protected [{typeExpression}]</code>
+    <p><code>@package [{typeExpression}]</code>
     </p>
     <h2 id="overview">Overview</h2>
-    <p>The <code>@protected</code> tag marks a symbol as protected. Typically, this tag indicates that a symbol is only available, or should only be used, within the
-      current module.</p>
-    <p>By default, symbols marked with the <code>@protected</code> tag will appear in your documentation. In JSDoc 3.3.0 and later, you can use the <a href="about-commandline.html"><code>-a/--access</code> command-line option</a>      to change this behavior.
+    <p>The <code>@package</code> tag marks a symbol as package-private. Typically, this tag indicates that a symbol is available only to code in the same directory
+      as the source file for this symbol. This tag is available in JSDoc 3.5.0 and later.</p>
+    <p>By default, symbols marked with the <code>@package</code> tag will appear in your documentation. In JSDoc 3.3.0 and later, you can use the <a href="about-commandline.html"><code>-a/--access</code> command-line option</a>      to change this behavior.
     </p>
-    <p>The <code>@protected</code> tag is equivalent to <code>@access protected</code>.</p>
+    <p>The <code>@package</code> tag is equivalent to <code>@access package</code>.</p>
     <h2 id="examples">Examples</h2>
-    <p>In the following example, the instance member <code>Thingy#_bar</code> appears in the generated documentation, but with an annotation indicating that it is protected:</p>
+    <p>In the following example, the instance member <code>Thingy#_bar</code> appears in the generated documentation, but with an annotation indicating that it is package-private:</p>
     <figure>
-      <figcaption>Using the @protected tag</figcaption><pre class="prettyprint lang-js"><code>/** @constructor */
+      <figcaption>Using the @package tag</figcaption><pre class="prettyprint lang-js"><code>/** @constructor */
 function Thingy() {
-    /** @protected */
+    /** @package */
     this._bar = 1;
 }
 </code></pre>
@@ -72,10 +72,10 @@ function Thingy() {
         <a href="tags-instance.html">@instance</a>
       </li>
       <li>
-        <a href="tags-package.html">@package</a>
+        <a href="tags-private.html">@private</a>
       </li>
       <li>
-        <a href="tags-private.html">@private</a>
+        <a href="tags-protected.html">@protected</a>
       </li>
       <li>
         <a href="tags-public.html">@public</a>

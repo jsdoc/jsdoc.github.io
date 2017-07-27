@@ -30,9 +30,9 @@ tag.
 ```js
 /**
  * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @returns {Number}
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
  */
 function sum(a, b) {
     return a + b;
@@ -45,9 +45,9 @@ function sum(a, b) {
 ```js
 /**
  * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @returns {Number} Sum of a and b
+ * @param {number} a
+ * @param {number} b
+ * @returns {number} Sum of a and b
  */
 function sum(a, b) {
     return a + b;
@@ -60,16 +60,33 @@ function sum(a, b) {
 ```js
 /**
  * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @param {Boolean} retArr If set to true, the function will return an array
- * @returns {(Number|Array)} Sum of a and b or an array that contains a, b and the sum of a and b.
+ * @param {number} a
+ * @param {number} b
+ * @param {boolean} retArr If set to true, the function will return an array
+ * @returns {(number|Array)} Sum of a and b or an array that contains a, b and the sum of a and b.
  */
 function sum(a, b, retArr) {
     if (retArr) {
         return [a, b, a + b];
     }
     return a + b;
+}
+```
+{% endexample %}
+
+{% example "Returns a promise" %}
+
+```js
+/**
+ * Returns the sum of a and b
+ * @param {number} a
+ * @param {number} b
+ * @returns {Promise<number>} Promise object represents the sum of a and b
+ */
+function sumAsync(a, b) {
+    return new Promise(function(resolve, reject) {
+        resolve(a + b);
+    });
 }
 ```
 {% endexample %}

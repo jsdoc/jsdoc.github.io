@@ -45,8 +45,7 @@
       <code>@return</code>
     </p>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@returns [{type}] [description]</code>
-    </p>
+    <p><code>@returns [{type}] [description]</code></p>
     <h2 id="overview">Overview</h2>
     <p>The <code>@returns</code> tag documents the value that a function returns.</p>
     <p>If you are documenting a generator function, use the <a href="tags-yields.html"><code>@yields</code> tag</a> instead of this tag.
@@ -55,34 +54,32 @@
     <figure>
       <figcaption>Return value with a type</figcaption><pre class="prettyprint lang-js"><code>/**
  * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @returns {Number}
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
  */
 function sum(a, b) {
     return a + b;
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>Return value with a type and description</figcaption><pre class="prettyprint lang-js"><code>/**
  * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @returns {Number} Sum of a and b
+ * @param {number} a
+ * @param {number} b
+ * @returns {number} Sum of a and b
  */
 function sum(a, b) {
     return a + b;
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>Return value with multiple types</figcaption><pre class="prettyprint lang-js"><code>/**
  * Returns the sum of a and b
- * @param {Number} a
- * @param {Number} b
- * @param {Boolean} retArr If set to true, the function will return an array
- * @returns {(Number|Array)} Sum of a and b or an array that contains a, b and the sum of a and b.
+ * @param {number} a
+ * @param {number} b
+ * @param {boolean} retArr If set to true, the function will return an array
+ * @returns {(number|Array)} Sum of a and b or an array that contains a, b and the sum of a and b.
  */
 function sum(a, b, retArr) {
     if (retArr) {
@@ -90,8 +87,20 @@ function sum(a, b, retArr) {
     }
     return a + b;
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
+    <figure>
+      <figcaption>Returns a promise</figcaption><pre class="prettyprint lang-js"><code>/**
+ * Returns the sum of a and b
+ * @param {number} a
+ * @param {number} b
+ * @returns {Promise<number>} Promise object represents the sum of a and b
+ */
+function sumAsync(a, b) {
+    return new Promise(function(resolve, reject) {
+        resolve(a + b);
+    });
+}
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -104,8 +113,7 @@ function sum(a, b, retArr) {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

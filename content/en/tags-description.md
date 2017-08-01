@@ -58,3 +58,5 @@ function add(a, b) {
 }
 ```
 {% endexample %}
+
+If there's both a description at the beginning of a JSDoc comment and a description provided with the @description tag, the description specified with the @description will override the description at the beginning of the comment.

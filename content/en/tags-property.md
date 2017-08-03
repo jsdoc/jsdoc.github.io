@@ -50,3 +50,17 @@ var config = {
 };
 ```
 {% endexample %}
+
+The following example shows how to indicate that a property is optional.
+
+ {% example "A type definition with required and optional property" %}
+
+ ```
+/**
+ * User type definition
+ * @typedef {Object} User
+ * @property {string} email
+ * @property {string} [nickName]
+ */
+ ```
+ {% endexample %}

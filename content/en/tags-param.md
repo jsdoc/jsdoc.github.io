@@ -107,6 +107,23 @@ Project.prototype.assign = function(employee) {
 ```
 {% endexample %}
 
+If a parameter is destructured without an explicit name, you can give the object an appropriate one and
+document its properties.
+
+{% example "Documenting a destructuring parameter" %}
+```js
+/**
+ * Assign the project to an employee.
+ * @param {Object} employee - The employee who is responsible for the project.
+ * @param {string} employee.name - The name of the employee.
+ * @param {string} employee.department - The employee's department.
+ */
+Project.prototype.assign = function({ name, department }) {
+    // ...
+};
+```
+{% endexample %}
+
 You can also combine this syntax with JSDoc's syntax for array parameters. For example, if multiple
 employees can be assigned to a project:
 

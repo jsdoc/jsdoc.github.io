@@ -84,14 +84,14 @@ documented.
  </td>
  <td>
 {% example "An array of MyClass instances." %}
-<pre class="prettyprint"><code>{Array.&lt;MyClass&gt;}
+<pre class="prettyprint"><code>{Array&lt;MyClass&gt;}
 // or:
 {MyClass[]}
 </code></pre>
 {% endexample %}
 
 {% example "An object with string keys and number values:" %}
-<pre class="prettyprint"><code>{Object.&lt;string, number&gt;}
+<pre class="prettyprint"><code>{Object&lt;string, number&gt;}
 </code></pre>
 {% endexample %}
 
@@ -107,7 +107,11 @@ documented.
  </td>
  <td><p>
   JSDoc supports Closure Compiler's syntax for defining array and object types.
+  </p>
   <p>
+  The trailing period on an object type is supported, but not required (e.g.,
+  <code>Array.&lt;string&gt;</code>).
+  </p>
   <p>
   You can also indicate an array by appending <code>[]</code> to the type that is contained in the
   array. For example, the expression <code>string[]</code> indicates an array of strings.
@@ -272,7 +276,7 @@ var props;
 {% example "Example" %}
 
 ```js
-/** @type {(string|Array.<string>)} */
+/** @type {(string|Array&lt;string>)} */
 var foo;
 /** @type {number} */
 var bar = 1;

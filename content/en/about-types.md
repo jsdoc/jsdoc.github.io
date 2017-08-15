@@ -66,7 +66,8 @@ documented.
  <td>
   <p>
   This means a value can have one of several types, with the entire list of types enclosed in
-  parentheses and separated by <code>|</code>.
+  parentheses and separated by <code>|</code>. The parentheses are required for Closure Compiler,
+  but may be omitted in JSDoc.
   </p>
  </td>
 </tr>

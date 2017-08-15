@@ -94,7 +94,7 @@ documented.
 {Object} myObj
 {number} myObj.a
 {string} myObj.b
-{*} myObj.c
+{&ast;} myObj.c
 </code></pre>
 {% endexample %}
  </td>
@@ -163,10 +163,10 @@ documented.
   parameters. For example:
   </p>
 {% example %}
-<pre class="prettyprint"><code>/**
- * Returns the sum of all numbers passed to the function.
- * @param {...number} num A positive or negative number
- */
+<pre class="prettyprint"><code>/&ast;&ast;
+ &ast; Returns the sum of all numbers passed to the function.
+ &ast; @param {...number} num A positive or negative number
+ &ast;/
 function sum(num) {
     var i=0, n=arguments.length, t=0;
     for (; i&lt;n; i++) {
@@ -210,12 +210,12 @@ function sum(num) {
  </td>
  <td>
 {% example %}
-<pre class="prettyprint"><code>/**
- * @callback myCallback
- * @param {number} x - ...
- */
+<pre class="prettyprint"><code>/&ast;&ast;
+ &ast; @callback myCallback
+ &ast; @param {number} x - ...
+ &ast;/
 
-/** @type {myCallback} */
+/&ast;&ast; @type {myCallback} &ast;/
 var cb;
 </code></pre>
 {% endexample %}
@@ -234,15 +234,15 @@ var cb;
  </td>
  <td>
 {% example "Documenting a type with properties 'id', 'name', 'age'." %}
-<pre class="prettyprint"><code>/**
- * @typedef PropertiesHash
- * @type {object}
- * @property {string} id - an ID.
- * @property {string} name - your name.
- * @property {number} age - your age.
- */
+<pre class="prettyprint"><code>/&ast;&ast;
+ &ast; @typedef PropertiesHash
+ &ast; @type {object}
+ &ast; @property {string} id - an ID.
+ &ast; @property {string} name - your name.
+ &ast; @property {number} age - your age.
+ &ast;/
 
-/** @type {PropertiesHash} */
+/&ast;&ast; @type {PropertiesHash} &ast;/
 var props;
 </code></pre>
 {% endexample %}

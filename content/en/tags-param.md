@@ -22,13 +22,13 @@ The parameter type can be a built-in JavaScript type, such as `string` or `Objec
 [JSDoc namepath][namepath] to another symbol in your code. If you have written documentation for the
 symbol at that namepath, JSDoc will automatically link to the documentation for that symbol. You can
 also use a type expression to indicate, for example, that a parameter is not nullable or can accept
-any type; see the [`@type` tag documentation][type-tag] for details.
+any type; see the [types documentation][about-types] for details.
 
 If you provide a description, you can make the JSDoc comment more readable by inserting a hyphen
 before the description. Be sure to include a space before and after the hyphen.
 
 [namepath]: about-namepaths.html
-[type-tag]: tags-type.html
+[about-types]: about-types.html
 
 
 ## Examples
@@ -193,7 +193,7 @@ function sayHello(somebody) {
 ### Multiple types and repeatable parameters
 The following examples show how to use type expressions to indicate that a parameter can accept
 multiple types (or any type), and that a parameter can be provided more than once. See the
-[`@type` tag documentation][type-tag] for details about the type expressions that JSDoc supports.
+[types documentation][about-types] for details about the type expressions that JSDoc supports.
 
 {% example "Allows one type OR another type (type union)" %}
 
@@ -267,4 +267,4 @@ function doSomethingAsynchronously(cb) {
 {% endexample %}
 
 [callback-tag]: tags-callback.html
-[type-tag]: tags-type.html
+[about-types]: about-types.html

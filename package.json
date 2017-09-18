@@ -8,6 +8,7 @@
     "gulp": "~3.9.0",
     "gulp-connect": "~2.2.0",
     "harmonize": "~1.4.4",
+    "marked": "^0.3.6",
     "metalsmith": "~2.0.1",
     "metalsmith-beautify": "~0.0.7",
     "metalsmith-headings": "~0.1.0",

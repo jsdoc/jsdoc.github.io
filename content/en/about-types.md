@@ -8,7 +8,7 @@ contain, a parameter type, or the type of a value returned by a function. These 
 are specified with the [`@type` tag][type-tag], the [`@param` tag][param-tag], and many others.
 
 [type-tag]: tags-type.html
-[param-tag]: tags-param.html.
+[param-tag]: tags-param.html
 
 ## Overview
 
@@ -17,8 +17,7 @@ built-in JavaScript type (for example, `string`); or a combination of these. You
 [Google Closure Compiler type expression][closure], as well as several other formats that are
 specific to JSDoc.
 
-If JSDoc determines that a type expression is invalid, it will display an error and stop running.
-You can turn this error into a warning by running JSDoc with the `--lenient` option.
+If JSDoc determines that a type expression is invalid, it will display an error message. To force JSDoc to stop running when a type expression is invalid, use the `--pedantic` option.
 
 **Note**: Full support for Google Closure Compiler-style type expressions is available
 in JSDoc 3.2 and later. Earlier versions of JSDoc included partial support for Closure Compiler type
@@ -66,7 +65,7 @@ documented.
  <td>
   <p>
   This means a value can have one of several types, with the entire list of types enclosed in
-  parentheses and separated by <code>|</code>. The parentheses are required for Closure Compiler,
+  parentheses and separated by <code>|</code>. The parentheses are suggested for Closure Compiler,
   but may be omitted in JSDoc.
   </p>
  </td>
@@ -89,7 +88,7 @@ documented.
 </code></pre>
 {% endexample %}
 
-{% example "An object called 'myObj' with properties 'a' (a number), 'b' (a string) and 'c' (any type)." %}
+{% example "An object called 'myObj' with properties 'a' (a number), 'b' (a string), and 'c' (any type)." %}
 <pre class="prettyprint"><code>&#123;{a: number, b: string, c}} myObj
 // or:
 {Object} myObj
@@ -108,8 +107,8 @@ documented.
   </p>
   <p>
   For objects that have a known set of properties, you can use Closure Compiler's syntax for
-  documenting record types. You can document each property individually, which enables you to
-  provide more detailed information about each property.
+  documenting record types. As an alternative, you can document each property individually, which
+  enables you to provide more detailed information about each property.
   </p>
  </td>
 </tr>
@@ -223,8 +222,9 @@ var cb;
  </td>
  <td>
   <p>
-  Document a callback using the <a href="tags-callback.html">@callback</a> tag. The syntax is
-  identical to the @typedef tag, except that a callback's type is always "function."
+  Document a callback using the <a href="tags-callback.html"><code>@callback</code></a> tag. The
+  syntax is identical to the <code>@typedef</code> tag, except that a callback's type is always
+  <code>function</code>.
   </p>
  </td>
 </tr>

@@ -16,7 +16,7 @@ related:
 ## Overview
 
 The `@type` tag allows you to provide a type expression identifying the type of value that a symbol
-may contain, or inline to indicate that a symbol is of a specific type.
+may contain. For function parameters, you can also use an inline `@type` tag to identify its type.
 
 The parameter type can be a built-in JavaScript type, such as `number` or `Object`, or a
 [JSDoc namepath][namepath] to another symbol in your code. If you have written documentation for the
@@ -58,8 +58,9 @@ var FOO = 1;
 ```
 {% endexample %}
 
-To indicate that a variable is of a certain type, you can cast it with @type. The surrounding
-parentheses are required.
+The Google Closure Compiler also allows the use of `@type` to "cast" or change the type of a
+variable so that it confirms to what is needed by a function parameter or assignment. The
+surrounding parentheses are required.
 
 {% example "Cast a variable to a specific type." }
 

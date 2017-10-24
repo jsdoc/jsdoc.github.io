@@ -239,6 +239,20 @@ function sum(num) {
     return t;
 }
 ```
+
+This syntax includes the usage of the spread operator `...`:
+
+```js
+/**
+ * @param {string} meal - The name of the meal (e.g., "breakfast").
+ * @param {...Object} products - What is being eaten.
+ */
+function eatMeal(meal, ...products) {
+    swallow(...products);
+    log('Meal ', meal, ' was done at ', new Date);
+}
+```
+
 {% endexample %}
 
 ### Callback functions

@@ -28,10 +28,11 @@ declarations.
 {% example "A string constant representing the color red" %}
 
 ```js
-/** @constant
-    @type {string}
-    @default
-*/
+/**
+ *  @constant
+ *  @type {string}
+ *  @default
+ */
 const RED = 'FF0000';
 
 /** @constant {number} */

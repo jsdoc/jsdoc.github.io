@@ -263,7 +263,7 @@ var props;
 </tr>
 </table>
 
-[closure]: https://developers.google.com/closure/compiler/docs/js-for-compiler#types
+[closure]: https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#type-expressions
 [param-tag]: tags-param.html
 
 

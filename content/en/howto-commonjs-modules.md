@@ -174,12 +174,22 @@ property:
  */
 
 module.exports = {
-    /** Blend two colors together. */
+    /**
+     * Blend two colors together.
+     * @param {string} color1 - The first color, in hexadecimal format.
+     * @param {string} color2 - The second color, in hexadecimal format.
+     * @return {string} The blended color.
+     */
     blend: function(color1, color2) {
         // ...
     },
 
-    /** Darken a color by the given percentage. */
+    /**
+     * Darken a color by the given percentage.
+     * @param {string} color - The color, in hexadecimal format.
+     * @param {number} percent - The percentage, ranging from 0 to 100.
+     * @return {string} The darkened color.
+     */
     darken: function(color, percent) {
         // ..
     }
@@ -199,13 +209,23 @@ literal:
  */
 
 module.exports = {
-    /** Blend two colors together. */
+    /**
+     * Blend two colors together.
+     * @param {string} color1 - The first color, in hexadecimal format.
+     * @param {string} color2 - The second color, in hexadecimal format.
+     * @return {string} The blended color.
+     */
     blend: function(color1, color2) {
         // ...
     }
 };
 
-/** Darken a color by the given percentage. */
+/**
+ * Darken a color by the given percentage.
+ * @param {string} color - The color, in hexadecimal format.
+ * @param {number} percent - The percentage, ranging from 0 to 100.
+ * @return {string} The darkened color.
+ */
 module.exports.darken = function(color, percent) {
     // ..
 };
@@ -225,7 +245,12 @@ the function:
  * @module color/mixer
  */
 
-/** Blend two colors together. */
+/**
+ * Blend two colors together.
+ * @param {string} color1 - The first color, in hexadecimal format.
+ * @param {string} color2 - The second color, in hexadecimal format.
+ * @return {string} The blended color.
+ */
 module.exports = function(color1, color2) {
     // ...
 };
@@ -285,7 +310,12 @@ symbol represents the value exported by a module.
  * @exports color/mixer
  */
 var mixer = module.exports = {
-    /** Blend two colors together. */
+    /**
+     * Blend two colors together.
+     * @param {string} color1 - The first color, in hexadecimal format.
+     * @param {string} color2 - The second color, in hexadecimal format.
+     * @return {string} The blended color.
+     */
     blend: function(color1, color2) {
         // ...
     }
@@ -306,9 +336,16 @@ property is exported by the module:
 {% example "Properties added to a module's 'this' object" %}
 
 ```js
-/** @module bookshelf */
+/**
+ * Module for bookshelf-related utilities.
+ * @module bookshelf
+ */
 
-/** @class */
+/**
+ * Create a new Book.
+ * @class
+ * @param {string} title - The title of the book.
+ */
 this.Book = function(title) {
     /** The title of the book. */
     this.title = title;

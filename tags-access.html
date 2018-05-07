@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Specify the access level of this member (private, public, or protected).">
+  <meta name="description" content="Specify the access level of this member (private, package-private, public, or protected).">
   <title>@access &ndash; Use JSDoc</title>
   <link rel="stylesheet" href="styles/usejsdoc.css">
   <link rel="stylesheet" href="styles/prettify.css">
@@ -38,11 +38,12 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@access &lt;private|protected|public&gt;</code>
+    <p><code>@access &lt;package|private|protected|public&gt;</code>
     </p>
     <h2 id="overview">Overview</h2>
     <p>The <code>@access</code> tag specifies the access level of a member. You can use the <code>@access</code> tag as a synonym for other tags:</p>
     <ul>
+      <li><code>@access package</code> is the same as <code>@package</code>. This option is available in JSDoc 3.5.0 and later.</li>
       <li><code>@access private</code> is the same as <code>@private</code>.</li>
       <li><code>@access protected</code> is the same as <code>@protected</code>.</li>
       <li><code>@access public</code> is the same as <code>@public</code>.</li>
@@ -64,8 +65,11 @@ function Thingy() {
     /** @access protected */
     this._bar = 1;
 
+    /** @access package */
+    this.baz = 2;
+
     /** @access public */
-    this.pez = 2;
+    this.pez = 3;
 
 }
 
@@ -80,8 +84,11 @@ function OtherThingy() {
     /** @protected */
     this._bar = 1;
 
+    /** @package */
+    this.baz = 2;
+
     /** @public */
-    this.pez = 2;
+    this.pez = 3;
 
 }
 </code></pre>
@@ -93,6 +100,9 @@ function OtherThingy() {
       </li>
       <li>
         <a href="tags-instance.html">@instance</a>
+      </li>
+      <li>
+        <a href="tags-package.html">@package</a>
       </li>
       <li>
         <a href="tags-private.html">@private</a>
@@ -112,7 +122,7 @@ function OtherThingy() {
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
       <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
     </a>
-    <br> Copyright &#169; 2011-2014 the
+    <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
         Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.

@@ -2,8 +2,8 @@
 title: Using namepaths with JSDoc 3
 description: A guide to using namepaths with JSDoc 3.
 related:
-    - about-inline-tags.html
-    - tags-link.html
+    - about-block-inline-tags.html
+    - tags-inline-link.html
 ---
 
 ## Namepaths in JSDoc 3

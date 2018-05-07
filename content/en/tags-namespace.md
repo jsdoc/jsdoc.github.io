@@ -7,7 +7,7 @@ related:
 
 ## Syntax
 
-`@namespace [{<type>}] <SomeName>]`
+`@namespace [[{<type>}] <SomeName>]`
 
 
 ## Overview

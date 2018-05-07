@@ -69,6 +69,6 @@ an inner member.
  * @param {...WishGranter~Triforce} triforce - One to three {@link WishGranter~Triforce} objects
  * containing all three components of the Triforce.
  */
-function WishGranter() {}
+function WishGranter(triforce) {}
 ```
 {% endexample %}

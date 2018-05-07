@@ -85,9 +85,13 @@ API</a>, which is implemented by libraries such as <a href="http://requirejs.org
         /** The module's `color` property. */
         color: 'black',
 
-        /** @constructor */
+        /**
+         * Create a new Turtleneck.
+         * @class
+         * @param {string} size - The size (`XS`, `S`, `M`, `L`, `XL`, or `XXL`).
+         */
         Turtleneck: function(size) {
-            /** The class' `size` property. */
+            /** The class's `size` property. */
             this.size = size;
         }
     };
@@ -107,7 +111,8 @@ API</a>, which is implemented by libraries such as <a href="http://requirejs.org
  */
 define('my/jacket', function() {
     /**
-     * @constructor
+     * Create a new jacket.
+     * @class
      * @alias module:my/jacket
      */
     var Jacket = function() {
@@ -175,11 +180,21 @@ define('html/utils', function() {
      * @exports html/utils
      */
     var utils = {
-        /** Get the value of a property on an element. */
+        /**
+         * Get the value of a property on an element.
+         * @param {HTMLElement} element - The element.
+         * @param {string} propertyName - The name of the property.
+         * @return {*} The value of the property.
+         */
         getStyleProperty: function(element, propertyName) { }
     };
 
-    /** Determine if an element is in the document head. */
+    /**
+     * Determine if an element is in the document head.
+     * @param {HTMLElement} element - The element.
+     * @return {boolean} Set to `true` if the element is in the document head,
+     * `false` otherwise.
+     */
     utils.isInHead = function(element) { }
 
     return utils;
@@ -190,7 +205,11 @@ define('html/utils', function() {
 define('tag', function() {
     /** @exports tag */
     var tag = {
-        /** @class */
+        /**
+         * Create a new Tag.
+         * @class
+         * @param {string} tagName - The name of the tag.
+         */
         Tag: function(tagName) {
             // ...
         }
@@ -217,7 +236,7 @@ define('tag', function() {
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
       <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
     </a>
-    <br> Copyright &#169; 2011-2014 the
+    <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
         Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.

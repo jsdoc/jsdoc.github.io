@@ -74,9 +74,13 @@ define('my/shirt', function() {
         /** The module's `color` property. */
         color: 'black',
 
-        /** @constructor */
+        /**
+         * Create a new Turtleneck.
+         * @class
+         * @param {string} size - The size (`XS`, `S`, `M`, `L`, `XL`, or `XXL`).
+         */
         Turtleneck: function(size) {
-            /** The class' `size` property. */
+            /** The class's `size` property. */
             this.size = size;
         }
     };
@@ -105,7 +109,8 @@ module.
  */
 define('my/jacket', function() {
     /**
-     * @constructor
+     * Create a new jacket.
+     * @class
      * @alias module:my/jacket
      */
     var Jacket = function() {
@@ -202,11 +207,21 @@ define('html/utils', function() {
      * @exports html/utils
      */
     var utils = {
-        /** Get the value of a property on an element. */
+        /**
+         * Get the value of a property on an element.
+         * @param {HTMLElement} element - The element.
+         * @param {string} propertyName - The name of the property.
+         * @return {*} The value of the property.
+         */
         getStyleProperty: function(element, propertyName) { }
     };
 
-    /** Determine if an element is in the document head. */
+    /**
+     * Determine if an element is in the document head.
+     * @param {HTMLElement} element - The element.
+     * @return {boolean} Set to `true` if the element is in the document head,
+     * `false` otherwise.
+     */
     utils.isInHead = function(element) { }
 
     return utils;
@@ -217,7 +232,11 @@ define('html/utils', function() {
 define('tag', function() {
     /** @exports tag */
     var tag = {
-        /** @class */
+        /**
+         * Create a new Tag.
+         * @class
+         * @param {string} tagName - The name of the tag.
+         */
         Tag: function(tagName) {
             // ...
         }

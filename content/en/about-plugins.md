@@ -10,7 +10,7 @@ There are two steps required to create and enable a new JSDoc plugin:
 1. Create a JavaScript module to contain your plugin code.
 2. Include that module in the `plugins` array of [JSDoc's configuration file][config-file]. You can
 specify an absolute or relative path. If you use a relative path, JSDoc searches for the plugin in
-the directory where the configuration file is located; the current working directory; and the JSDoc
+the current working directory; the directory where the configuration file is located; and the JSDoc
 directory, in that order.
 
 For example, if your plugin is defined in the `plugins/shout.js` file in the current working
@@ -94,7 +94,7 @@ The event object contains the following properties:
 + `filename`: The name of the file.
 + `source`: The contents of the file.
 
-Below is an example that adds a virtual doclet for a function to the source so that it will get
+Below is an example that adds a virtual comment for a function to the source so that it will get
 parsed and added to the documentation. This might be done to document methods that will be available
 to users, but might not appear in the source code being documented, such as methods provided by an
 external superclass:
@@ -129,6 +129,7 @@ The event object contains the following properties:
 + `filename`: The name of the file.
 + `comment`: The text of the JSDoc comment.
 + `lineno`: The line number on which the comment was found.
++ `columnno`: The column number on which the comment was found. Available in JSDoc 3.5.0 and later.
 
 #### Event: symbolFound
 
@@ -142,6 +143,7 @@ The event object contains the following properties:
 + `comment`: The text of the comment associated with the symbol, if any.
 + `id`: The unique ID of the symbol.
 + `lineno`: The line number on which the symbol was found.
++ `columnno`: The column number on which the symbol was found. Available in JSDoc 3.5.0 and later.
 + `range`: An array containing the numeric index of the first and last characters in the source file
 that are associated with the symbol.
 + `astnode`: The symbol's node from the abstract syntax tree.
@@ -182,6 +184,9 @@ or `inner`).
 + `tags`: Object containing a list of tags that JSDoc did not recognize. Only available if
 `allowUnknownTags` is set to `true` in JSDoc's configuration file.
 
+To see the doclets that JSDoc generates for your code, run JSDoc with the [`-X` command-line
+option][about-commandline].
+
 Below is an example of a `newDoclet` handler that shouts the descriptions:
 
 {% example "Example" %}
@@ -198,6 +203,8 @@ exports.handlers = {
 };
 ```
 {% endexample %}
+
+[about-commandline]: about-commandline.html
 
 #### Event: fileComplete
 
@@ -218,9 +225,8 @@ The `parseComplete` event is fired after JSDoc has parsed all of the specified s
 The event object contains the following properties:
 
 + `sourcefiles`: An array of paths to source files that were parsed.
-+ `doclets`: An array of doclet objects. See the [newDoclet event][newdoclet-event] for details
-about the properties that each doclet can contain. **Note**: This property is available in JSDoc
-3.2.1 and later.
++ `doclets`: An array of doclet objects. See the [`newDoclet` event][newdoclet-event] for details
+about the properties that each doclet can contain. Available in JSDoc 3.2.1 and later.
 
 [newdoclet-event]: #event-newdoclet
 
@@ -233,8 +239,8 @@ and borrowed symbols.
 
 The event object contains the following properties:
 
-+ doclets: An array of doclet objects. See the [newDoclet event][newdoclet-event] for details about
-the properties that each doclet can contain.
++ `doclets`: An array of doclet objects. See the [`newDoclet` event][newdoclet-event] for details
+about the properties that each doclet can contain.
 
 [newdoclet-event]: #event-newdoclet
 
@@ -333,16 +339,19 @@ exports.astNodeVisitor = {
 
 The function is called on each node with the following parameters:
 
-+ `node`: The AST node. AST nodes are JavaScript objects that use the format defined by the Mozilla
-Parser API. You can use [Esprima's parser demo][esprima-parser] to see the AST that will be created
-for your source code.
++ `node`: The AST node. AST nodes are JavaScript objects that use the format defined by the [ESTree
+spec][estree]. You can use [AST Explorer][ast-explorer] to see the AST that will be created for your
+source code. As of version 3.5.0, JSDoc uses the current version of the [Babylon][babylon] parser
+with all plugins enabled.
 + `e`: The event. If the node is one that the parser handles, the event object will already be
 populated with the same things described in the `symbolFound` event above. Otherwise, it will be an
 empty object on which to set various properties.
 + `parser`: The JSDoc parser instance.
 + `currentSourceName`: The name of the file being parsed.
 
-[esprima-parser]: http://esprima.org/demo/parse.html
+[ast-explorer]: https://astexplorer.net/
+[babylon]: https://github.com/babel/babylon
+[estree]: https://github.com/estree/estree
 
 #### Making things happen
 
@@ -390,6 +399,6 @@ exports.handlers = {
             logger.error('Oh, no, something bad happened!');
         }
     }
-}
+};
 ```
 {% endexample %}

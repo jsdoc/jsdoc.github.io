@@ -5,6 +5,7 @@ related:
     - tags-access.html
     - tags-global.html
     - tags-instance.html
+    - tags-package.html
     - tags-private.html
     - tags-protected.html
     - tags-static.html

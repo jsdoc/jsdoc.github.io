@@ -1,9 +1,10 @@
 ---
 tag: access
-description: Specify the access level of this member (private, public, or protected).
+description: Specify the access level of this member (private, package-private, public, or protected).
 related:
     - tags-global.html
     - tags-instance.html
+    - tags-package.html
     - tags-private.html
     - tags-protected.html
     - tags-public.html
@@ -12,7 +13,7 @@ related:
 
 ## Syntax
 
-`@access <private|protected|public>`
+`@access <package|private|protected|public>`
 
 
 ## Overview
@@ -20,6 +21,7 @@ related:
 The `@access` tag specifies the access level of a member. You can use the `@access` tag as a
 synonym for other tags:
 
++ `@access package` is the same as `@package`. This option is available in JSDoc 3.5.0 and later.
 + `@access private` is the same as `@private`.
 + `@access protected` is the same as `@protected`.
 + `@access public` is the same as `@public`.
@@ -54,8 +56,11 @@ function Thingy() {
     /** @access protected */
     this._bar = 1;
 
+    /** @access package */
+    this.baz = 2;
+
     /** @access public */
-    this.pez = 2;
+    this.pez = 3;
 
 }
 
@@ -70,8 +75,11 @@ function OtherThingy() {
     /** @protected */
     this._bar = 1;
 
+    /** @package */
+    this.baz = 2;
+
     /** @public */
-    this.pez = 2;
+    this.pez = 3;
 
 }
 ```

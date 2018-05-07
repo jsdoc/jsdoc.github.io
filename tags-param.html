@@ -127,8 +127,19 @@ function sayHello(somebody) {
 Project.prototype.assign = function(employee) {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
+    <p>If a parameter is destructured without an explicit name, you can give the object an appropriate one and document its properties.</p>
+    <figure>
+      <figcaption>Documenting a destructuring parameter</figcaption><pre class="prettyprint lang-js"><code>/**
+ * Assign the project to an employee.
+ * @param {Object} employee - The employee who is responsible for the project.
+ * @param {string} employee.name - The name of the employee.
+ * @param {string} employee.department - The employee's department.
+ */
+Project.prototype.assign = function({ name, department }) {
+    // ...
+};
+</code></pre></figure>
     <p>You can also combine this syntax with JSDoc&#39;s syntax for array parameters. For example, if multiple employees can be assigned to a project:</p>
     <figure>
       <figcaption>Documenting properties of values in an array</figcaption><pre class="prettyprint lang-js"><code>/**
@@ -262,7 +273,7 @@ function doSomethingAsynchronously(cb) {
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
       <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
     </a>
-    <br> Copyright &#169; 2011-2014 the
+    <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
         Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.

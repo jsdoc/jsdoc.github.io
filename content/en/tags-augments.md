@@ -1,6 +1,6 @@
 ---
 tag: augments
-description: Indicate that a symbol inherits from, ands adds to, a parent symbol.
+description: Indicate that a symbol inherits from, and adds to, a parent symbol.
 synonyms:
     - extends
 related:

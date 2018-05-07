@@ -50,8 +50,8 @@
     <ol>
       <li>Create a JavaScript module to contain your plugin code.</li>
       <li>Include that module in the <code>plugins</code> array of <a href="about-configuring-jsdoc.html">JSDoc&#39;s configuration file</a>. You can specify an absolute
-        or relative path. If you use a relative path, JSDoc searches for the plugin in the directory where the configuration file is located; the current working
-        directory; and the JSDoc directory, in that order.</li>
+        or relative path. If you use a relative path, JSDoc searches for the plugin in the current working directory; the directory where the configuration file
+        is located; and the JSDoc directory, in that order.</li>
     </ol>
     <p>For example, if your plugin is defined in the <code>plugins/shout.js</code> file in the current working directory, you would add the string <code>plugins/shout</code>      to the <code>plugins</code> array in your JSDoc configuration file:</p>
     <figure>
@@ -104,7 +104,7 @@
       <li><code>filename</code>: The name of the file.</li>
       <li><code>source</code>: The contents of the file.</li>
     </ul>
-    <p>Below is an example that adds a virtual doclet for a function to the source so that it will get parsed and added to the documentation. This might be done to
+    <p>Below is an example that adds a virtual comment for a function to the source so that it will get parsed and added to the documentation. This might be done to
       document methods that will be available to users, but might not appear in the source code being documented, such as methods provided by an external superclass:</p>
     <figure>
       <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.handlers = {
@@ -130,6 +130,7 @@
       <li><code>filename</code>: The name of the file.</li>
       <li><code>comment</code>: The text of the JSDoc comment.</li>
       <li><code>lineno</code>: The line number on which the comment was found.</li>
+      <li><code>columnno</code>: The column number on which the comment was found. Available in JSDoc 3.5.0 and later.</li>
     </ul>
     <h4 id="event-symbolfound">Event: symbolFound</h4>
     <p>The <code>symbolFound</code> event is fired when the parser comes across a symbol in the code that may need to be documented. For example, the parser fires a
@@ -140,6 +141,7 @@
       <li><code>comment</code>: The text of the comment associated with the symbol, if any.</li>
       <li><code>id</code>: The unique ID of the symbol.</li>
       <li><code>lineno</code>: The line number on which the symbol was found.</li>
+      <li><code>columnno</code>: The column number on which the symbol was found. Available in JSDoc 3.5.0 and later.</li>
       <li><code>range</code>: An array containing the numeric index of the first and last characters in the source file that are associated with the symbol.</li>
       <li><code>astnode</code>: The symbol&#39;s node from the abstract syntax tree.</li>
       <li><code>code</code>: Object with detailed information about the code. This object usually contains <code>name</code>,
@@ -171,6 +173,8 @@
       <li><code>tags</code>: Object containing a list of tags that JSDoc did not recognize. Only available if
         <code>allowUnknownTags</code> is set to <code>true</code> in JSDoc&#39;s configuration file.</li>
     </ul>
+    <p>To see the doclets that JSDoc generates for your code, run JSDoc with the <a href="about-commandline.html"><code>-X</code> command-line
+option</a>.</p>
     <p>Below is an example of a <code>newDoclet</code> handler that shouts the descriptions:</p>
     <figure>
       <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.handlers = {
@@ -197,15 +201,16 @@
     <p>The event object contains the following properties:</p>
     <ul>
       <li><code>sourcefiles</code>: An array of paths to source files that were parsed.</li>
-      <li><code>doclets</code>: An array of doclet objects. See the <a href="#event-newdoclet">newDoclet event</a> for details about the properties that each doclet
-        can contain. <strong>Note</strong>: This property is available in JSDoc 3.2.1 and later.</li>
+      <li><code>doclets</code>: An array of doclet objects. See the <a href="#event-newdoclet"><code>newDoclet</code> event</a> for details about the properties that
+        each doclet can contain. Available in JSDoc 3.2.1 and later.</li>
     </ul>
     <h4 id="event-processingcomplete">Event: processingComplete</h4>
     <p>The <code>processingComplete</code> event is fired after JSDoc updates the parse results to reflect inherited and borrowed symbols.</p>
     <p><strong>Note</strong>: This event is fired in JSDoc 3.2.1 and later.</p>
     <p>The event object contains the following properties:</p>
     <ul>
-      <li>doclets: An array of doclet objects. See the <a href="#event-newdoclet">newDoclet event</a> for details about the properties that each doclet can contain.</li>
+      <li><code>doclets</code>: An array of doclet objects. See the <a href="#event-newdoclet"><code>newDoclet</code> event</a> for details about the properties that
+        each doclet can contain.</li>
     </ul>
     <h3 id="tag-definitions">Tag Definitions</h3>
     <p>Adding tags to the tag dictionary is a mid-level way to affect documentation generation. Before a
@@ -276,7 +281,9 @@
     </figure>
     <p>The function is called on each node with the following parameters:</p>
     <ul>
-      <li><code>node</code>: The AST node. AST nodes are JavaScript objects that use the format defined by the Mozilla Parser API. You can use <a href="http://esprima.org/demo/parse.html">Esprima&#39;s parser demo</a>        to see the AST that will be created for your source code.</li>
+      <li><code>node</code>: The AST node. AST nodes are JavaScript objects that use the format defined by the <a href="https://github.com/estree/estree">ESTree
+spec</a>. You can use <a href="https://astexplorer.net/">AST Explorer</a> to see the AST that will be created for your source code. As of version 3.5.0, JSDoc uses
+        the current version of the <a href="https://github.com/babel/babylon">Babylon</a> parser with all plugins enabled.</li>
       <li><code>e</code>: The event. If the node is one that the parser handles, the event object will already be populated with the same things described in the <code>symbolFound</code>        event above. Otherwise, it will be an empty object on which to set various properties.</li>
       <li><code>parser</code>: The JSDoc parser instance.</li>
       <li><code>currentSourceName</code>: The name of the file being parsed.</li>
@@ -311,7 +318,7 @@ exports.handlers = {
             logger.error('Oh, no, something bad happened!');
         }
     }
-}
+};
 </code></pre>
     </figure>
   </article>
@@ -319,7 +326,7 @@ exports.handlers = {
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
       <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
     </a>
-    <br> Copyright &#169; 2011-2014 the
+    <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
         Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.

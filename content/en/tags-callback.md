@@ -13,12 +13,12 @@ related:
 
 ## Overview
 
-The @callback tag provides information about a callback function that can be passed to other
+The `@callback` tag provides information about a callback function that can be passed to other
 functions, including the callback's parameters and return value. You can include any of the tags
-that you can provide for a @method.
+that you can provide for a `@method`.
 
 Once you define a callback, you can use it in the same way as a custom type defined with the
-@typedef tag. In particular, you can use the callback's name as a type name. This allows you to
+`@typedef` tag. In particular, you can use the callback's name as a type name. This allows you to
 indicate that a function parameter should contain a certain type of callback.
 
 If you want a callback to be displayed with the type definitions for a specific class, you can give

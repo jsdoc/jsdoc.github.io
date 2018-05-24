@@ -15,8 +15,8 @@ related:
 
 ## Overview
 
-The @fires tag indicates that a method can fire a specified type of event when it is called. Use the
-[@event tag][event-tag] to document the event's content.
+The `@fires` tag indicates that a method can fire a specified type of event when it is called. Use the
+[`@event` tag][event-tag] to document the event's content.
 
 [event-tag]: tags-event.html
 

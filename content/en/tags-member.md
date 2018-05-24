@@ -11,8 +11,8 @@ synonyms:
 
 ## Overview
 
-The @member tag identifies any member that does not have a more specialized kind, such as "class",
-"function", or "constant". A member can optionally have a type as well as a name.
+The `@member` tag identifies any member that does not have a more specialized kind, such as `class`,
+`function`, or `constant`. A member can optionally have a type as well as a name.
 
 
 ## Examples
@@ -28,7 +28,7 @@ function Data() {
 ```
 {% endexample %}
 
-Here is an example of using @var, a synonym of @member, to document a (virtual) variable 'foo'.
+Here is an example of using `@var`, a synonym of `@member`, to document a (virtual) variable `foo`.
 
 {% example "Using @var to document a virtual member" %}
 

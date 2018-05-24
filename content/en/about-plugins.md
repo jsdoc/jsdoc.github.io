@@ -63,7 +63,7 @@ An event-handler plugin can stop later plugins from running by setting a `stopPr
 on the event object (`e.stopPropagation = true`). A plugin can stop the event from firing by setting
 a `preventDefault` property (`e.preventDefault = true`).
 
-#### Event: parseBegin
+#### Event: `parseBegin`
 
 The `parseBegin` event is fired before JSDoc starts loading and parsing the source files. Your
 plugin can control which files JSDoc will parse by modifying the event's contents.
@@ -74,7 +74,7 @@ The event object contains the following properties:
 
 + `sourcefiles`: An array of paths to source files that will be parsed.
 
-#### Event: fileBegin
+#### Event: `fileBegin`
 
 The `fileBegin` event is fired when the parser is about to parse a file. Your plugin can use this
 event to trigger per-file initialization if necessary.
@@ -83,7 +83,7 @@ The event object contains the following properties:
 
 + `filename`: The name of the file.
 
-#### Event: beforeParse
+#### Event: `beforeParse`
 
 The `beforeParse` event is fired before parsing has begun. Plugins can use this method to modify the
 source code that will be parsed. For instance, your plugin could add a JSDoc comment, or it could
@@ -118,7 +118,7 @@ exports.handlers = {
 ```
 {% endexample %}
 
-#### Event: jsdocCommentFound
+#### Event: `jsdocCommentFound`
 
 The `jsdocCommentFound` event is fired whenever a JSDoc comment is found. The comment may or may not
 be associated with any code. You might use this event to modify the contents of a comment before it
@@ -131,7 +131,7 @@ The event object contains the following properties:
 + `lineno`: The line number on which the comment was found.
 + `columnno`: The column number on which the comment was found. Available in JSDoc 3.5.0 and later.
 
-#### Event: symbolFound
+#### Event: `symbolFound`
 
 The `symbolFound` event is fired when the parser comes across a symbol in the code that may need to
 be documented. For example, the parser fires a `symbolFound` event for each variable, function, and
@@ -153,7 +153,7 @@ properties depending on the symbol.
 
 [node-visitors]: #node-visitors
 
-#### Event: newDoclet
+#### Event: `newDoclet`
 
 The `newDoclet` event is the highest-level event. It is fired when a new doclet has been created.
 This means that a JSDoc comment or a symbol has been processed, and the actual doclet that will be
@@ -206,7 +206,7 @@ exports.handlers = {
 
 [about-commandline]: about-commandline.html
 
-#### Event: fileComplete
+#### Event: `fileComplete`
 
 The `fileComplete` event is fired when the parser has finished parsing a file. Your plugin could use
 this event to trigger per-file cleanup.
@@ -216,7 +216,7 @@ The event object contains the following properties:
 + `filename`: The name of the file.
 + `source`: The contents of the file.
 
-#### Event: parseComplete
+#### Event: `parseComplete`
 
 The `parseComplete` event is fired after JSDoc has parsed all of the specified source files.
 
@@ -230,7 +230,7 @@ about the properties that each doclet can contain. Available in JSDoc 3.2.1 and 
 
 [newdoclet-event]: #event-newdoclet
 
-#### Event: processingComplete
+#### Event: `processingComplete`
 
 The `processingComplete` event is fired after JSDoc updates the parse results to reflect inherited
 and borrowed symbols.

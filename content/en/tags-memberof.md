@@ -13,13 +13,13 @@ related:
 
 ## Overview
 
-The @memberof tag identifies a member symbol that belongs to a parent symbol.
+The `@memberof` tag identifies a member symbol that belongs to a parent symbol.
 
-By default, the @memberof tag documents member symbols as static members. For inner and instance
-members, you can use scoping punctuation after the namepath, or you can add the [@inner][inner-tag]
-or [@instance][instance-tag] tag.
+By default, the `@memberof` tag documents member symbols as static members. For inner and instance
+members, you can use scoping punctuation after the namepath, or you can add the [`@inner`][inner-tag]
+or [`@instance`][instance-tag] tag.
 
-The "forced" @memberof tag, @memberof!, forces the object to be documented as belonging to a specific
+The "forced" `@memberof` tag, `@memberof!`, forces the object to be documented as belonging to a specific
 parent even if it appears to have a different parent.
 
 [inner-tag]: tags-inner.html
@@ -30,7 +30,7 @@ parent even if it appears to have a different parent.
 
 In the following example, the `hammer` function would normally be documented as a global function.
 That's because, in fact, it is a global function, but it is also a member of the `Tools` namespace,
-and that's how you wish to document it. The solution is to add a @memberof tag:
+and that's how you wish to document it. The solution is to add a `@memberof` tag:
 
 {% example "Using @memberof" %}
 
@@ -46,8 +46,8 @@ Tools.hammer = hammer;
 ```
 {% endexample %}
 
-For instance members of a class, use the syntax "@memberof ClassName.prototype" or "@memberof
-ClassName#". Alternatively, you can combine "@memberof ClassName" with the "@instance" tag.
+For instance members of a class, use the syntax `@memberof ClassName.prototype` or 
+`@memberof ClassName#`. Alternatively, you can combine `@memberof ClassName` with the `@instance` tag.
 
 {% example "Using @memberof with a class prototype" %}
 
@@ -85,13 +85,13 @@ create(
 ```
 {% endexample %}
 
-The following example uses the forced @memberof tag, "@memberof!", to document a property of an
-object (Data#point) that is an instance member of a class (Data).
+The following example uses the forced `@memberof` tag, `@memberof!`, to document a property of an
+object (`Data#point`) that is an instance member of a class (`Data`).
 
-When you use the @property tag to document a property, you cannot link to the property using its
-longname. We can force the property to be linkable by using "@alias" and "@memberof!" to tell JSDoc
-that Data#point.y should be documented as a member "point.y" of "Data#", rather than a member "y" of
-"point" of "Data#".
+When you use the `@property` tag to document a property, you cannot link to the property using its
+longname. We can force the property to be linkable by using `@alias` and `@memberof!` to tell JSDoc
+that `Data#point.y` should be documented as a member `point.y` of `Data#`, rather than a member `y` of
+`point` of `Data#`.
 
 {% example "Using @memberof! for object properties" %}
 

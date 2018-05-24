@@ -12,8 +12,8 @@ related:
 
 ## Overview
 
-The @copyright tag is used to document copyright information in a file overview comment. Use this
-tag in combination with the [@file tag][file-tag].
+The `@copyright` tag is used to document copyright information in a file overview comment. Use this
+tag in combination with the [`@file` tag][file-tag].
 
 [file-tag]: tags-file.html
 

@@ -13,7 +13,7 @@ related:
 
 ## Overview
 
-The @summary tag is a shorter version of the full description. It can be added to any doclet.
+The `@summary` tag is a shorter version of the full description. It can be added to any doclet.
 
 
 ## Examples

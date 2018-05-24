@@ -14,15 +14,15 @@ related:
 
 ## Overview
 
-The @mixes tag indicates that the current object mixes in all the members from `OtherObjectPath`,
-which is a [@mixin][mixin-tag].
+The `@mixes` tag indicates that the current object mixes in all the members from `OtherObjectPath`,
+which is a [`@mixin`][mixin-tag].
 
 [mixin-tag]: tags-mixin.html
 
 
 ## Examples
 
-To start, we document a mixin with the [@mixin][mixin-tag] tag:
+To start, we document a mixin with the [`@mixin`][mixin-tag] tag:
 
 {% example "Example of a @mixin" %}
 
@@ -55,9 +55,9 @@ var Eventful = {
 ```
 {% endexample %}
 
-Now we add a FormButton class and call a "mix" function that mixes all of the Eventful functions
-into FormButton, so that FormButton can also fire events and have listeners. We use the @mixes tag
-to indicate that FormButton mixes the Eventful functions.
+Now we add a `FormButton` class and call a `mix` function that mixes all of the Eventful functions
+into `FormButton`, so that `FormButton` can also fire events and have listeners. We use the `@mixes` tag
+to indicate that `FormButton` mixes the `Eventful` functions.
 
 {% example "Using the @mixes tag" %}
 

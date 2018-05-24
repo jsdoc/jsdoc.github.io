@@ -14,7 +14,7 @@ related:
 
 ## Overview
 
-The @class tag marks a function as being a constructor, meant to be called with the new
+The `@class` tag marks a function as being a constructor, meant to be called with the `new`
 keyword to return an instance.
 
 

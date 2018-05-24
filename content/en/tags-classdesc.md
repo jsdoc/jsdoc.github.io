@@ -13,13 +13,13 @@ related:
 
 ## Overview
 
-The @classdesc tag is used to provide a description for a class, separate from the constructor
-function's description. Use the @classdesc tag in combination with the [@class (or @constructor)
+The `@classdesc` tag is used to provide a description for a class, separate from the constructor
+function's description. Use the `@classdesc` tag in combination with the [`@class` (or `@constructor`)
 tag][class-tag].
 
-The functionality of the @classdesc tag in JSDoc 3 duplicates that of the @class in previous
-versions. As of version 3, the syntax and functionality of the @class tag now exactly matches the
-@constructor tag, and the @classdesc tag more explicitly communicates its purpose: to document a
+The functionality of the `@classdesc` tag in JSDoc 3 duplicates that of the `@class` in previous
+versions. As of version 3, the syntax and functionality of the `@class` tag now exactly matches the
+`@constructor` tag, and the `@classdesc` tag more explicitly communicates its purpose: to document a
 class's description.
 
 [class-tag]: tags-class.html

@@ -32,7 +32,7 @@ globalNS.method1 = function (a, b) {
 ```
 {% endexample %}
 
-Examples can also be captioned using `<caption></caption>` after the @example tag.
+Examples can also be captioned using `<caption></caption>` after the `@example` tag.
 
 {% example "Documenting examples with a caption" %}
 

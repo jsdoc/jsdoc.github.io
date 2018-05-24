@@ -177,7 +177,7 @@ use the [`-r` command-line option][about-commandline] to recurse into subdirecto
 this array may include subdirectories of the paths in `source.include`.
 + `source.includePattern`: An optional string, interpreted as a regular expression. If present, all
 filenames must match this regular expression to be processed by JSDoc. By default, this option is
-set to ".+&#92;.js(doc|x)?$", meaning that only files with the extensions `.js`, `.jsdoc`, and
+set to `.+&#92;.js(doc|x)?$`, meaning that only files with the extensions `.js`, `.jsdoc`, and
 `.jsx` will be processed.
 + `source.excludePattern`: An optional string, interpreted as a regular expression. If present, any
 file matching this regular expression will be ignored. By default, this option is set so that files

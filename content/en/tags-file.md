@@ -11,7 +11,7 @@ related:
 
 ## Overview
 
-The @file tag provides a description for a file. Use the tag in a JSDoc comment at the beginning of
+The `@file` tag provides a description for a file. Use the tag in a JSDoc comment at the beginning of
 the file.
 
 

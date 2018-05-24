@@ -5,7 +5,7 @@ description: This symbol is meant to be read-only.
 
 ## Overview
 
-The @readonly tag indicates that a symbol is intended to be read-only. Note this is for the purpose
+The `@readonly` tag indicates that a symbol is intended to be read-only. Note this is for the purpose
 of documentation only - JSDoc won't check whether you've _actually_ treated the symbol as read-only
 in your code.
 

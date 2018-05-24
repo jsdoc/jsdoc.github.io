@@ -19,16 +19,16 @@ Note: If you provide a type, you _must_ also provide a name.
 
 ## Overview
 
-The @module tag marks the current file as being its own module. All symbols in the file are assumed
+The `@module` tag marks the current file as being its own module. All symbols in the file are assumed
 to be members of the module unless documented otherwise.
 
-Link to a module (e.g. within a [@link][link-tag] or [@see][see-tag] tag) using "module:moduleName".
-For example, "@module foo/bar" can be linked to using "{@link module:foo/bar}".
+Link to a module (e.g. within a [`@link`][link-tag] or [`@see`][see-tag] tag) using `module:moduleName`.
+For example, `@module foo/bar` can be linked to using `{@link module:foo/bar}`.
 
 If the module name is not provided, it is derived from the module's path and filename. For example,
 suppose I have a file `test.js`, located in the `src` directory, that contains the block comment
 `/** @module */`. Here are some scenarios for running JSDoc and the resulting module names for
-test.js:
+`test.js`:
 
 {% example "Derived module names if none is provided." %}
 
@@ -68,8 +68,8 @@ var bar = function() {};
 When an exported symbol is defined as a member of `module.exports`, `exports`, or `this`, JSDoc
 infers that the symbol is a static member of the module.
 
-In the following example, the Book class is documented as a static member, "module:bookshelf.Book",
-with one instance member, "module:bookshelf.Book#title".
+In the following example, the `Book` class is documented as a static member, `module:bookshelf.Book`,
+with one instance member, `module:bookshelf.Book#title`.
 
 {% example "Defining exported symbols as a member of 'this'" %}
 
@@ -83,8 +83,8 @@ this.Book = function (title) {
 ```
 {% endexample %}
 
-In the following example, the two functions have the namepaths "module:color/mixer.blend" and
-"module:color/mixer.darken".
+In the following example, the two functions have the namepaths `module:color/mixer.blend` and
+`module:color/mixer.darken`.
 
 {% example "Defining exported symbols as a member of 'module.exports' or 'exports'" %}
 

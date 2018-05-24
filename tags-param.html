@@ -83,8 +83,7 @@
 function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>Name and type</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {string} somebody
@@ -92,8 +91,7 @@ function sayHello(somebody) {
 function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>Name, type, and description</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {string} somebody Somebody's name.
@@ -101,8 +99,7 @@ function sayHello(somebody) {
 function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>You can add a hyphen before the description to make it more readable. Be sure to include a space before and after the hyphen.</p>
     <figure>
       <figcaption>Name, type, and description, with a hyphen before the description</figcaption><pre class="prettyprint lang-js"><code>/**
@@ -111,8 +108,7 @@ function sayHello(somebody) {
 function sayHello(somebody) {
     alert('Hello ' + somebody);
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h3 id="parameters-with-properties">Parameters with properties</h3>
     <p>If a parameter is expected to have a specific property, you can document that property by providing an additional <code>@param</code> tag. For example, if an
       <code>employee</code> parameter is expected to have <code>name</code> and
@@ -151,8 +147,7 @@ Project.prototype.assign = function({ name, department }) {
 Project.prototype.assign = function(employees) {
     // ...
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h3 id="optional-parameters-and-default-values">Optional parameters and default values</h3>
     <p>The following examples show how to indicate that a parameter is optional and has a default value.</p>
     <figure>
@@ -165,8 +160,7 @@ function sayHello(somebody) {
     }
     alert('Hello ' + somebody);
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>An optional parameter (using Google Closure Compiler syntax)</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {string=} somebody - Somebody's name.
@@ -177,8 +171,7 @@ function sayHello(somebody) {
     }
     alert('Hello ' + somebody);
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>An optional parameter and default value</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {string} [somebody=John Doe] - Somebody's name.
@@ -189,8 +182,7 @@ function sayHello(somebody) {
     }
     alert('Hello ' + somebody);
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h3 id="multiple-types-and-repeatable-parameters">Multiple types and repeatable parameters</h3>
     <p>The following examples show how to use type expressions to indicate that a parameter can accept multiple types (or any type), and that a parameter can be provided
       more than once. See the
@@ -207,8 +199,7 @@ function sayHello(somebody) {
     }
     alert('Hello ' + somebody);
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>Allows any type</figcaption><pre class="prettyprint lang-js"><code>/**
  * @param {*} somebody - Whatever you want.
@@ -216,8 +207,7 @@ function sayHello(somebody) {
 function sayHello(somebody) {
     console.log('Hello ' + JSON.stringify(somebody));
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <figure>
       <figcaption>Allows a parameter to be repeated</figcaption><pre class="prettyprint lang-js"><code>/**
  * Returns the sum of all numbers passed to the function.
@@ -230,8 +220,7 @@ function sum(num) {
     }
     return t;
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h3 id="callback-functions">Callback functions</h3>
     <p>If a parameter accepts a callback function, you can use the <a href="tags-callback.html"><code>@callback</code> tag</a> to define a callback type, then include
       the callback type in the <code>@param</code> tag.</p>
@@ -251,8 +240,7 @@ function sum(num) {
 function doSomethingAsynchronously(cb) {
     // code
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -271,8 +259,7 @@ function doSomethingAsynchronously(cb) {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

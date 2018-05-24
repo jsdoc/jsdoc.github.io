@@ -38,27 +38,26 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@kind &lt;kindName&gt;</code>
-    </p>
+    <p><code>@kind &lt;kindName&gt;</code></p>
     <p>where <code>&lt;kindName&gt;</code> is one of:</p>
     <ul>
-      <li>class</li>
-      <li>constant</li>
-      <li>event</li>
-      <li>external</li>
-      <li>file</li>
-      <li>function</li>
-      <li>member</li>
-      <li>mixin</li>
-      <li>module</li>
-      <li>namespace</li>
-      <li>typedef</li>
+      <li><code>class</code></li>
+      <li><code>constant</code></li>
+      <li><code>event</code></li>
+      <li><code>external</code></li>
+      <li><code>file</code></li>
+      <li><code>function</code></li>
+      <li><code>member</code></li>
+      <li><code>mixin</code></li>
+      <li><code>module</code></li>
+      <li><code>namespace</code></li>
+      <li><code>typedef</code></li>
     </ul>
     <h2 id="overview">Overview</h2>
-    <p>The @kind tag is used to document what <em>kind</em> of symbol is being documented (for example, a class or a module). The <em>kind</em> of symbol differs from
-      a symbol&#39;s <em>type</em> (for example, string or boolean).</p>
-    <p>Usually you do not need the @kind tag, because the symbol&#39;s kind is determined by other tags in the doclet. For example, using the @class tag automatically
-      implies &quot;@kind class&quot;, and using the @namespace tag implies &quot;@kind namespace&quot;.</p>
+    <p>The <code>@kind</code> tag is used to document what <em>kind</em> of symbol is being documented (for example, a class or a module). The <em>kind</em> of symbol
+      differs from a symbol&#39;s <em>type</em> (for example, string or boolean).</p>
+    <p>Usually you do not need the <code>@kind</code> tag, because the symbol&#39;s kind is determined by other tags in the doclet. For example, using the <code>@class</code>      tag automatically implies <code>@kind class</code>, and using the
+      <code>@namespace</code> tag implies <code>@kind namespace</code>.</p>
     <h2 id="examples">Examples</h2>
     <figure>
       <figcaption>Using @kind</figcaption><pre class="prettyprint lang-js"><code>// The following examples produce the same result:
@@ -74,10 +73,9 @@ const asdf = 1;
  * @constant
  */
 const asdf = 1;
-</code></pre>
-    </figure>
-    <p>In the case of tags with conflicting kinds (for example, using both @module, which sets the kind to &quot;module&quot;, and &quot;@kind constant&quot; which
-      sets the kind to &quot;constant&quot;), the last tag determines the kind.</p>
+</code></pre></figure>
+    <p>In the case of tags with conflicting kinds (for example, using both <code>@module</code>, which sets the kind to
+      <code>module</code>, and <code>@kind constant</code> which sets the kind to <code>constant</code>), the last tag determines the kind.</p>
     <figure>
       <figcaption>Conflicting @kind statements</figcaption><pre class="prettyprint lang-js"><code>/**
  * This will show up as a constant
@@ -90,8 +88,7 @@ const asdf = 1;
  * @kind constant
  * @module myModule
  */
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <p>
       <a href="tags-type.html">@type</a>
@@ -99,8 +96,7 @@ const asdf = 1;
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

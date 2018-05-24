@@ -38,12 +38,11 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@mixes &lt;OtherObjectPath&gt;</code>
-    </p>
+    <p><code>@mixes &lt;OtherObjectPath&gt;</code></p>
     <h2 id="overview">Overview</h2>
-    <p>The @mixes tag indicates that the current object mixes in all the members from <code>OtherObjectPath</code>, which is a <a href="tags-mixin.html">@mixin</a>.</p>
+    <p>The <code>@mixes</code> tag indicates that the current object mixes in all the members from <code>OtherObjectPath</code>, which is a <a href="tags-mixin.html"><code>@mixin</code></a>.</p>
     <h2 id="examples">Examples</h2>
-    <p>To start, we document a mixin with the <a href="tags-mixin.html">@mixin</a> tag:</p>
+    <p>To start, we document a mixin with the <a href="tags-mixin.html"><code>@mixin</code></a> tag:</p>
     <figure>
       <figcaption>Example of a @mixin</figcaption><pre class="prettyprint lang-js"><code>/**
  * This provides methods used for event handling. It's not meant to
@@ -70,10 +69,9 @@ var Eventful = {
         // code...
     }
 };
-</code></pre>
-    </figure>
-    <p>Now we add a FormButton class and call a &quot;mix&quot; function that mixes all of the Eventful functions into FormButton, so that FormButton can also fire
-      events and have listeners. We use the @mixes tag to indicate that FormButton mixes the Eventful functions.</p>
+</code></pre></figure>
+    <p>Now we add a <code>FormButton</code> class and call a <code>mix</code> function that mixes all of the Eventful functions into <code>FormButton</code>, so that
+      <code>FormButton</code> can also fire events and have listeners. We use the <code>@mixes</code> tag to indicate that <code>FormButton</code> mixes the <code>Eventful</code>      functions.</p>
     <figure>
       <figcaption>Using the @mixes tag</figcaption><pre class="prettyprint lang-js"><code>/**
  * @constructor FormButton
@@ -86,8 +84,7 @@ FormButton.prototype.press = function() {
   this.fire('press', {});
 }
 mix(Eventful).into(FormButton.prototype);
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -103,8 +100,7 @@ mix(Eventful).into(FormButton.prototype);
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

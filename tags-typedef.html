@@ -38,13 +38,12 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@typedef [&lt;type&gt;] &lt;namepath&gt;</code>
-    </p>
+    <p><code>@typedef [&lt;type&gt;] &lt;namepath&gt;</code></p>
     <h2 id="overview">Overview</h2>
-    <p>The @typedef tag is useful for documenting custom types, particularly if you wish to refer to them repeatedly. These types can then be used within other tags
-      expecting a type, such as
-      <a href="tags-type.html">@type</a> or <a href="tags-param.html">@param</a>.</p>
-    <p>Use the <a href="tags-callback.html">@callback</a> tag to document the type of callback functions.</p>
+    <p>The <code>@typedef</code> tag is useful for documenting custom types, particularly if you wish to refer to them repeatedly. These types can then be used within
+      other tags expecting a type, such as
+      <a href="tags-type.html"><code>@type</code></a> or <a href="tags-param.html"><code>@param</code></a>.</p>
+    <p>Use the <a href="tags-callback.html"><code>@callback</code></a> tag to document the type of callback functions.</p>
     <h2 id="examples">Examples</h2>
     <p>This example defines a union type for parameters that can contain either numbers or strings that represent numbers.</p>
     <figure>
@@ -59,8 +58,7 @@
  */
 function setMagicNumber(x) {
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>This example defines a more complex type, an object with several properties, and sets its namepath so it will be displayed along with the class that uses the
       type. Because the type definition is not actually exposed by the class, it is customary to document the type definition as an inner member.</p>
     <figure>
@@ -79,8 +77,7 @@ function setMagicNumber(x) {
  * containing all three components of the Triforce.
  */
 function WishGranter(triforce) {}
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -96,8 +93,7 @@ function WishGranter(triforce) {}
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

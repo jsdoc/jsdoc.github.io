@@ -24,13 +24,14 @@ header a, header a:visited {
     text-decoration: none;
 }
 
-article {
-    margin: 18px;
+article, footer {
+    margin: 18px auto;
+    max-width: 100ex;
 }
 
 footer {
-    margin: 16px;
     margin-top: 32px;
+    max-width: 120ex;
     font-style: italic;
     font-size: 0.8em;
 }

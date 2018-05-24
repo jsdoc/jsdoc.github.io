@@ -108,6 +108,9 @@ ol, ul {
 
 code {
     font: 0.9em Consolas, "Lucida Console", Monaco, monospace;
+    padding-left:  0.5ex;
+    padding-right: 0.5ex;
+    border-radius: 0.5ex;
     background-color: #DFDFDF;
 }
 

@@ -14,11 +14,11 @@ related:
 
 ## Overview
 
-The @typedef tag is useful for documenting custom types, particularly if you wish to refer to them
+The `@typedef` tag is useful for documenting custom types, particularly if you wish to refer to them
 repeatedly. These types can then be used within other tags expecting a type, such as
-[@type][type-tag] or [@param][param-tag].
+[`@type`][type-tag] or [`@param`][param-tag].
 
-Use the [@callback][callback-tag] tag to document the type of callback functions.
+Use the [`@callback`][callback-tag] tag to document the type of callback functions.
 
 [callback-tag]: tags-callback.html
 [param-tag]: tags-param.html

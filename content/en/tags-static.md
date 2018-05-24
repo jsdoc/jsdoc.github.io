@@ -9,17 +9,17 @@ related:
 
 ## Overview
 
-The @static tag indicates that a symbol is contained within a parent and can be accessed without
+The `@static` tag indicates that a symbol is contained within a parent and can be accessed without
 instantiating the parent.
 
-Using the @static tag will override a symbol's default scope, with one exception: Symbols in global
+Using the `@static` tag will override a symbol's default scope, with one exception: Symbols in global
 scope will remain global.
 
 
 ## Examples
 
-The following example has the same effect as writing "@function MyNamespace.myFunction" and omitting
-the @memberof and @static tags:
+The following example has the same effect as writing `@function MyNamespace.myFunction` and omitting
+the `@memberof` and `@static` tags:
 
 {% example "Using @static in a virtual comment" %}
 

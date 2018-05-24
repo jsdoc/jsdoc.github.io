@@ -15,7 +15,7 @@ related:
 ## Overview
 
 A mixin provides functionality that is intended to be added to other objects. If desired, you can
-use the @mixin tag to indicate that an object is a mixin. You can then add the @mixes tag to objects
+use the `@mixin` tag to indicate that an object is a mixin. You can then add the `@mixes` tag to objects
 that use the mixin.
 
 

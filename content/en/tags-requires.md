@@ -9,9 +9,9 @@ description: This file requires a JavaScript module.
 
 ## Overview
 
-The @requires tag allows you to document that a module is needed to use this code. A JSDoc comment
-can have multiple @require tags. The module name can be specified as "moduleName" or
-"module:moduleName"; both forms will be interpreted as modules.
+The `@requires` tag allows you to document that a module is needed to use this code. A JSDoc comment
+can have multiple `@require` tags. The module name can be specified as `moduleName` or
+`module:moduleName`; both forms will be interpreted as modules.
 
 JSDoc does not attempt to process the module that is being included. If you want the module to be
 included in the documentation, you must include the module in the list of JavaScript files to

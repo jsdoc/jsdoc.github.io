@@ -13,19 +13,19 @@ related:
 
 ## Overview
 
-The @event tag allows you to document an event that can be fired. A typical event is represented by
+The `@event` tag allows you to document an event that can be fired. A typical event is represented by
 an object with a defined set of properties.
 
-Once you have used the @event tag to define a specific type of event, you can use the @fires tag to
-indicate that a method can fire that event. You can also use the @listens tag to indicate that a
+Once you have used the `@event` tag to define a specific type of event, you can use the `@fires` tag to
+indicate that a method can fire that event. You can also use the `@listens` tag to indicate that a
 symbol listens for the event.
 
 JSDoc automatically prepends the namespace `event:` to each event's name. In general, you must
-include this namespace when you link to the event in another doclet. (The @fires tag is a notable
+include this namespace when you link to the event in another doclet. (The `@fires` tag is a notable
 exception; it allows you to omit the namespace.)
 
-**Note**: JSDoc 3 uses @event doclets to document the content of an event. In contrast, JSDoc
-Toolkit 2 used @event doclets to identify a function that can be fired when an event of the same
+**Note**: JSDoc 3 uses `@event` doclets to document the content of an event. In contrast, JSDoc
+Toolkit 2 used `@event` doclets to identify a function that can be fired when an event of the same
 name occurs.
 
 

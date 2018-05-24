@@ -38,15 +38,14 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@enum [&lt;type&gt;]</code>
-    </p>
+    <p><code>@enum [&lt;type&gt;]</code></p>
     <h2 id="overview">Overview</h2>
-    <p>The @enum tag documents a collection of static properties whose values are all of the same type.</p>
+    <p>The <code>@enum</code> tag documents a collection of static properties whose values are all of the same type.</p>
     <p>An enum is similar a collection of properties, except that an enum is documented in its own doc comment, whereas properties are documented within the doc comment
-      of their container. Often this tag is used with @readonly, as an enum typically represents a collection of constants.</p>
+      of their container. Often this tag is used with <code>@readonly</code>, as an enum typically represents a collection of constants.</p>
     <h2 id="examples">Examples</h2>
     <p>This shows how to document an object that represents a value with three possible states. Note that the enum members can have optional descriptions added if you
-      wish. Also you can override the type, as is shown with &quot;MAYBE&quot; -- by default enum members will be documented with the same type as the enum itself.</p>
+      wish. Also you can override the type, as is shown with <code>MAYBE</code> -- by default enum members will be documented with the same type as the enum itself.</p>
     <figure>
       <figcaption>A numeric enum, representing three states</figcaption><pre class="prettyprint lang-js"><code>/**
  * Enum for tri-state values.
@@ -60,8 +59,7 @@ var triState = {
     /** @type {boolean} */
     MAYBE: true
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h2 id="related-links">Related Links</h2>
     <p>
       <a href="tags-property.html">@property</a>
@@ -69,8 +67,7 @@ var triState = {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

@@ -7,7 +7,7 @@ synonyms:
 
 ## Overview
 
-The @abstract tag identifies members that must be implemented (or overridden) by objects that
+The `@abstract` tag identifies members that must be implemented (or overridden) by objects that
 inherit the member.
 
 ## Example

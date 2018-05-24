@@ -7,7 +7,7 @@ related:
 
 ## Overview
 
-Documents the version of an item. The text following the @version tag will be used to denote the
+Documents the version of an item. The text following the `@version` tag will be used to denote the
 version of the item.
 
 

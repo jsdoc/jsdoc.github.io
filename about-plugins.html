@@ -58,8 +58,7 @@
       <figcaption>Adding a plugin to JSDoc&#39;s configuration file</figcaption><pre class="prettyprint lang-json"><code>{
     "plugins": ["plugins/shout"]
 }
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>JSDoc executes plugins in the order that they are listed in the configuration file.</p>
     <h2 id="authoring-jsdoc-3-plugins">Authoring JSDoc 3 Plugins</h2>
     <p>JSDoc 3&#39;s plugin system offers extensive control over the parsing process. A plugin can affect the parse results by doing any of the following:</p>
@@ -77,12 +76,11 @@
         // Do something when we see a new doclet
     }
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>JSDoc fires events in the same order as the underlying code.</p>
     <p>An event-handler plugin can stop later plugins from running by setting a <code>stopPropagation</code> property on the event object (<code>e.stopPropagation = true</code>).
       A plugin can stop the event from firing by setting a <code>preventDefault</code> property (<code>e.preventDefault = true</code>).</p>
-    <h4 id="event-parsebegin">Event: parseBegin</h4>
+    <h4 id="event-parsebegin">Event: <code>parseBegin</code></h4>
     <p>The <code>parseBegin</code> event is fired before JSDoc starts loading and parsing the source files. Your plugin can control which files JSDoc will parse by
       modifying the event&#39;s contents.</p>
     <p><strong>Note</strong>: This event is fired in JSDoc 3.2 and later.</p>
@@ -90,13 +88,13 @@
     <ul>
       <li><code>sourcefiles</code>: An array of paths to source files that will be parsed.</li>
     </ul>
-    <h4 id="event-filebegin">Event: fileBegin</h4>
+    <h4 id="event-filebegin">Event: <code>fileBegin</code></h4>
     <p>The <code>fileBegin</code> event is fired when the parser is about to parse a file. Your plugin can use this event to trigger per-file initialization if necessary.</p>
     <p>The event object contains the following properties:</p>
     <ul>
       <li><code>filename</code>: The name of the file.</li>
     </ul>
-    <h4 id="event-beforeparse">Event: beforeParse</h4>
+    <h4 id="event-beforeparse">Event: <code>beforeParse</code></h4>
     <p>The <code>beforeParse</code> event is fired before parsing has begun. Plugins can use this method to modify the source code that will be parsed. For instance,
       your plugin could add a JSDoc comment, or it could remove preprocessing tags that are not valid JavaScript.</p>
     <p>The event object contains the following properties:</p>
@@ -120,9 +118,8 @@
         e.source += extraDoc.join('\n');
     }
 };
-</code></pre>
-    </figure>
-    <h4 id="event-jsdoccommentfound">Event: jsdocCommentFound</h4>
+</code></pre></figure>
+    <h4 id="event-jsdoccommentfound">Event: <code>jsdocCommentFound</code></h4>
     <p>The <code>jsdocCommentFound</code> event is fired whenever a JSDoc comment is found. The comment may or may not be associated with any code. You might use this
       event to modify the contents of a comment before it is processed.</p>
     <p>The event object contains the following properties:</p>
@@ -132,7 +129,7 @@
       <li><code>lineno</code>: The line number on which the comment was found.</li>
       <li><code>columnno</code>: The column number on which the comment was found. Available in JSDoc 3.5.0 and later.</li>
     </ul>
-    <h4 id="event-symbolfound">Event: symbolFound</h4>
+    <h4 id="event-symbolfound">Event: <code>symbolFound</code></h4>
     <p>The <code>symbolFound</code> event is fired when the parser comes across a symbol in the code that may need to be documented. For example, the parser fires a
       <code>symbolFound</code> event for each variable, function, and object literal in a source file.</p>
     <p>The event object contains the following properties:</p>
@@ -148,7 +145,7 @@
         <code>type</code>, and <code>node</code> properties. The object might also have <code>value</code>, <code>paramnames</code>, or <code>funcscope</code> properties
         depending on the symbol.</li>
     </ul>
-    <h4 id="event-newdoclet">Event: newDoclet</h4>
+    <h4 id="event-newdoclet">Event: <code>newDoclet</code></h4>
     <p>The <code>newDoclet</code> event is the highest-level event. It is fired when a new doclet has been created. This means that a JSDoc comment or a symbol has
       been processed, and the actual doclet that will be passed to the template has been created.</p>
     <p>The event object contains the following properties:</p>
@@ -186,16 +183,15 @@ option</a>.</p>
         }
     }
 };
-</code></pre>
-    </figure>
-    <h4 id="event-filecomplete">Event: fileComplete</h4>
+</code></pre></figure>
+    <h4 id="event-filecomplete">Event: <code>fileComplete</code></h4>
     <p>The <code>fileComplete</code> event is fired when the parser has finished parsing a file. Your plugin could use this event to trigger per-file cleanup.</p>
     <p>The event object contains the following properties:</p>
     <ul>
       <li><code>filename</code>: The name of the file.</li>
       <li><code>source</code>: The contents of the file.</li>
     </ul>
-    <h4 id="event-parsecomplete">Event: parseComplete</h4>
+    <h4 id="event-parsecomplete">Event: <code>parseComplete</code></h4>
     <p>The <code>parseComplete</code> event is fired after JSDoc has parsed all of the specified source files.</p>
     <p><strong>Note</strong>: This event is fired in JSDoc 3.2 and later.</p>
     <p>The event object contains the following properties:</p>
@@ -204,7 +200,7 @@ option</a>.</p>
       <li><code>doclets</code>: An array of doclet objects. See the <a href="#event-newdoclet"><code>newDoclet</code> event</a> for details about the properties that
         each doclet can contain. Available in JSDoc 3.2.1 and later.</li>
     </ul>
-    <h4 id="event-processingcomplete">Event: processingComplete</h4>
+    <h4 id="event-processingcomplete">Event: <code>processingComplete</code></h4>
     <p>The <code>processingComplete</code> event is fired after JSDoc updates the parse results to reflect inherited and borrowed symbols.</p>
     <p><strong>Note</strong>: This event is fired in JSDoc 3.2.1 and later.</p>
     <p>The event object contains the following properties:</p>
@@ -221,8 +217,7 @@ option</a>.</p>
       <figcaption>Example</figcaption><pre class="prettyprint lang-js"><code>exports.defineTags = function(dictionary) {
     // define tags here
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h4 id="the-dictionary">The Dictionary</h4>
     <p>The dictionary provides the following methods:</p>
     <ul>
@@ -258,14 +253,12 @@ option</a>.</p>
         doclet.scope = "instance";
     }
 });
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>The <code>defineTag</code> method returns a <code>Tag</code> object, which has a <code>synonym</code> method that can be used to declare a synonym for the tag.</p>
     <figure>
       <figcaption>Defining a tag synonym</figcaption><pre class="prettyprint lang-js"><code>dictionary.defineTag('exception', { /* options for exception tag */ })
     .synonym('throws');
-</code></pre>
-    </figure>
+</code></pre></figure>
     <h3 id="node-visitors">Node Visitors</h3>
     <p>At the lowest level, plugin authors can process each node in the abstract syntax tree (AST) by defining a node visitor that will visit each node. By using a
       node-visitor plugin, you can modify comments and trigger parser events for any arbitrary piece of code.</p>
@@ -277,8 +270,7 @@ option</a>.</p>
         // do all sorts of crazy things here
     }
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
     <p>The function is called on each node with the following parameters:</p>
     <ul>
       <li><code>node</code>: The AST node. AST nodes are JavaScript objects that use the format defined by the <a href="https://github.com/estree/estree">ESTree
@@ -319,13 +311,11 @@ exports.handlers = {
         }
     }
 };
-</code></pre>
-    </figure>
+</code></pre></figure>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

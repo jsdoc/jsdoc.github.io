@@ -42,28 +42,25 @@
       <code>@defaultvalue</code>
     </p>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@default [&lt;some value&gt;]</code>
-    </p>
+    <p><code>@default [&lt;some value&gt;]</code></p>
     <h2 id="overview">Overview</h2>
-    <p>The @default tag allows you to document the assigned value of a symbol. You can supply this tag with a value yourself or you can allow JSDoc to automatically
-      document the value from the source code -- only possible when the documented symbol is being assigned a single, simple value that is either: a string, a number,
-      a boolean or null.</p>
+    <p>The <code>@default</code> tag allows you to document the assigned value of a symbol. You can supply this tag with a value yourself or you can allow JSDoc to
+      automatically document the value from the source code -- only possible when the documented symbol is being assigned a single, simple value that is either:
+      a string, a number, a boolean or null.</p>
     <h2 id="examples">Examples</h2>
-    <p>In this example a constant is documented. The value of the constant is <code>0xff0000</code>. By adding the @default tag this value is automatically added to
-      the documentation.</p>
+    <p>In this example a constant is documented. The value of the constant is <code>0xff0000</code>. By adding the
+      <code>@default</code> tag this value is automatically added to the documentation.</p>
     <figure>
       <figcaption>Document the number value of a constant</figcaption><pre class="prettyprint lang-js"><code>/**
  *  @constant
  *  @default
  */
 const RED = 0xff0000;
-</code></pre>
-    </figure>
+</code></pre></figure>
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

@@ -24,13 +24,14 @@ header a, header a:visited {
     text-decoration: none;
 }
 
-article {
-    margin: 18px;
+article, footer {
+    margin: 18px auto;
+    max-width: 100ex;
 }
 
 footer {
-    margin: 16px;
     margin-top: 32px;
+    max-width: 120ex;
     font-style: italic;
     font-size: 0.8em;
 }
@@ -107,7 +108,10 @@ ol, ul {
 
 code {
     font: 0.9em Consolas, "Lucida Console", Monaco, monospace;
-    background-color: #DEDEDE;
+    padding-left:  0.5ex;
+    padding-right: 0.5ex;
+    border-radius: 0.5ex;
+    background-color: #DFDFDF;
 }
 
 pre {
@@ -116,7 +120,7 @@ pre {
     margin: 12px;
     padding: 8px;
     white-space: pre-wrap;
-    background-color: #DEDEDE;
+    background-color: #DFDFDF;
 }
 
 table {
@@ -128,7 +132,7 @@ th, td {
 }
 
 th {
-    background-color: #DEDEDE;
+    background-color: #DFDFDF;
     color: #B93A38;
 }
 

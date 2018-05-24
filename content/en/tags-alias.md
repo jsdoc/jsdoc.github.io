@@ -13,12 +13,12 @@ related:
 
 ## Overview
 
-The @alias tag causes JSDoc to treat all references to a member as if the member had a different
+The `@alias` tag causes JSDoc to treat all references to a member as if the member had a different
 name. This tag is especially useful if you define a class within an inner function; in this case,
-you can use the @alias tag to tell JSDoc how the class is exposed in your app.
+you can use the `@alias` tag to tell JSDoc how the class is exposed in your app.
 
-While the @alias tag may sound similar to the @name tag, these tags behave very differently. The
-@name tag tells JSDoc to ignore any code associated with the comment. For example, when JSDoc
+While the `@alias` tag may sound similar to the `@name` tag, these tags behave very differently. The
+`@name` tag tells JSDoc to ignore any code associated with the comment. For example, when JSDoc
 processes the following code, it ignores the fact that the comment for `bar` is attached to a
 function:
 
@@ -30,7 +30,7 @@ function:
 function foo() {}
 ```
 
-The @alias tag tells JSDoc to pretend that Member A is actually named Member B. For example, when
+The `@alias` tag tells JSDoc to pretend that <var>Member A</var> is actually named <var>Member B</var>. For example, when
 JSDoc processes the following code, it recognizes that `foo` is a function, then renames `foo` to
 `bar` in the documentation:
 
@@ -48,12 +48,12 @@ function foo() {}
 ## Examples
 
 Suppose you are using a class framework that expects you to pass in a constructor function when you
-define a class. You can use the @alias tag to tell JSDoc how the class will be exposed in your app.
+define a class. You can use the `@alias` tag to tell JSDoc how the class will be exposed in your app.
 
-In the following example, the @alias tag tells JSDoc to treat the anonymous function as if it were
-the constructor for the class "trackr.CookieManager". Within the function, JSDoc interprets the
-`this` keyword relative to trackr.CookieManager, so the "value" method has the namepath
-"trackr.CookieManager#value".
+In the following example, the `@alias` tag tells JSDoc to treat the anonymous function as if it were
+the constructor for the class `trackr.CookieManager`. Within the function, JSDoc interprets the
+`this` keyword relative to `trackr.CookieManager`, so the `value` method has the namepath
+`trackr.CookieManager#value`.
 
 {% example "Using @alias with an anonymous constructor function" %}
 
@@ -74,8 +74,8 @@ Klass('trackr.CookieManager',
 ```
 {% endexample %}
 
-You can also use the @alias tag with members that are created within an immediately invoked function
-expression (IIFE). The @alias tag tells JSDoc that these members are exposed outside of the IIFE's
+You can also use the `@alias` tag with members that are created within an immediately invoked function
+expression (IIFE). The `@alias` tag tells JSDoc that these members are exposed outside of the IIFE's
 scope.
 
 {% example "Using @alias for static members of a namespace" %}
@@ -99,8 +99,8 @@ var Apple = {};
 ```
 {% endexample %}
 
-For members that are defined within an object literal, you can use the @alias tag as an alternative
-to the [@lends][lends-tag] tag.
+For members that are defined within an object literal, you can use the `@alias` tag as an alternative
+to the [`@lends`][lends-tag] tag.
 
 {% example "Using @alias for an object literal" %}
 

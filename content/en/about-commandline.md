@@ -11,8 +11,8 @@ At its most basic level, JSDoc is used like so:
 
 where `...` are paths to other files to generate documentation for.
 
-Additionally, one may provide the path to a [Markdown file][md-file] (ending in ".md") or a file
-named "README", and this will be added to the documentation on the front page. See [these
+Additionally, one may provide the path to a [Markdown file][md-file] (ending in `.md`) or a file
+named `README`, and this will be added to the documentation on the front page. See [these
 instructions][including-readme].
 
 JSDoc supports a number of command-line options, many of which have both long and short forms.

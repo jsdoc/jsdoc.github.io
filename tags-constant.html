@@ -45,14 +45,12 @@
       <code>@const</code>
     </p>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@constant [&lt;type&gt; &lt;name&gt;]</code>
-    </p>
+    <p><code>@constant [&lt;type&gt; &lt;name&gt;]</code></p>
     <h2 id="overview">Overview</h2>
-    <p>The @constant tag is used to mark the documentation as belonging to a symbol that is a constant.</p>
+    <p>The <code>@constant</code> tag is used to mark the documentation as belonging to a symbol that is a constant.</p>
     <h2 id="examples">Examples</h2>
     <p>In this example we are documenting a string constant. Note that although the code is using the
-      <code>const</code> keyword, this is not required by JSDoc. If your JavaScript host environment doesn&#39;t yet support constant declarations, the @const documentation
-      can just as effectively be used on <code>var</code> declarations.
+      <code>const</code> keyword, this is not required by JSDoc. If your JavaScript host environment doesn&#39;t yet support constant declarations, the <code>@const</code>      documentation can just as effectively be used on <code>var</code> declarations.
     </p>
     <figure>
       <figcaption>A string constant representing the color red</figcaption><pre class="prettyprint lang-js"><code>/** @constant
@@ -63,10 +61,9 @@ const RED = 'FF0000';
 
 /** @constant {number} */
 var ONE = 1;
-</code></pre>
-    </figure>
-    <p>Note that the example provides the type in a @type tag. This is optional. Also the optional @default tag is used here too, this will automatically add whatever
-      the assigned value is (for example &#39;FF0000&#39;) to the documentation.</p>
+</code></pre></figure>
+    <p>Note that the example provides the type in a <code>@type</code> tag. This is optional. Also the optional
+      <code>@default</code> tag is used here too, this will automatically add whatever the assigned value is (for example <code>&#39;FF0000&#39;</code>) to the documentation.</p>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -79,8 +76,7 @@ var ONE = 1;
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
     <br> Copyright &#169; 2011-2017 the
     <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
     <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">

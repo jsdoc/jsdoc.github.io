@@ -17,15 +17,15 @@ must omit this prefix.
 
 ## Overview
 
-Use the @exports tag when documenting JavaScript modules that export anything other than the
-"exports" object or the "module.exports" property.
+Use the `@exports` tag when documenting JavaScript modules that export anything other than the
+`exports` object or the `module.exports` property.
 
 
 ## Examples
 
-In modules where you are using the special "exports" object, the @exports tag is never needed. JSDoc
+In modules where you are using the special `exports` object, the `@exports` tag is never needed. JSDoc
 automatically recognizes that this object's members are being exported. Similarly, JSDoc
-automatically recognizes the special "module.exports" property in Node.js modules.
+automatically recognizes the special `module.exports` property in Node.js modules.
 
 {% example "CommonJS module" %}
 
@@ -105,8 +105,8 @@ define(function() {
 ```
 {% endexample %}
 
-If your module exports an object named anything other than "exports" or "module.exports", use the
-@exports tag to indicate what is being exported.
+If your module exports an object named anything other than `exports` or `module.exports`, use the
+`@exports` tag to indicate what is being exported.
 
 {% example "AMD module that exports an object" %}
 

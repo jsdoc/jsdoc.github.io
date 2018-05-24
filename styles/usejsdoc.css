@@ -107,7 +107,7 @@ ol, ul {
 
 code {
     font: 0.9em Consolas, "Lucida Console", Monaco, monospace;
-    background-color: #DEDEDE;
+    background-color: #DFDFDF;
 }
 
 pre {
@@ -116,7 +116,7 @@ pre {
     margin: 12px;
     padding: 8px;
     white-space: pre-wrap;
-    background-color: #DEDEDE;
+    background-color: #DFDFDF;
 }
 
 table {
@@ -128,7 +128,7 @@ th, td {
 }
 
 th {
-    background-color: #DEDEDE;
+    background-color: #DFDFDF;
     color: #B93A38;
 }
 

@@ -95,6 +95,28 @@
       </tr>
       <tr>
         <td>
+          Enumerated values
+        </td>
+        <td>
+          <figure>
+            <figcaption>A value from a predefined list of numbers.</figcaption>
+            <pre class="prettyprint"><code>{(1|3|5)}
+</code></pre>
+          </figure>
+          <figure>
+            <figcaption>A value from a predefined list of strings.</figcaption>
+            <pre class="prettyprint"><code>{('Option A'|'Option B')}
+</code></pre>
+          </figure>
+        </td>
+        <td>
+          <p>
+            Indicates that the value can be any of the values from the list. This could be combined with a type union to to indicate special values; for example, <table>{number|('pi'|'tau')}</code> indicated any number or 'pi' or 'tau'.
+            </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
           Arrays and objects (type applications and record types)
         </td>
         <td>

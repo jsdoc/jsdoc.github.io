@@ -24,6 +24,7 @@ comment)
 + [`@property`][property-tag]
 + [`@returns`][returns-tag]
 + [`@see`][see-tag]
++ [`@summary`][summary-tag]
 + [`@throws`][throws-tag]
 
 [additional-tags]: #additional-tags
@@ -35,6 +36,7 @@ comment)
 [property-tag]: tags-property.html
 [returns-tag]: tags-returns.html
 [see-tag]: tags-see.html
+[summary-tag]: tags-summary.html
 [throws-tag]: tags-throws.html
 
 

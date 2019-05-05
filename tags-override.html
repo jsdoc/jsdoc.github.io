@@ -36,15 +36,16 @@
     </ul>
     <h2 id="overview">Overview</h2>
     <p>The <code>@override</code> tag indicates that a symbol overrides a symbol with the same name in a parent class.</p>
-    <p>This tag is provided for compatibility with <a href="https://developers.google.com/closure/compiler/">Closure Compiler</a>. By default, JSDoc automatically identifies
-      symbols that override a parent.</p>
-    <p>If your JSDoc comment includes the <a href="tags-inheritdoc.html"><code>@inheritdoc</code> tag</a>, you do not need to include the <code>@override</code> tag.
-      The presence of the <code>@inheritdoc</code> tag implies the presence of the <code>@override</code> tag.
-    </p>
+    <p>This tag is provided for compatibility with <a href="https://developers.google.com/closure/compiler/">Closure Compiler</a>. By default, JSDoc
+      automatically identifies symbols that override a parent.</p>
+    <p>If your JSDoc comment includes the <a href="tags-inheritdoc.html"><code>@inheritdoc</code> tag</a>, you do not need to include
+      the <code>@override</code> tag. The presence of the <code>@inheritdoc</code> tag implies the presence of the <code>@override</code>
+      tag.</p>
     <h2 id="example">Example</h2>
     <p>The following example shows how to indicate that a method overrides a method in its parent class:</p>
     <figure>
-      <figcaption>Method that overrides a parent</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Method that overrides a parent</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * @classdesc Abstract class representing a network connection.
  * @class
  */
@@ -81,12 +82,15 @@ Socket.prototype.open = function() {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

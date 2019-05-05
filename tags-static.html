@@ -35,12 +35,16 @@
       </li>
     </ul>
     <h2 id="overview">Overview</h2>
-    <p>The @static tag indicates that a symbol is contained within a parent and can be accessed without instantiating the parent.</p>
-    <p>Using the @static tag will override a symbol&#39;s default scope, with one exception: Symbols in global scope will remain global.</p>
+    <p>The @static tag indicates that a symbol is contained within a parent and can be accessed without
+      instantiating the parent.</p>
+    <p>Using the @static tag will override a symbol&#39;s default scope, with one exception: Symbols in global
+      scope will remain global.</p>
     <h2 id="examples">Examples</h2>
-    <p>The following example has the same effect as writing &quot;@function MyNamespace.myFunction&quot; and omitting the @memberof and @static tags:</p>
+    <p>The following example has the same effect as writing &quot;@function MyNamespace.myFunction&quot; and omitting
+      the @memberof and @static tags:</p>
     <figure>
-      <figcaption>Using @static in a virtual comment</figcaption><pre class="prettyprint lang-js"><code>/** @namespace MyNamespace */
+      <figcaption>Using @static in a virtual comment</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @namespace MyNamespace */
 
 /**
  * @function myFunction
@@ -51,7 +55,8 @@
     </figure>
     <p>The following example forces a module&#39;s inner member to be documented as a static member:</p>
     <figure>
-      <figcaption>Using @static to override the default scope</figcaption><pre class="prettyprint lang-js"><code>/** @module Rollerskate */
+      <figcaption>Using @static to override the default scope</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @module Rollerskate */
 
 /**
  * The 'wheel' variable is documented as Rollerskate.wheel
@@ -76,12 +81,15 @@ var wheel = 1;
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

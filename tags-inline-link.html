@@ -60,12 +60,14 @@
 </code></pre>
     <h2 id="overview">Overview</h2>
     <p>The <code>{@link}</code> inline tag creates a link to the namepath or URL that you specify. When you use the
-      <code>{@link}</code> tag, you can also provide link text, using one of several different formats. If you don&#39;t provide any link text, JSDoc uses the namepath
-      or URL as the link text.</p>
-    <p>If you need to link to a tutorial, use the <a href="tags-inline-tutorial.html"><code>{@tutorial}</code> inline tag</a> instead of the <code>{@link}</code> tag.</p>
+      <code>{@link}</code> tag, you can also provide link text, using one of several different formats. If you don&#39;t
+      provide any link text, JSDoc uses the namepath or URL as the link text.</p>
+    <p>If you need to link to a tutorial, use the <a href="tags-inline-tutorial.html"><code>{@tutorial}</code> inline tag</a> instead
+      of the <code>{@link}</code> tag.</p>
     <h2 id="link-formatting">Link formatting</h2>
-    <p>By default, <code>{@link}</code> generates standard HTML anchor tags. However, you may prefer to render certain links in a monospace font, or to specify the
-      format of individual links. You can use the following synonyms for the <code>{@link}</code> tag to control the formatting of links:</p>
+    <p>By default, <code>{@link}</code> generates standard HTML anchor tags. However, you may prefer to render certain
+      links in a monospace font, or to specify the format of individual links. You can use the following
+      synonyms for the <code>{@link}</code> tag to control the formatting of links:</p>
     <ul>
       <li><code>{@linkcode}</code>: Forces the link&#39;s text to use a monospace font.</li>
       <li><code>{@linkplain}</code>: Forces the link&#39;s text to appear as normal text, without a monospace font.</li>
@@ -73,14 +75,19 @@
     <p>You can also set one of the following options in JSDoc&#39;s configuration file; see
       <a href="about-configuring-jsdoc.html">Configuring JSDoc</a> for more details:</p>
     <ul>
-      <li><code>templates.cleverLinks</code>: When set to <code>true</code>, links to URLs use normal text, and links to code use a monospace font.</li>
-      <li><code>templates.monospaceLinks</code>: When set to <code>true</code>, all links use a monospace font, except for links created with the <code>{@linkplain}</code>        tag.</li>
+      <li><code>templates.cleverLinks</code>: When set to <code>true</code>, links to URLs use normal text, and links to code use
+        a monospace font.</li>
+      <li><code>templates.monospaceLinks</code>: When set to <code>true</code>, all links use a monospace font, except for links
+        created with the <code>{@linkplain}</code> tag.</li>
     </ul>
-    <p><strong>Note</strong>: Although the default JSDoc template renders all of these tags correctly, other templates may not recognize the <code>{@linkcode}</code>      and <code>{@linkplain}</code> tags. In addition, other templates may ignore the configuration options for link rendering.</p>
+    <p><strong>Note</strong>: Although the default JSDoc template renders all of these tags correctly, other templates
+      may not recognize the <code>{@linkcode}</code> and <code>{@linkplain}</code> tags. In addition, other templates may ignore
+      the configuration options for link rendering.</p>
     <h2 id="examples">Examples</h2>
     <p>The following example shows all of the ways to provide link text for the <code>{@link}</code> tag:</p>
     <figure>
-      <figcaption>Providing link text</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Providing link text</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * See {@link MyClass} and [MyClass's foo property]{@link MyClass#foo}.
  * Also, check out {@link http://www.google.com|Google} and
  * {@link https://github.com GitHub}.
@@ -90,14 +97,17 @@ function myFunction() {}
     </figure>
     <p>By default, the example above produces output similar to the following:</p>
     <figure>
-      <figcaption>Output for {@link} tags</figcaption><pre class="prettyprint lang-html"><code>See &lt;a href="MyClass.html">MyClass&lt;/a> and &lt;a href="MyClass.html#foo">MyClass's foo
+      <figcaption>Output for {@link} tags</figcaption>
+      <pre class="prettyprint lang-html"><code>See &lt;a href="MyClass.html">MyClass&lt;/a> and &lt;a href="MyClass.html#foo">MyClass's foo
 property&lt;/a>. Also, check out &lt;a href="http://www.google.com">Google&lt;/a> and
 &lt;a href="https://github.com">GitHub&lt;/a>.
 </code></pre>
     </figure>
-    <p>If the configuration property <code>templates.cleverLinks</code> were set to <code>true</code>, the example above would produce the following output:</p>
+    <p>If the configuration property <code>templates.cleverLinks</code> were set to <code>true</code>, the example above would
+      produce the following output:</p>
     <figure>
-      <figcaption>Output with clever links enabled</figcaption><pre class="prettyprint lang-html"><code>See &lt;a href="MyClass.html">&lt;code>MyClass&lt;/code>&lt;/a> and &lt;a href="MyClass.html#foo">
+      <figcaption>Output with clever links enabled</figcaption>
+      <pre class="prettyprint lang-html"><code>See &lt;a href="MyClass.html">&lt;code>MyClass&lt;/code>&lt;/a> and &lt;a href="MyClass.html#foo">
 &lt;code>MyClass's foo property&lt;/code>&lt;/a>. Also, check out
 &lt;a href="http://www.google.com">Google&lt;/a> and &lt;a href="https://github.com">GitHub&lt;/a>.
 </code></pre>
@@ -114,12 +124,15 @@ property&lt;/a>. Also, check out &lt;a href="http://www.google.com">Google&lt;/a
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

@@ -35,12 +35,15 @@
       </li>
     </ul>
     <p>JSDoc 3 makes it easy to document classes that follow the <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-class-definitions">ECMAScript 2015
-specification</a>. You don&#39;t need to use tags such as <code>@class</code> and <code>@constructor</code> with ES 2015 classes—JSDoc automatically identifies classes
-      and their constructors simply by parsing your code. ES 2015 classes are supported in JSDoc 3.4.0 and later.</p>
+        specification</a>. You don&#39;t need to use tags such as <code>@class</code> and <code>@constructor</code> with
+      ES 2015 classes—JSDoc automatically identifies classes and their constructors simply by parsing your
+      code. ES 2015 classes are supported in JSDoc 3.4.0 and later.</p>
     <h2 id="documenting-a-simple-class">Documenting a simple class</h2>
-    <p>The following example shows how to document a simple class with a constructor, two instance methods, and one static method:</p>
+    <p>The following example shows how to document a simple class with a constructor, two instance methods,
+      and one static method:</p>
     <figure>
-      <figcaption>Simple ES 2015 class</figcaption><pre class="prettyprint lang-js"><code>/** Class representing a point. */
+      <figcaption>Simple ES 2015 class</figcaption>
+      <pre class="prettyprint lang-js"><code>/** Class representing a point. */
 class Point {
     /**
      * Create a point.
@@ -78,20 +81,23 @@ class Point {
 }
 </code></pre>
     </figure>
-    <p>You can also document classes that are defined in a class expression, which assigns the class to a variable or constant:</p>
+    <p>You can also document classes that are defined in a class expression, which assigns the class to a
+      variable or constant:</p>
     <figure>
-      <figcaption>ES 2015 class expression</figcaption><pre class="prettyprint lang-js"><code>/** Class representing a point. */
+      <figcaption>ES 2015 class expression</figcaption>
+      <pre class="prettyprint lang-js"><code>/** Class representing a point. */
 const Point = class {
     // and so on
 }
 </code></pre>
     </figure>
     <h2 id="extending-classes">Extending classes</h2>
-    <p>When you use the <code>extends</code> keyword to extend an existing class, you also need to tell JSDoc which class you&#39;re extending. You do this with the
-      <a href="tags-augments.html"><code>@augments</code> (or <code>@extends</code>) tag</a>.</p>
+    <p>When you use the <code>extends</code> keyword to extend an existing class, you also need to tell JSDoc which
+      class you&#39;re extending. You do this with the <a href="tags-augments.html"><code>@augments</code> (or <code>@extends</code>) tag</a>.</p>
     <p>For example, to extend the <code>Point</code> class shown above:</p>
     <figure>
-      <figcaption>Extending an ES 2015 class</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Extending an ES 2015 class</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * Class representing a dot.
  * @extends Point
  */
@@ -123,12 +129,15 @@ class Dot extends Point {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

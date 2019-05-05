@@ -42,22 +42,24 @@
       <code>@host</code>
     </p>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@external &lt;NameOfExternal&gt;</code>
-    </p>
+    <p><code>@external &lt;NameOfExternal&gt;</code></p>
     <h2 id="overview">Overview</h2>
-    <p>The <code>@external</code> tag identifies a class, namespace, or module that is defined outside of the current package. By using this tag, you can document your
-      package&#39;s extensions to the external symbol, or you can provide information about the external symbol to your package&#39;s users. You can also refer to
+    <p>The <code>@external</code> tag identifies a class, namespace, or module that is defined outside of the current
+      package. By using this tag, you can document your package&#39;s extensions to the external symbol, or
+      you can provide information about the external symbol to your package&#39;s users. You can also refer to
       the external symbol&#39;s namepath in any other JSDoc tag.</p>
     <p>The namepath for an external symbol always uses the prefix <code>external:</code> (for example,
       <code>{@link external:Foo}</code> or <code>@augments external:Foo</code>). However, you can omit this prefix from the
       <code>@external</code> tag.</p>
-    <p><strong>Note</strong>: You should only add the <code>@external</code> tag to the highest-level symbol that is defined outside of your project. See &quot;<a href="#nested-external-symbol">Documenting a nested external symbol</a>&quot;
-      for an example.
-    </p>
+    <p><strong>Note</strong>: You should only add the <code>@external</code> tag to the highest-level symbol that is defined
+      outside of your project. See &quot;<a href="#nested-external-symbol">Documenting a nested external symbol</a>&quot; for an
+      example.</p>
     <h2 id="examples">Examples</h2>
-    <p>The following example shows how to document the built-in <code>String</code> object as an external, along with the new instance method <code>external:String#rot13</code>:</p>
+    <p>The following example shows how to document the built-in <code>String</code> object as an external, along with
+      the new instance method <code>external:String#rot13</code>:</p>
     <figure>
-      <figcaption>Documenting methods added to built-in classes</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Documenting methods added to built-in classes</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * The built in string object.
  * @external String
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String|String}
@@ -75,7 +77,8 @@
     <p>The following example documents a new <code>starfairy</code> function added to the external namespace
       <code>&quot;jQuery.fn&quot;</code>:</p>
     <figure>
-      <figcaption>Documenting external namespaces</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Documenting external namespaces</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * The jQuery plugin namespace.
  * @external "jQuery.fn"
  * @see {@link http://learn.jquery.com/plugins/|jQuery Plugins}
@@ -87,9 +90,11 @@
  */
 </code></pre>
     </figure>
-    <p>In the following example, the class <code>EncryptedRequest</code> is documented as a subclass of the built-in class <code>XMLHttpRequest</code>:</p>
+    <p>In the following example, the class <code>EncryptedRequest</code> is documented as a subclass of the built-in
+      class <code>XMLHttpRequest</code>:</p>
     <figure>
-      <figcaption>Extending an external.</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Extending an external.</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * The built-in class for sending HTTP requests.
  * @external XMLHttpRequest
  * @see https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
@@ -102,14 +107,14 @@
  */
 </code></pre>
     </figure>
-    <p>
-      <a name="nested-external-symbol"></a>
-      You should only add the <code>@external</code> tag to the highest-level symbol that is defined outside of your project. In the following example, the documentation
-      refers to the external class
+    <p><a name="nested-external-symbol"></a>
+      You should only add the <code>@external</code> tag to the highest-level symbol that is defined outside of your
+      project. In the following example, the documentation refers to the external class
       <code>security.TLS</code>. As a result, the <code>@external</code> tag is used to document the external namespace
       <code>external:security</code>, but <em>not</em> the external class <code>external:security.TLS</code>.</p>
     <figure>
-      <figcaption>Documenting a nested external symbol</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Documenting a nested external symbol</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * External namespace for security-related classes.
  * @external security
  * @see http://example.org/docs/security
@@ -125,12 +130,15 @@
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

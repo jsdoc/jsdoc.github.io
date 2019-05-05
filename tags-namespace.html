@@ -38,18 +38,20 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@namespace [[{&lt;type&gt;}] &lt;SomeName&gt;]</code>
-    </p>
+    <p><code>@namespace [[{&lt;type&gt;}] &lt;SomeName&gt;]</code></p>
     <h2 id="overview">Overview</h2>
-    <p>The @namespace tag indicates that an object creates a namespace for its members. You can also write a virtual JSDoc comment that defines a namespace used by
-      your code.</p>
-    <p>If a namespace is defined by a symbol other than an object literal, you can include a type expression along with the @namespace tag. If the @namespace tag includes
-      a type, it must also include a name.</p>
-    <p>You may need to document a namespace whose name includes unusual characters, such as &quot;#&quot; or &quot;!&quot;. In these cases, when you document or link
-      to the namespace, you must add quotation marks around the portion of the namespace that includes unusual characters. See the examples below for details.</p>
+    <p>The @namespace tag indicates that an object creates a namespace for its members. You can also write
+      a virtual JSDoc comment that defines a namespace used by your code.</p>
+    <p>If a namespace is defined by a symbol other than an object literal, you can include a type
+      expression along with the @namespace tag. If the @namespace tag includes a type, it must also
+      include a name.</p>
+    <p>You may need to document a namespace whose name includes unusual characters, such as &quot;#&quot; or &quot;!&quot;. In
+      these cases, when you document or link to the namespace, you must add quotation marks around the
+      portion of the namespace that includes unusual characters. See the examples below for details.</p>
     <h2 id="examples">Examples</h2>
     <figure>
-      <figcaption>Using the @namespace tag with an object</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Using the @namespace tag with an object</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * My namespace.
  * @namespace
  */
@@ -62,7 +64,8 @@ var MyNamespace = {
 </code></pre>
     </figure>
     <figure>
-      <figcaption>Using the @namespace tag for virtual comments</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Using the @namespace tag for virtual comments</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * A namespace.
  * @namespace MyNamespace
  */
@@ -74,10 +77,12 @@ var MyNamespace = {
  */
 </code></pre>
     </figure>
-    <p>If a @namespace includes a symbol whose name has unusual characters, you must enclose the symbol&#39;s name in double quotes. If the symbol&#39;s name already
-      contains one or more double quotes, escape the double quotes with a leading backslash (\).</p>
+    <p>If a @namespace includes a symbol whose name has unusual characters, you must enclose the symbol&#39;s
+      name in double quotes. If the symbol&#39;s name already contains one or more double quotes, escape the
+      double quotes with a leading backslash (\).</p>
     <figure>
-      <figcaption>Using the @namespace tag with unusual member names</figcaption><pre class="prettyprint lang-js"><code>/** @namespace window */
+      <figcaption>Using the @namespace tag with unusual member names</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @namespace window */
 
 /**
  * Shorthand for the alert function.
@@ -93,12 +98,15 @@ window["!"] = function(msg) { alert(msg); };
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

@@ -32,18 +32,22 @@
       </li>
     </ul>
     <h2 id="overview">Overview</h2>
-    <p>The <code>@ignore</code> tag indicates that a symbol in your code should never appear in the documentation. This tag takes precedence over all others.</p>
-    <p>For most JSDoc templates, including the default template, the <code>@ignore</code> tag has the following effects:
-    </p>
+    <p>The <code>@ignore</code> tag indicates that a symbol in your code should never appear in the documentation.
+      This tag takes precedence over all others.</p>
+    <p>For most JSDoc templates, including the default template, the <code>@ignore</code> tag has the following
+      effects:</p>
     <ul>
-      <li>If you use the <code>@ignore</code> tag with the <code>@class</code> or <code>@module</code> tag, the entire class or module will be omitted from the documentation.</li>
-      <li>If you use the <code>@ignore</code> tag with the <code>@namespace</code> tag, you must also add the <code>@ignore</code> tag to any child classes and namespaces.
-        Otherwise, your documentation will show the child classes and namespaces, but with incomplete names.</li>
+      <li>If you use the <code>@ignore</code> tag with the <code>@class</code> or <code>@module</code> tag, the entire class or module will
+        be omitted from the documentation.</li>
+      <li>If you use the <code>@ignore</code> tag with the <code>@namespace</code> tag, you must also add the <code>@ignore</code> tag to any
+        child classes and namespaces. Otherwise, your documentation will show the child classes and
+        namespaces, but with incomplete names.</li>
     </ul>
     <h2 id="examples">Examples</h2>
     <p>In the following example, <code>Jacket</code> and <code>Jacket#color</code> will not appear in the documentation.</p>
     <figure>
-      <figcaption>Class with <code>@ignore</code> tag</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Class with <code>@ignore</code> tag</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * @class
  * @ignore
  */
@@ -53,10 +57,12 @@ function Jacket() {
 }
 </code></pre>
     </figure>
-    <p>In the following example, the <code>Clothes</code> namespace contains a <code>Jacket</code> class. The <code>@ignore</code> tag must be added to both <code>Clothes</code>      and <code>Clothes.Jacket</code>. <code>Clothes</code>, <code>Clothes.Jacket</code>, and
+    <p>In the following example, the <code>Clothes</code> namespace contains a <code>Jacket</code> class. The <code>@ignore</code> tag must
+      be added to both <code>Clothes</code> and <code>Clothes.Jacket</code>. <code>Clothes</code>, <code>Clothes.Jacket</code>, and
       <code>Clothes.Jacket#color</code> will not appear in the documentation.</p>
     <figure>
-      <figcaption>Namespace with child class</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Namespace with child class</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * @namespace
  * @ignore
  */
@@ -75,12 +81,15 @@ var Clothes = {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

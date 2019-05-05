@@ -35,12 +35,15 @@
       </li>
     </ul>
     <h2 id="overview">Overview</h2>
-    <p>Using the @instance tag will mark a symbol as an instance member of its parent symbol. This means it can be referred to by &quot;Parent#Child&quot;.</p>
-    <p>Using @instance will override a doclet&#39;s default scope (unless it is in the global scope, in which case it will remain global).</p>
+    <p>Using the @instance tag will mark a symbol as an instance member of its parent symbol. This means it
+      can be referred to by &quot;Parent#Child&quot;.</p>
+    <p>Using @instance will override a doclet&#39;s default scope (unless it is in the global scope, in which
+      case it will remain global).</p>
     <h2 id="examples">Examples</h2>
     <p>The following example is a longhand way of writing &quot;@function MyNamespace#myFunction&quot;:</p>
     <figure>
-      <figcaption>Using @instance to make a virtual doclet an instance member</figcaption><pre class="prettyprint lang-js"><code>/** @namespace MyNamespace */
+      <figcaption>Using @instance to make a virtual doclet an instance member</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @namespace MyNamespace */
 /**
  * myFunction is now MyNamespace#myFunction.
  * @function myFunction
@@ -49,10 +52,11 @@
  */
 </code></pre>
     </figure>
-    <p>More usefully, you can use the @instance tag to override the scope that JSDoc infers. For example, you can indicate that a static member is used as an instance
-      member:</p>
+    <p>More usefully, you can use the @instance tag to override the scope that JSDoc infers. For example,
+      you can indicate that a static member is used as an instance member:</p>
     <figure>
-      <figcaption>Using @instance to identify an instance member</figcaption><pre class="prettyprint lang-js"><code>/** @namespace */
+      <figcaption>Using @instance to identify an instance member</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @namespace */
 var BaseObject = {
     /**
      * foo is now BaseObject#foo rather than BaseObject.foo.
@@ -83,12 +87,15 @@ function fooFactory(fooValue) {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

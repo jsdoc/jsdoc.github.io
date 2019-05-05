@@ -48,11 +48,12 @@
     <p><code>@returns [{type}] [description]</code></p>
     <h2 id="overview">Overview</h2>
     <p>The <code>@returns</code> tag documents the value that a function returns.</p>
-    <p>If you are documenting a generator function, use the <a href="tags-yields.html"><code>@yields</code> tag</a> instead of this tag.
-    </p>
+    <p>If you are documenting a generator function, use the <a href="tags-yields.html"><code>@yields</code> tag</a> instead of this
+      tag.</p>
     <h2 id="examples">Examples</h2>
     <figure>
-      <figcaption>Return value with a type</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Return value with a type</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * Returns the sum of a and b
  * @param {number} a
  * @param {number} b
@@ -61,9 +62,11 @@
 function sum(a, b) {
     return a + b;
 }
-</code></pre></figure>
+</code></pre>
+    </figure>
     <figure>
-      <figcaption>Return value with a type and description</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Return value with a type and description</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * Returns the sum of a and b
  * @param {number} a
  * @param {number} b
@@ -72,9 +75,11 @@ function sum(a, b) {
 function sum(a, b) {
     return a + b;
 }
-</code></pre></figure>
+</code></pre>
+    </figure>
     <figure>
-      <figcaption>Return value with multiple types</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Return value with multiple types</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * Returns the sum of a and b
  * @param {number} a
  * @param {number} b
@@ -87,9 +92,11 @@ function sum(a, b, retArr) {
     }
     return a + b;
 }
-</code></pre></figure>
+</code></pre>
+    </figure>
     <figure>
-      <figcaption>Returns a promise</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Returns a promise</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * Returns the sum of a and b
  * @param {number} a
  * @param {number} b
@@ -100,7 +107,8 @@ function sumAsync(a, b) {
         resolve(a + b);
     });
 }
-</code></pre></figure>
+</code></pre>
+    </figure>
     <h2 id="related-links">Related Links</h2>
     <ul>
       <li>
@@ -114,10 +122,14 @@ function sumAsync(a, b) {
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
       <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

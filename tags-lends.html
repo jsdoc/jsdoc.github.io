@@ -38,16 +38,18 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@lends &lt;namepath&gt;</code>
-    </p>
+    <p><code>@lends &lt;namepath&gt;</code></p>
     <h2 id="overview">Overview</h2>
-    <p>The <code>@lends</code> tag allows you to document all the members of an object literal as if they were members of a symbol with the given name. You might want
-      to do this if you are passing an object literal into a function that creates a named class from its members.</p>
+    <p>The <code>@lends</code> tag allows you to document all the members of an object literal as if they were members
+      of a symbol with the given name. You might want to do this if you are passing an object literal into
+      a function that creates a named class from its members.</p>
     <h2 id="examples">Examples</h2>
-    <p>In this example, we want to use a helper function to make a class named <code>Person</code>, along with instance methods named <code>initialize</code> and <code>say</code>.
-      This is similar to how some popular frameworks handle class creation.</p>
+    <p>In this example, we want to use a helper function to make a class named <code>Person</code>, along with
+      instance methods named <code>initialize</code> and <code>say</code>. This is similar to how some popular frameworks
+      handle class creation.</p>
     <figure>
-      <figcaption>Example class</figcaption><pre class="prettyprint lang-js"><code>// We want to document this as being a class
+      <figcaption>Example class</figcaption>
+      <pre class="prettyprint lang-js"><code>// We want to document this as being a class
 var Person = makeClass(
     // We want to document these as being methods
     {
@@ -61,11 +63,14 @@ var Person = makeClass(
 );
 </code></pre>
     </figure>
-    <p>Without any comments, JSDoc won&#39;t recognize that this code creates a <code>Person</code> class with two methods. To document the methods, we must use a <code>@lends</code>      tag in a doc comment immediately before the object literal. The <code>@lends</code> tag tells JSDoc that all the member names of that object literal are being
-      &quot;loaned&quot; to a variable named <code>Person</code>. We must also add comments to each of the methods.</p>
+    <p>Without any comments, JSDoc won&#39;t recognize that this code creates a <code>Person</code> class with two
+      methods. To document the methods, we must use a <code>@lends</code> tag in a doc comment immediately before the
+      object literal. The <code>@lends</code> tag tells JSDoc that all the member names of that object literal are
+      being &quot;loaned&quot; to a variable named <code>Person</code>. We must also add comments to each of the methods.</p>
     <p>The following example gets us closer to what we want:</p>
     <figure>
-      <figcaption>Documented as static methods</figcaption><pre class="prettyprint lang-js"><code>/** @class */
+      <figcaption>Documented as static methods</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @class */
 var Person = makeClass(
     /** @lends Person */
     {
@@ -88,11 +93,13 @@ var Person = makeClass(
 );
 </code></pre>
     </figure>
-    <p>Now the functions named <code>initialize</code> and <code>say</code> will be documented, but they appear as static methods of the <code>Person</code> class.
-      That is possibly what you meant, but in this case we want <code>initialize</code> and
-      <code>say</code> to belong to the instances of the <code>Person</code> class. So we change things slightly by lending the methods to the class&#39;s prototype:</p>
+    <p>Now the functions named <code>initialize</code> and <code>say</code> will be documented, but they appear as static methods
+      of the <code>Person</code> class. That is possibly what you meant, but in this case we want <code>initialize</code> and
+      <code>say</code> to belong to the instances of the <code>Person</code> class. So we change things slightly by lending the
+      methods to the class&#39;s prototype:</p>
     <figure>
-      <figcaption>Documented as instance methods</figcaption><pre class="prettyprint lang-js"><code>/** @class */
+      <figcaption>Documented as instance methods</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @class */
 var Person = makeClass(
     /** @lends Person.prototype */
     {
@@ -115,11 +122,13 @@ var Person = makeClass(
 );
 </code></pre>
     </figure>
-    <p>One final step: Our class framework uses the loaned <code>initialize</code> function to construct <code>Person</code> instances, but a <code>Person</code> instance
-      does not have its own <code>initialize</code> method. The solution is to add the <code>@constructs</code> tag to the loaned function. Remember to remove the
-      <code>@class</code> tag as well, or else two classes will be documented.</p>
+    <p>One final step: Our class framework uses the loaned <code>initialize</code> function to construct <code>Person</code>
+      instances, but a <code>Person</code> instance does not have its own <code>initialize</code> method. The solution is to add
+      the <code>@constructs</code> tag to the loaned function. Remember to remove the <code>@class</code> tag as well, or else
+      two classes will be documented.</p>
     <figure>
-      <figcaption>Documented with a constructor</figcaption><pre class="prettyprint lang-js"><code>var Person = makeClass(
+      <figcaption>Documented with a constructor</figcaption>
+      <pre class="prettyprint lang-js"><code>var Person = makeClass(
     /** @lends Person.prototype */
     {
         /**
@@ -154,12 +163,15 @@ var Person = makeClass(
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

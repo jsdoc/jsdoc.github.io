@@ -38,25 +38,29 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@access &lt;package|private|protected|public&gt;</code>
-    </p>
+    <p><code>@access &lt;package|private|protected|public&gt;</code></p>
     <h2 id="overview">Overview</h2>
-    <p>The <code>@access</code> tag specifies the access level of a member. You can use the <code>@access</code> tag as a synonym for other tags:</p>
+    <p>The <code>@access</code> tag specifies the access level of a member. You can use the <code>@access</code> tag as a
+      synonym for other tags:</p>
     <ul>
       <li><code>@access package</code> is the same as <code>@package</code>. This option is available in JSDoc 3.5.0 and later.</li>
       <li><code>@access private</code> is the same as <code>@private</code>.</li>
       <li><code>@access protected</code> is the same as <code>@protected</code>.</li>
       <li><code>@access public</code> is the same as <code>@public</code>.</li>
     </ul>
-    <p>Private members are not shown in the generated output unless JSDoc is run with the <code>-p/--private</code> command-line option. In JSDoc 3.3.0 and later, you
-      can also use the <a href="about-commandline.html"><code>-a/--access</code> command-line
-option</a> to change this behavior.</p>
-    <p>Note that a doclet&#39;s <em>access level</em> is different from its <em>scope</em>. For example, if <code>Parent</code> has an inner variable named <code>child</code>      that is documented as <code>@public</code>, the <code>child</code> variable will still be treated as an inner variable with the namepath <code>Parent~child</code>.
-      In other words, the <code>child</code> variable will have an inner scope, even though the variable is public. To change a doclet&#39;s scope, use the
-      <a href="tags-instance.html"><code>@instance</code></a>, <a href="tags-static.html"><code>@static</code></a>, and <a href="tags-global.html"><code>@global</code></a>      tags.</p>
+    <p>Private members are not shown in the generated output unless JSDoc is run with the <code>-p/--private</code>
+      command-line option. In JSDoc 3.3.0 and later, you can also use the <a href="about-commandline.html"><code>-a/--access</code> command-line
+        option</a> to change this behavior.</p>
+    <p>Note that a doclet&#39;s <em>access level</em> is different from its <em>scope</em>. For example, if <code>Parent</code> has an
+      inner variable named <code>child</code> that is documented as <code>@public</code>, the <code>child</code> variable will still be
+      treated as an inner variable with the namepath <code>Parent~child</code>. In other words, the <code>child</code> variable
+      will have an inner scope, even though the variable is public. To change a doclet&#39;s scope, use the
+      <a href="tags-instance.html"><code>@instance</code></a>, <a href="tags-static.html"><code>@static</code></a>, and <a
+        href="tags-global.html"><code>@global</code></a> tags.</p>
     <h2 id="examples">Examples</h2>
     <figure>
-      <figcaption>Using @access as a synonym for other tags</figcaption><pre class="prettyprint lang-js"><code>/** @constructor */
+      <figcaption>Using @access as a synonym for other tags</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @constructor */
 function Thingy() {
 
     /** @access private */
@@ -120,12 +124,15 @@ function OtherThingy() {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

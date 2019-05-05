@@ -35,11 +35,14 @@
       </li>
     </ul>
     <h2 id="overview">Overview</h2>
-    <p>Using the @inner tag will mark a symbol as an inner member of its parent symbol. This means it can be referred to by &quot;Parent~Child&quot;.</p>
-    <p>Using @inner will override a doclet&#39;s default scope (unless it is in the global scope, in which case it will remain global).</p>
+    <p>Using the @inner tag will mark a symbol as an inner member of its parent symbol. This means it can
+      be referred to by &quot;Parent~Child&quot;.</p>
+    <p>Using @inner will override a doclet&#39;s default scope (unless it is in the global scope, in which case
+      it will remain global).</p>
     <h2 id="examples">Examples</h2>
     <figure>
-      <figcaption>Using @inner to make a virtual doclet an inner member</figcaption><pre class="prettyprint lang-js"><code>/** @namespace MyNamespace */
+      <figcaption>Using @inner to make a virtual doclet an inner member</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @namespace MyNamespace */
 /**
  * myFunction is now MyNamespace~myFunction.
  * @function myFunction
@@ -48,9 +51,11 @@
  */
 </code></pre>
     </figure>
-    <p>Note that in the above we could have used &quot;@function MyNamespace~myFunction&quot; instead of the @memberof and @inner tags.</p>
+    <p>Note that in the above we could have used &quot;@function MyNamespace~myFunction&quot; instead of the
+      @memberof and @inner tags.</p>
     <figure>
-      <figcaption>Using @inner</figcaption><pre class="prettyprint lang-js"><code>/** @namespace */
+      <figcaption>Using @inner</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @namespace */
 var MyNamespace = {
     /**
      * foo is now MyNamespace~foo rather than MyNamespace.foo.
@@ -60,8 +65,8 @@ var MyNamespace = {
 };
 </code></pre>
     </figure>
-    <p>In the above example, we use @inner to force a member of a namespace to be documented as an inner member (by default, it would be a static member). This means
-      that <code>foo</code> now has the longname
+    <p>In the above example, we use @inner to force a member of a namespace to be documented as an inner
+      member (by default, it would be a static member). This means that <code>foo</code> now has the longname
       <code>MyNamespace~foo</code> instead of <code>MyNamespace.foo</code>.</p>
     <h2 id="related-links">Related Links</h2>
     <ul>
@@ -78,12 +83,15 @@ var MyNamespace = {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

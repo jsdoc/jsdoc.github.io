@@ -8,7 +8,7 @@ var connect = require('gulp-connect');
 var gulp = require('gulp');
 var headings = require('metalsmith-headings');
 var markdown = require('metalsmith-markdown');
-var marked = require('metalsmith-markdown/node_modules/marked');
+var marked = require('marked');
 var Metalsmith = require('metalsmith');
 var minimist = require('minimist');
 var path = require('path');
@@ -69,7 +69,7 @@ function markedFactory() {
     return renderer;
 }
 
-gulp.task('html', function(cb) {
+exports.html = function html(cb) {
     return new Metalsmith(__dirname)
         // basic options
         .clean(false)
@@ -125,15 +125,15 @@ gulp.task('html', function(cb) {
 
         // go!
         .build(cb);
-});
+};
 
-gulp.task('server', function() {
+exports.server = function server() {
     connect.server({
         port: cliOptions.port,
         root: path.resolve(__dirname, OUTPUT_PATH)
     });
-});
+};
 
-gulp.task('preview', ['html', 'server']);
+exports.preview = gulp.series(exports.html, exports.server);
 
-gulp.task('default', ['html']);
+exports.default = exports.html;

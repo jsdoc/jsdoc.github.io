@@ -35,16 +35,17 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@borrows &lt;that namepath&gt; as &lt;this namepath&gt;</code>
-    </p>
+    <p><code>@borrows &lt;that namepath&gt; as &lt;this namepath&gt;</code></p>
     <h2 id="overview">Overview</h2>
     <p>The @borrows tag allows you to add documentation for another symbol to your documentation.</p>
-    <p>This tag would be useful if you had more than one way to reference a function, but you didn&#39;t want to duplicate the same documentation in two places.</p>
+    <p>This tag would be useful if you had more than one way to reference a function, but you didn&#39;t want
+      to duplicate the same documentation in two places.</p>
     <h2 id="examples">Examples</h2>
-    <p>In this example there exists documentation for the &quot;trstr&quot; function, but &quot;util.trim&quot; is just a reference to that same function by a different
-      name.</p>
+    <p>In this example there exists documentation for the &quot;trstr&quot; function, but &quot;util.trim&quot; is just a
+      reference to that same function by a different name.</p>
     <figure>
-      <figcaption>Duplicate the documentation for trstr as util.trim</figcaption><pre class="prettyprint lang-js"><code>/**
+      <figcaption>Duplicate the documentation for trstr as util.trim</figcaption>
+      <pre class="prettyprint lang-js"><code>/**
  * @namespace
  * @borrows trstr as trim
  */
@@ -63,12 +64,15 @@ function trstr(str) {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

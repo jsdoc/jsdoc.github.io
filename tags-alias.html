@@ -38,23 +38,26 @@
       </li>
     </ul>
     <h2 id="syntax">Syntax</h2>
-    <p><code>@alias &lt;aliasNamepath&gt;</code>
-    </p>
+    <p><code>@alias &lt;aliasNamepath&gt;</code></p>
     <h2 id="overview">Overview</h2>
-    <p>The @alias tag causes JSDoc to treat all references to a member as if the member had a different name. This tag is especially useful if you define a class within
-      an inner function; in this case, you can use the @alias tag to tell JSDoc how the class is exposed in your app.</p>
-    <p>While the @alias tag may sound similar to the @name tag, these tags behave very differently. The @name tag tells JSDoc to ignore any code associated with the
-      comment. For example, when JSDoc processes the following code, it ignores the fact that the comment for <code>bar</code> is attached to a function:
-    </p>
+    <p>The @alias tag causes JSDoc to treat all references to a member as if the member had a different
+      name. This tag is especially useful if you define a class within an inner function; in this case,
+      you can use the @alias tag to tell JSDoc how the class is exposed in your app.</p>
+    <p>While the @alias tag may sound similar to the @name tag, these tags behave very differently. The
+      @name tag tells JSDoc to ignore any code associated with the comment. For example, when JSDoc
+      processes the following code, it ignores the fact that the comment for <code>bar</code> is attached to a
+      function:</p>
     <pre class="prettyprint lang-js"><code>/**
  * Bar function.
  * @name bar
  */
 function foo() {}
 </code></pre>
-    <p>The @alias tag tells JSDoc to pretend that Member A is actually named Member B. For example, when JSDoc processes the following code, it recognizes that <code>foo</code>      is a function, then renames <code>foo</code> to
+    <p>The @alias tag tells JSDoc to pretend that Member A is actually named Member B. For example, when
+      JSDoc processes the following code, it recognizes that <code>foo</code> is a function, then renames <code>foo</code> to
       <code>bar</code> in the documentation:</p>
-    <figure><pre class="prettyprint lang-js"><code>/**
+    <figure>
+      <pre class="prettyprint lang-js"><code>/**
  * Bar function.
  * @alias bar
  */
@@ -62,14 +65,15 @@ function foo() {}
 </code></pre>
     </figure>
     <h2 id="examples">Examples</h2>
-    <p>Suppose you are using a class framework that expects you to pass in a constructor function when you define a class. You can use the @alias tag to tell JSDoc
-      how the class will be exposed in your app.</p>
-    <p>In the following example, the @alias tag tells JSDoc to treat the anonymous function as if it were the constructor for the class &quot;trackr.CookieManager&quot;.
-      Within the function, JSDoc interprets the
-      <code>this</code> keyword relative to trackr.CookieManager, so the &quot;value&quot; method has the namepath &quot;trackr.CookieManager#value&quot;.
-    </p>
+    <p>Suppose you are using a class framework that expects you to pass in a constructor function when you
+      define a class. You can use the @alias tag to tell JSDoc how the class will be exposed in your app.</p>
+    <p>In the following example, the @alias tag tells JSDoc to treat the anonymous function as if it were
+      the constructor for the class &quot;trackr.CookieManager&quot;. Within the function, JSDoc interprets the
+      <code>this</code> keyword relative to trackr.CookieManager, so the &quot;value&quot; method has the namepath
+      &quot;trackr.CookieManager#value&quot;.</p>
     <figure>
-      <figcaption>Using @alias with an anonymous constructor function</figcaption><pre class="prettyprint lang-js"><code>Klass('trackr.CookieManager',
+      <figcaption>Using @alias with an anonymous constructor function</figcaption>
+      <pre class="prettyprint lang-js"><code>Klass('trackr.CookieManager',
 
     /**
      * @class
@@ -84,11 +88,12 @@ function foo() {}
 );
 </code></pre>
     </figure>
-    <p>You can also use the @alias tag with members that are created within an immediately invoked function expression (IIFE). The @alias tag tells JSDoc that these
-      members are exposed outside of the IIFE&#39;s scope.
-    </p>
+    <p>You can also use the @alias tag with members that are created within an immediately invoked function
+      expression (IIFE). The @alias tag tells JSDoc that these members are exposed outside of the IIFE&#39;s
+      scope.</p>
     <figure>
-      <figcaption>Using @alias for static members of a namespace</figcaption><pre class="prettyprint lang-js"><code>/** @namespace */
+      <figcaption>Using @alias for static members of a namespace</figcaption>
+      <pre class="prettyprint lang-js"><code>/** @namespace */
 var Apple = {};
 
 (function(ns) {
@@ -105,9 +110,11 @@ var Apple = {};
 })(Apple);
 </code></pre>
     </figure>
-    <p>For members that are defined within an object literal, you can use the @alias tag as an alternative to the <a href="tags-lends.html">@lends</a> tag.</p>
+    <p>For members that are defined within an object literal, you can use the @alias tag as an alternative
+      to the <a href="tags-lends.html">@lends</a> tag.</p>
     <figure>
-      <figcaption>Using @alias for an object literal</figcaption><pre class="prettyprint lang-js"><code>// Documenting objectA with @alias
+      <figcaption>Using @alias for an object literal</figcaption>
+      <pre class="prettyprint lang-js"><code>// Documenting objectA with @alias
 
 var objectA = (function() {
 
@@ -160,12 +167,15 @@ var objectB = (function() {
   </article>
   <footer>
     <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" />
-    </a>
-    <br> Copyright &#169; 2011-2017 the
-    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the JSDoc 3 documentation project.
-    <br> This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+      <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+    <br>
+    Copyright &#169; 2011-2017 the
+    <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+    JSDoc 3 documentation project.
+    <br>
+    This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+    licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+      Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
   </footer>
   <script type="text/javascript">
     prettyPrint();

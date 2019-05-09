@@ -1,7 +1,7 @@
 {
-  "name": "jsdoc3.github.com",
-  "homepage": "http://usejsdoc.org",
-  "description": "Documentation website for JSDoc 3.",
+  "name": "jsdoc.github.io",
+  "homepage": "https://jsdoc.app/",
+  "description": "Documentation website for JSDoc.",
   "dependencies": {
     "html5shiv": "~3.7.2"
   },

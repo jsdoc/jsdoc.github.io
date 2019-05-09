@@ -3,8 +3,6 @@ documentation bugs, and to submit pull requests for improving the docs.
 
 If you just want to read the documentation, please visit [Use JSDoc][use-jsdoc].
 
-[jsdoc]: https://github.com/jsdoc3/jsdoc
-[use-jsdoc]: http://usejsdoc.org/
 
 ## Contributing to the documentation
 
@@ -40,10 +38,6 @@ the YAML front matter, make sure your changes are reflected in the generated HTM
 
 7. Submit a pull request with your changes.
 
-[Gulp]: http://gulpjs.com/
-[Metalsmith]: http://www.metalsmith.io/
-[YAML]: http://www.yaml.org/spec/1.2/spec.html
-
 
 ## Legal stuff
 
@@ -52,6 +46,11 @@ Copyright (c) 2011-2014 by Michael Mathews and the JSDoc 3 documentation [contri
 This repository is licensed under the [Creative Commons Attribution-ShareAlike 3.0 Unported][cc]
 license. A copy of the license is included in the [`LICENSE` file][license].
 
-[cc]: http://creativecommons.org/licenses/by-sa/3.0/legalcode
-[contributors]: https://github.com/jsdoc3/jsdoc3.github.com/graphs/contributors
-[license]: LICENSE
+[cc]: https://creativecommons.org/licenses/by-sa/3.0/legalcode
+[contributors]: https://github.com/jsdoc/jsdoc.github.io/graphs/contributors
+[Gulp]: https://gulpjs.com/
+[jsdoc]: https://github.com/jsdoc/jsdoc
+[license]: https://github.com/jsdoc/jsdoc.github.io/LICENSE
+[Metalsmith]: https://www.metalsmith.io/
+[use-jsdoc]: https://jsdoc.app/
+[YAML]: https://www.yaml.org/spec/1.2/spec.html

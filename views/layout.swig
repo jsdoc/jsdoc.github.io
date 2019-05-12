@@ -63,10 +63,6 @@
 
     {% block scripts-head %}
         <script src="scripts/prettify.js"></script>
-        <!--[if lt IE 9]>
-            <script src="scripts/html5shiv.min.js"></script>
-            <script src="scripts/html5shiv-printshiv.min.js"></script>
-        <![endif]-->
     {% endblock %}
 </head>
 
@@ -109,7 +105,7 @@
         <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg"
             width="80" height="15" /></a>
         <br>
-        Copyright &#169; 2011-2017 the
+        Copyright &#169; 2011-2019 the
         <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
         JSDoc 3 documentation project.
         <br>

@@ -6,6 +6,8 @@ If you just want to read the documentation, please visit [Use JSDoc][use-jsdoc].
 
 ## Contributing to the documentation
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jsdoc/jsdoc.github.io.svg)](https://greenkeeper.io/)
+
 The HTML docs are generated with [Metalsmith][] and [Gulp][]. If you'd like to contribute to the
 docs, make sure Node.js and npm are installed, then follow these steps:
 

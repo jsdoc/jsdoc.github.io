@@ -140,3 +140,17 @@ th {
     border-width: 0;
     text-decoration: none;
 }
+
+@media screen and (min-width: 1900px) {
+    .content-block {
+        margin: auto;
+        max-width: 1870px;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .content-block {
+        margin: auto;
+        max-width: 2500px;
+    }
+}

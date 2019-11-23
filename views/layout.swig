@@ -68,50 +68,55 @@
 
 <body>
     <header>
-        <a href="./index.html">@use JSDoc</a>
+        <div class="content-block">
+            <a href="./index.html">@use JSDoc</a>
+        </div>
     </header>
-
-    <article>
-    {% if title %}
-        <h1>{{ title }}</h1>
-    {% endif %}
-
-    {% block toc %}
-        {% if headings && renderPageToc(headings) %}
-            {{ macros.toc(headings) }}
+    <div class="content-block">
+        <article>
+        {% if title %}
+            <h1>{{ title }}</h1>
         {% endif %}
-    {% endblock %}
 
-    {% block synonyms %}
-        {% if synonyms %}
-            <h2 id="synonyms">Synonyms</h2>
-            {{ maybeList(synonyms, 'synonym') }}
+        {% block toc %}
+            {% if headings && renderPageToc(headings) %}
+                {{ macros.toc(headings) }}
+            {% endif %}
+        {% endblock %}
+
+        {% block synonyms %}
+            {% if synonyms %}
+                <h2 id="synonyms">Synonyms</h2>
+                {{ maybeList(synonyms, 'synonym') }}
+            {% endif %}
+        {% endblock %}
+
+        {% block content %}
+            {{ contents|safe }}
+        {% endblock %}
+
+        {% if related %}
+            <h2 id="related-links">Related Links</h2>
+            {{ maybeList(related, 'filename') }}
         {% endif %}
-    {% endblock %}
 
-    {% block content %}
-        {{ contents|safe }}
-    {% endblock %}
-
-    {% if related %}
-        <h2 id="related-links">Related Links</h2>
-        {{ maybeList(related, 'filename') }}
-    {% endif %}
-
-    </article>
+        </article>
+    </div>
 
     <footer>
-        <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg"
-            width="80" height="15" /></a>
-        <br>
-        Copyright &#169; 2011-2019 the
-        <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
-        JSDoc 3 documentation project.
-        <br>
-        This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
-        licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
-        Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+        <div class="content-block">
+            <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/">
+            <img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg"
+                width="80" height="15" /></a>
+            <br>
+            Copyright &#169; 2011-2019 the
+            <a href="https://github.com/jsdoc3/jsdoc3.github.com/contributors">contributors</a> to the
+            JSDoc 3 documentation project.
+            <br>
+            This website is <a href="https://github.com/jsdoc3/jsdoc3.github.com">open source</a> and is
+            licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">
+            Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+        </div>
     </footer>
 
     {% block scripts-footer %}

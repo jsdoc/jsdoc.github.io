@@ -77,7 +77,8 @@ var Toaster = (function() {
  * Waffle iron singleton.
  */
 class WaffleIron {
-    #instance = null;
+    static #isUsingSingletonFactoryMethod = false;
+    static #instance = null;
 
     /**
      * Create the waffle iron.
@@ -85,19 +86,10 @@ class WaffleIron {
      * @hideconstructor
      */
     constructor() {
-        if (#instance) {
-            return #instance;
-        }
-
-        /**
-         * Cook a waffle.
-         *
-         * @param {Batter} batter - The waffle batter.
-         * @return {Waffle} The cooked waffle.
-         */
-        this.cook = function(batter) {};
-
-        this.#instance = this;
+        // The constructor should never be called directly.
+	if (!WaffleIron.#isUsingSingletonFactoryMethod) {
+	    throw new Error('WaffleIron is a singleton. Please use its getInstance() method to get a reference to it.')
+	}
     }
 
     /**
@@ -105,8 +97,13 @@ class WaffleIron {
      *
      * @return {WaffleIron} The WaffleIron instance.
      */
-    getInstance() {
-        return new WaffleIron();
+    static getInstance() {
+        if (this.#instance === null) {
+	    this.#isUsingSingletonFactoryMethod = true;
+            this.#instance = new WaffleIron();
+	    this.#isUsingSingletonFactoryMethod = false;
+	}
+	return this.#instance;
     }
 }
 ```

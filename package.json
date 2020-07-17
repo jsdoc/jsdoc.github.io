@@ -9,7 +9,7 @@
     "gulp": "^4.0.1",
     "gulp-connect": "^5.7.0",
     "harmonize": "^2.0.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "marked": "^0.6.2",
     "metalsmith": "^2.3.0",
     "metalsmith-beautify": "^0.2.0",

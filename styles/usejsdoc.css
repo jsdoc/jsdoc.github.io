@@ -2,6 +2,7 @@ body {
     font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
 }
 
 a, a:visited, a:active {

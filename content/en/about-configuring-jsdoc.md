@@ -127,7 +127,7 @@ directory][jsdoc-plugins] for the plugins built into JSDoc.
 You can configure the Markdown plugin by adding a `markdown` object to your configuration file. See
 [Configuring the Markdown Plugin][markdown] for details.
 
-[jsdoc-plugins]: https://github.com/jsdoc3/jsdoc/tree/master/plugins
+[jsdoc-plugins]: https://github.com/jsdoc/jsdoc/tree/master/packages/jsdoc/plugins
 [markdown]: plugins-markdown.html
 [plugins]: about-plugins.html
 

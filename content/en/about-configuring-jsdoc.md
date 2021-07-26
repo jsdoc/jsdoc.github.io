@@ -45,7 +45,7 @@ module.exports = {
 {% endexample %}
 
 For a more comprehensive example of a JSON configuration file, see the file
-[`conf.json.EXAMPLE`][conf-json-example].
+[`conf.json.EXAMPLE`][https://github.com/jsdoc/jsdoc/blob/master/packages/jsdoc/conf.json.EXAMPLE].
 
 [about-commandline]: about-commandline.html
 [conf-json-example]: https://github.com/jsdoc3/jsdoc/blob/master/conf.json.EXAMPLE

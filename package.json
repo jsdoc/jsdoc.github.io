@@ -15,7 +15,7 @@
     "metalsmith-beautify": "^0.2.0",
     "metalsmith-headings": "^0.2.0",
     "metalsmith-markdown": "^1.2.0",
-    "minimist": "^1.2.3",
+    "minimist": "^1.2.6",
     "swig": "~1.4.2",
     "swig-extras": "~0.0.1"
   },

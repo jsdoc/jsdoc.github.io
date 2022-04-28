@@ -6,7 +6,7 @@ description: A quick-start to documenting JavaScript with JSDoc.
 ## Getting started
 
 JSDoc 3 is an API documentation generator for JavaScript, similar to Javadoc or phpDocumentor. You
-add documentation comments directly to your source code, right alongside the code itself. The JSDoc
+add documentation comments directly to your source code alongside the code itself. The JSDoc
 tool will scan your source code and generate an HTML documentation website for you.
 
 ## Adding documentation comments to your code

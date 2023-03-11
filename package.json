@@ -2,27 +2,6 @@
   "name": "jsdoc.github.io",
   "version": "0.0.0",
   "description": "Documentation website for JSDoc.",
-  "main": "gulpfile.js",
-  "dependencies": {
-    "code-prettify": "^0.1.0",
-    "fs-extra": "^7.0.1",
-    "gulp": "^4.0.1",
-    "gulp-connect": "^5.7.0",
-    "harmonize": "^2.0.0",
-    "lodash": "^4.17.21",
-    "marked": "^0.7.0",
-    "metalsmith": "^2.3.0",
-    "metalsmith-beautify": "^0.2.0",
-    "metalsmith-headings": "^0.2.0",
-    "metalsmith-markdown": "^1.2.0",
-    "minimist": "^1.2.6",
-    "swig": "~1.4.2",
-    "swig-extras": "~0.0.1"
-  },
-  "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/jsdoc/jsdoc.github.io.git"
@@ -31,5 +10,45 @@
   "bugs": {
     "url": "https://github.com/jsdoc/jsdoc.github.io/issues"
   },
-  "homepage": "https://github.com/jsdoc/jsdoc.github.io"
+  "homepage": "https://github.com/jsdoc/jsdoc.github.io",
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
+  },
+  "dependencies": {
+    "@docusaurus/core": "2.3.1",
+    "@docusaurus/plugin-client-redirects": "^2.3.1",
+    "@docusaurus/preset-classic": "2.3.1",
+    "@mdx-js/react": "^1.6.22",
+    "clsx": "^1.2.1",
+    "prism-react-renderer": "^1.3.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "private": true,
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "2.3.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=16.14"
+  }
 }

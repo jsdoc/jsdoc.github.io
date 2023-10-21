@@ -114,6 +114,10 @@
         Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
     </footer>
 
+    <p>
+        <a href="https://github.com/jsdoc3/jsdoc" class="github-ribbon">Fork me on GitHub</a>
+    </p>
+
     {% block scripts-footer %}
         <script type="text/javascript">prettyPrint();</script>
     {% endblock %}

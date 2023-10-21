@@ -12,8 +12,10 @@
 {% endmacro %}
 
 {% macro toc(items, isInner) %}
+    <nav>
     {% if !isInner %}
         <h2>Table of Contents</h2>
     {% endif %}
     {{ tocList(items) }}
+    </nav>
 {% endmacro %}

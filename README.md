@@ -34,7 +34,9 @@ docs, make sure Node.js and npm are installed, then follow these steps:
         gulp
 
 6. Review the updated HTML files, and make sure your changes look okay. In particular, if you edited
-the YAML front matter, make sure your changes are reflected in the generated HTML files.
+the YAML front matter, make sure your changes are reflected in the generated HTML files. You can preview your changes starting a local server:
+
+		gulp preview
 
 7. Submit a pull request with your changes.
 

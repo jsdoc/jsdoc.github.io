@@ -48,7 +48,7 @@ For a more comprehensive example of a JSON configuration file, see the file
 [`conf.json.EXAMPLE`][conf-json-example].
 
 [about-commandline]: about-commandline.html
-[conf-json-example]: https://github.com/jsdoc3/jsdoc/blob/master/conf.json.EXAMPLE
+[conf-json-example]: https://github.com/jsdoc/jsdoc/tree/main/packages/jsdoc/conf.json.EXAMPLE
 [markdown]: plugins-markdown.html
 
 
@@ -127,7 +127,7 @@ directory][jsdoc-plugins] for the plugins built into JSDoc.
 You can configure the Markdown plugin by adding a `markdown` object to your configuration file. See
 [Configuring the Markdown Plugin][markdown] for details.
 
-[jsdoc-plugins]: https://github.com/jsdoc3/jsdoc/tree/master/plugins
+[jsdoc-plugins]: https://github.com/jsdoc/jsdoc/tree/main/packages/jsdoc/plugins
 [markdown]: plugins-markdown.html
 [plugins]: about-plugins.html
 

@@ -1,0 +1,9 @@
+redirects:
+- from: /about-inline-tags
+  to: /about-block-inline-tags
+- from: /tags-constructor
+  to: /tags-class
+- from: /tags-link
+  to: /tags-inline-link
+- from: /tags-method
+  to: /tags-function

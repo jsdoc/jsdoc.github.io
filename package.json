@@ -2,17 +2,28 @@
   "name": "jsdoc.github.io",
   "version": "0.0.0",
   "description": "Documentation website for JSDoc.",
-  "dependencies": {},
   "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
     "@jsdoc/eslint-config": "^1.2.4",
     "@jsdoc/prettier-config": "^0.2.3",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "highlight.js": "^11.9.0",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
+    "markdown-it": "^13.0.2",
+    "markdown-it-anchor": "^8.6.7",
+    "markdown-it-attrs": "^4.1.6",
+    "markdown-it-container": "^3.0.0",
+    "markdown-it-highlightjs": "^4.0.1",
     "prettier": "^3.0.3"
   },
   "private": true,
   "scripts": {
+    "build": "npx eleventy",
+    "serve": "npx eleventy --serve",
+    "debug": "DEBUG=* npx eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

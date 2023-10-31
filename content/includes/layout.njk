@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- THIS IS A GENERATED FILE. DO NOT EDIT. -->
+<html lang="en">
+  <head>
+    {% block meta -%}
+      <meta charset="utf-8">
+      <meta name="generator" content="{{ eleventy.generator }}">
+      {% if keywords -%}
+        <meta name="keywords" content="{{ keywords }}">
+      {%- endif %}
+      {% if description -%}
+        <meta name="description" content="{{ description }}">
+      {%- endif -%}
+    {%- endblock -%}
+
+    <title>Use JSDoc{% if title %}: {{ title }}{% endif %}</title>
+
+    {%- block styles -%}
+      <link rel="stylesheet" href="/styles/usejsdoc.css">
+      <link rel="stylesheet" href="/styles/hljs-tomorrow.css">
+      <link rel="stylesheet" href="/styles/css3-github-ribbon.css">
+    {%- endblock -%}
+  </head>
+
+  <body>
+    <header>
+      <a href="/">@use JSDoc</a>
+    </header>
+
+    <article>
+      {% if title -%}
+        <h1>{{ title }}</h1>
+      {%- endif %}
+
+      {%- block synonyms -%}
+        {%- if synonyms | length -%}
+          <h2 id="synonyms">Synonyms</h2>
+          <ul>
+            {% for synonym in synonyms -%}
+              <li><code>{{ synonym }}</code></li>
+            {%- endfor %}
+          </ul>
+        {%- endif -%}
+      {%- endblock -%}
+
+      {%- block content -%}
+        {{ content | safe }}
+      {%- endblock -%}
+
+      {%- if related | length -%}
+        {%- set relatedLinks = related | relatedList(collections) -%}
+        <h2 id="related-links">Related links</h2>
+        <ul>
+          {%- for relatedLink in relatedLinks -%}
+            <li><a href="{{ relatedLink.path }}">{{ relatedLink.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+    </article>
+
+    <footer>
+      <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
+      <br>
+      Copyright &#169; 2011 the
+      <a href="https://github.com/jsdoc/jsdoc.github.io/contributors">contributors</a> to the JSDoc
+      documentation.
+      <br>
+      This website is <a href="https://github.com/jsdoc/jsdoc.github.io">open source</a> and is
+      licensed under the
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
+      Attribution-ShareAlike 3.0 Unported License</a>.
+    </footer>
+  </body>
+</html>

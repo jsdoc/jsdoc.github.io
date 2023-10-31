@@ -1,0 +1,55 @@
+{%- extends 'layout.njk' -%}
+
+{%- macro formatTag(tagName, tagType) -%}
+  {%- if tagType == 'inlineTag' -%}
+    {@{{ tagName }}}
+  {%- else -%}
+    @{{ tagName }}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro generateSection(tocSection) -%}
+  <dl>
+    {%- for item in collections[tocSection.generated] | sortTags -%}
+      {%- set tagName = item.data.tag -%}
+      <dt>
+        <a href="{{ item.filePathStem }}">{{ formatTag(tagName, tocSection.generated) }}</a>
+        {{ synonyms(item, tocSection.generated) }}
+      </dt>
+      <dd>{{ item.data.description }}</dd>
+    {%- endfor -%}
+  </dl>
+{%- endmacro -%}
+
+{%- macro renderSection(tocSection) -%}
+  <h2 id="{{ tocSection.section | slugify }}">{{ tocSection.section }}</h2>
+  {%- if tocSection.generated -%}
+    {{ generateSection(tocSection) }}
+  {%- else -%}
+    <dl>
+      {%- for item in tocSection.contents -%}
+        <dt><a href="{{ item.path | default('') }}">{{ item.title | default('') }}</a></dt>
+        <dd>{{ item.description | default('') }}</dd>
+      {%- endfor -%}
+    </dl>
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro synonyms(item, tagType) -%}
+  {%- if item.data.synonyms -%}
+    {%- set comma = joiner(', ') -%}
+    (synonyms: {% for synonym in item.data.synonyms -%}
+      {{ comma() }}{{ formatTag(synonym, tagType) -}}
+    {%- endfor -%})
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- block content -%}
+  {%- for tocSection in toc -%}
+    {{- renderSection(tocSection) -}}
+  {%- endfor -%}
+
+  <p>
+    <a href="https://github.com/jsdoc/jsdoc" class="github-ribbon">Fork me on GitHub</a>
+  </p>
+{% endblock %}

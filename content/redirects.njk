@@ -1,0 +1,10 @@
+---
+# https://developers.cloudflare.com/pages/platform/redirects/
+permalink: _redirects
+layout: false
+eleventyExcludeFromCollections: true
+---
+
+{%- for redirect in redirects -%}
+{{ redirect.from }} {{ redirect.to }} 301
+{% endfor -%}

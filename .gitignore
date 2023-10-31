@@ -6,6 +6,7 @@ node_modules
 .coverage/
 .parcel-cache/
 .vscode/
+_site/
 coverage/
 
 # Dotfile detritus

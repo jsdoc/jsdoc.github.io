@@ -1,0 +1,65 @@
+toc:
+- section: Getting started
+  contents:
+  - title: Getting started with JSDoc
+    path: /about-getting-started
+    description: A quick start to documenting JavaScript with JSDoc.
+  - title: Using namepaths with JSDoc
+    path: /about-namepaths
+    description: A guide to using namepaths with JSDoc.
+  - title: Command-line arguments to JSDoc
+    path: /about-commandline
+    description: About command-line arguments to JSDoc.
+  - title: Configuring JSDoc with a configuration file
+    path: /about-configuring-jsdoc
+    description: How to configure JSDoc using a configuration file.
+  - title: Configuring JSDoc's default template
+    path: /about-configuring-default-template
+    description: How to configure the output from JSDoc's default template.
+  - title: Block and inline tags
+    path: /about-block-inline-tags
+    description: Overview of block and inline JSDoc tags.
+  - title: About JSDoc plugins
+    path: /about-plugins
+    description: How to create and use JSDoc plugins.
+  - title: Using the Markdown plugin
+    path: /plugins-markdown
+    description: Enable Markdown support in JSDoc.
+  - title: Tutorials
+    path: /about-tutorials
+    description: Adding tutorials to your API documentation.
+  - title: Including a Package File
+    path: /about-including-package
+    description: How to show package details in your documentation.
+  - title: Including a README File
+    path: /about-including-readme
+    description: How to include a README file in your documentation.
+  - title: License
+    path: /about-license-jsdoc3
+    description: License information for JSDoc.
+- section: JSDoc examples
+  contents:
+  - title: ES 2015 classes
+    path: /howto-es2015-classes
+    description: How to add JSDoc comments to ECMAScript 2015 classes.
+  - title: ES 2015 modules
+    path: /howto-es2015-modules
+    description: How to add JSDoc comments to ECMAScript 2015 modules.
+  - title: CommonJS modules
+    path: /howto-commonjs-modules
+    description: How to add JSDoc comments to CommonJS and Node.js modules.
+  - title: AMD modules
+    path: /howto-amd-modules
+    description: How to add JSDoc comments to AMD and RequireJS modules.
+- section: Block tags
+  generated: blockTags
+- section: Inline tags
+  generated: inlineTags
+- section: Contribute
+  contents:
+  - title: JSDoc project on GitHub
+    path: https://github.com/jsdoc/jsdoc
+    description: Contribute to JSDoc.
+  - title: JSDoc documentation project on GitHub
+    path: https://github.com/jsdoc/jsdoc.github.io
+    description: Contribute to the JSDoc documentation.

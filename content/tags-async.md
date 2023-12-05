@@ -37,7 +37,7 @@ The following example shows a virtual comment that uses the `@async` tag:
  * @async
  * @function downloadData
  * @param {string} url - The URL to download from.
- * @return {Promise&lt;string>} The data from the URL.
+ * @return {Promise<string>} The data from the URL.
  */
 ```
 

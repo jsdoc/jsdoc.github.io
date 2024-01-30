@@ -76,9 +76,9 @@ By default, the example above produces output similar to the following:
 ::: example "Output for {@link} tags"
 
 ```html
-See &lt;a href="MyClass.html">MyClass&lt;/a> and &lt;a href="MyClass.html#foo">MyClass's foo
-property&lt;/a>. Also, check out &lt;a href="http://www.google.com">Google&lt;/a> and
-&lt;a href="https://github.com">GitHub&lt;/a>.
+See <a href="MyClass.html">MyClass</a> and <a href="MyClass.html#foo">MyClass's foo
+property</a>. Also, check out <a href="http://www.google.com">Google</a> and
+<a href="https://github.com">GitHub</a>.
 ```
 :::
 
@@ -88,8 +88,8 @@ produce the following output:
 ::: example "Output with clever links enabled"
 
 ```html
-See &lt;a href="MyClass.html">&lt;code>MyClass&lt;/code>&lt;/a> and &lt;a href="MyClass.html#foo">
-&lt;code>MyClass's foo property&lt;/code>&lt;/a>. Also, check out
-&lt;a href="http://www.google.com">Google&lt;/a> and &lt;a href="https://github.com">GitHub&lt;/a>.
+See <a href="MyClass.html"><code>MyClass</code></a> and <a href="MyClass.html#foo">
+<code>MyClass's foo property</code></a>. Also, check out
+<a href="http://www.google.com">Google</a> and <a href="https://github.com">GitHub</a>.
 ```
 :::

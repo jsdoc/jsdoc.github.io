@@ -57,7 +57,7 @@ function Color() {}
  * Get the color as an array of red, green, and blue values, represented as
  * decimal numbers between 0 and 1.
  *
- * @returns {Array&lt;number>} An array containing the red, green, and blue values,
+ * @returns {Array<number>} An array containing the red, green, and blue values,
  * in that order.
  */
 Color.prototype.rgb = function() {
@@ -84,7 +84,7 @@ The following example uses virtual comments, rather than code, to define the `Co
  *
  * @function
  * @name Color#rgb
- * @returns {Array&lt;number>} An array containing the red, green, and blue values,
+ * @returns {Array<number>} An array containing the red, green, and blue values,
  * in that order.
  */
 ```

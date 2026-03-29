@@ -1,5 +1,5 @@
-const path = require('node:path');
+import path from 'node:path';
 
-const yamlLoad = require('../../lib/yaml-load');
+import yamlLoad from '../../lib/yaml-load.js';
 
-module.exports = () => yamlLoad(path.join(__dirname, 'redirects.yaml')).redirects;
+export default () => yamlLoad(path.join(import.meta.dirname, 'redirects.yaml')).redirects;

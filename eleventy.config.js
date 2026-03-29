@@ -1,15 +1,15 @@
-const _ = require('lodash');
+import _ from 'lodash';
 
-const { renderer } = require('./lib/markdown');
+import { renderer } from './lib/markdown.js';
 
-function getPageTitles(collections) {
+function getPageTitles({ all, inlineTags }) {
   const pageTitles = {};
 
-  collections.all.forEach((item) => {
+  all.forEach((item) => {
     let title;
 
     if (item.data.tag) {
-      if (collections.inlineTags.includes(item)) {
+      if (inlineTags.includes(item)) {
         title = `{@${item.data.tag}}`;
       } else {
         title = `@${item.data.tag}`;
@@ -30,29 +30,28 @@ function sortBy(items, key) {
   return _.sortBy(items, (item) => _.get(item, key));
 }
 
-module.exports = (eleventyConfig) => {
+export default (eleventyConfig) => {
   eleventyConfig.addFilter('keys', (value) => Object.keys(value));
   eleventyConfig.addFilter('relatedList', (related, collections) => {
     const pageTitles = memoizedGetPageTitles(collections);
-    const relatedList = related.map((path) => {
-      return {
-        title: pageTitles[path],
-        path,
-      };
-    });
+    const relatedList = related.map((path) => ({
+      title: pageTitles[path],
+      path,
+    }));
 
     return sortBy(relatedList, 'title');
   });
-  eleventyConfig.addFilter('sortTags', (value) => {
-    return sortBy(value, 'data.tag');
-  });
+  eleventyConfig.addFilter('sortTags', (value) => sortBy(value, 'data.tag'));
 
   // Use `layout.njk` as the default layout.
   eleventyConfig.addGlobalData('layout', 'layout.njk');
   // Use `/foo.html` as the output filename rather than `/foo/index.html`.
-  eleventyConfig.addGlobalData('permalink', () => {
-    return (data) => `${data.page.filePathStem}.${data.page.outputFileExtension}`;
-  });
+  eleventyConfig.addGlobalData(
+    'permalink',
+    () =>
+      ({ page }) =>
+        `${page.filePathStem}.${page.outputFileExtension}`
+  );
 
   eleventyConfig.addPassthroughCopy('./images');
   eleventyConfig.addPassthroughCopy('./styles');

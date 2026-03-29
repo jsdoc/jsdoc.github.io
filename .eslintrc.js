@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   extends: ['@jsdoc', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaVersion: 'latest',

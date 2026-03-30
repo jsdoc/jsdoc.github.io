@@ -9,7 +9,12 @@
     "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
+    "execa": "^9.6.1",
+    "hereby": "^1.14.0",
     "highlight.js": "^11.11.1",
+    "installed-check": "^10.0.1",
+    "license-check-and-add": "^4.0.5",
+    "licensee": "^11.1.1",
     "lodash": "^4.17.23",
     "markdown-it": "^14.1.1",
     "markdown-it-anchor": "^9.2.0",
@@ -19,12 +24,27 @@
     "prettier": "^3.8.1",
     "yaml": "^2.8.3"
   },
+  "overrides": {
+    "license-check-and-add": {
+      "globby": "^11.1.0"
+    },
+    "licensee": {
+      "@npmcli/arborist": "^9.4.2",
+      "tar": "^7.5.13"
+    }
+  },
   "type": "module",
   "private": true,
   "scripts": {
     "build": "npx eleventy",
-    "serve": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy",
+    "dependency-engines": "npx hereby dependency-engines",
+    "dependency-licenses": "npx hereby dependency-licenses",
+    "format": "npx hereby format",
+    "license-check": "npx hereby license-check",
+    "license-headers": "npx hereby license-headers",
+    "lint": "npx hereby lint",
+    "serve": "npx eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

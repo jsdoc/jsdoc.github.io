@@ -1,5 +1,5 @@
 /*
-  Copyright 2022 the JSDoc Authors.
+  Copyright 2019 the JSDoc Authors.
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -14,8 +14,6 @@
   limitations under the License.
 */
 
-import path from 'node:path';
+import jsdoc from '@jsdoc/eslint-config';
 
-import yamlLoad from '../../lib/yaml-load.js';
-
-export default () => yamlLoad(path.join(import.meta.dirname, 'toc.yaml')).toc;
+export default [...jsdoc];

@@ -1,0 +1,14 @@
+# Ignore output files.
+**/_site/
+
+# Ignore temp directories.
+**/tmp/
+
+# Ignore content directory for now.
+content/
+
+# Ignore images.
+images/
+
+# Ignore CSS for now.
+styles/

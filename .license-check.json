@@ -1,0 +1,49 @@
+{
+  "defaultFormat": {
+    "prepend": "",
+    "append": ""
+  },
+  "ignore": [
+    ".husky/_/**/*",
+    ".husky/pre-commit",
+    "**/_site/**/*",
+    "**/.*",
+    "!**/.*.js",
+    "**/*.EXAMPLE",
+    "**/*.json",
+    "**/*.md",
+    "**/*.txt",
+    "**/AUTHORS",
+    "**/CNAME",
+    "**/CONTRIB*",
+    "**/coverage",
+    "**/images",
+    "**/styles/css3-github-ribbon.css",
+    "**/test/fixtures",
+    "out",
+    "tmp"
+  ],
+  "license": ".license-header.txt",
+  "licenseFormats": {
+    "cjs|css|js|mjs|scss|ts": {
+      "prepend": "/*",
+      "eachLine": {
+        "prepend": "  "
+      },
+      "append": "*/"
+    },
+    "njk": {
+      "prepend": "{#-",
+      "eachLine": {
+        "prepend": "  "
+      },
+      "append": "-#}"
+    },
+    "yaml": {
+      "eachLine": {
+        "prepend": "# "
+      }
+    }
+  },
+  "regexIdentifier": "%%"
+}

@@ -18,4 +18,4 @@ import path from 'node:path';
 
 import yamlLoad from '../../lib/yaml-load.js';
 
-export default () => yamlLoad(path.join(import.meta.dirname, 'toc.yaml')).toc;
+export default async () => (await yamlLoad(path.join(import.meta.dirname, 'toc.yaml'))).toc;

@@ -4,8 +4,9 @@
 # Ignore temp directories.
 **/tmp/
 
-# Ignore content directory for now.
-content/
+# Ignore Markdown and YAML content for now.
+content/**/*.md
+content/**/*.yaml
 
 # Ignore images.
 images/

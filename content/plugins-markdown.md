@@ -27,15 +27,15 @@ comment)
 + [`@throws`][throws-tag]
 
 [additional-tags]: #additional-tags
-[author-tag]: /tags-author
-[classdesc-tag]: /tags-classdesc
-[description-tag]: /tags-description
+[author-tag]: /tags/author
+[classdesc-tag]: /tags/classdesc
+[description-tag]: /tags/description
 [marked]: https://github.com/markedjs/marked
-[param-tag]: /tags-param
-[property-tag]: /tags-property
-[returns-tag]: /tags-returns
-[see-tag]: /tags-see
-[throws-tag]: /tags-throws
+[param-tag]: /tags/param
+[property-tag]: /tags/property
+[returns-tag]: /tags/returns
+[see-tag]: /tags/see
+[throws-tag]: /tags/throws
 
 
 ## Enabling the Markdown plugin

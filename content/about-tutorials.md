@@ -34,8 +34,8 @@ In tutorial files, you can use the [`{@link}`][link-inline-tag] and
 [`{@tutorial}`][tutorial-inline-tag] inline tags to link to other parts of the documentation. JSDoc
 will automatically resolve the links.
 
-[link-inline-tag]: /tags-inline-link
-[tutorial-inline-tag]: /tags-inline-tutorial
+[link-inline-tag]: /inline-tags/link
+[tutorial-inline-tag]: /inline-tags/tutorial
 
 
 ## Configuring titles, order, and hierarchy
@@ -142,5 +142,5 @@ function Socket() {}
 ```
 :::
 
-[tutorial-block-tag]: /tags-tutorial
-[tutorial-inline-tag]: /tags-inline-tutorial
+[tutorial-block-tag]: /tags/tutorial
+[tutorial-inline-tag]: /inline-tags/tutorial

@@ -2,8 +2,8 @@
 title: CommonJS Modules
 related:
 - /about-namepaths
-- /tags-exports
-- /tags-module
+- /tags/exports
+- /tags/module
 ---
 
 ## Overview
@@ -51,9 +51,9 @@ Similarly, the namepath for each member of the module will start with `module:`,
 module name. For example, if your `my/pants` module exports a `Jeans` constructor, and `Jeans` has
 an instance method named `hem`, the instance method's longname is `module:my/pants.Jeans#hem`.
 
-[module-tag]: /tags-module
+[module-tag]: /tags/module
 [namepaths]: /about-namepaths
-[see-tag]: /tags-see
+[see-tag]: /tags/see
 
 
 ## Properties of the 'exports' object
@@ -150,7 +150,7 @@ exports.wash = function() {
 ```
 :::
 
-[alias-tag]: /tags-alias
+[alias-tag]: /tags/alias
 
 
 ## Values assigned to 'module.exports'
@@ -292,7 +292,7 @@ module.exports = 'perniciousness';
 ```
 :::
 
-[type-tag]: /tags-type
+[type-tag]: /tags/type
 
 
 ## Values assigned to 'module.exports' and local variables
@@ -323,8 +323,8 @@ var mixer = module.exports = {
 ```
 :::
 
-[alias-tag]: /tags-alias
-[exports-tag]: /tags-exports
+[alias-tag]: /tags/alias
+[exports-tag]: /tags/exports
 
 
 ## Properties added to 'this'

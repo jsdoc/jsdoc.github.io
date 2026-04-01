@@ -2,8 +2,8 @@
 title: AMD Modules
 related:
 - /about-namepaths
-- /tags-exports
-- /tags-module
+- /tags/exports
+- /tags/module
 ---
 
 ## Overview
@@ -49,10 +49,10 @@ Similarly, the namepath for each member of the module will start with `module:`,
 module name. For example, if your `my/pants` module exports a `Jeans` constructor, and `Jeans` has
 an instance method named `hem`, the instance method's longname is `module:my/pants.Jeans#hem`.
 
-[exports-tag]: /tags-exports
-[module-tag]: /tags-module
+[exports-tag]: /tags/exports
+[module-tag]: /tags/module
 [namepaths]: /about-namepaths
-[see-tag]: /tags-see
+[see-tag]: /tags/see
 
 
 ## Function that returns an object literal
@@ -89,7 +89,7 @@ define('my/shirt', function() {
 ```
 :::
 
-[exports-tag]: /tags-exports
+[exports-tag]: /tags/exports
 
 
 ## Function that returns another function
@@ -126,8 +126,8 @@ define('my/jacket', function() {
 ```
 :::
 
-[alias-tag]: /tags-alias
-[module-tag]: /tags-module
+[alias-tag]: /tags/alias
+[module-tag]: /tags/module
 
 
 ## Module declared in a return statement
@@ -157,8 +157,8 @@ define('my/shirt', function() {
 ```
 :::
 
-[alias-tag]: /tags-alias
-[module-tag]: /tags-module
+[alias-tag]: /tags/alias
+[module-tag]: /tags/module
 
 
 ## Module object passed to a function
@@ -188,7 +188,7 @@ define('my/jacket', function(
 ```
 :::
 
-[exports-tag]: /tags-exports
+[exports-tag]: /tags/exports
 
 
 ## Multiple modules defined in one file
@@ -246,4 +246,4 @@ define('tag', function() {
 ```
 :::
 
-[exports-tag]: /tags-exports
+[exports-tag]: /tags/exports

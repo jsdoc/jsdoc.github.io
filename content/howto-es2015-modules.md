@@ -2,7 +2,7 @@
 title: ES 2015 Modules
 related:
 - /about-namepaths
-- /tags-module
+- /tags/module
 ---
 
 JSDoc 3 makes it possible to document modules that follow the [ECMAScript 2015
@@ -35,9 +35,9 @@ Similarly, the namepath for each member of the module will start with `module:`,
 module name. For example, if your `my/pants` module exports a `Jeans` class, and `Jeans` has an
 instance method named `hem`, the instance method's longname is `module:my/pants.Jeans#hem`.
 
-[module-tag]: /tags-module
+[module-tag]: /tags/module
 [namepaths]: /about-namepaths
-[see-tag]: /tags-see
+[see-tag]: /tags/see
 
 
 ## Exported values

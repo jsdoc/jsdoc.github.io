@@ -98,7 +98,7 @@ These options and others are explained in the following sections.
 [about-commandline]: /about-commandline
 [closure-tags]: https://github.com/google/closure-compiler/wiki/Annotating-JavaScript-for-the-Closure-Compiler#jsdoc-tags
 [es2015-modules]: /howto-es2015-modules
-[tags-inline-link]: /tags-inline-link
+[tags-inline-link]: /inline-tags/link
 
 
 ## Configuring plugins
@@ -375,4 +375,4 @@ but `{@link MyNamespace.myFunction}` will be in monospace.
 If `templates.cleverLinks` is true, `templates.monospaceLinks` is ignored.
 
 [default-template]: /about-configuring-default-template
-[inline-link-tag]: /tags-inline-link
+[inline-link-tag]: /inline-tags/link

@@ -46,7 +46,7 @@ Option|Description
 [config-file]: /about-configuring-jsdoc
 [including-readme]: /about-including-readme
 [md-file]: https://daringfireball.net/projects/markdown/
-[private-tag]: /tags-private
+[private-tag]: /tags/private
 [tutorials]: /about-tutorials
 
 

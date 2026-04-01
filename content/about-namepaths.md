@@ -3,7 +3,7 @@ title: Using namepaths with JSDoc
 tags: gettingStarted
 related:
 - /about-block-inline-tags
-- /tags-inline-link
+- /inline-tags/link
 ---
 
 ## Namepaths in JSDoc
@@ -139,6 +139,6 @@ Above is an example of a namespace with "unusual" characters in its member names
 To refer to these you just need quote the names: chat."#channel", chat."#channel"."op:announce-motd", and so on.
 Internal quotes in names should be escaped with backslashes: chat."#channel"."say-\"hello\"".
 
-[event-tag]: /tags-event
-[external-tag]: /tags-external
-[module-tag]: /tags-module
+[event-tag]: /tags/event
+[external-tag]: /tags/external
+[module-tag]: /tags/module

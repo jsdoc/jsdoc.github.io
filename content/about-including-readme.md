@@ -1,6 +1,7 @@
 ---
 title: Including a README File
 tags: gettingStarted
+layout: index.njk
 ---
 
 There are two ways to incorporate a `README` file into your documentation:

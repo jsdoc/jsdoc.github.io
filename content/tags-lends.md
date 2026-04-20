@@ -1,6 +1,8 @@
 ---
+title: '@lends'
 tag: lends
 tags: blockTags
+layout: index.njk
 description: Document properties on an object literal as if they belonged to a symbol with a given name.
 related:
 - /tags-borrows

@@ -1,6 +1,8 @@
 ---
+title: '@listens'
 tag: listens
 tags: blockTags
+layout: index.njk
 description: List the events that a symbol listens for.
 related:
 - /tags-event

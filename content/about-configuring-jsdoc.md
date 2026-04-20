@@ -1,6 +1,7 @@
 ---
 title: Configuring JSDoc with a configuration file
 tags: gettingStarted
+layout: index.njk
 related:
 - /about-commandline
 - /about-plugins

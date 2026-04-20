@@ -1,6 +1,8 @@
 ---
+title: '@protected'
 tag: protected
 tags: blockTags
+layout: index.njk
 description: This symbol is meant to be protected.
 related:
 - /tags-access

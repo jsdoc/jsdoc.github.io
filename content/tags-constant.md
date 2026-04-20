@@ -1,6 +1,8 @@
 ---
+title: '@constant'
 tag: constant
 tags: blockTags
+layout: index.njk
 description: Document an object as a constant.
 synonyms:
 - const

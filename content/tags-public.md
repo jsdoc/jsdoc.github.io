@@ -1,6 +1,8 @@
 ---
+title: '@public'
 tag: public
 tags: blockTags
+layout: index.njk
 description: This symbol is meant to be public.
 related:
 - /tags-access

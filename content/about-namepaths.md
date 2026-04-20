@@ -1,12 +1,11 @@
 ---
 title: Using namepaths with JSDoc
 tags: gettingStarted
+layout: index.njk
 related:
 - /about-block-inline-tags
 - /tags-inline-link
 ---
-
-## Namepaths in JSDoc
 
 When referring to a JavaScript variable that is elsewhere in your documentation, you must provide a unique identifier that maps to that variable. A namepath provides a way to do so and disambiguate between instance members, static members and inner variables.
 

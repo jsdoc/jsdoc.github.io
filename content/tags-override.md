@@ -1,6 +1,8 @@
 ---
+title: '@override'
 tag: override
 tags: blockTags
+layout: index.njk
 description: Indicate that a symbol overrides its parent.
 dictionaries:
 - closure

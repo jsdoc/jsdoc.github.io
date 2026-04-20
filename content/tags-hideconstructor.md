@@ -1,6 +1,8 @@
 ---
+title: '@hideconstructor'
 tag: hideconstructor
 tags: blockTags
+layout: index.njk
 description: Indicate that the constructor should not be displayed.
 related:
 - /tags-class

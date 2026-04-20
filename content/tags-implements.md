@@ -1,6 +1,8 @@
 ---
+title: '@implements'
 tag: implements
 tags: blockTags
+layout: index.njk
 description: This symbol implements an interface.
 version: '>=3.3.0'
 related:

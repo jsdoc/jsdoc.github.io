@@ -1,6 +1,8 @@
 ---
+title: '@mixes'
 tag: mixes
 tags: blockTags
+layout: index.njk
 description: This object mixes in all the members from another object.
 related:
 - /tags-borrows

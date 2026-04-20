@@ -1,6 +1,8 @@
 ---
+title: '@private'
 tag: private
 tags: blockTags
+layout: index.njk
 description: This symbol is meant to be private.
 related:
 - /tags-access

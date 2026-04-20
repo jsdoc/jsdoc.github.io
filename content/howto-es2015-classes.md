@@ -1,5 +1,6 @@
 ---
 title: ES 2015 Classes
+layout: index.njk
 related:
 - /tags-augments
 ---

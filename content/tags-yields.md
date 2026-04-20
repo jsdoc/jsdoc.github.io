@@ -1,6 +1,8 @@
 ---
+title: '@yields'
 tag: yields
 tags: blockTags
+layout: index.njk
 description: Document the value yielded by a generator function.
 synonyms:
 - yield

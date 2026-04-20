@@ -1,6 +1,8 @@
 ---
+title: '@arguments'
 tag: augments
 tags: blockTags
+layout: index.njk
 description: Indicate that a symbol inherits from, and adds to, a parent symbol.
 synonyms:
 - extends

@@ -56,6 +56,7 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addPassthroughCopy('./images');
   eleventyConfig.addPassthroughCopy('./styles');
+  eleventyConfig.addPassthroughCopy('lib'); // to execute nav-sidebar.js
 
   eleventyConfig.setLibrary('md', renderer());
   eleventyConfig.setNunjucksEnvironmentOptions({

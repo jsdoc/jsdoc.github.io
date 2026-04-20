@@ -1,6 +1,8 @@
 ---
+title: '@namespace'
 tag: namespace
 tags: blockTags
+layout: index.njk
 description: Document a namespace object.
 related:
 - /tags-module
@@ -13,11 +15,11 @@ related:
 
 ## Overview
 
-The @namespace tag indicates that an object creates a namespace for its members. You can also write
+The `@namespace` tag indicates that an object creates a namespace for its members. You can also write
 a virtual JSDoc comment that defines a namespace used by your code.
 
 If a namespace is defined by a symbol other than an object literal, you can include a type
-expression along with the @namespace tag. If the @namespace tag includes a type, it must also
+expression along with the @namespace tag. If the `@namespace` tag includes a type, it must also
 include a name.
 
 You may need to document a namespace whose name includes unusual characters, such as "#" or "!". In
@@ -59,7 +61,7 @@ var MyNamespace = {
 ```
 :::
 
-If a @namespace includes a symbol whose name has unusual characters, you must enclose the symbol's
+If a `@namespace` includes a symbol whose name has unusual characters, you must enclose the symbol's
 name in double quotes. If the symbol's name already contains one or more double quotes, escape the
 double quotes with a leading backslash (\\).
 

@@ -1,6 +1,8 @@
 ---
+title: '@abstract'
 tag: abstract
 tags: blockTags
+layout: index.njk
 description: This member must be implemented (or overridden) by the inheritor.
 synonyms:
 - virtual
@@ -8,7 +10,7 @@ synonyms:
 
 ## Overview
 
-The @abstract tag identifies members that must be implemented (or overridden) by objects that
+The `@abstract` tag identifies members that must be implemented (or overridden) by objects that
 inherit the member.
 
 ## Example

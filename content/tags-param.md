@@ -1,6 +1,8 @@
 ---
+title: '@param'
 tag: param
 tags: blockTags
+layout: index.njk
 description: Document the parameter to a function.
 synonyms:
 - arg

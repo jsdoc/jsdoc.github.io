@@ -1,6 +1,7 @@
 ---
 title: Configuring JSDoc's default template
 tags: gettingStarted
+layout: index.njk
 related:
 - /about-configuring-jsdoc
 ---

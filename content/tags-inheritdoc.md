@@ -1,6 +1,8 @@
 ---
+title: '@inheritdoc'
 tag: inheritdoc
 tags: blockTags
+layout: index.njk
 description: Indicate that a symbol should inherit its parent's documentation.
 version: '>=3.3.0'
 related:

@@ -1,6 +1,7 @@
 ---
 title: Using the Markdown plugin
 tags: gettingStarted
+layout: index.njk
 ---
 
 ## Overview

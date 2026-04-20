@@ -5,6 +5,7 @@
     {% block meta -%}
       <meta charset="utf-8">
       <meta name="generator" content="{{ eleventy.generator }}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       {% if keywords -%}
         <meta name="keywords" content="{{ keywords }}">
       {%- endif %}
@@ -25,39 +26,29 @@
   <body>
     <header>
       <a href="/">@use JSDoc</a>
+
+      <div class="menu-wrapper">
+        <div id="theme-toggle-btn">
+          <ion-icon name="sunny" id="theme-icon"></ion-icon>
+        </div>
+        <ion-icon name="menu-outline" id="burger-menu"></ion-icon>
+      </div>
     </header>
 
-    <article>
-      {% if title -%}
-        <h1>{{ title }}</h1>
-      {%- endif %}
+    <main class="main-secion">
+      <nav class="nav-sidebar">
+      <ion-icon name="close-outline" id="closeMenuIcon"></ion-icon>
+      {%- for tocSection in toc -%}
+        {{ renderSection(tocSection) }}
+      {%- endfor -%}
+      </nav>
 
-      {%- block synonyms -%}
-        {%- if synonyms | length -%}
-          <h2 id="synonyms">Synonyms</h2>
-          <ul>
-            {% for synonym in synonyms -%}
-              <li><code>{{ synonym }}</code></li>
-            {%- endfor %}
-          </ul>
-        {%- endif -%}
-      {%- endblock -%}
-
-      {%- block content -%}
-        {{ content | safe }}
-      {%- endblock -%}
-
-      {%- if related | length -%}
-        {%- set relatedLinks = related | relatedList(collections) -%}
-        <h2 id="related-links">Related links</h2>
-        <ul>
-          {%- for relatedLink in relatedLinks -%}
-            <li><a href="{{ relatedLink.path }}">{{ relatedLink.title }}</a></li>
-          {%- endfor -%}
-        </ul>
-      {%- endif -%}
-
-    </article>
+      <article class="article-content">
+        {%- block content -%}
+          <!-- Generated article content goes here-->
+        {%- endblock -%}
+      </article>
+    </main>
 
     <footer>
       <a class="license-badge" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" class="license-badge" src="images/cc-by-sa.svg" width="80" height="15" /></a>
@@ -71,5 +62,11 @@
       <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
       Attribution-ShareAlike 3.0 Unported License</a>.
     </footer>
+
+     {%- block script -%}
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      <script type="text/javascript" src="/lib/nav-sidebar.js"></script>
+    {%- endblock -%}
   </body>
 </html>

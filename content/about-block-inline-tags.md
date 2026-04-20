@@ -1,6 +1,7 @@
 ---
 title: Block and inline tags
 tags: gettingStarted
+layout: index.njk
 ---
 
 ## Overview

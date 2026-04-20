@@ -1,6 +1,7 @@
 ---
 title: License
 tags: gettingStarted
+layout: index.njk
 ---
 
 JSDoc is free software, licensed under the [Apache License, Version 2.0][apache-license]. Commercial

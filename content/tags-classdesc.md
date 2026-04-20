@@ -1,6 +1,8 @@
 ---
+title: '@classdesc'
 tag: classdesc
 tags: blockTags
+layout: index.njk
 description: Use the following text to describe the entire class.
 related:
 - /tags-class

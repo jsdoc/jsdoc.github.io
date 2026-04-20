@@ -1,6 +1,8 @@
 ---
+title: '@ignore'
 tag: ignore
 tags: blockTags
+layout: index.njk
 description: Omit a symbol from the documentation.
 ---
 

@@ -1,6 +1,8 @@
 ---
+title: '@license'
 tag: license
 tags: blockTags
+layout: index.njk
 description: Identify the license that applies to this code.
 ---
 

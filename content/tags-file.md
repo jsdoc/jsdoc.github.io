@@ -1,6 +1,8 @@
 ---
+title: '@file'
 tag: file
 tags: blockTags
+layout: index.njk
 description: Describe a file.
 synonyms:
 - fileoverview

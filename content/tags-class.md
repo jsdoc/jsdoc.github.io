@@ -1,6 +1,8 @@
 ---
+title: '@class'
 tag: class
 tags: blockTags
+layout: index.njk
 description: This function is intended to be called with the "new" keyword.
 synonyms:
 - constructor

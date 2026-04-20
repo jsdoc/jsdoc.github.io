@@ -1,6 +1,8 @@
 ---
+title: '@property'
 tag: property
 tags: blockTags
+layout: index.njk
 description: Document a property of an object.
 synonyms:
 - prop

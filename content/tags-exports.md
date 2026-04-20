@@ -1,6 +1,8 @@
 ---
+title: '@exports'
 tag: exports
 tags: blockTags
+layout: index.njk
 description: Identify the member that is exported by a JavaScript module.
 related:
 - /tags-module

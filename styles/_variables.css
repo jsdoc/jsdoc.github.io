@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+
+:root {
+  /* General colors */
+  --Marine-blue: hsl(213, 96%, 18%);
+  --Purplish-blue: hsl(243, 100%, 62%);
+  --Pastel-blue: hsl(228, 100%, 84%);
+  --Light-blue: hsl(206, 94%, 87%);
+  --Strawberry-red: hsl(354, 84%, 57%);
+  --Bluish-white: #f5f8ff;
+  --Bluish-gray: hsl(207, 24%, 15%);
+
+  /* Neutral colors*/
+  --Cool-gray: hsl(231, 11%, 63%); 
+  --Light-gray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(214, 40%, 92%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+
+  /* Tomorrow theme colors for Highlight.js */
+  /* Based on https://github.com/chriskempson/tomorrow-theme */
+  --text-color: #3d3d3c;
+  --tomorrow-blue: #4271ae;
+  --tomorrow-gray: #8e908c;
+  --tomorrow-green: #83a303;
+  --tomorrow-orange: #f57a06;
+  --tomorrow-purple: #b476dd;
+  --tomorrow-red: #bc8b10;
+  --tomorrow-yellow: #c99e00;
+
+  /* Fonts */
+  --F-size: 14px;
+  --F-family:'Poppins', sans-serif;
+  --F-Weights: 400, 500, 700;
+
+  /* text rendering */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+
+  /* Light mode */
+  --bg-color: #f5f8ff;
+  --text-color: hsl(207, 24%, 15%);
+  --heading-color: hsl(213, 96%, 18%);
+  --heading-line: hsl(229, 24%, 87%);
+  --bx-shadow: hsl(229, 24%, 87%);
+  --code-bg: hsl(214, 40%, 92%);
+  --nav-link-color: hsl(210, 7%, 40%);
+}
+
+.dark-mode{
+  --bg-color: hsl(203, 19%, 13%);
+  --text-color: hsl(214, 40%, 92%);
+  --heading-color: hsl(216, 63%, 97%);
+  --heading-line: hsl(0, 0%, 28%);
+  --bx-shadow: hsl(0, 0%, 18%);
+  --code-bg: hsl(0, 2%, 9%);
+  --tomorrow-green: #97bc02;
+  --nav-link-color: hsl(214, 12%, 73%);
+}

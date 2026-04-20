@@ -1,6 +1,8 @@
 ---
+title: '@type'
 tag: type
 tags: blockTags
+layout: index.njk
 description: Document the type of an object.
 related:
 - /tags-callback
@@ -19,7 +21,7 @@ related:
 
 ## Overview
 
-The @type tag allows you to provide a type expression identifying the type of value that a symbol
+The `@type` tag allows you to provide a type expression identifying the type of value that a symbol
 may contain, or the type of value returned by a function. You can also include type expressions with
 many other JSDoc tags, such as the [@param tag][param-tag].
 

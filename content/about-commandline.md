@@ -1,13 +1,14 @@
 ---
 title: Command-line arguments to JSDoc
 tags: gettingStarted
+layout: index.njk
 related:
 - /about-configuring-jsdoc
 ---
 
 At its most basic level, JSDoc is used like so:
 
-    /path/to/jsdoc yourSourceCodeFile.js anotherSourceCodeFile.js ...
+    `/path/to/jsdoc yourSourceCodeFile.js anotherSourceCodeFile.js ...`
 
 where `...` are paths to other files to generate documentation for.
 

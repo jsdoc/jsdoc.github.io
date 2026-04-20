@@ -1,6 +1,8 @@
 ---
+title: '@event'
 tag: event
 tags: blockTags
+layout: index.njk
 description: Document an event.
 related:
 - /tags-fires

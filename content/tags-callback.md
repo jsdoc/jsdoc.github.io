@@ -1,6 +1,8 @@
 ---
+title: '@callback'
 tag: callback
 tags: blockTagss
+layout: index.njk
 description: Document a callback function.
 related:
 - /tags-function

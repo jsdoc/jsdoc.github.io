@@ -1,6 +1,8 @@
 ---
+title: '@description'
 tag: description
 tags: blockTags
+layout: index.njk
 description: Describe a symbol.
 synonyms:
 - desc

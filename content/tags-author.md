@@ -1,6 +1,8 @@
 ---
+title: '@author'
 tag: author
 tags: blockTags
+layout: index.njk
 description: Identify the author of an item.
 related:
 - /tags-file

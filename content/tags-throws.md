@@ -1,6 +1,8 @@
 ---
+title: '@throws'
 tag: throws
 tags: blockTags
+layout: index.njk
 description: Describe what errors could be thrown.
 synonyms:
 - exception
@@ -15,8 +17,8 @@ synonyms:
 
 ## Overview
 
-The @throws tag allows you to document an error that a function might throw. You can include the
-@throws tag more than once in a single JSDoc comment.
+The `@throws` tag allows you to document an error that a function might throw. You can include the
+`@throws` tag more than once in a single JSDoc comment.
 
 
 ## Examples

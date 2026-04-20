@@ -1,6 +1,8 @@
 ---
+title: '@version'
 tag: version
 tags: blockTags
+layout: index.njk
 description: Documents the version number of an item.
 related:
 - /tags-since

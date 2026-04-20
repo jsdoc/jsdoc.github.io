@@ -1,6 +1,8 @@
 ---
+title: '@tutorial'
 tag: tutorial
 tags: inlineTags
+layout: index.njk
 description: Link to a tutorial.
 version: '>=3.0.0'
 related:
@@ -9,10 +11,10 @@ related:
 
 ## Syntax
 
-    {@tutorial tutorialID}
-    [link text]{@tutorial tutorialID}
-    {@tutorial tutorialID|link text}
-    {@tutorial tutorialID link text (after the first space)}
+   - `{@tutorial tutorialID}`
+   - `[link text]{@tutorial tutorialID}`
+   - `{@tutorial tutorialID|link text}`
+   - `{@tutorial tutorialID link text (after the first space)}`
 
 
 ## Overview

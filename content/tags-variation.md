@@ -1,6 +1,8 @@
 ---
+title: '@variation'
 tag: variation
 tags: blockTags
+layout: index.njk
 description: Distinguish different objects with the same name.
 related:
 - /tags-alias

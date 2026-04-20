@@ -1,6 +1,8 @@
 ---
+title: '@constructs'
 tag: constructs
 tags: blockTags
+layout: index.njk
 description: This function member will be the constructor for the previous class.
 related:
 - /tags-lends

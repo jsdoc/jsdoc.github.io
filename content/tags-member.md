@@ -1,6 +1,8 @@
 ---
+title: '@member'
 tag: member
 tags: blockTags
+layout: index.njk
 description: Document a member.
 synonyms:
 - var

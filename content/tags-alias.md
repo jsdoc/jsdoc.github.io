@@ -1,6 +1,8 @@
 ---
+title: '@alias'
 tag: alias
 tags: blockTags
+layout: index.njk
 description: Treat a member as if it had a different name.
 related:
 - /tags-name

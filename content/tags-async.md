@@ -1,6 +1,8 @@
 ---
+title: '@async'
 tag: async
 tags: blockTags
+layout: index.njk
 description: Indicate that a function is asynchronous.
 ---
 

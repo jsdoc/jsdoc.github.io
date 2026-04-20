@@ -1,6 +1,8 @@
 ---
+title: '@function'
 tag: function
 tags: blockTags
+layout: index.njk
 description: Describe a function or method.
 synonyms:
 - func

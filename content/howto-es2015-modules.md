@@ -1,5 +1,6 @@
 ---
 title: ES 2015 Modules
+layout: index.njk
 related:
 - /about-namepaths
 - /tags-module

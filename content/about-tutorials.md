@@ -1,6 +1,7 @@
 ---
 title: Tutorials
 tags: gettingStarted
+layout: index.njk
 ---
 
 JSDoc allows you to include tutorials alongside your API documentation. You can use this feature to

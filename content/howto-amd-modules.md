@@ -1,5 +1,6 @@
 ---
 title: AMD Modules
+layout: index.njk
 related:
 - /about-namepaths
 - /tags-exports

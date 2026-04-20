@@ -1,6 +1,8 @@
 ---
+title: '@this'
 tag: this
 tags: blockTags
+layout: index.njk
 description: What does the 'this' keyword refer to here?
 related:
 - /tags-memberof
@@ -13,12 +15,12 @@ related:
 
 ## Overview
 
-The @this tag indicates what the `this` keyword refers to when used within another symbol.
+The `@this` tag indicates what the `this` keyword refers to when used within another symbol.
 
 
 ## Examples
 
-In the following example, the @this tag causes "this.name" to be documented as "Greeter#name"
+In the following example, the `@this` tag causes `this.name` to be documented as `Greeter#name`
 rather than a global symbol called "name".
 
 ```js

@@ -1,6 +1,8 @@
 ---
+title: '@tutorial'
 tag: tutorial
 tags: blockTags
+layout: index.njk
 description: Insert a link to an included tutorial file.
 related:
 - /about-tutorials
@@ -10,7 +12,7 @@ related:
 
 ## Syntax
 
-    @tutorial <tutorialID>
+    `@tutorial <tutorialID>`
 
 
 ## Overview

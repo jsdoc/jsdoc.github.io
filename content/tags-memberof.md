@@ -1,6 +1,8 @@
 ---
+title: '@memberof'
 tag: memberof
 tags: blockTags
+layout: index.njk
 description: This symbol belongs to a parent symbol.
 related:
 - /tags-name

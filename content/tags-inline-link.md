@@ -1,6 +1,8 @@
 ---
+title: '@link'
 tag: link
 tags: inlineTags
+layout: index.njk
 description: Link to another item in the documentation.
 version: '>=3.0.0'
 synonyms:
@@ -13,10 +15,10 @@ related:
 
 ## Syntax
 
-    {@link namepathOrURL}
-    [link text]{@link namepathOrURL}
-    {@link namepathOrURL|link text}
-    {@link namepathOrURL link text (after the first space)}
+   - `{@link namepathOrURL}`
+   - `[link text]{@link namepathOrURL}`
+   - `{@link namepathOrURL|link text}`
+   - `{@link namepathOrURL link text (after the first space)}`
 
 
 ## Overview

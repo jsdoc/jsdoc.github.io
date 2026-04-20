@@ -1,6 +1,8 @@
 ---
+title: '@deprecated'
 tag: deprecated
 tags: blockTags
+layout: index.njk
 description: Document that this is no longer the preferred way.
 ---
 

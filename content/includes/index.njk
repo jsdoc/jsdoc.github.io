@@ -9,16 +9,14 @@
 {%- endmacro -%}
 
 {%- macro generateSection(tocSection) -%}
-  <dl>
+  <ul>
     {%- for item in collections[tocSection.generated] | sortTags -%}
       {%- set tagName = item.data.tag -%}
-      <dt>
+      <li>
         <a href="{{ item.filePathStem }}">{{ formatTag(tagName, tocSection.generated) }}</a>
-        {{ synonyms(item, tocSection.generated) }}
-      </dt>
-      <dd>{{ item.data.description }}</dd>
+      </li>
     {%- endfor -%}
-  </dl>
+  </ul>
 {%- endmacro -%}
 
 {%- macro renderSection(tocSection) -%}
@@ -26,30 +24,44 @@
   {%- if tocSection.generated -%}
     {{ generateSection(tocSection) }}
   {%- else -%}
-    <dl>
+    <ul>
       {%- for item in tocSection.contents -%}
-        <dt><a href="{{ item.path | default('') }}">{{ item.title | default('') }}</a></dt>
-        <dd>{{ item.description | default('') }}</dd>
+        <li><a href="{{ item.path | default('') }}">{{ item.title | default('') }}</a></li>
       {%- endfor -%}
-    </dl>
-  {%- endif -%}
-{%- endmacro -%}
-
-{%- macro synonyms(item, tagType) -%}
-  {%- if item.data.synonyms -%}
-    {%- set comma = joiner(', ') -%}
-    (synonyms: {% for synonym in item.data.synonyms -%}
-      {{ comma() }}{{ formatTag(synonym, tagType) -}}
-    {%- endfor -%})
+    </ul>
   {%- endif -%}
 {%- endmacro -%}
 
 {%- block content -%}
-  {%- for tocSection in toc -%}
-    {{- renderSection(tocSection) -}}
-  {%- endfor -%}
+  {% if title -%}
+    <h1>{{ title }}</h1>
+  {%- endif %}
 
+  {%- block synonyms -%}
+    {%- if synonyms | length -%}
+      <h2 id="synonyms">Synonyms</h2>
+      <ul>
+        {% for synonym in synonyms -%}
+          <li><code>{{ synonym }}</code></li>
+        {%- endfor %}
+      </ul>
+    {%- endif -%}
+  {%- endblock -%}
+    
+  {{ content | safe }}
+
+  {%- if related | length -%}
+    {%- set relatedLinks = related | relatedList(collections) -%}
+    <h2 id="related-links">Related links</h2>
+    <ul>
+      {%- for relatedLink in relatedLinks -%}
+        <li><a href="{{ relatedLink.path }}">{{ relatedLink.title }}</a></li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+
+  <!-- Additional content, GitHub ribbon -->
   <p>
-    <a href="https://github.com/jsdoc/jsdoc" class="github-ribbon">Fork me on GitHub</a>
+    <a href="https://github.com/jsdoc/jsdoc" class="github-ribbon">Fork me on<br>GitHub</a>
   </p>
 {% endblock %}

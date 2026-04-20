@@ -1,6 +1,8 @@
 ---
+title: '@borrows'
 tag: borrows
 tags: blockTags
+layout: index.njk
 description: This object uses something from another object.
 ---
 

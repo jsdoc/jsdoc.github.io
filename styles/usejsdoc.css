@@ -1,80 +1,146 @@
-body {
-    font: 1em 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    padding: 0;
-    margin: 0;
+@import url(./_variables.css);
+
+::-webkit-scrollbar{
+    width: 5px;
+    background-color: var(--bg-color);
+}
+  
+::-webkit-scrollbar-thumb{
+    background-color: var(--text-color);
+    border-radius: 20px;
 }
 
-a, a:visited, a:active {
-    color: #605C89;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--F-family);
+    font-size: var(--F-size);
+    color: var(--text-color);
+    position: relative;
+    overflow-x: hidden;
+
 }
 
 header {
-    background-color: #EBEBEB;
+    background-color: var(--bg-color);
     color: #006FBB;
     margin: 0;
-    margin-bottom: 32px;
-    padding: 18px;
+    padding: 10px 16px;
     font-size: 2.4em;
     font-weight: bold;
-    border-bottom: 1px #C6C6C6 solid;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 1px 1px 5px var(--bx-shadow);
 }
 
-header a, header a:visited {
-    color: #006FBB;
+header > a{
+    color: var(--text-color);
     text-decoration: none;
 }
 
-article {
-    margin: 18px;
+.menu-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 100px;
+}
+
+#theme-toggle-btn, #burger-menu{
+    border-radius: 2px;
+    transition: .5s;
+    cursor: pointer;
+    color: var(--text-color);
+    height: 40px;
+}
+
+
+#theme-toggle-btn:hover, #burger-menu:hover, #closeMenuIcon:hover {
+    transform: scale(1.1);
+}
+
+#theme-toggle-btn {
+    font-size: 1.1em;
+    padding: 5px 10px 40px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    top: 1px;
+}
+
+#burger-menu{
+    margin-left: 20px;
+    font-size: 2em;
+    display: none;
+}
+
+#closeMenuIcon{
+    font-size:2.5em;
+    font-weight:900;
+    cursor: pointer;
+    position: sticky;
+    right:15px;
+    left: 100%;
+    top: 0;
+    display: none;
+    background-color: var(--bg-color);
 }
 
 footer {
-    margin: 16px;
-    margin-top: 32px;
+    padding: 22px 22px 5px;
     font-style: italic;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    min-height: 100px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    box-shadow: -1px -1px 5px var(--bx-shadow);
+    line-height: 3;
+}
+
+a {
+    color: var(--tomorrow-blue);
+    text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #B93A38;
+    color: var(--heading-color);
+    margin: 15px 0;
 }
 
 h1 {
-    font-size: 1.428em;
-    text-indent: 0;
+    font-size: 1.9em;
 }
 
 h2 {
-    font-size: 1.285em;
-    text-indent: 1%;
+    font-size: 1.5em;
 }
 
 h3 {
-    font-size: 1.142em;
-    text-indent: 2%;
+    font-size: 1.15em;
 }
 
 h4 {
     font-size: 1em;
-    text-indent: 3%;
 }
 
 h5 {
     font-size: 0.857em;
-    text-indent: 4%;
 }
 
 h6 {
     font-size: 0.714em;
-    text-indent: 5%;
-}
-
-p {
-    text-indent: 2%;
 }
 
 figure pre code {
-    font-size: 0.857em;
+    font-size: 1em;
+    line-height: 1;
 }
 
 figcaption {
@@ -93,7 +159,7 @@ dt {
 }
 
 dt a, dt a:visited {
-    color: #3E00B6;
+    color: var(--tomorrow-purple);
 }
 
 dd {
@@ -102,34 +168,43 @@ dd {
 }
 
 ol, ul {
-    margin-left: 2%;
+    margin: 15px 0 15px 20px;
 }
 
-code {
-    font: 0.9em Consolas, "Lucida Console", Monaco, monospace;
-    background-color: #DEDEDE;
+li {
+    margin: 8px 0;
+    line-height: 1.7;
 }
 
 pre {
     display: block;
-    border: 1px solid #999;
-    margin: 12px;
-    padding: 8px;
+    margin: 15px 0;
+    padding: 10px;
     white-space: pre-wrap;
-    background-color: #DEDEDE;
+    background-color: var(--code-bg);
+    line-height: 1.8;
+}
+
+code {
+    font: 0.9em Consolas, "Lucida Console", Monaco, monospace;
+    background-color: var(--code-bg);
+    padding: 2px 5px;
+    letter-spacing: .5px;
 }
 
 table {
     border-collapse: collapse;
+    margin: 25px 0;
 }
 
 th, td {
-    border: 1px solid #999;
+    border: 1px solid var(--heading-line);
+    padding: 13px;
 }
 
 th {
-    background-color: #DEDEDE;
-    color: #B93A38;
+    background-color: var(--code-bg);
+    color: var(--heading-color);
 }
 
 .example dt {
@@ -137,6 +212,176 @@ th {
 }
 
 .license-badge {
-    border-width: 0;
+    border-width: 2px;
     text-decoration: none;
+}
+
+
+/* Main content styling */
+.main-secion {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100vw;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Sidebar styling */
+.nav-sidebar {
+    min-width: 300px;
+    max-width: 300px;
+    background-color: var(--bg-color);
+    padding: 25px 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 68px;
+    height: 90vh;
+    overflow-y: auto;
+}
+
+.nav-sidebar h2 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.nav-sidebar > ul {
+    margin-bottom: 30px;
+    margin-left: 10px;
+}
+
+.nav-sidebar li{
+    list-style-type: none;
+    margin-bottom: 9px;
+    color: var(--Marine-blue);
+    cursor: pointer;
+}
+
+.nav-sidebar li > a{
+    color: var(--nav-link-color);
+    text-decoration: none;
+}
+
+.nav-sidebar li > a:hover{
+    color: var(--tomorrow-blue);
+}
+
+.nav-sidebar li > a.active {
+    color: var(--tomorrow-orange);
+}
+
+.article-content {
+    flex-grow: 1;
+    padding: 15px 70px 40px 40px;
+    min-height: 90vh;
+    overflow-y: auto;
+}
+
+.article-content h1, .article-content h2 {
+    border-bottom: 1px solid var(--heading-line);
+    padding-bottom: 10px;
+}
+
+.article-content p {
+    margin-bottom: 10px;
+    line-height: 1.8;
+    word-spacing: 1.3px;
+}
+
+
+/* Responsive design Mobile*/
+@media screen and (max-width: 768px) {
+    body {
+        --F-size: 13.5px;
+        font-size: var(--F-size);
+    }
+
+    header {
+        font-size: 1.6em;
+        padding: 10px 16px 8px;
+        align-items: center;
+    }
+
+    .menu-wrapper{
+        margin-right: 55px;
+        position: relative;
+        top: 4px;
+    }
+
+    #theme-toggle-btn {
+        font-size: 1.1em;
+    }
+    
+    #burger-menu{
+        font-size: 1.3em;
+        position: relative;
+        bottom: 4px;
+        margin-left: 5px;
+    }
+
+    #burger-menu, #closeMenuIcon{
+        display: block;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    h2 {
+        font-size: 1.25em;
+    }
+    
+    h3 {
+        font-size: 1.1em;
+    }
+    
+    h4 {
+        font-size: .9em;
+    }
+    
+    h5 {
+        font-size: 0.8em;
+    }
+    
+    h6 {
+        font-size: 0.7em;
+    }
+    
+    figure pre code {
+        font-size: .9em;
+    }
+
+    code {
+        font-size: .95em;
+    }
+
+    pre {
+        font-size: .9em;
+    }
+
+    .nav-sidebar {
+        width: 0;
+        min-width: 0;
+        max-width: 0;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 500;
+        padding: 0
+    }
+
+    .showMenu {
+        min-width: 70vw;
+        padding: 25px 20px;
+    }
+
+    .article-content {
+        width: 100%;
+        padding: 15px 25px 40px;
+    }
+
+    footer {
+        font-size: 0.7em;
+        line-height: 2;
+    }
 }

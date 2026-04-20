@@ -1,6 +1,7 @@
 ---
 title: About JSDoc plugins
 tags: gettingStarted
+layout: index.njk
 ---
 
 ## Creating and Enabling a Plugin

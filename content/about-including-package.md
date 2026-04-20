@@ -1,6 +1,7 @@
 ---
 title: Including a Package File
 tags: gettingStarted
+layout: index.njk
 ---
 
 Package files contain information that can be useful for your project's documentation, such as

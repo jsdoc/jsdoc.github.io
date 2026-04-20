@@ -1,6 +1,8 @@
 ---
+title: '@generator'
 tag: generator
 tags: blockTags
+layout: index.njk
 description: Indicate that a function is a generator function.
 ---
 

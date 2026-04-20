@@ -1,6 +1,8 @@
 ---
+title: '@package'
 tag: package
 tags: blockTags
+layout: index.njk
 description: This symbol is meant to be package-private.
 related:
 - /tags-access

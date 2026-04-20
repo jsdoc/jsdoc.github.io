@@ -1,6 +1,8 @@
 ---
+title: '@mixin'
 tag: mixin
 tags: blockTags
+layout: index.njk
 description: Document a mixin object.
 related:
 - /tags-borrows

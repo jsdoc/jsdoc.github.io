@@ -1,6 +1,8 @@
 ---
+title: '@enum'
 tag: enum
 tags: blockTags
+layout: index.njk
 description: Document a collection of related properties.
 related:
 - /tags-property

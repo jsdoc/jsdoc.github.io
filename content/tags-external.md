@@ -1,6 +1,8 @@
 ---
+title: '@external'
 tag: external
 tags: blockTags
+layout: index.njk
 description: Identifies an external class, namespace, or module.
 synonyms:
 - host

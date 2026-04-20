@@ -1,6 +1,8 @@
 ---
+title: '@name'
 tag: name
 tags: blockTags
+layout: index.njk
 description: Document the name of an object.
 related:
 - /about-namepaths
@@ -13,11 +15,11 @@ related:
 
 ## Overview
 
-The @name tag forces JSDoc to associate the remainder of the JSDoc comment with the given name,
+The `@name` tag forces JSDoc to associate the remainder of the JSDoc comment with the given name,
 ignoring all surrounding code. This tag is best used in "virtual comments" for symbols that are not
 readily visible in the code, such as methods that are generated at runtime.
 
-When you use the @name tag, you must provide additional tags that tell JSDoc what kind of symbol you
+When you use the `@name` tag, you must provide additional tags that tell JSDoc what kind of symbol you
 are documenting; whether the symbol is a member of another symbol; and so on. If you do not provide
 this information, the symbol will not be documented correctly.
 

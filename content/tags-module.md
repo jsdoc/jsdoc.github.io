@@ -1,6 +1,8 @@
 ---
+title: '@module'
 tag: module
 tags: blockTags
+layout: index.njk
 description: Document a JavaScript module.
 related:
 - /tags-exports

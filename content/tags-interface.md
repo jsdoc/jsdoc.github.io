@@ -1,6 +1,8 @@
 ---
+title: '@interface'
 tag: interface
 tags: blockTags
+layout: index.njk
 description: This symbol is an interface that others can implement.
 version: '>=3.3.0'
 related:

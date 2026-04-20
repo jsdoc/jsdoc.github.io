@@ -1,6 +1,8 @@
 ---
+title: '@typedef'
 tag: typedef
 tags: blockTags
+layout: index.njk
 description: Document a custom type.
 related:
 - /tags-callback
@@ -15,7 +17,7 @@ related:
 
 ## Overview
 
-The @typedef tag is useful for documenting custom types, particularly if you wish to refer to them
+The `@typedef` tag is useful for documenting custom types, particularly if you wish to refer to them
 repeatedly. These types can then be used within other tags expecting a type, such as
 [@type][type-tag] or [@param][param-tag].
 

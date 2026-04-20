@@ -1,6 +1,8 @@
 ---
+title: '@copyright'
 tag: copyright
 tags: blockTags
+layout: index.njk
 description: Document some copyright information.
 related:
 - /tags-file

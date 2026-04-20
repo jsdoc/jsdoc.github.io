@@ -1,6 +1,8 @@
 ---
+title: '@requires'
 tag: requires
 tags: blockTags
+layout: index.njk
 description: This file requires a JavaScript module.
 ---
 
@@ -10,8 +12,8 @@ description: This file requires a JavaScript module.
 
 ## Overview
 
-The @requires tag allows you to document that a module is needed to use this code. A JSDoc comment
-can have multiple @require tags. The module name can be specified as "moduleName" or
+The `@requires` tag allows you to document that a module is needed to use this code. A JSDoc comment
+can have multiple `@requires` tags. The module name can be specified as "moduleName" or
 "module:moduleName"; both forms will be interpreted as modules.
 
 JSDoc does not attempt to process the module that is being included. If you want the module to be

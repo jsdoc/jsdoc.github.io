@@ -1,5 +1,6 @@
 ---
 title: CommonJS Modules
+layout: index.njk
 related:
 - /about-namepaths
 - /tags-exports

@@ -1,6 +1,8 @@
 ---
+title: '@kind'
 tag: kind
 tags: blockTags
+layout: index.njk
 description: What kind of symbol is this?
 related:
 - /tags-type
@@ -27,12 +29,12 @@ where `<kindName>` is one of:
 
 ## Overview
 
-The @kind tag is used to document what _kind_ of symbol is being documented (for example, a class or
+The `@kind` tag is used to document what _kind_ of symbol is being documented (for example, a class or
 a module). The _kind_ of symbol differs from a symbol's _type_ (for example, string or boolean).
 
-Usually you do not need the @kind tag, because the symbol's kind is determined by other tags in the
-doclet. For example, using the @class tag automatically implies "@kind class", and using the
-@namespace tag implies "@kind namespace".
+Usually you do not need the `@kind` tag, because the symbol's kind is determined by other tags in the
+doclet. For example, using the `@class` tag automatically implies "@kind class", and using the
+`@namespace` tag implies "@kind namespace".
 
 
 ## Examples

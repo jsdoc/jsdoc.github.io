@@ -1,6 +1,8 @@
 ---
+title: '@fires'
 tag: fires
 tags: blockTags
+layout: index.njk
 description: Describe the events this method may fire.
 synonyms:
 - emits

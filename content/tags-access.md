@@ -1,6 +1,8 @@
 ---
+title: '@access'
 tag: access
 tags: blockTags
+layout: index.njk
 description: Specify the access level of this member (private, package-private, public, or protected).
 related:
 - /tags-global

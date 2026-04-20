@@ -1,6 +1,8 @@
 ---
+title: '@inner'
 tag: inner
 tags: blockTags
+layout: index.njk
 description: Document an inner object.
 related:
 - /tags-global
@@ -10,10 +12,10 @@ related:
 
 ## Overview
 
-Using the @inner tag will mark a symbol as an inner member of its parent symbol. This means it can
+Using the `@inner` tag will mark a symbol as an inner member of its parent symbol. This means it can
 be referred to by "Parent~Child".
 
-Using @inner will override a doclet's default scope (unless it is in the global scope, in which case
+Using `@inner` will override a doclet's default scope (unless it is in the global scope, in which case
 it will remain global).
 
 
@@ -32,8 +34,8 @@ it will remain global).
 ```
 :::
 
-Note that in the above we could have used "@function MyNamespace~myFunction" instead of the
-@memberof and @inner tags.
+Note that in the above we could have used `@function MyNamespace~myFunction` instead of the
+`@memberof` and `@inner` tags.
 
 ::: example "Using @inner"
 

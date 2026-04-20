@@ -1,6 +1,8 @@
 ---
+title: '@example'
 tag: example
 tags: blockTags
+layout: index.njk
 description: Provide an example of how to use a documented item.
 ---
 

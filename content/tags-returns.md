@@ -1,6 +1,8 @@
 ---
+title: '@returns'
 tag: returns
 tags: blockTags
+layout: index.njk
 description: Document the return value of a function.
 synonyms:
 - return

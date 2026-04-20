@@ -40,7 +40,7 @@ Examples can also be captioned using `<caption></caption>` after the @example ta
 ```js
 /**
  * Solves equations of the form a * x = b
- * @example &lt;caption>Example usage of method1.&lt;/caption>
+ * @example <caption>Example usage of method1.</caption>
  * // returns 2
  * globalNS.method1(5, 10);
  * @returns {Number} Returns the value of x for the equation.

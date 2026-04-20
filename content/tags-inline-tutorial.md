@@ -49,9 +49,9 @@ Started," the example above produces output similar to the following:
 ::: example "Output for {@link} tags"
 
 ```html
-See &lt;a href="tutorial-gettingstarted.html">Getting Started&lt;/a> and
-&lt;a href="tutorial-dashboard.html">Configuring the Dashboard&lt;/a>.
-For more information, see &lt;a href="tutorial-create.html">Creating a Widget&lt;/a> and
-&lt;a href="tutorial-destroy.html">Destroying a Widget&lt;/a>.
+See <a href="tutorial-gettingstarted.html">Getting Started</a> and
+<a href="tutorial-dashboard.html">Configuring the Dashboard</a>.
+For more information, see <a href="tutorial-create.html">Creating a Widget</a> and
+<a href="tutorial-destroy.html">Destroying a Widget</a>.
 ```
 :::

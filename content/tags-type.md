@@ -220,7 +220,7 @@ documented.
  */
 function sum(num) {
     var i=0, n=arguments.length, t=0;
-    for (; i&lt;n; i++) {
+    for (; i<n; i++) {
         t += arguments[i];
     }
     return t;

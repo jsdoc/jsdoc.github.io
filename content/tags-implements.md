@@ -43,7 +43,7 @@ function Color() {}
  * Get the color as an array of red, green, and blue values, represented as
  * decimal numbers between 0 and 1.
  *
- * @returns {Array&lt;number>} An array containing the red, green, and blue values,
+ * @returns {Array<number>} An array containing the red, green, and blue values,
  * in that order.
  */
 Color.prototype.rgb = function() {
@@ -67,7 +67,7 @@ TransparentColor.prototype.rgb = function() {
  * Get the color as an array of red, green, blue, and alpha values, represented
  * as decimal numbers between 0 and 1.
  *
- * @returns {Array&lt;number>} An array containing the red, green, blue, and alpha
+ * @returns {Array<number>} An array containing the red, green, blue, and alpha
  * values, in that order.
  */
 TransparentColor.prototype.rgba = function() {

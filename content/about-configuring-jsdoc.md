@@ -48,7 +48,7 @@ For a more comprehensive example of a JSON configuration file, see the file
 [`conf.json.EXAMPLE`][conf-json-example].
 
 [about-commandline]: /about-commandline
-[conf-json-example]: https://github.com/jsdoc3/jsdoc/blob/master/conf.json.EXAMPLE
+[conf-json-example]: https://github.com/jsdoc/jsdoc/blob/main/packages/jsdoc/conf.json.EXAMPLE
 [markdown]: /plugins-markdown
 
 

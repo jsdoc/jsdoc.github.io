@@ -14,7 +14,7 @@ related:
 ## Syntax
 
     {@link namepathOrURL}
-    [link text]{@link namepathOrURL}
+    [link text]({@link namepathOrURL})
     {@link namepathOrURL|link text}
     {@link namepathOrURL link text (after the first space)}
 
@@ -63,7 +63,7 @@ The following example shows all of the ways to provide link text for the `{@link
 
 ```js
 /**
- * See {@link MyClass} and [MyClass's foo property]{@link MyClass#foo}.
+ * See {@link MyClass} and [MyClass's foo property]({@link MyClass#foo}).
  * Also, check out {@link http://www.google.com|Google} and
  * {@link https://github.com GitHub}.
  */

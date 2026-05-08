@@ -25,7 +25,8 @@ header a, header a:visited {
 }
 
 article {
-    margin: 18px;
+    margin: 18px auto;
+    max-width: 40em;
 }
 
 footer {

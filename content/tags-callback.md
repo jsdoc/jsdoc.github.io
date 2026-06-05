@@ -1,6 +1,6 @@
 ---
 tag: callback
-tags: blockTagss
+tags: blockTags
 description: Document a callback function.
 related:
 - /tags-function
